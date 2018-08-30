@@ -30,7 +30,17 @@ Plug 'reedes/vim-pencil'
 Plug 'euclio/vim-markdown-composer'
 Plug 'godlygeek/tabular'
 Plug 'artur-shaik/vim-javacomplete2'
+Plug 'hecal3/vim-leader-guide'
 call plug#end()
+
+" Configuration Directory
+if empty($vimstar_options) 
+    let $vimstar_options = "~/.VimStar/options"
+endif
+
+" Main configuration
+source $vimstar_options/start.vim
+
 syntax on
 filetype plugin indent on
 
@@ -94,49 +104,6 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Custom key combos
 nmap <silent> <F3> :NERDTreeToggle<CR>
-
-func! WordProcessorMode() 
-  " setlocal formatoptions=1 
-  set spell spelllang=en_us 
-  set thesaurus+=~/.vim/thesaurus/mthesaur.txt
-  set complete+=s
-  " setlocal linebreak 
-  set wrap
-  set textwidth=80
-  " Look like WordStar
-"  colorscheme adaryn
-  colorscheme xoria256-blue
-"  colorscheme transparent
-  filetype detect
-  nnoremap <Leader>w :NextWordy<CR>
-  nnoremap <Leader>q :NoWordy<CR>
-  call pencil#init()
-  let g:editmode=1
-
-endfu 
-com! WP call WordProcessorMode()
-
-" Back to code mode
-func! CodeMode()
-        map j gj 
-        map k gk
-        setlocal expandtab
-        set textwidth=0
-        colorscheme xoria256
-        filetype detect
-        :NoPencil
-        let g:editmode=0
-endfu
-
-function! ToggleWP()
-    if g:editmode == 0
-        call WordProcessorMode()
-    else
-        call CodeMode()
-    endif
-endfu
-
-com! CODE call CodeMode()
 
 nnoremap <F4> :call ToggleFocusMode()<cr>
 nnoremap <F5> :Latexmk<cr>
