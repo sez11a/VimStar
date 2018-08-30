@@ -20,7 +20,7 @@ echo "Symbolic linking Vim/NeoVim config..."
 ln -sfnv ~/.VimStar ~/.vim
 ln -sfnv ~/.VimStar ~/.config/nvim
 ln -sfnv ~/.VimStar/init.vim ~/.VimStar/vimrc
-ln -Sfnv ~/.VimStar/options/gui.vim ~/.VimStar/ginit.vim
+ln -sfnv ~/.VimStar/options/gui.vim ~/.VimStar/ginit.vim
 
 if [ ! -f ".VimStar.vimrc" ]; then
     echo "Copying default config to ~/.VimStar.vimrc"
