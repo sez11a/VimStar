@@ -1,8 +1,4 @@
-" Pathogen
-"execute pathogen#infect()
-"execute pathogen#helptags()
-
-" Forget Pathogen; VimPlug is the new hotness
+" VimPlug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -13,6 +9,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'plasticboy/vim-markdown'
 Plug 'vim-airline/vim-airline'
@@ -33,7 +30,7 @@ Plug 'reedes/vim-pencil'
 Plug 'euclio/vim-markdown-composer'
 Plug 'godlygeek/tabular'
 Plug 'artur-shaik/vim-javacomplete2'
-
+call plug#end()
 syntax on
 filetype plugin indent on
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env/bash
+#!/usr/bin/env bash
 
 echo "This script installs VimStar, a Vim/NeoVim distribution with a writing and programming focus."
 echo "Beginning install..."
@@ -18,8 +18,8 @@ mkdir -p ~/.config/
 
 echo "Symbolic linking Vim/NeoVim config..."
 ln -sfnv ~/.VimStar ~/.vim
-ln -sfnv ~/.VimStar ~/config/nvim
-ln -sfnv ~/.VimStar/vimrc ~/.VimStar/init.vim
+ln -sfnv ~/.VimStar ~/.config/nvim
+ln -sfnv ~/.VimStar/init.vim ~/.VimStar/vimrc
 ln -Sfnv ~/.VimStar/options/gui.vim ~/.VimStar/ginit.vim
 
 if [ ! -f ".VimStar.vimrc" ]; then
@@ -27,9 +27,9 @@ if [ ! -f ".VimStar.vimrc" ]; then
     cp ~/.VimStar/VimStar.vimrc ~/.VimStar.vimrc
 fi
 
-echo "Installing Vim-Plug"
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# echo "Installing Vim-Plug"
+# curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+#     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "Install finished! Run Vim/NeoVim and execute :PlugInstall"
 
