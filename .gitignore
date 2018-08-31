@@ -2,3 +2,4 @@ autoload/
 ginit.vim
 plugged/
 vimrc
+spell/

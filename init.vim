@@ -1,46 +1,14 @@
-" VimPlug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" VimPlug plugins
-call plug#begin('~/.vim/plugged')
-
-Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
-Plug 'LaTeX-Box-Team/LaTeX-Box'
-Plug 'plasticboy/vim-markdown'
-Plug 'vim-airline/vim-airline'
-Plug 'garbas/vim-snipmate'
-Plug 'tomtom/tlib_vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'flazz/vim-colorschemes'
-Plug 'dahu/vim-asciidoc'
-Plug 'jceb/vim-orgmode'
-Plug 'tpope/vim-fugitive'
-Plug 'tfnico/vim-gradle'
-Plug 'dbeniamine/todo.txt-vim'
-Plug 'tpope/vim-speeddating'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'reedes/vim-wordy'
-Plug 'kshenoy/vim-signature'
-Plug 'reedes/vim-pencil'
-Plug 'euclio/vim-markdown-composer'
-Plug 'godlygeek/tabular'
-Plug 'artur-shaik/vim-javacomplete2'
-Plug 'hecal3/vim-leader-guide'
-call plug#end()
-
 " Configuration Directory
 if empty($vimstar_options) 
     let $vimstar_options = "~/.VimStar/options"
 endif
 
+let mapleader=" "
+
 " Main configuration
 source $vimstar_options/start.vim
 
+let g:leaderGuide_position = "topleft"
 syntax on
 filetype plugin indent on
 
@@ -102,13 +70,6 @@ let g:editmode=0
 " Javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-" Custom key combos
-nmap <silent> <F3> :NERDTreeToggle<CR>
-
-nnoremap <F4> :call ToggleFocusMode()<cr>
-nnoremap <F5> :Latexmk<cr>
-nnoremap <F8> :ComposerStart<cr>
-nnoremap <F9> :call ToggleWP()<cr>
 " This starts WP mode on markdown files, but it wreaks havoc with airline
 "autocmd FileType markdown call WordProcessorMode()
 "

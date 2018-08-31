@@ -16,6 +16,9 @@ fi
 # Ensure .config exists
 mkdir -p ~/.config/
 
+# Ensure spell exists
+mkdir -p ~/.VimStar/spell
+
 echo "Symbolic linking Vim/NeoVim config..."
 ln -sfnv ~/.VimStar ~/.vim
 ln -sfnv ~/.VimStar ~/.config/nvim
