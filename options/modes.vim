@@ -28,6 +28,7 @@ func! CodeMode()
         map k gk
         set noexpandtab
         set textwidth=0
+        set nospell
         colorscheme xoria256
         filetype detect
         :NoPencil

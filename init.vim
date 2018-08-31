@@ -34,11 +34,11 @@ set encoding=utf-8
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='murmur'
+let g:airline_detect_spell = 0
 set laststatus=2
 
 set backspace=indent,eol,start
 set tabstop=4
-set expandtab 
 set softtabstop=4
 set shiftwidth=4
 set ignorecase
@@ -71,7 +71,7 @@ let g:editmode=0
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " This starts WP mode on markdown files, but it wreaks havoc with airline
-"autocmd FileType markdown call WordProcessorMode()
+" autocmd FileType markdown call WordProcessorMode()
 "
 "Here's another way I tried that also didn't work:
 "
