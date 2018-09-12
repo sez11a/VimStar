@@ -7,7 +7,7 @@ cd ~
 
 if [ ! -d ".VimStar" ]; then
     echo "Cloning VimStar from GitHub into ~/.VimStar..."
-    git clone https://github.com/sez11a/VimStar
+    git clone https://github.com/sez11a/VimStar ~/.VimStar
 else
     echo "Updating VimStar from GitHub..."
     git -C ~/.VimStar pull
