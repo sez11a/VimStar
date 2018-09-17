@@ -3,7 +3,7 @@ let g:lmap =  {}
 
 " Second level dictionaries:
 let g:lmap.f = { 'name' : 'File Menu' }
-let g:lmap.o = { 'name' : 'Open Stuff' }
+let g:lmap.o = { 'name' : 'Onscreen Format Menu' }
 " let g:lmap.q = { 'name' : 'Quick Menu' }
 let g:lmap.k = { 'name' : 'Block & Save Menu' }
 
@@ -12,7 +12,14 @@ let g:lmap.k = { 'name' : 'Block & Save Menu' }
 
 " Block & Save Menu
 let g:lmap.k.d = ['w', 'save']
+let g:lmap.k.x = ['wq', 'save & exit']
+let g:lmap.k.q = ['q!', 'abandon changes']
+let g:lmap.k.u = ['PlugUpdate', 'Update Plugins']
+let g:lmap.k.f = ['terminal', 'run Linux command']
 
+" Onscreen Format menu
+let g:lmap.o.w = ['call ToggleWP()', 'toggle word processor mode']
+let g:lmap.o.p = ['ComposerStart', 'page preview']
 
 " 'name' is a special field. It will define the name of the group.
 " leader-f is the "File Menu" group.
