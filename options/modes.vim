@@ -5,8 +5,8 @@ func! WordProcessorMode()
   set thesaurus+=~/.vim/thesaurus/mthesaur.txt
   set complete+=s
   " setlocal linebreak
- set expandtab
- set wrap
+  set expandtab
+  set wrap
   set textwidth=80
   " Look like WordStar
 "  colorscheme adaryn

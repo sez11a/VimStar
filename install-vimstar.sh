@@ -27,7 +27,7 @@ ln -sfnv ~/.VimStar/options/gui.vim ~/.VimStar/ginit.vim
 
 if [ ! -f ".VimStar.vimrc" ]; then
     echo "Copying default config to ~/.VimStar.vimrc"
-    cp ~/.VimStar/VimStar.vimrc ~/.VimStar.vimrc
+    cp ~/.VimStar/VimStar-user.vimrc ~/.VimStar-user.vimrc
 fi
 
 # echo "Installing Vim-Plug"
