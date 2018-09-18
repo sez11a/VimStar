@@ -66,6 +66,7 @@ let g:vim_markdown_auto_insert_bullets=0
 let g:markdown_composer_autostart=0
 let g:airline#extensions#whitespace#enabled=0
 let g:editmode=0
+let g:better_whitespace_enabled=0
 
 " Javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete

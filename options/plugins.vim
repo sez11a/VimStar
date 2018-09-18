@@ -32,4 +32,5 @@ Plug 'godlygeek/tabular'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'hecal3/vim-leader-guide'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'mhinz/vim-startify'
 call plug#end()
