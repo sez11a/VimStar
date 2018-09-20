@@ -5,7 +5,8 @@
 " Guifont! Anonymous Pro for Powerline:h12
 " Guifont! Space Mono:h12
 " Guifont! ProFontUnified Nerd Font:h13
-Guifont! Luxi Mono:h12
+" Guifont! Luxi Mono:h12
+Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
 """ FocusMode
 function! ToggleFocusMode()
 if (&foldcolumn != 12)
@@ -18,8 +19,8 @@ if (&foldcolumn != 12)
     hi LineNr ctermfg=0 ctermbg=none
     hi NonText ctermfg=0
 
-    " Guifont! Anonymous Pro for Powerline:h18 
-    Guifont! Nouveau_IBM Nerd Font:h18 
+    " Guifont! Anonymous Pro for Powerline:h18
+    Guifont! PxPlus_IBM_VGA9 Nerd Font:h18
     " Guifont! TerminessTTF Nerd Font Mono:h18
     " Guifont! Edlo:h12
     " Guifont! Space Mono:h18
@@ -33,7 +34,7 @@ else
 
             " Guifont! Anonymous Pro for Powerline:h12
            " Guifont! Space Mono:h12
-            Guifont! Luxi Mono:h12
+            Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
             set guioptions+=T
 
 endif

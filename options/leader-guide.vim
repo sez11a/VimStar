@@ -20,7 +20,8 @@ let g:lmap.k.f = ['terminal', 'run Linux command']
 " Onscreen Format menu
 let g:lmap.o.w = ['call ToggleWP()', 'toggle word processor mode']
 let g:lmap.o.p = ['ComposerStart', 'page preview']
-let g:lmap.o.k = ['tabn', 'open or switch window']
+let g:lmap.o.k = ['bnext', 'switch buffer']
+let g:lmap.o.m = ['split', 'open window']
 
 " 'name' is a special field. It will define the name of the group.
 " leader-f is the "File Menu" group.
@@ -48,7 +49,7 @@ let g:lmap.g = {
 				\'s' : ['Gstatus', 'Git Status'],
                 \'p' : ['Gpull',   'Git Pull'],
                 \'u' : ['Gpush',   'Git Push'],
-                \'c' : ['Gcommit', 'Git Commit'],
+                \'c' : ['Gcommit .', 'Git Commit'],
                 \'w' : ['Gwrite',  'Git Write'],
                 \}
 

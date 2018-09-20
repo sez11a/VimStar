@@ -27,9 +27,10 @@ set encoding=utf-8
 "Airline Configuration
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='murmur'
+let g:airline_theme='raven'
 let g:airline_detect_spell = 0
 let g:airline#extensions#whitespace#enabled=0
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Always display status line
 set laststatus=2
@@ -97,8 +98,9 @@ augroup pencil
   autocmd FileType text         call pencil#init({'wrap': 'hard'})
 augroup END
 
+" Quit NERDTree on open
+let NERDTreeQuitOnOpen = 1
+
 " Javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-" This starts WP mode on markdown files, but it wreaks havoc with airline
-" autocmd FileType markdown call WordProcessorMode()
