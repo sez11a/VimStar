@@ -19,6 +19,8 @@ filetype plugin indent on
 " Word Processor color scheme
 set background=dark
 colorscheme xoria256-blue
+hi SignColumn guibg=black ctermbg=black
+set signcolumn=yes
 
 " No vi compatibility
 set nocompatible
@@ -27,7 +29,7 @@ set encoding=utf-8
 "Airline Configuration
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='raven'
+let g:airline_theme='minimalist'
 let g:airline_detect_spell = 0
 let g:airline#extensions#whitespace#enabled=0
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -46,7 +48,7 @@ set ignorecase
 
 " If a pattern has an uppercase letter, it's case sensitive
 set smartcase
-set number
+set nonumber
 
 " Wrap automatically
 set wrap

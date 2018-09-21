@@ -1,12 +1,7 @@
-"Guifont! Nouveau_IBM Nerd Font:h12
-" The above font had some display problems.
-" Guifont! TerminessTTF Nerd Font Mono:h12
-" Guifont! Edlo:h12
-" Guifont! Anonymous Pro for Powerline:h12
-" Guifont! Space Mono:h12
-" Guifont! ProFontUnified Nerd Font:h13
-" Guifont! Luxi Mono:h12
+" GUI Settings
+
 Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
+
 """ FocusMode
 function! ToggleFocusMode()
 if (&foldcolumn != 12)
@@ -35,7 +30,7 @@ else
             " Guifont! Anonymous Pro for Powerline:h12
            " Guifont! Space Mono:h12
             Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
-            set guioptions+=T
+           " set guioptions+=T
 
 endif
 

@@ -8,6 +8,7 @@ func! WordProcessorMode()
   set expandtab
   set wrap
   set textwidth=80
+  set nonumber
   " Look like WordStar
 "  colorscheme adaryn
   colorscheme xoria256-blue
@@ -29,6 +30,7 @@ func! CodeMode()
         set noexpandtab
         set textwidth=0
         set nospell
+		set number
         colorscheme xoria256
         filetype detect
         :NoPencil
