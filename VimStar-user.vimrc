@@ -59,6 +59,9 @@ set textwidth=80
 filetype plugin on
 set ofu=syntaxcomplete#Complete
 
+" Blinking cursor in insert mode
+set guicursor+=i:blinkon1
+
 " Never fold Markdown files
 let g:vim_markdown_folding_disabled=1
 
