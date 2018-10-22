@@ -34,4 +34,5 @@ Plug 'hecal3/vim-leader-guide'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
+Plug 'neomake/neomake'
 call plug#end()
