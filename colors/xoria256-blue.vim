@@ -37,11 +37,11 @@ let colors_name = "xoria256-blue"
 " Colours {{{1
 "" General {{{2
 " My blue
-hi Normal       ctermfg=252 guifg=#d0d0d0 ctermbg=17  guibg=#142c63 cterm=none gui=none
+"hi Normal       ctermfg=250 guifg=#d0d0d0 ctermbg=17  guibg=#142c63 cterm=none gui=none
 " Amiga Blue
 " hi Normal       ctermfg=252 guifg=#d0d0d0 ctermbg=17  guibg=#0055aa cterm=none gui=none
 " WordStar Blue
-"hi Normal       ctermfg=252 guifg=#d0d0d0 ctermbg=17  guibg=#0000aa cterm=none gui=none
+hi Normal       ctermfg=250 guifg=#d0d0d0 ctermbg=19  guibg=#0000aa cterm=none gui=none
 hi Cursor                                 ctermbg=214 guibg=#ffaf00
 hi CursorColumn                           ctermbg=238 guibg=#444444
 hi CursorLine                             ctermbg=237 guibg=#3a3a3a cterm=none gui=none

@@ -104,7 +104,7 @@ augroup pencil
 augroup END
 
 " Quit NERDTree on open
-let NERDTreeQuitOnOpen = 1
+"let NERDTreeQuitOnOpen = 1
 
 " Javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
