@@ -20,6 +20,7 @@ func! WordProcessorMode()
   nnoremap <Leader>q :NoWordy<CR>
   call pencil#init()
   let g:editmode=1
+  syntax sync fromstart
 
 endfu
 com! WP call WordProcessorMode()
@@ -37,6 +38,7 @@ func! CodeMode()
         let g:better_whitespace_enabled=1
         let g:strip_whitespace_on_save=1
         let g:editmode=0
+        syntax sync fromstart
 endfu
 com! CODE call CodeMode()
 

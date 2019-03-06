@@ -97,11 +97,14 @@ autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
 
 " Enable Pencil word processing plugin
 let g:pencil#wrapModeDefault = 'hard'
+let g:pencil#autoformat = 0
 augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text         call pencil#init({'wrap': 'hard'})
+  autocmd FileType markdown,mkd call pencil#init({'wrap': 'hard', 'autoformat': 0})
+  autocmd FileType text         call pencil#init({'wrap': 'hard', 'autoformat': 0})
 augroup END
+
+let g:pencil#map#suspend_af = 'K'   " default is no mapping
 
 " Quit NERDTree on open
 "let NERDTreeQuitOnOpen = 1
