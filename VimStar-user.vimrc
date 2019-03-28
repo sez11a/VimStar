@@ -1,13 +1,13 @@
-" VimStar User Config 
+" VimStar User Config
 "
-" VimStar defaults to a word processor configuration, with 
-" leader mappings inspired by WordStar. This file is sourced 
-" last, so it's an ideal place to put default settings that 
-" users might want to change. 
+" VimStar defaults to a word processor configuration, with
+" leader mappings inspired by WordStar. This file is sourced
+" last, so it's an ideal place to put default settings that
+" users might want to change.
 "
-" If you mess something up, A copy of this file sits in the 
-" .VimStar folder, ready to be copied to your root, so you 
-" can reset everything to the defaults. 
+" If you mess something up, A copy of this file sits in the
+" .VimStar folder, ready to be copied to your root, so you
+" can reset everything to the defaults.
 "
 
 " Enable Syntax highlighting
@@ -69,6 +69,9 @@ let g:vim_markdown_folding_disabled=1
 
 " Never auto-insert bullets; conflicts with Pencil
 let g:vim_markdown_auto_insert_bullets=0
+
+" Enable fenced code blocks for software documentation
+let g:vim_markdown_fenced_languages = ['java=java', 'properties=jproperties', 'bash=sh']
 
 " Don't automatically show Markdown preview
 let g:markdown_composer_autostart=0
