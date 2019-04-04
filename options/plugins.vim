@@ -35,4 +35,5 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 Plug 'neomake/neomake'
+Plug 'andreshazard/vim-freemarker'
 call plug#end()
