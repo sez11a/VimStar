@@ -71,7 +71,7 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_auto_insert_bullets=0
 
 " Enable fenced code blocks for software documentation
-let g:vim_markdown_fenced_languages = ['java=java', 'properties=jproperties', 'bash=sh']
+let g:vim_markdown_fenced_languages = ['java=java', 'properties=jproperties', 'bash=sh', 'jsp=jsp']
 
 " Don't automatically show Markdown preview
 let g:markdown_composer_autostart=0
