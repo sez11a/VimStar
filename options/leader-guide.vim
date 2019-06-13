@@ -13,6 +13,7 @@ let g:lmap.k = { 'name' : 'Block & Save Menu' }
 " Block & Save Menu
 let g:lmap.k.d = ['w', 'save']
 let g:lmap.k.x = ['wq', 'save & exit']
+let g:lmap.k.o = ['NERDTreeToggle', 'Open File']
 let g:lmap.k.q = ['q!', 'abandon changes']
 let g:lmap.k.u = ['PlugUpdate', 'Update Plugins']
 let g:lmap.k.f = ['terminal', 'run Linux command']
