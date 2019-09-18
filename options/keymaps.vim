@@ -1,6 +1,6 @@
 " Custom key combos
 
-nmap <silent> <F3> :NERDTreeToggle<CR>
+nmap <silent> <F3> :Explore<CR>
 
 nnoremap <F4> :call ToggleFocusMode()<cr>
 nnoremap <F5> :Latexmk<cr>

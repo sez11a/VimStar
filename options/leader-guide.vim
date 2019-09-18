@@ -11,18 +11,20 @@ let g:lmap.k = { 'name' : 'Block & Save Menu' }
 " let g:lmap.q.f = [ '%s/', 'find text' ]
 
 " Block & Save Menu
-let g:lmap.k.d = ['w', 'save']
-let g:lmap.k.x = ['wq', 'save & exit']
-let g:lmap.k.o = ['NERDTreeToggle', 'Open File']
-let g:lmap.k.q = ['q!', 'abandon changes']
+let g:lmap.k.d = ['w', 'Save']
+let g:lmap.k.e = ['enew', 'New Buffer']
+let g:lmap.k.j = ['bd', 'Close Buffer']
+let g:lmap.k.x = ['wq', 'Save & Exit']
+let g:lmap.k.o = ['Explore', 'Open File Browser']
+let g:lmap.k.q = ['q!', 'Abandon Changes']
 let g:lmap.k.u = ['PlugUpdate', 'Update Plugins']
 let g:lmap.k.f = ['terminal', 'run Linux command']
 
 " Onscreen Format menu
-let g:lmap.o.w = ['call ToggleWP()', 'toggle word processor mode']
-let g:lmap.o.p = ['ComposerStart', 'page preview']
-let g:lmap.o.k = ['bnext', 'switch buffer']
-let g:lmap.o.m = ['split', 'open window']
+let g:lmap.o.w = ['call ToggleWP()', 'Toggle Word Processor Mode']
+let g:lmap.o.p = ['ComposerStart', 'Page Preview']
+let g:lmap.o.k = ['bnext', 'Switch Buffer']
+let g:lmap.o.m = ['split', 'Open Window']
 
 " 'name' is a special field. It will define the name of the group.
 " leader-f is the "File Menu" group.
@@ -54,14 +56,22 @@ let g:lmap.g = {
                 \'w' : ['Gwrite',  'Git Write'],
                 \}
 
-" If you use NERDCommenter:
-let g:lmap.c = { 'name' : 'Comments' }
-" Define some descriptions
-let g:lmap.c.c = ['call feedkeys("\<Plug>NERDCommenterComment")','Comment']
-let g:lmap.c[' '] = ['call feedkeys("\<Plug>NERDCommenterToggle")','Toggle']
-" The Descriptions for other mappings defined by NerdCommenter, will default
-" to their respective commands.
+" Define local leader dictionary
+let g:llmap = {}
+" autocmd FileType org let g:llmap.o = { 'name' : 'orgmode' }
+autocmd FileType org noremap <buffer> <localleader> <Plug>leaderguide-global
 
-call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
 nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>LeaderGuide  ','<CR>
+vnoremap <silent> <localleader> :<c-u>LeaderGuideVisual  ','<CR>
+
+let g:topdict = {}
+let g:topdict[' '] = g:lmap
+let g:topdict[' ']['name'] = '<leader>'
+let g:topdict[','] = g:llmap
+let g:topdict[',']['name'] = '<localleader>'
+
+call leaderGuide#register_prefix_descriptions("", "g:topdict")
+" call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
+" call leaderGuide#register_prefix_descriptions(",", "g:llmap")
