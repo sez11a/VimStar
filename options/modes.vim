@@ -21,6 +21,7 @@ func! WordProcessorMode()
   call pencil#init()
   let g:editmode=1
   syntax sync fromstart
+  call deoplete#custom#option('auto_complete', v:false)
 
 endfu
 com! WP call WordProcessorMode()
@@ -39,6 +40,7 @@ func! CodeMode()
         let g:strip_whitespace_on_save=1
         let g:editmode=0
         syntax sync fromstart
+		call deoplete#custom#option('auto_complete', v:true)
 endfu
 com! CODE call CodeMode()
 
