@@ -1,6 +1,13 @@
 " GUI Settings
 
-Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
+" If you wish for nostalgia, this font is in the 
+" .VimStar/fonts folder. 
+" Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
+
+" Use a modern mono font good for code and writing. 
+Guifont! Inconsolata:h14
+
+set guioptions=mr
 
 """ FocusMode
 function! ToggleFocusMode()

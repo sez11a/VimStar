@@ -20,6 +20,7 @@ func! WordProcessorMode()
   nnoremap <Leader>q :NoWordy<CR>
   call pencil#init()
   let g:editmode=1
+  let g:wrapmode=1
   syntax sync fromstart
   call deoplete#custom#option('auto_complete', v:false)
 
@@ -39,6 +40,7 @@ func! CodeMode()
         let g:better_whitespace_enabled=1
         let g:strip_whitespace_on_save=1
         let g:editmode=0
+		let g:wrapmode=0
         syntax sync fromstart
 		call deoplete#custom#option('auto_complete', v:true)
 endfu
@@ -50,6 +52,18 @@ function! ToggleWP()
     else
         call CodeMode()
     endif
+endfu
+
+function! ToggleWrap()
+	if g:wrapmode == 0
+		set textwidth=80
+		let g:wrapmode=1
+		:HardPencil
+	else
+		set textwidth=0
+		let g:wrapmode=0
+		:SoftPencil
+	endif
 endfu
 
 nnoremap <F9> :call ToggleWP()<cr>

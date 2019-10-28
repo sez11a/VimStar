@@ -22,7 +22,9 @@ let g:lmap.k.f = ['terminal', 'run Linux command']
 
 " Onscreen Format menu
 let g:lmap.o.w = ['call ToggleWP()', 'Toggle Word Processor Mode']
-let g:lmap.o.p = ['ComposerStart', 'Page Preview']
+let g:lmap.o.r = ['call ToggleWrap()', 'Toggle Wrap']
+let g:lmap.o.p = ['MarkdownPreview', 'Page Preview']
+let g:lmap.o.P = ['MarkdownPreviewStop', 'Stop Page Preview']
 let g:lmap.o.k = ['bnext', 'Switch Buffer']
 let g:lmap.o.m = ['split', 'Open Window']
 

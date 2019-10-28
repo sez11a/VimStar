@@ -96,6 +96,7 @@ let g:leaderGuide_position = "topleft"
 
 " Default edit mode is word processing
 let g:editmode=1
+let g:wrapmode=1
 
 " No tabs; just spaces
 set expandtab

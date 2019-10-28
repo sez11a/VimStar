@@ -6,15 +6,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " For Markdown Composer plugin below
-function! BuildComposer(info)
-  if a:info.status != 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release
-    else
-      !cargo build --release --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
+" function! BuildComposer(info)
+"   if a:info.status != 'unchanged' || a:info.force
+"     if has('nvim')
+"       !cargo build --release
+"     else
+"       !cargo build --release --no-default-features --features json-rpc
+"     endif
+"   endif
+" endfunction
 
 " VimPlug plugins
 call plug#begin('~/.vim/plugged')
@@ -30,7 +30,6 @@ let g:deoplete#enable_at_startup = 1
 
 Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-surround'
-" Plug 'scrooloose/nerdtree'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'plasticboy/vim-markdown'
 Plug 'vim-airline/vim-airline'
@@ -48,7 +47,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'reedes/vim-wordy'
 Plug 'kshenoy/vim-signature'
 Plug 'reedes/vim-pencil'
-Plug 'euclio/vim-markdown-composer'
+" Plug 'euclio/vim-markdown-composer'
+Plug 'iamcco/markdown-preview.nvim', {  'do': { ->mkdp#util#install() } }
 Plug 'godlygeek/tabular'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'hecal3/vim-leader-guide'
