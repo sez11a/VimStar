@@ -34,10 +34,11 @@ else
     set number
     execute 'colorscheme ' . g:colors_name
 
-            " Guifont! Anonymous Pro for Powerline:h12
-           " Guifont! Space Mono:h12
-            Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
-           " set guioptions+=T
+        " Guifont! Anonymous Pro for Powerline:h12
+        " Guifont! Space Mono:h12
+        " Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
+        Guifont! Inconsolata:h14
+        " set guioptions+=T
 
 endif
 
