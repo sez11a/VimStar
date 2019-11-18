@@ -19,6 +19,7 @@ let g:lmap.k.o = ['Explore', 'Open File Browser']
 let g:lmap.k.q = ['q!', 'Abandon Changes']
 let g:lmap.k.u = ['PlugUpdate', 'Update Plugins']
 let g:lmap.k.f = ['terminal', 'run Linux command']
+let g:lmap.k.l = ['cd %:p:h', 'Change Working Dir']
 
 " Onscreen Format menu
 let g:lmap.o.w = ['call ToggleWP()', 'Toggle Word Processor Mode']
@@ -27,6 +28,7 @@ let g:lmap.o.p = ['MarkdownPreview', 'Page Preview']
 let g:lmap.o.P = ['MarkdownPreviewStop', 'Stop Page Preview']
 let g:lmap.o.k = ['bnext', 'Switch Buffer']
 let g:lmap.o.m = ['split', 'Open Window']
+let g:lmap.o.b = ['BuffergatorToggle', 'Buffer List']
 
 " 'name' is a special field. It will define the name of the group.
 " leader-f is the "File Menu" group.

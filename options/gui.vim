@@ -5,7 +5,7 @@
 " Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
 
 " Use a modern mono font good for code and writing. 
-Guifont! Inconsolata:h14
+Guifont! Iosevka Slab:h14
 
 set guioptions=mr
 
@@ -37,7 +37,7 @@ else
         " Guifont! Anonymous Pro for Powerline:h12
         " Guifont! Space Mono:h12
         " Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
-        Guifont! Inconsolata:h14
+        Guifont! Iosevka Slab:h14
         " set guioptions+=T
 
 endif

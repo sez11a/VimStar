@@ -73,6 +73,8 @@ set ofu=syntaxcomplete#Complete
 " Blinking cursor in insert mode
 set guicursor+=i:blinkon1
 
+" Remove Buffergator default keymaps
+let g:buffergator_suppress_keymaps=1
 " Never fold Markdown files
 let g:vim_markdown_folding_disabled=1
 

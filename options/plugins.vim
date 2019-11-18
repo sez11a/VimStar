@@ -57,4 +57,5 @@ Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 Plug 'neomake/neomake'
 Plug 'andreshazard/vim-freemarker'
+Plug 'jeetsukumaran/vim-buffergator'
 call plug#end()
