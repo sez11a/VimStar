@@ -61,4 +61,5 @@ Plug 'airblade/vim-gitgutter'
 Plug 'neomake/neomake'
 Plug 'andreshazard/vim-freemarker'
 Plug 'jeetsukumaran/vim-buffergator'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
