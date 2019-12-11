@@ -33,6 +33,7 @@ set signcolumn=yes
 " No vi compatibility
 set nocompatible
 set encoding=utf-8
+set clipboard+=unnamedplus
 
 "Airline Configuration
 let g:airline_powerline_fonts = 1
