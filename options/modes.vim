@@ -7,7 +7,7 @@ func! WordProcessorMode()
   " setlocal linebreak
   set expandtab
   set wrap
-  set textwidth=80
+  " set textwidth=80
   set nonumber
   " Look like WordStar
 "  colorscheme adaryn

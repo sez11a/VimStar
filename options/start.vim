@@ -14,9 +14,9 @@ source $vimstar_options/keymaps.vim
 " Startify
 source $vimstar_options/startify.vim
 
-" The options below are VimStar defaults. They can be 
-" overridden in .VimStar-user.vimrc, which is sourced 
-" last and should be in your user folder. 
+" The options below are VimStar defaults. They can be
+" overridden in .VimStar-user.vimrc, which is sourced
+" last and should be in your user folder.
 
 " Enable Syntax highlighting
 syntax on
@@ -80,7 +80,7 @@ let g:buffergator_suppress_keymaps=1
 let g:vim_markdown_folding_disabled=1
 
 " Never auto-insert bullets; conflicts with Pencil
-let g:vim_markdown_auto_insert_bullets=0
+" let g:vim_markdown_auto_insert_bullets=0
 
 " Enable fenced code blocks for software documentation
 let g:vim_markdown_fenced_languages = ['properties=jproperties', 'bash=sh', 'markup=jsp']
@@ -118,11 +118,11 @@ set complete+=s
 set hidden
 
 " Enable Pencil word processing plugin
-let g:pencil#wrapModeDefault = 'hard'
+let g:pencil#wrapModeDefault = 'soft'
 let g:pencil#autoformat = 0
 augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd call pencil#init({'wrap': 'hard', 'autoformat': 0})
+  autocmd FileType markdown,mkd call pencil#init()
   autocmd FileType text         call pencil#init({'wrap': 'hard', 'autoformat': 0})
 augroup END
 
