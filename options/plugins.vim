@@ -50,6 +50,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'reedes/vim-wordy'
 Plug 'kshenoy/vim-signature'
 Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-wordchipper'
 " Plug 'euclio/vim-markdown-composer'
 Plug 'iamcco/markdown-preview.nvim', {  'do': { ->mkdp#util#install() } }
 Plug 'godlygeek/tabular'
