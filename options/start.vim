@@ -128,6 +128,9 @@ augroup END
 
 let g:pencil#map#suspend_af = 'K'   " default is no mapping
 
+" Voom outline tree
+let g:voom_tree_placement = "right"
+
 " Quit NERDTree on open
 "let NERDTreeQuitOnOpen = 1
 

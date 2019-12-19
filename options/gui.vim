@@ -3,11 +3,11 @@
 " Default mode is normal
 let g:focusmode=0
 
-" If you wish for nostalgia, this font is in the 
-" .VimStar/fonts folder. 
+" If you wish for nostalgia, this font is in the
+" .VimStar/fonts folder.
 " Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
 
-" Use a modern mono font good for code and writing. 
+" Use a modern mono font good for code and writing.
 Guifont! Iosevka Slab:h14
 
 set guioptions=mr
@@ -26,7 +26,7 @@ if g:focusmode == 0
     hi NonText ctermfg=0
 
     " Guifont! PxPlus_IBM_VGA9 Nerd Font:h18
-	Guifont! Iosevka Slab:h18
+	Guifont! Iosevka Slab:h24
 	let g:focusmode=1
 else
    " set laststatus=2
@@ -36,11 +36,9 @@ else
     set number
     execute 'colorscheme ' . g:colors_name
 
-	" Guifont! Anonymous Pro for Powerline:h12
-	" Guifont! Space Mono:h12
 	" Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
-	Guifont! Iosevka Slab:h14
 	" set guioptions+=T
+	Guifont! Iosevka Slab:h14
 	let g:focusmode=0
 
 endif

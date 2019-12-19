@@ -29,26 +29,12 @@ let g:lmap.o.P = ['MarkdownPreviewStop', 'Stop Page Preview']
 let g:lmap.o.k = ['bnext', 'Switch Buffer']
 let g:lmap.o.m = ['split', 'Open Window']
 let g:lmap.o.b = ['BuffergatorToggle', 'Buffer List']
+let g:lmap.o.u = ['call voom#Init("markdown", 1, 1)', 'Toggle Outline']
+let g:lmap.o.y = ['call ToggleFocusMode()', 'Toggle Focus Mode']
 
 " 'name' is a special field. It will define the name of the group.
 " leader-f is the "File Menu" group.
 " Unnamed groups will show a default string
-
-" Provide commands and descriptions for existing mappings
-	nmap <silent> <leader>fd :e $MYVIMRC<CR>
-	let g:lmap.f.d = ['e $MYVIMRC', 'Open vimrc']
-
-	nmap <silent> <leader>fs :so %<CR>
-	" let g:lmap.f.s = ['so %', 'Source file']
-
-	nmap <silent> <leader>oo  :copen<CR>
-	" let g:lmap.o.o = ['copen', 'Open quickfix']
-
-	nmap <silent> <leader>ol  :lopen<CR>
-	" let g:lmap.o.l = ['lopen', 'Open locationlist']
-
-	nmap <silent> <leader>fw :w<CR>
-	" let g:lmap.f.w = ['w', 'Write file']
 
 " Create new menus not based on existing mappings:
 let g:lmap.g = {
