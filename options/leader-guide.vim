@@ -29,6 +29,7 @@ let g:lmap.o.P = ['MarkdownPreviewStop', 'Stop Page Preview']
 let g:lmap.o.k = ['bnext', 'Switch Buffer']
 let g:lmap.o.m = ['split', 'Open Window']
 let g:lmap.o.b = ['BuffergatorToggle', 'Buffer List']
+let g:lmap.o.y = ['call ToggleFocusMode()', 'Toggle Focus Mode']
 
 " 'name' is a special field. It will define the name of the group.
 " leader-f is the "File Menu" group.
