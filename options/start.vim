@@ -51,7 +51,7 @@ set backspace=indent,eol,start
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-call deoplete#custom#option('auto_complete', v:false)
+" call deoplete#custom#option('auto_complete', v:false)
 
 " Ignore case when searching
 set ignorecase
