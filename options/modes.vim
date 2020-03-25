@@ -34,6 +34,7 @@ func! CodeMode()
         set textwidth=0
         set nospell
 		set number
+		set nofixendofline "this is for Liferay
         colorscheme xoria256
         filetype detect
         :NoPencil

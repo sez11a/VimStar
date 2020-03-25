@@ -28,6 +28,7 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
+Plug 'deoplete-plugins/deoplete-jedi'
 " Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-surround'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
