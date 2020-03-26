@@ -28,8 +28,8 @@ endfu
 com! WP call WordProcessorMode()
 
 func! CodeMode()
-        map j gj
-        map k gk
+"        map j gj
+"        map k gk
         set noexpandtab
         set textwidth=0
         set nospell

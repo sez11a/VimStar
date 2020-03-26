@@ -51,7 +51,6 @@ set backspace=indent,eol,start
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-" call deoplete#custom#option('auto_complete', v:false)
 
 " Ignore case when searching
 set ignorecase
@@ -73,6 +72,10 @@ set ofu=syntaxcomplete#Complete
 
 " Blinking cursor in insert mode
 set guicursor+=i:blinkon1
+
+" Start deoplete, but disable it in default WP mode
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('auto_complete', v:false)
 
 " Remove Buffergator default keymaps
 let g:buffergator_suppress_keymaps=1
