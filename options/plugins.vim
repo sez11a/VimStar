@@ -30,6 +30,8 @@ endif
 " Start deoplete in start.vim
 " let g:deoplete#enable_at_startup = 1
 
+Plug 'skywind3000/vim-quickui'
+Plug 'hecal3/vim-leader-guide'
 Plug 'deoplete-plugins/deoplete-jedi'
 " Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-surround'
@@ -59,7 +61,6 @@ Plug 'reedes/vim-wordchipper'
 Plug 'iamcco/markdown-preview.nvim', {  'do': { ->mkdp#util#install() } }
 Plug 'godlygeek/tabular'
 Plug 'artur-shaik/vim-javacomplete2'
-Plug 'hecal3/vim-leader-guide'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
