@@ -12,6 +12,11 @@ Guifont! Iosevka Slab:h14
 
 set guioptions=mr
 
+" Blinking cursor in insert mode
+highlight Cursor guifg=white guibg=white
+highlight iCursor guifg=white guibg=red
+set guicursor+=n-v-c:block-Cursor
+
 """ FocusMode
 function! ToggleFocusMode()
 "if (&foldcolumn != 12)
