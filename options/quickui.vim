@@ -16,12 +16,45 @@ call quickui#menu#install('&File', [
    \ [ "E&xit VimStar", 'qa' ],
    \ ])
 
+" Edit Menu
+let note_snippet = "<!--  -->"
+call quickui#menu#install('&Edit', [
+   \ [ "&Undo\tu", 'normal! u' ],
+   \ [ "&Redo\t^R", "normal! <C-r>" ],
+   \ [ "Go to Marker 1\t\'a", "normal! \'a" ],
+   \ [ "Go to Marker 2\t\'b", "normal! \'b" ],
+   \ [ "Go to Marker 3\t\'c", "normal! \'c" ],
+   \ [ "Go to Marker 4\t\'d", "normal! \'d" ],
+   \ [ "Go to Marker 5\t\'e", "normal! \'e" ],
+   \ [ "Set Marker 1\tma", "normal! ma<space><space><esc>" ],
+   \ [ "Set Marker 2\tmb", "normal! mb" ],
+   \ [ "Set Marker 3\tmc", "normal! mc" ],
+   \ [ "Set Marker 4\tmd", "normal! md" ],
+   \ [ "Set Marker 5\tme", "normal! me" ],
+   \ [ "&Insert Note", "normal! i\<C-r>\<C-r>=note_snippet\<CR>\<Esc>" ],
+   \ ])
+
+" View Menu
 call quickui#menu#install('&View', [
    \ [ "&Preview\t^op", 'MarkdownPreview' ],
    \ [ "&Open/Switch Window\t^ok", 'bnext' ],
    \ [ "Toggle WP/Code\t^ow", 'call ToggleWP()' ],
    \ [ "Toggle Outline\t^ou", 'call voom#Init("markdown", 1, 1)' ],
+   \ [ "Vertical Split", 'vsplit' ],
+   \ [ "Horizontal Split", 'split' ],
    \ ])
+
+" Git Menu
+call quickui#menu#install('&Git', [
+	\ [ "Git Status &^gs", 'Gstatus' ],
+	\ [ "Git Pull &^gp", 'Gpull' ],
+	\ [ "Git Push &^gu", 'Gpush' ],
+	\ [ "Git Commit &^gc", 'Gcommit' ],
+	\ [ "Git Write &^gw", 'Gwrite' ],
+	\ [ "Git Move &^gm", 'GMove' ],
+	\ [ "Git Delete &^gd", 'GDelete' ],
+	\ [ "Git Diff Staged &^gf", 'Gdiffsplit' ],
+	\ ])
 
 let g:quickui_show_tip = 1
 

@@ -18,6 +18,9 @@ source $vimstar_options/startify.vim
 " overridden in .VimStar-user.vimrc, which is sourced
 " last and should be in your user folder.
 
+" Browse files the WordStar way
+let g:netrw_liststyle = 2
+
 " Enable Syntax highlighting
 syntax on
 
@@ -70,8 +73,8 @@ set textwidth=80
 filetype plugin on
 set ofu=syntaxcomplete#Complete
 
-" Blinking cursor in insert mode
-set guicursor+=i:blinkon1
+" Remove netrw banner
+let g:netrw_banner = 0
 
 " Start deoplete, but disable it in default WP mode
 let g:deoplete#enable_at_startup = 1
