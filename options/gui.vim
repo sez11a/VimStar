@@ -13,9 +13,10 @@ Guifont! Iosevka Slab:h14
 set guioptions=mr
 
 " Blinking cursor in insert mode
-highlight Cursor guifg=white guibg=white
-highlight iCursor guifg=white guibg=red
 set guicursor+=n-v-c:block-Cursor
+set guicursor+=i:blinkwait700-blinkon400-blinkoff250
+highlight Cursor guifg=black guibg=white
+highlight iCursor guifg=red guibg=white
 
 """ FocusMode
 function! ToggleFocusMode()

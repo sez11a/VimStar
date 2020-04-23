@@ -28,8 +28,10 @@ syntax on
 filetype plugin indent on
 
 " Word Processor color scheme
+let $wpcolors='xoria256-blue'
+let $codecolors='xoria256'
 set background=dark
-colorscheme xoria256-blue
+colorscheme $wpcolors
 hi SignColumn guibg=black ctermbg=black
 set signcolumn=yes
 

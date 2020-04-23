@@ -11,7 +11,7 @@ func! WordProcessorMode()
   set nonumber
   " Look like WordStar
 "  colorscheme adaryn
-  colorscheme xoria256-blue
+  colorscheme $wpcolors
 "  colorscheme transparent
   filetype detect
   let g:better_whitespace_enabled=0
@@ -35,7 +35,7 @@ func! CodeMode()
         set nospell
 		set number
 		set nofixendofline "this is for Liferay
-        colorscheme xoria256
+        colorscheme $codecolors
         filetype detect
         :NoPencil
         let g:better_whitespace_enabled=1
