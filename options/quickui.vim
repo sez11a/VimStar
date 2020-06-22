@@ -42,6 +42,7 @@ call quickui#menu#install('&View', [
    \ [ "Toggle Outline\t^ou", 'call voom#Init("markdown", 1, 1)' ],
    \ [ "Vertical Split", 'vsplit' ],
    \ [ "Horizontal Split", 'split' ],
+   \ [ "Toggle Linters\t ^ol", 'ALEToggle' ],
    \ ])
 
 " Git Menu
@@ -83,7 +84,8 @@ let onscreen = [
 			 \ [ "Next Buffer &k", 'bnext'],
 			 \ [ "Switch Buffer &b", "call quickui#tools#list_buffer('e')"],
 			 \ [ "Toggle Outline &u", "call voom#Init('markdown', 1, 1)"],
-			 \ [ "Toggle Focus Mode &y", 'call ToggleFocusMode()']
+			 \ [ "Toggle Focus Mode &y", 'call ToggleFocusMode()'],
+			 \ [ "Toggle Linters &l", 'ALEToggle']
 			 \]
 
 let oopts = {'Onscreen Format': 'select one'}

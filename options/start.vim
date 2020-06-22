@@ -62,7 +62,8 @@ set ignorecase
 
 " If a pattern has an uppercase letter, it's case sensitive
 set smartcase
-set nonumber
+set number
+set relativenumber
 
 " Wrap automatically
 set wrap
@@ -138,6 +139,20 @@ let g:pencil#map#suspend_af = 'K'   " default is no mapping
 
 " Voom outline tree
 let g:voom_tree_placement = "right"
+
+" ALE Linter
+let g:ale_enabled = 0
+let g:ale_linters_explicit = 1
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_save = 1
+" let g:ale_fix_on_save = 1
+let g:ale_linters = {
+\	'markdown':		['redpen'],
+\}
+" let g:ale_fixers = {
+" \	'markdown': [''],
+" \}
 
 " Quit NERDTree on open
 "let NERDTreeQuitOnOpen = 1

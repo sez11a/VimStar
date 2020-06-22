@@ -1,9 +1,7 @@
 " Configuration Directory
-if empty($vimstar_options) 
+if empty($vimstar_options)
     let $vimstar_options = "~/.VimStar/options"
 endif
-
-let mapleader=" "
 
 " Main configuration
 source $vimstar_options/start.vim

@@ -70,4 +70,5 @@ Plug 'neomake/neomake'
 Plug 'andreshazard/vim-freemarker'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'ryanoasis/vim-devicons'
+Plug 'dense-analysis/ale'
 call plug#end()

@@ -8,7 +8,7 @@ func! WordProcessorMode()
   set expandtab
   set wrap
   " set textwidth=80
-  set nonumber
+"  set nonumber
   " Look like WordStar
 "  colorscheme adaryn
   colorscheme $wpcolors
@@ -33,7 +33,7 @@ func! CodeMode()
         set noexpandtab
         set textwidth=0
         set nospell
-		set number
+"		set number
 		set nofixendofline "this is for Liferay
         colorscheme $codecolors
         filetype detect
