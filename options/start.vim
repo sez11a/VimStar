@@ -139,6 +139,7 @@ let g:pencil#map#suspend_af = 'K'   " default is no mapping
 
 " Voom outline tree
 let g:voom_tree_placement = "right"
+let g:voom_tree_width = 55
 
 " ALE Linter
 let g:ale_enabled = 0

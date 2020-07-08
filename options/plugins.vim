@@ -5,17 +5,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" For Markdown Composer plugin below
-" function! BuildComposer(info)
-"   if a:info.status != 'unchanged' || a:info.force
-"     if has('nvim')
-"       !cargo build --release
-"     else
-"       !cargo build --release --no-default-features --features json-rpc
-"     endif
-"   endif
-" endfunction
-
 " VimPlug plugins
 call plug#begin('~/.vim/plugged')
 
@@ -43,6 +32,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 " Plug 'flazz/vim-colorschemes'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'dracula/vim'
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
@@ -59,7 +49,6 @@ Plug 'reedes/vim-wordy'
 Plug 'kshenoy/vim-signature'
 Plug 'reedes/vim-pencil'
 Plug 'reedes/vim-wordchipper'
-" Plug 'euclio/vim-markdown-composer'
 Plug 'iamcco/markdown-preview.nvim', {  'do': { ->mkdp#util#install() } }
 Plug 'godlygeek/tabular'
 Plug 'artur-shaik/vim-javacomplete2'
