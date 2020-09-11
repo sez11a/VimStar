@@ -21,7 +21,7 @@ endif
 
 Plug 'skywind3000/vim-quickui'
 Plug 'deoplete-plugins/deoplete-jedi'
-" Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-surround'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'plasticboy/vim-markdown'
@@ -60,4 +60,8 @@ Plug 'andreshazard/vim-freemarker'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'ryanoasis/vim-devicons'
 Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'airblade/vim-rooter'
 call plug#end()

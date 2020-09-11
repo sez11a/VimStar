@@ -21,6 +21,8 @@ let note_snippet = "<!--  -->"
 call quickui#menu#install('&Edit', [
    \ [ "&Undo\tu", 'normal! u' ],
    \ [ "&Redo\t^R", "normal! <C-r>" ],
+   \ [ "&Find Files\t^qf", 'Files<CR>' ],
+   \ [ "&Find in Files\t^qg", 'Rg<CR>' ],
    \ [ "Go to Marker 1\t\'a", "normal! \'a" ],
    \ [ "Go to Marker 2\t\'b", "normal! \'b" ],
    \ [ "Go to Marker 3\t\'c", "normal! \'c" ],
@@ -106,3 +108,11 @@ let gopts = {'Git:': 'select one'}
 noremap <C-g> :call quickui#listbox#open(gitmenu,gopts)<cr>
 vnoremap <C-g> :call quickui#listbox#open(gitmenu,gopts)<cr>
 
+let quickmenu = [
+			  \ [ "Find Files &f", 'Files' ],
+			  \ [ "Find in Files &i", 'Rg' ]
+			  \ ]
+
+let qopts = {'Quick Menu': 'select one'}
+nnoremap <C-q> :call quickui#listbox#open(quickmenu,qopts)<cr>
+vnoremap <C-q> :call quickui#listbox#open(quickmenu,qopts)<cr>
