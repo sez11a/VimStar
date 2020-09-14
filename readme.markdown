@@ -6,7 +6,7 @@ This is a NeoVim/Vim  distribution optimized for *writing*. Colors and fonts (in
 
 1.  There's a pull down menu. In normal mode, hit the space bar twice to see the functions. These will grow over time. 
 
-2.  There are WordStar-like key bindings with helpful menus. See Ctrl-K, Ctrl-O, and Ctrl-G. 
+2.  There are WordStar-like key bindings with helpful menus. Instead, however, of the Ctrl key, they're prefixed with Space instead, to avoid collision with Vim keys (such as Ctrl-o). See Space-k, Space-o, Space-q, and Space-g. 
 
 3.  Plugins provided by VimPlug, and should be downloaded automatically after installing. 
 

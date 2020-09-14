@@ -62,7 +62,7 @@ call quickui#menu#install('&Git', [
 let g:quickui_show_tip = 1
 
 " hit space twice to open menu
-noremap <space><space> :call quickui#menu#open()<cr>
+noremap <leader><space> :call quickui#menu#open()<cr>
 
 let blocksave = [
 			  \ [ "Save &d", 'w' ],
@@ -76,7 +76,7 @@ let blocksave = [
 			  \ [ "Change Working Dir &l", 'cd %:p:h']
 			  \]
 let bopts = {'Block & Save': 'select one'}
-noremap <C-k> :call quickui#listbox#open(blocksave,bopts)<cr>
+noremap <leader>k :call quickui#listbox#open(blocksave,bopts)<cr>
 
 let onscreen = [
 			 \ [ "Toggle WP/Code &w", 'call ToggleWP()'],
@@ -91,7 +91,7 @@ let onscreen = [
 			 \]
 
 let oopts = {'Onscreen Format': 'select one'}
-noremap <C-o> :call quickui#listbox#open(onscreen,oopts)<cr>
+noremap <leader>o :call quickui#listbox#open(onscreen,oopts)<cr>
 
 let gitmenu = [
 			\ [ "Git Status &s", 'Gstatus' ],
@@ -105,8 +105,8 @@ let gitmenu = [
 			\]
 
 let gopts = {'Git:': 'select one'}
-noremap <C-g> :call quickui#listbox#open(gitmenu,gopts)<cr>
-vnoremap <C-g> :call quickui#listbox#open(gitmenu,gopts)<cr>
+noremap <leader>g :call quickui#listbox#open(gitmenu,gopts)<cr>
+vnoremap <leader>g :call quickui#listbox#open(gitmenu,gopts)<cr>
 
 let quickmenu = [
 			  \ [ "Find Files &f", 'Files' ],
@@ -114,5 +114,5 @@ let quickmenu = [
 			  \ ]
 
 let qopts = {'Quick Menu': 'select one'}
-nnoremap <C-q> :call quickui#listbox#open(quickmenu,qopts)<cr>
-vnoremap <C-q> :call quickui#listbox#open(quickmenu,qopts)<cr>
+nnoremap <leader>q :call quickui#listbox#open(quickmenu,qopts)<cr>
+vnoremap <leader>q :call quickui#listbox#open(quickmenu,qopts)<cr>

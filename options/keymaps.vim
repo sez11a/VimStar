@@ -1,6 +1,6 @@
 " Custom key combos
 
-let mapleader=" "
+map <SPACE> <leader>
 nmap <silent> <F3> :Explore<CR>
 
 nnoremap <F4> :call ToggleFocusMode()<cr>
