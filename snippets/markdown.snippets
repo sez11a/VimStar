@@ -41,17 +41,10 @@ snippet __
 # `code`
 snippet `
 	\`${1}\`${2}
-
-snippet eeonly
-	![EE Only Feature](../../images/ee-feature-web.png)
-
 snippet image
-	![Figure x: ${2}](../../images/${1}.png)
+	![${3}](./${1}/images/${2}.png)
 snippet ra
 	&rarr;
-snippet sidebar
-	| **Note:** ${1}
-
 snippet add
 	![add](../../../images/icon-add.png)
 snippet Menu
@@ -59,4 +52,8 @@ snippet Menu
 snippet Options
 	![Options](../../../images/icon-options.png)
 snippet project
-	[Create a project](/docs/7-2/reference/-/knowledge_base/r/creating-a-project) 
+	[Create a project](/docs/7-2/reference/-/knowledge_base/r/creating-a-project)
+snippet docker
+	[$LIFERAY_LEARN_DXP_DOCKER_IMAGE$]
+snippet gittag
+	[$LIFERAY_LEARN_DXP_GIT_TAG$]
