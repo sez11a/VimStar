@@ -11,6 +11,7 @@ let g:focusmode=0
 Guifont! Iosevka Slab:h14
 
 set guioptions=mr
+GuiTabline 0 
 
 " Blinking cursor in insert mode
 set guicursor+=n-v-c:block-Cursor
