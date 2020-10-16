@@ -18,6 +18,9 @@ source $vimstar_options/startify.vim
 " overridden in .VimStar-user.vimrc, which is sourced
 " last and should be in your user folder.
 
+" Blinking cursor in insert mode
+set guicursor+=i:blinkon100
+
 " Browse files the WordStar way
 let g:netrw_liststyle = 2
 
