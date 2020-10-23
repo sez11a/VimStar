@@ -13,6 +13,7 @@ call quickui#menu#install('&File', [
    \ [ "&Change Working Dir\t^kl", 'cd %:p:h'],
    \ [ "&Terminal\t^kf", 'terminal' ],
    \ [ "&Update Plugins\t^ku", 'PlugUpdate' ],
+   \ [ "&Open Diary\t^kd", 'Diary' ],
    \ [ "E&xit VimStar", 'qa' ],
    \ ])
 
@@ -73,7 +74,8 @@ let blocksave = [
 			  \ [ "Abandon Changes &q", 'q!'],
 			  \ [ "Update Plugins &u", 'PlugUpdate'],
 			  \ [ "Terminal &f", 'terminal'],
-			  \ [ "Change Working Dir &l", 'cd %:p:h']
+			  \ [ "Change Working Dir &l", 'cd %:p:h'],
+           \ [ "Open Diary &d", 'Diary']
 			  \]
 let bopts = {'Block & Save': 'select one'}
 noremap <leader>k :call quickui#listbox#open(blocksave,bopts)<cr>

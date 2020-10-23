@@ -20,6 +20,7 @@ endif
 " let g:deoplete#enable_at_startup = 1
 
 Plug 'skywind3000/vim-quickui'
+Plug 'vimwiki/vimwiki'
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-surround'

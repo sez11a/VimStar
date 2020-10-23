@@ -228,3 +228,11 @@ command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+" Vimwiki Diary
+command! Diary VimwikiDiaryIndex
+augroup vimwikigroup
+    autocmd!
+    " automatically update links on read diary
+    autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
+augroup end
