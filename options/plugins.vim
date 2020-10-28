@@ -20,7 +20,6 @@ endif
 " let g:deoplete#enable_at_startup = 1
 
 Plug 'skywind3000/vim-quickui'
-Plug 'vimwiki/vimwiki'
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-surround'
@@ -65,4 +64,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'airblade/vim-rooter'
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
 call plug#end()

@@ -41,7 +41,7 @@ set signcolumn=yes
 " No vi compatibility
 set nocompatible
 set encoding=utf-8
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 
 "Airline Configuration
 let g:airline_powerline_fonts = 1
@@ -228,6 +228,9 @@ command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+" Vimwiki should not take over Markdown syntax
+let g:vimwiki_ext2syntax = {}
 
 " Vimwiki Diary
 command! Diary VimwikiDiaryIndex
