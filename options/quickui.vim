@@ -58,6 +58,7 @@ call quickui#menu#install('&Git', [
 	\ [ "Git Move &^gm", 'GMove' ],
 	\ [ "Git Delete &^gd", 'GDelete' ],
 	\ [ "Git Diff Staged &^gf", 'Gdiffsplit' ],
+   \ [ "Git Browse Head &^gb", 'Gedit HEAD' ],
 	\ ])
 
 let g:quickui_show_tip = 1
@@ -103,7 +104,8 @@ let gitmenu = [
 			\ [ "Git Write &w", 'Gwrite' ],
 			\ [ "Git Move &m", 'GMove' ],
 			\ [ "Git Delete &d", 'GDelete' ],
-			\ [ "Git Diff Staged &f", 'Gdiffsplit' ]
+			\ [ "Git Diff Staged &f", 'Gdiffsplit' ],
+         \ [ "Git Browse Head &b", 'Gedit HEAD' ]
 			\]
 
 let gopts = {'Git:': 'select one'}

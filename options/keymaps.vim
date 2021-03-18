@@ -24,3 +24,12 @@ inoremap <expr> <C-q>d wordchipper#chipWith('$')
 " inoremap <expr> <C-q>p wordchipper#chipWith('<C-o>')
 inoremap <expr> <C-q>y wordchipper#chipWith('d$')
 inoremap <expr> <C-q>t wordchipper#chipWith('dt')
+
+" Fugitive: go up a level in the tree with ..
+autocmd User fugitive 
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
+
+" Fugitive: Auto-clean up Fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
