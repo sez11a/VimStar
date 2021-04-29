@@ -50,10 +50,10 @@ call quickui#menu#install('&View', [
 
 " Git Menu
 call quickui#menu#install('&Git', [
-	\ [ "Git Status &^gs", 'Gstatus' ],
+	\ [ "Git Status &^gs", 'Git' ],
 	\ [ "Git Pull &^gp", 'Gpull' ],
 	\ [ "Git Push &^gu", 'Gpush' ],
-	\ [ "Git Commit &^gc", 'Gcommit' ],
+	\ [ "Git Commit &^gc", 'Git commit' ],
 	\ [ "Git Write &^gw", 'Gwrite' ],
 	\ [ "Git Move &^gm", 'GMove' ],
 	\ [ "Git Delete &^gd", 'GDelete' ],
@@ -97,10 +97,10 @@ let oopts = {'Onscreen Format': 'select one'}
 noremap <leader>o :call quickui#listbox#open(onscreen,oopts)<cr>
 
 let gitmenu = [
-			\ [ "Git Status &s", 'Gstatus' ],
+			\ [ "Git Status &s", 'Git' ],
 			\ [ "Git Pull &p", 'Gpull' ],
 			\ [ "Git Push &u", 'Gpush' ],
-			\ [ "Git Commit &c", 'Gcommit' ],
+			\ [ "Git Commit &c", 'Git commit' ],
 			\ [ "Git Write &w", 'Gwrite' ],
 			\ [ "Git Move &m", 'GMove' ],
 			\ [ "Git Delete &d", 'GDelete' ],
