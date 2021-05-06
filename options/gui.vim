@@ -1,7 +1,7 @@
 " GUI Settings
 
-" Default mode is normal
-let g:focusmode=0
+" Enable Mouse
+set mouse=a
 
 " If you wish for nostalgia, this font is in the
 " .VimStar/fonts folder.
@@ -13,11 +13,24 @@ Guifont! Iosevka Slab:h14
 set guioptions=mr
 GuiTabline 0 
 
+" Enable GUI Scrollbar
+if exists (':GuiScrollBar')
+	GuiScrollBar 1
+endif
+
+" Right Click Context Menu (Copy-Cut-Paste)
+nnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>
+inoremap <silent><RightMouse> <Esc>:call GuiShowContextMenu()<CR>
+vnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>gv
+
 " Blinking cursor in insert mode
 set guicursor+=n-v-c:block-Cursor
 set guicursor+=i:blinkwait700-blinkon400-blinkoff250
 highlight Cursor guifg=black guibg=white
 highlight iCursor guifg=red guibg=white
+
+" Default mode is normal
+let g:focusmode=0
 
 """ FocusMode
 function! ToggleFocusMode()
