@@ -34,7 +34,8 @@ func! CodeMode()
         set textwidth=0
         set nospell
 "		set number
-		set nofixendofline "this is for Liferay
+		set noendofline " this is for Liferay
+		set nofixendofline " this is for Liferay
         colorscheme $codecolors
         filetype detect
         :NoPencil
