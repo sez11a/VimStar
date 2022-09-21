@@ -14,6 +14,7 @@ func! WordProcessorMode()
   colorscheme $wpcolors
 "  colorscheme transparent
   filetype detect
+  :CocDisable
   let g:better_whitespace_enabled=0
   let g:strip_whitespace_on_save=0
   nnoremap <Leader>w :NextWordy<CR>
@@ -22,7 +23,7 @@ func! WordProcessorMode()
   let g:editmode=1
   let g:wrapmode=1
   syntax sync fromstart
-  call deoplete#custom#option('auto_complete', v:false)
+  " call deoplete#custom#option('auto_complete', v:false)
 
 endfu
 com! WP call WordProcessorMode()
@@ -36,21 +37,22 @@ func! CodeMode()
 "		set number
 		set noendofline " this is for Liferay
 		set nofixendofline " this is for Liferay
-        colorscheme $codecolors
-        filetype detect
-        :NoPencil
-        let g:better_whitespace_enabled=1
-        let g:strip_whitespace_on_save=1
-        let g:editmode=0
+      colorscheme $codecolors
+      filetype detect
+      :NoPencil
+      let g:better_whitespace_enabled=1
+      let g:strip_whitespace_on_save=1
+      let g:editmode=0
 		let g:wrapmode=0
-        syntax sync fromstart
-		let g:deoplete#omni_patterns = {}
-		let g:deoplete#omni_patterns.java = '[^. *\t]\. \w*'
-		let g:deoplete#auto_completion_start_length = 2
-		let g:deoplete#sources = {}
-		let g:deoplete#sources._ = []
-		let g:deoplete#file#enable_buffer_path = 1
-		call deoplete#custom#option('auto_complete', v:true)
+      syntax sync fromstart
+		:CocEnable
+		" let g:deoplete#omni_patterns = {}
+" 		let g:deoplete#omni_patterns.java = '[^. *\t]\. \w*'
+" 		let g:deoplete#auto_completion_start_length = 2
+" 		let g:deoplete#sources = {}
+" 		let g:deoplete#sources._ = []
+" 		let g:deoplete#file#enable_buffer_path = 1
+" 		call deoplete#custom#option('auto_complete', v:true)
 endfu
 com! CODE call CodeMode()
 

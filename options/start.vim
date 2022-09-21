@@ -2,6 +2,9 @@
 
 source $vimstar_options/plugins.vim
 
+" Conqueror of Completion
+source $vimstar_options/../plug-config/coc.vim
+
 " Editing Modes
 source $vimstar_options/modes.vim
 
@@ -17,6 +20,9 @@ source $vimstar_options/startify.vim
 " The options below are VimStar defaults. They can be
 " overridden in .VimStar-user.vimrc, which is sourced
 " last and should be in your user folder.
+
+" Stop CoC by default (but CoC is enabled)
+" let g:coc_start_at_startup=0
 
 " Blinking cursor in insert mode
 set guicursor+=i:blinkon100
@@ -84,10 +90,6 @@ let g:netrw_banner = 0
 
 " SnipMate parser version
 let g:snipMate = { 'snippet_version' : 1 }
-
-" Start deoplete, but disable it in default WP mode
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('auto_complete', v:false)
 
 " Remove Buffergator default keymaps
 let g:buffergator_suppress_keymaps=1
@@ -164,9 +166,6 @@ let g:ale_linters = {
 " Quit NERDTree on open
 "let NERDTreeQuitOnOpen = 1
 
-" Javacomplete2
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
 " FZF
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -242,3 +241,20 @@ augroup vimwikigroup
     " automatically update links on read diary
     autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
 augroup end
+
+let g:coc_filetypes_disable = [ 'md', 'rst' ]
+
+" Disable CoC for Markdown, RST
+function! s:disable_coc_for_type()
+  if index(g:coc_filetypes_disable, &filetype) > -1
+    :silent! CocDisable
+  else
+    :silent! CocEnable
+  endif
+endfunction
+
+augroup CocGroup
+ autocmd!
+ autocmd BufNew,BufEnter,BufAdd,BufCreate * call s:disable_coc_for_type()
+augroup end
+

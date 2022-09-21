@@ -57,6 +57,7 @@ call quickui#menu#install('&Git', [
 	\ [ "Git Write &^gw", 'Gwrite' ],
 	\ [ "Git Move &^gm", 'GMove' ],
 	\ [ "Git Delete &^gd", 'GDelete' ],
+	\ [ "Git Diff Master &^gm", 'Git difftool -y master' ],
 	\ [ "Git Diff Staged &^gf", 'Gdiffsplit' ],
    \ [ "Git Browse Head &^gb", 'Gedit HEAD' ],
 	\ ])
@@ -104,6 +105,7 @@ let gitmenu = [
 			\ [ "Git Write &w", 'Gwrite' ],
 			\ [ "Git Move &m", 'GMove' ],
 			\ [ "Git Delete &d", 'GDelete' ],
+			\ [ "Git Diff Master &m", 'Git difftool -y master' ],
 			\ [ "Git Diff Staged &f", 'Gdiffsplit' ],
          \ [ "Git Browse Head &b", 'Gedit HEAD' ]
 			\]

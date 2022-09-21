@@ -5,13 +5,13 @@ set mouse=a
 
 " If you wish for nostalgia, this font is in the
 " .VimStar/fonts folder.
-" Guifont! PxPlus_IBM_VGA9 Nerd Font:h14
+" set guifont=PxPlus_IBM_VGA9\ Nerd\ Font:h14
 
 " Use a modern mono font good for code and writing.
-Guifont! Iosevka Slab:h14
+set guifont=Iosevka\ Slab:h14
 
 set guioptions=mr
-GuiTabline 0 
+GuiTabline 0
 
 " Enable GUI Scrollbar
 if exists (':GuiScrollBar')
@@ -26,8 +26,8 @@ vnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>gv
 " Blinking cursor in insert mode
 set guicursor+=n-v-c:block-Cursor
 set guicursor+=i:blinkwait700-blinkon400-blinkoff250
-highlight Cursor guifg=black guibg=white
-highlight iCursor guifg=red guibg=white
+highlight Cursor guifg=black guibg=yellow
+highlight iCursor guifg=red guibg=yellow
 
 " Default mode is normal
 let g:focusmode=0
