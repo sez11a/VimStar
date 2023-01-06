@@ -39,6 +39,7 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'dracula/vim'
+Plug 'EdenEast/nightfox.nvim', { 'branch': 'main' }
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
 Plug 'Raimondi/VimRegStyle'

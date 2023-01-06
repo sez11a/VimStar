@@ -14,8 +14,11 @@
 " Change the default color schemes. This redefines the default 
 " scheme to Dracula (which also ships with VimStar) and then 
 " sets it to override the default xoria256-blue color scheme. 
+"
 " let $wpcolors='dracula'
 " let $codecolors='xoria256'
+"
+" Other color schemes are palenight, purify, and nightfox.
 
 " colorscheme $wpcolors
 
