@@ -3,7 +3,7 @@
 source $vimstar_options/plugins.vim
 
 " Conqueror of Completion
-source $vimstar_options/../plug-config/coc.vim
+" source $vimstar_options/../plug-config/coc.vim
 
 " Editing Modes
 source $vimstar_options/modes.vim
@@ -243,18 +243,18 @@ augroup vimwikigroup
     autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
 augroup end
 
-let g:coc_filetypes_disable = [ 'md', 'rst' ]
+" let g:coc_filetypes_disable = [ 'md', 'rst' ]
 
 " Disable CoC for Markdown, RST
-function! s:disable_coc_for_type()
-  if index(g:coc_filetypes_disable, &filetype) > -1
-    :silent! CocDisable
-  else
-    :silent! CocEnable
-  endif
-endfunction
+" function! s:disable_coc_for_type()
+"   if index(g:coc_filetypes_disable, &filetype) > -1
+"     :silent! CocDisable
+"   else
+"     :silent! CocEnable
+"   endif
+" endfunction
 
-augroup CocGroup
- autocmd!
- autocmd BufNew,BufEnter,BufAdd,BufCreate * call s:disable_coc_for_type()
-augroup end
+" augroup CocGroup
+"  autocmd!
+"  autocmd BufNew,BufEnter,BufAdd,BufCreate * call s:disable_coc_for_type()
+" augroup end

@@ -9,7 +9,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Stable version of coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " if has('nvim')
 "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -21,6 +21,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "
 " Start deoplete in start.vim
 " let g:deoplete#enable_at_startup = 1
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'folke/neodev.nvim'
+Plug 'j-hui/fidget.nvim'
+
 
 Plug 'skywind3000/vim-quickui'
 " Plug 'deoplete-plugins/deoplete-jedi'

@@ -8,7 +8,8 @@ set mouse=a
 " set guifont=PxPlus_IBM_VGA9\ Nerd\ Font:h14
 
 " Use a modern mono font good for code and writing.
-set guifont=Iosevka\ Slab:h14
+" set guifont=Iosevka\ Term\ Slab:h14
+:execute "GuiFont! Iosevka Term Slab:h12"
 
 set guioptions=mr
 GuiTabline 0

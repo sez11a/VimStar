@@ -5,6 +5,7 @@ endif
 
 " Main configuration
 source $vimstar_options/start.vim
+:luafile $vimstar_options/../lua/init.lua
 
 " User configuration
 source ~/.VimStar-user.vimrc
