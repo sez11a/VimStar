@@ -14,7 +14,6 @@ func! WordProcessorMode()
   colorscheme $wpcolors
 "  colorscheme transparent
   filetype detect
-  :CocDisable
   let g:better_whitespace_enabled=0
   let g:strip_whitespace_on_save=0
   nnoremap <Leader>w :NextWordy<CR>
@@ -45,7 +44,6 @@ func! CodeMode()
       let g:editmode=0
 		let g:wrapmode=0
       syntax sync fromstart
-		:CocEnable
 		" let g:deoplete#omni_patterns = {}
 " 		let g:deoplete#omni_patterns.java = '[^. *\t]\. \w*'
 " 		let g:deoplete#auto_completion_start_length = 2
