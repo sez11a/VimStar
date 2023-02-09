@@ -1,6 +1,6 @@
 # Welcome to VimStar! 
 
-This is a NeoVim/Vim  distribution optimized for *writing*. Colors and fonts (in GUI mode) are a homage to WordStar. 
+This is a NeoVim  distribution optimized for *writing*. Colors and fonts (in GUI mode) are a homage to WordStar. 
 
 ## Quick Guide: 
 
