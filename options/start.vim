@@ -138,6 +138,7 @@ set hidden
 " Enable Pencil word processing plugin
 let g:pencil#wrapModeDefault = 'soft'
 let g:pencil#autoformat = 0
+let g:pencil#conceallevel=0
 augroup pencil
   autocmd!
   autocmd FileType markdown,mkd call pencil#init()

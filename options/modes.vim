@@ -18,6 +18,7 @@ func! WordProcessorMode()
   let g:strip_whitespace_on_save=0
   nnoremap <Leader>w :NextWordy<CR>
   nnoremap <Leader>q :NoWordy<CR>
+  let g:pencil#conceallevel=0
   call pencil#init()
   let g:editmode=1
   let g:wrapmode=1
@@ -44,13 +45,7 @@ func! CodeMode()
       let g:editmode=0
 		let g:wrapmode=0
       syntax sync fromstart
-		" let g:deoplete#omni_patterns = {}
-" 		let g:deoplete#omni_patterns.java = '[^. *\t]\. \w*'
-" 		let g:deoplete#auto_completion_start_length = 2
-" 		let g:deoplete#sources = {}
-" 		let g:deoplete#sources._ = []
-" 		let g:deoplete#file#enable_buffer_path = 1
-" 		call deoplete#custom#option('auto_complete', v:true)
+      :COQnow --shut-up
 endfu
 com! CODE call CodeMode()
 

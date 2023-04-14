@@ -1,7 +1,7 @@
 require('nvim-treesitter.configs').setup {
 	 -- one of "all", "maintained" (parsers with maintainers),
 	 -- or a list of languages
-	 ensure_installed = { "c", "cpp", "java", "lua", "python", "rust", "typescript", "help", "vim", "javascript", "ruby", "elixir", "comment" },
+	 ensure_installed = { "c", "cpp", "java", "lua", "python", "rust", "typescript", "vimdoc", "vim", "javascript", "ruby", "elixir", "comment" },
 
 	 highlight = { enable = true },
 	 indent = { enable = true, disable = { 'python' } },

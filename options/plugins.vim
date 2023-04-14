@@ -24,7 +24,7 @@ Plug 'ms-jpq/coq.thirdparty', { 'branch': '3p' }
 Plug 'skywind3000/vim-quickui'
 Plug 'tpope/vim-surround'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
-Plug 'plasticboy/vim-markdown'
+Plug 'preservim/vim-markdown'
 Plug 'vim-voom/VOoM'
 Plug 'vim-airline/vim-airline'
 Plug 'garbas/vim-snipmate'
