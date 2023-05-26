@@ -72,4 +72,5 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'airblade/vim-rooter'
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
+Plug 'kalafut/vim-taskjuggler'
 call plug#end()
