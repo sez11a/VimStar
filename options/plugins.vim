@@ -24,8 +24,14 @@ Plug 'ms-jpq/coq.thirdparty', { 'branch': '3p' }
 Plug 'skywind3000/vim-quickui'
 Plug 'tpope/vim-surround'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
+
+" Markdown Requires below
+Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
+
+" Requires Python
 Plug 'vim-voom/VOoM'
+
 Plug 'vim-airline/vim-airline'
 Plug 'garbas/vim-snipmate'
 " Required by snipmate
@@ -56,7 +62,6 @@ Plug 'kshenoy/vim-signature'
 Plug 'reedes/vim-pencil'
 Plug 'reedes/vim-wordchipper'
 Plug 'iamcco/markdown-preview.nvim', {  'do': { ->mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
-Plug 'godlygeek/tabular'
 " Plug 'artur-shaik/vim-javacomplete2'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mhinz/vim-startify'
