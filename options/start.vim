@@ -100,6 +100,9 @@ let g:vim_markdown_folding_disabled=1
 " Never auto-insert bullets; conflicts with Pencil
 " let g:vim_markdown_auto_insert_bullets=0
 
+" Highlight YAML front matter
+let g:vim_markdown_frontmatter = 1
+
 " Enable fenced code blocks for software documentation
 let g:vim_markdown_fenced_languages = ['properties=jproperties', 'bash=sh', 'markup=jsp']
 
