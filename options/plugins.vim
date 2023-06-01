@@ -8,6 +8,7 @@ endif
 " VimPlug plugins
 call plug#begin('~/.vim/plugged')
 
+" Completion 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
@@ -21,61 +22,62 @@ Plug 'ms-jpq/coq_nvim', { 'branch': 'coq' }
 Plug 'ms-jpq/coq.artifacts', { 'branch': 'artifacts' }
 Plug 'ms-jpq/coq.thirdparty', { 'branch': '3p' }
 
+" Core functionality
 Plug 'skywind3000/vim-quickui'
 Plug 'tpope/vim-surround'
-Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/vim-wordy'
+Plug 'preservim/vim-pencil'
+Plug 'preservim/vim-wordchipper'
 
-" Markdown Requires below
-Plug 'godlygeek/tabular'
+" Syntax
+Plug 'godlygeek/tabular' "Required by vim-markdown
 Plug 'preservim/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', {  'do': { ->mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+Plug 'vimoutliner/vimoutliner'
+Plug 'andreshazard/vim-freemarker'
+Plug 'kalafut/vim-taskjuggler'
+Plug 'dbeniamine/todo.txt-vim'
 
-" Requires Python
-Plug 'vim-voom/VOoM'
-
+" Extra Functionality
+Plug 'vim-voom/VOoM' "requires Python
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'kshenoy/vim-signature'
+Plug 'tomtom/tlib_vim' "required by snipmate
+Plug 'MarcWeber/vim-addon-mw-utils' "required by snipmate
 Plug 'garbas/vim-snipmate'
-" Required by snipmate
-Plug 'tomtom/tlib_vim'
-" Required by snipmate
-Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tfnico/vim-gradle'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'dense-analysis/ale'
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'mhinz/vim-startify'
+Plug 'neomake/neomake'
+Plug 'airblade/vim-rooter'
+
 " Various Color Schemes
-" Plug 'flazz/vim-colorschemes'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'dracula/vim'
 Plug 'EdenEast/nightfox.nvim', { 'branch': 'main' }
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'joshdick/onedark.vim'
-Plug 'dahu/vimple'
-Plug 'dahu/Asif'
-Plug 'Raimondi/VimRegStyle'
-Plug 'dahu/vim-asciidoc'
-Plug 'vimoutliner/vimoutliner'
-Plug 'jceb/vim-orgmode'
-Plug 'tpope/vim-fugitive'
-Plug 'tfnico/vim-gradle'
-Plug 'dbeniamine/todo.txt-vim'
-Plug 'tpope/vim-speeddating'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'reedes/vim-wordy'
-Plug 'kshenoy/vim-signature'
-Plug 'reedes/vim-pencil'
-Plug 'reedes/vim-wordchipper'
-Plug 'iamcco/markdown-preview.nvim', {  'do': { ->mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
-" Plug 'artur-shaik/vim-javacomplete2'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'mhinz/vim-startify'
-Plug 'airblade/vim-gitgutter'
-Plug 'neomake/neomake'
-Plug 'andreshazard/vim-freemarker'
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'ryanoasis/vim-devicons'
-Plug 'dense-analysis/ale'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim'
-Plug 'airblade/vim-rooter'
-Plug 'vimwiki/vimwiki'
-Plug 'mattn/calendar-vim'
-Plug 'kalafut/vim-taskjuggler'
+
+" Testing removal
+" All the below are required by vim-asciidoc
+" Plug 'dahu/vimple'
+" Plug 'dahu/Asif'
+" Plug 'Raimondi/VimRegStyle'
+" Plug 'dahu/vim-asciidoc'
+"
+" Plug 'jceb/vim-orgmode'
+" Plug 'tpope/vim-speeddating'
+" Plug 'jeetsukumaran/vim-buffergator'
 call plug#end()
