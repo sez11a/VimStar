@@ -1,6 +1,10 @@
 return {
   -- required by vim-markdown
   {
+    "tpope/vim-surround",
+    lazy = false,
+  },
+  {
     "godlygeek/tabular",
     lazy = false,
   },
@@ -16,6 +20,12 @@ return {
   {
     "preservim/vim-pencil",
     ft = "markdown",
+    config = function ()
+      vim.cmd("let g:pencil#wrapModeDefault = 'soft'")
+      vim.cmd("let g:pencil#autoformat = 0")
+      vim.cmd("let g:pencil#conceallevel = 0")
+      vim.cmd("call pencil#init()")
+    end,
   },
   {
     "preservim/vim-wordchipper",
