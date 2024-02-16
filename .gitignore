@@ -4,3 +4,6 @@ plugged/
 vimrc
 spell/
 .netrwhist
+vimstar-user.lua
+lazy-lock.json
+.luarc.json
