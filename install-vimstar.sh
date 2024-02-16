@@ -27,7 +27,7 @@ ln -sfnv ~/.VimStar ~/.config/nvim
 
 if [ ! -f ".VimStar.vimrc" ]; then
     echo "Copying default config to ~/.VimStar.vimrc"
-    cp ~/.VimStar/vimstar-user-template ~/.VimStar/vimstar-user.lua
+    cp ~/.VimStar/vimstar-user-template ~/.VimStar/lua/vimstar-user.lua
 fi
 
 # echo "Installing Vim-Plug"
