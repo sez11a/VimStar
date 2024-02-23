@@ -1,0 +1,63 @@
+# [link][]
+snippet []
+	[${1:link_id}][]${2}
+# [link][id]
+snippet [[
+	[${1:link}][${2:id}]${3}
+# [link](url)
+snippet [(
+	[${1:link}](http://${2:url})${3}
+# [link](email)
+snippet [@
+	[${1:link}(mailto:${2:email})${3}
+# [link](url "title")
+snippet [("
+	[${1:link}](${2:url} "${3:title}")${4}
+# [id]: url "title"
+snippet [:
+	[${1:id}]: http://${2:url} "${3:title}"
+# [id]: email "title"
+snippet [:@
+	[${1:id}]: mailto:${2:url} "${3:title}"
+# ![alt][id]
+snippet ![
+	![${1:alt}][${2:id}]${3}
+# ![alt](url)
+snippet !(
+	![${1:alt}](${2:url})${3}
+# ![alt](url "title")
+snippet !("
+	![${1:alt}](${2:url} "${3:title}")${4}
+# *emphasis* or _emphasis_
+snippet *
+	*${1}*${2}
+snippet _
+	_${1}_${2}
+# **strong** or __strong__
+snippet **
+	**${1}**${2}
+snippet __
+	__${1}__${2}
+# `code`
+snippet `
+	\`${1}\`${2}
+snippet image
+	![${3}](./${1}/images/${2}.png)
+snippet ra
+	&rarr;
+snippet add
+	![add](../../../images/icon-add.png)
+snippet Menu
+	![Menu](../../../images/icon-menu.png)
+snippet Options
+	![Options](../../../images/icon-options.png)
+snippet project
+	[Create a project](/docs/7-2/reference/-/knowledge_base/r/creating-a-project)
+snippet docker
+	[$LIFERAY_LEARN_DXP_DOCKER_IMAGE$]
+snippet gittag
+	[$LIFERAY_LEARN_PORTAL_GIT_TAG$]
+snippet ported
+	<aside class="alert alert-info">
+		<span class="wysiwyg-color-blue120">This document has been updated and ported to <a href="${1}">Liferay Learn</a> and is no longer maintained here.</span>
+	</aside>
