@@ -1,9 +1,9 @@
 return {
-  -- required by vim-markdown
   {
     "tpope/vim-surround",
     lazy = false,
   },
+  -- required by vim-markdown
   {
     "godlygeek/tabular",
     lazy = false,
@@ -12,6 +12,16 @@ return {
     "preservim/vim-markdown",
     lazy = false,
     ft = "markdown",
+  },
+  {
+    "chentoast/marks.nvim",
+    config = function()
+      require'marks'.setup {
+        default_mappings = true,
+        cyclic = true,
+        refresh_interval = 250,
+      }
+    end
   },
   {
     "preservim/vim-wordy",

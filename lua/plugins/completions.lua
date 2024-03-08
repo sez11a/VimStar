@@ -14,6 +14,7 @@ return {
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_snipmate").lazy_load({paths = "./snippets"})
 
       cmp.setup({
         snippet = {
@@ -34,6 +35,7 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
+          { name = "path" },
           { name = "luasnip" }, -- For luasnip users.
         }, {
           { name = "buffer" },
