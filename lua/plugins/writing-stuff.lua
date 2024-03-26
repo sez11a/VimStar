@@ -51,4 +51,8 @@ return {
     "vim-voom/VOoM",
     lazy = false,
   },
+  {
+    "ishchow/nvim-deardiary",
+    lazy = false
+  },
 }

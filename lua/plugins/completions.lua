@@ -1,11 +1,16 @@
 return {
   {
-    "hrsh7th/cmp-nvim-lsp"
-  },
-  { "hrsh7th/cmp-buffer" 
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = true
   },
   {
-    "hrsh7th/cmp-path" 
+    "hrsh7th/cmp-nvim-lsp"
+  },
+  { "hrsh7th/cmp-buffer"
+  },
+  {
+    "hrsh7th/cmp-path"
   },
   {
     "L3MON4D3/LuaSnip",
@@ -20,6 +25,12 @@ return {
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
       require("luasnip.loaders.from_snipmate").lazy_load({paths = "./snippets"})
+
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
 
       cmp.setup({
         snippet = {
