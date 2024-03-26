@@ -1,66 +1,82 @@
 # [link][]
 snippet []
-	[${1:link_id}][]${2}
+  [${1:link_id}][]${2}
 # [link][id]
 snippet [[
-	[${1:link}][${2:id}]${3}
+  [${1:link}][${2:id}]${3}
 # [link](url)
 snippet [(
-	[${1:link}](http://${2:url})${3}
+  [${1:link}](http://${2:url})${3}
 # [link](email)
 snippet [@
-	[${1:link}(mailto:${2:email})${3}
+  [${1:link}(mailto:${2:email})${3}
 # [link](url "title")
 snippet [("
-	[${1:link}](${2:url} "${3:title}")${4}
+  [${1:link}](${2:url} "${3:title}")${4}
 # [id]: url "title"
 snippet [:
-	[${1:id}]: http://${2:url} "${3:title}"
+  [${1:id}]: http://${2:url} "${3:title}"
 # [id]: email "title"
 snippet [:@
-	[${1:id}]: mailto:${2:url} "${3:title}"
+  [${1:id}]: mailto:${2:url} "${3:title}"
 # ![alt][id]
 snippet ![
-	![${1:alt}][${2:id}]${3}
+  ![${1:alt}][${2:id}]${3}
 # ![alt](url)
 snippet !(
-	![${1:alt}](${2:url})${3}
+  ![${1:alt}](${2:url})${3}
 # ![alt](url "title")
 snippet !("
-	![${1:alt}](${2:url} "${3:title}")${4}
+  ![${1:alt}](${2:url} "${3:title}")${4}
 # *emphasis* or _emphasis_
 snippet *
-	*${1}*${2}
+  *${1}*${2}
 snippet _
-	_${1}_${2}
+  _${1}_${2}
 # **strong** or __strong__
 snippet **
-	**${1}**${2}
+  **${1}**${2}
 snippet __
-	__${1}__${2}
+  __${1}__${2}
 # `code`
 snippet `
-	\`${1}\`${2}
+  \`${1}\`${2}
 snippet image
-	![${3}](./${1}/images/${2}.png)
+  ![${3}](./${1}/images/${2}.png)
 snippet ra
-	&rarr;
+  &rarr;
 snippet add
-	![add](../../../images/icon-add.png)
+  ![add](../../../images/icon-add.png)
 snippet Menu
-	![Menu](../../../images/icon-menu.png)
+  ![Menu](../../../images/icon-menu.png)
 snippet Options
-	![Options](../../../images/icon-options.png)
+  ![Options](../../../images/icon-options.png)
 snippet project
-	[Create a project](/docs/7-2/reference/-/knowledge_base/r/creating-a-project)
+  [Create a project](/docs/7-2/reference/-/knowledge_base/r/creating-a-project)
 snippet docker
-	[$LIFERAY_LEARN_DXP_DOCKER_IMAGE$]
+  [$LIFERAY_LEARN_DXP_DOCKER_IMAGE$]
 snippet gittag
-	[$LIFERAY_LEARN_PORTAL_GIT_TAG$]
+  [$LIFERAY_LEARN_PORTAL_GIT_TAG$]
 snippet ported
-	<aside class="alert alert-info">
-		<span class="wysiwyg-color-blue120">This document has been updated and ported to <a href="${1}">Liferay Learn</a> and is no longer maintained here.</span>
-	</aside>
+  <aside class="alert alert-info">
+    <span class="wysiwyg-color-blue120">This document has been updated and ported to <a href="${1}">Liferay Learn</a> and is no longer maintained here.</span>
+  </aside>
 snippet beta
-	!!! warning
-			This feature is currently behind a beta feature flag. See [Beta Feature Flags](../../../system-administration/configuring-liferay/feature-flags.md#beta-feature-flags) for more information. Configuring an unsupported content security policy can cause your instance to malfunction.
+  !!! warning
+      This feature is currently behind a beta feature flag. See [Beta Feature Flags](../../../system-administration/configuring-liferay/feature-flags.md#beta-feature-flags) for more information. Configuring an unsupported content security policy can cause your instance to malfunction.
+snippet grid
+  ::::{grid} 2
+  :gutter: 3 3 3 3
+
+  :::{grid-item-card}  Building A Thing
+  :link: ./tutorials/building-a-thing.md
+  :::
+
+  :::{grid-item-card}  Building Another Thing
+  :link: ./tutorials/building-another-thing.md
+  :::
+
+  :::{grid-item-card}  Building A Third Thing
+  :link: ./tutorials/building-a-third-thing.md
+  :::
+  ::::
