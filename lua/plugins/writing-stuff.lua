@@ -37,6 +37,14 @@ return {
       vim.cmd("call pencil#init()")
     end,
   },
+     {
+        'jakewvincent/mkdnflow.nvim',
+        config = function()
+            require('mkdnflow').setup({
+                -- Config goes here; leave blank for defaults
+            })
+        end
+    },
   {
     "preservim/vim-wordchipper",
     ft = "markdown",

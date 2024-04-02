@@ -1,4 +1,4 @@
 return {
-  'serenevoid/kiwi.nvim',
-  dependencies = { 'nvim-lua/plenary.nvim' }
+--  'serenevoid/kiwi.nvim',
+--  dependencies = { 'nvim-lua/plenary.nvim' }
 }
