@@ -76,7 +76,6 @@ set relativenumber
 
 " Wrap automatically
 set wrap
-set diffopt+=followwrap
 set linebreak
 set nolist
 
@@ -258,7 +257,8 @@ augroup end
 "   endif
 " endfunction
 
-" augroup CocGroup
-"  autocmd!
-"  autocmd BufNew,BufEnter,BufAdd,BufCreate * call s:disable_coc_for_type()
-" augroup end
+augroup CocGroup
+ autocmd!
+ autocmd BufNew,BufEnter,BufAdd,BufCreate * call s:disable_coc_for_type()
+augroup end
+
