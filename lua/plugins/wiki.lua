@@ -25,6 +25,12 @@ return {
           end,
           source_filename = "~/.VimStar/wiki/templates/monthly.md"
         },
+        {
+          match_func = function(context)
+            return context.path_wiki:find "agendas/."
+          end,
+          source_filename = "~/.VimStar/wiki/templates/agenda.md"
+        },
       }
       vim.cmd[[noremap [w <plug>(wiki-journal-prev)]]
       vim.cmd[[noremap ]w <plug>(wiki-journal-next)]]
