@@ -39,6 +39,12 @@ return {
   },
   {
   'lervag/lists.vim',
+    init = function()
+      vim.g.lists_filetypes = {
+          'md',
+          'mkd'
+      }
+    end
   },
   --  Markdown Markmap, not related to wiki but used within it
   {
