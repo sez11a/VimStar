@@ -38,5 +38,5 @@ vim.cmd("let g:airline#extensions#tabline#enabled=1")
 vim.g.airline_powerline_fonts = 1
 
 function WikiMonthLink()
-  print(os.date("[%B %Y](/journal/%Y/%m/plan.md)"))
+  return print(os.date("[%B %Y](/journal/%Y/%m/plan.md)"))
 end
