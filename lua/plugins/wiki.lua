@@ -31,6 +31,24 @@ return {
           end,
           source_filename = "~/.VimStar/wiki/templates/agenda.md"
         },
+        {
+          match_re = ".*",
+          source_func = function(ctx)
+          vim.api.nvim_put({
+              "# " .. ctx.name,
+              "",
+              os.date("[%B %Y](/journal/%Y/%m/plan.md)"),
+              "",
+              "# Schedule",
+              "",
+              "# Actions",
+              "",
+              "# Roles",
+              "",
+              "# Notes",
+            }, "l", false, false)
+        end
+        },
       }
       vim.cmd[[noremap [w <plug>(wiki-journal-prev)]]
       vim.cmd[[noremap ]w <plug>(wiki-journal-next)]]
