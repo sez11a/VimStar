@@ -1,5 +1,7 @@
 # {name}
 
+{{WikiMonthLink}}
+
 ## Schedule
 
 
