@@ -1,1 +1,2 @@
+-- Change the below path if you want to sync your wiki
 vim.g.wiki_root = '~/.VimStar/wiki'
