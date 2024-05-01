@@ -15,12 +15,6 @@ return {
       vim.g.wiki_templates = {
         {
           match_func = function(context)
-            return context.path_wiki:find "%d%d%d%d/%d%d/%d%d"
-          end,
-          source_filename = "~/.VimStar/wiki/templates/daily.md"
-        },
-        {
-          match_func = function(context)
             return context.path_wiki:find "%d%d%d%d/%d%d/plan"
           end,
           source_filename = "~/.VimStar/wiki/templates/monthly.md"
@@ -32,10 +26,11 @@ return {
           source_filename = "~/.VimStar/wiki/templates/agenda.md"
         },
         {
+          -- The daily plan is a catch-all matched last as a function
           match_re = ".*",
           source_func = function(ctx)
           vim.api.nvim_put({
-              "# " .. ctx.name,
+              "# " .. os.date("%A, %B %d, %Y"),
               "",
               os.date("[%B %Y](/journal/%Y/%m/plan.md)"),
               "",
