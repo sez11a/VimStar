@@ -26,6 +26,18 @@ return {
           source_filename = "~/.VimStar/wiki/templates/agenda.md"
         },
         {
+          match_func = function(context)
+            return context.path_wiki:find "actions/."
+          end,
+          source_filename = "~/.VimStar/wiki/templates/actions.md"
+        },
+        {
+          match_func = function(context)
+            return context.path_wiki:find "projects/."
+          end,
+          source_filename = "~/.VimStar/wiki/templates/project.md"
+        },
+        {
           -- The daily plan is a catch-all matched last as a function
           match_re = ".*",
           source_func = function(ctx)
