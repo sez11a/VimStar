@@ -51,4 +51,29 @@ return {
     "vim-voom/VOoM",
     lazy = false,
   },
+  {
+    "FotiadisM/tabset.nvim",
+      config = function()
+        require("tabset").setup({
+          defaults = {
+            tabwidth = 2,
+            expandtab = true
+          },
+          languages = {
+            java = {
+              tabwidth = 4,
+              expandtab = false,
+          },
+          {
+            filetypes = { "markdown", "mkd", "yaml"},
+              config = {
+                tabwidth = 2,
+                expandtab = 2,
+                softtabstop = 2
+            }
+          }
+        }
+      })
+      end
+  },
 }
