@@ -45,21 +45,24 @@ return {
         },
         {
           -- The daily plan is a catch-all matched last as a function
-          match_re = ".*",
-          source_func = function(ctx)
-          vim.api.nvim_put({
-              "# " .. os.date("%A, %B %d, %Y"),
-              "",
-              os.date("[%B %Y](/journal/%Y/%m/plan.md)"),
-              "",
-              "# Schedule",
-              "",
-              "# Actions",
-              "",
-              "# Roles",
-              "",
-              "# Notes",
-            }, "l", false, false)
+          --match_re = ".*",
+          -- source_func = function(ctx)
+          match_func = function(context)
+            if context.path_wiki:find "%d%d%d%d/%d%d/%d%d" then
+              vim.api.nvim_put({
+                  "# " .. os.date("%A, %B %d, %Y"),
+                  "",
+                  os.date("[%B %Y](/journal/%Y/%m/plan.md)"),
+                  "",
+                  "# Schedule",
+                  "",
+                  "# Actions",
+                  "",
+                  "# Roles",
+                  "",
+                  "# Notes",
+                }, "l", false, false)
+            end
         end
         },
       }
