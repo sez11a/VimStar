@@ -33,6 +33,12 @@ return {
         },
         {
           match_func = function(context)
+            return context.path_wiki:find "notes/."
+          end,
+          source_filename = "~/.VimStar/wiki/templates/notes.md"
+        },
+        {
+          match_func = function(context)
             return context.path_wiki:find "projects/."
           end,
           source_filename = "~/.VimStar/wiki/templates/project.md"
