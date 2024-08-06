@@ -5,55 +5,47 @@ map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
 
 local wk = require("which-key")
-
-wk.register({
-  ["<leader>"] = {
-    k = {
-      name = "Block and Save",
-      s = { "<cmd> w <CR>", "Save" },
-      e = { "<cmd> enew <CR>", "New Buffer" },
-      j = { "<cmd> bd <CR>", "Close Buffer" },
-      x = { "<cmd> wq <CR>", "Save and Exit" },
-      o = { "<cmd> Explore <CR>", "Open File" },
-      q = { "<cmd> q! <CR>", "Abandon Changes and Quit" },
-      f = { "<cmd> terminal <CR>", "Open Terminal" },
-      l = { "<cmd> cd %:p:h <CR>", "Change Working Dir" },
-      t = {
-        function()
+wk.add(
+  {
+    -- Git Menu
+    { "<leader>g", group = "Git" },
+    { "<leader>gb", "<cmd> Gedit HEAD <CR>", desc = "Git Browse Head" },
+    { "<leader>gc", "<cmd> Git commit <CR>", desc = "Git Commit" },
+    { "<leader>gm", "<cmd> Git difftool -y master <CR>", desc = "Git Diff Master" },
+    { "<leader>gp", "<cmd> Gitsigns preview_hunk <CR>", desc = "Preview Hunk" },
+    { "<leader>gs", "<cmd> Git <CR>", desc = "Git Status" },
+    { "<leader>gt", "<cmd> Gitsigns toggle_current_line_blame <CR>", desc = "Toggle Current Line Blame" },
+    -- Block and Save Menu
+    { "<leader>k", group = "Block and Save" },
+    { "<leader>ke", "<cmd> enew <CR>", desc = "New Buffer" },
+    { "<leader>kf", "<cmd> terminal <CR>", desc = "Open Terminal" },
+    { "<leader>kj", "<cmd> bd <CR>", desc = "Close Buffer" },
+    { "<leader>kl", "<cmd> cd %:p:help |<CR>|", desc = "Change Working Dir" },
+    { "<leader>ko", "<cmd> Explore <CR>", desc = "Open File" },
+    { "<leader>kq", "<cmd> q! <CR>", desc = "Abandon Changes and Quit" },
+    { "<leader>ks", "<cmd> w <CR>", desc = "Save" },
+    { "<leader>kt", function()
           if vim.bo.filetype == "neo-tree" then
             vim.cmd.wincmd "p"
           else
             vim.cmd.Neotree "toggle"
           end
-        end,
-        "Toggle Neotree",
-      },
-    },
-    o = {
-      name = "Onscreen Format",
-      p = { "<cmd> MarkdownPreview <CR>", "Markdown Preview" },
-      m = { "<cmd> MarkdownPreviewStop <CR>", "Stop Markdown Preview" },
-      k = { "<cmd> bnext <CR>", "Next Buffer" },
-      l = { "<cmd> ToggleDiag <CR>", "Toggle Diagnostics" },
-      s = { "<cmd> set spell <CR>", "Spell Check" },
-      o = { "<cmd> set nospell <CR>", "Spell Check Off" },
-      u = { "<cmd> call voom#Init('markdown', 1, 1) <CR>", "Toggle Outline" },
-      f = { vim.lsp.buf.format, "Format Buffer" },
-      d = { vim.lsp.buf.definition, "Show Definition" },
-      r = { vim.lsp.buf.references, "Show References" },
-      a = { vim.lsp.buf.code_action, "Code Actions" }
-    },
-    g = {
-      name = "Git",
-      c = { "<cmd> Git commit <CR>", "Git Commit" },
-      m = { "<cmd> Git difftool -y master <CR>", "Git Diff Master" },
-      s = { "<cmd> Git <CR>", "Git Status" },
-      b = { "<cmd> Gedit HEAD <CR>", "Git Browse Head" },
-      p = { "<cmd> Gitsigns preview_hunk <CR>", "Preview Hunk" },
-      t = { "<cmd> Gitsigns toggle_current_line_blame <CR>", "Toggle Current Line Blame" }
-    }
-  }
-})
+        end, desc = "Toggle Neotree" },
+    { "<leader>kx", "<cmd> wq <CR>", desc = "Save and Exit" },
+    -- Onscreen Format menu
+    { "<leader>o", group = "Onscreen Format" },
+    { "<leader>oa", vim.lsp.buf.code_action, desc = "Code Actions" },
+    { "<leader>od", vim.lsp.buf.definition, desc = "Show Definition" },
+    { "<leader>of", vim.lsp.buf.format, desc = "Format Buffer" },
+    { "<leader>ok", "<cmd> bnext <CR>", desc = "Next Buffer" },
+    { "<leader>ol", "<cmd> ToggleDiag <CR>", desc = "Toggle Diagnostics" },
+    { "<leader>om", "<cmd> MarkdownPreviewStop <CR>", desc = "Stop Markdown Preview" },
+    { "<leader>oo", "<cmd> set nospell <CR>", desc = "Spell Check Off" },
+    { "<leader>op", "<cmd> MarkdownPreview <CR>", desc = "Markdown Preview" },
+    { "<leader>or", vim.lsp.buf.references, desc = "Show References" },
+    { "<leader>os", "<cmd> set spell <CR>", desc = "Spell Check" },
+    { "<leader>ou", "<cmd> call voom#Init('markdown', 1, 1) <CR>", desc = "Toggle Outline" },
+  })
 
 -- Navigate vim panes better
 vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')

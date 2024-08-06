@@ -18,6 +18,7 @@ vim.opt.wrap = true
 vim.opt.diffopt:append { "followwrap" }
 vim.opt.linebreak = true
 vim.opt.spell = true
+vim.opt.clipboard = "unnamedplus"
 vim.netrw_liststyle = 2
 vim.g.vim_markdown_folding_disabled = 1
 vim.g.voom_tree_placement = "right"
