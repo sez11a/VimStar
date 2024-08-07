@@ -14,6 +14,10 @@ return {
     ft = "markdown",
   },
   {
+    "vimoutliner/vimoutliner",
+    lazy = false,
+  },
+  {
     "chentoast/marks.nvim",
     config = function()
       require'marks'.setup {
