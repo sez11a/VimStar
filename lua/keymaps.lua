@@ -5,6 +5,7 @@ map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
 
 local wk = require("which-key")
+
 wk.add(
   {
     -- Git Menu
