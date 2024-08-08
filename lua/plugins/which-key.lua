@@ -10,13 +10,19 @@ return {
        -- your configuration comes here
        -- or leave it empty to use the default settings
        -- refer to the configuration section below
-       window = {
-         border = "single", -- double, rounded, single, shadow
-         position = "top", -- bottom, top
-         margin = {1, 0, 1, 0}, -- extra window margin [top, right, bottom, left]
-         padding = {2, 2, 2, 2}, -- extra window padding [top, right, bottom, left]
-         winblend = 0,
-       },
-     }
-   }
+      -- win = {
+      --   border = "single", -- double, rounded, single, shadow
+      --   position = "top", -- bottom, top
+      -- },
+     },
+      keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)"
+      },
+    },
+   },
 }
