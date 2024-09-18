@@ -4,10 +4,18 @@ local expr_options = { expr = true, silent = true }
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
 
+local builtin = require("telescope.builtin")
+
 local wk = require("which-key")
 
 wk.add(
   {
+    -- Debug Menu
+    { "<leader>d", group = "Debug" },
+    { "<leader>dt", "<cmd> DapToggleBreakpoint <CR>", desc = "Toggle Breakpoint" },
+    { "<leader>dc", "<cmd> DapContinue <CR>", desc = "Continue" },
+    { "<leader>dx", "<cmd> DapTerminate <CR>", desc = "Terminate Debugging" },
+    { "<leader>do", "<cmd> DapStepOver <CR>", desc = "Step Over" },
     -- Git Menu
     { "<leader>g", group = "Git" },
     { "<leader>gb", "<cmd> Gedit HEAD <CR>", desc = "Git Browse Head" },
@@ -18,6 +26,7 @@ wk.add(
     { "<leader>gt", "<cmd> Gitsigns toggle_current_line_blame <CR>", desc = "Toggle Current Line Blame" },
     -- Block and Save Menu
     { "<leader>k", group = "Block and Save" },
+    { "<leader>kb", "<cmd> Neotree buffers reveal float <CR>", desc = "Switch Buffer" },
     { "<leader>ke", "<cmd> enew <CR>", desc = "New Buffer" },
     { "<leader>kf", "<cmd> terminal <CR>", desc = "Open Terminal" },
     { "<leader>kj", "<cmd> bd <CR>", desc = "Close Buffer" },
@@ -46,6 +55,9 @@ wk.add(
     { "<leader>or", vim.lsp.buf.references, desc = "Show References" },
     { "<leader>os", "<cmd> set spell <CR>", desc = "Spell Check" },
     { "<leader>ou", "<cmd> call voom#Init('markdown', 1, 1) <CR>", desc = "Toggle Outline" },
+    -- Quick Menu
+    { "<leader>q", group = "Quick Menu" },
+    { "<leader>qf", builtin.live_grep, desc = "Find in Files"},
   })
 
 -- Navigate vim panes better
@@ -54,4 +66,4 @@ vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
 vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
-vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+-- vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
