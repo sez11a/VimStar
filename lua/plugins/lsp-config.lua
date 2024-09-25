@@ -29,6 +29,7 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
+      lspconfig.texlab.setup {}
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
     end,

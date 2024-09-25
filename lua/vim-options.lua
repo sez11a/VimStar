@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-
+vim.g.maplocalleader = " "
 vim.wo.number = true
 vim.cmd("filetype plugin indent on")
 vim.cmd("set guicursor+=i:blinkon100")
