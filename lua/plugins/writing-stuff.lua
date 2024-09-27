@@ -52,10 +52,6 @@ return {
     build = function() vim.fn["mkdp#util#install"]() end,
   },
   {
-    "vim-voom/VOoM",
-    lazy = false,
-  },
-  {
     "FotiadisM/tabset.nvim",
       config = function()
         require("tabset").setup({

@@ -54,7 +54,7 @@ wk.add(
     { "<leader>op", "<cmd> MarkdownPreview <CR>", desc = "Markdown Preview" },
     { "<leader>or", vim.lsp.buf.references, desc = "Show References" },
     { "<leader>os", "<cmd> set spell <CR>", desc = "Spell Check" },
-    { "<leader>ou", "<cmd> call voom#Init('markdown', 1, 1) <CR>", desc = "Toggle Outline" },
+    --{ "<leader>ou", "<cmd> call voom#Init('markdown', 1, 1) <CR>", desc = "Toggle Outline" },
     -- Quick Menu
     { "<leader>q", group = "Quick Menu" },
     { "<leader>qf", builtin.live_grep, desc = "Find in Files"},
