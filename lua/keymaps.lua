@@ -16,6 +16,12 @@ wk.add(
     { "<leader>dc", "<cmd> DapContinue <CR>", desc = "Continue" },
     { "<leader>dx", "<cmd> DapTerminate <CR>", desc = "Terminate Debugging" },
     { "<leader>do", "<cmd> DapStepOver <CR>", desc = "Step Over" },
+    -- Find Menu
+    { "<leader>f", group = "Find Menu" },
+    { "<leader>fs", "<cmd> Telescope find_files <CR>", desc = "Telescope Find Files" }, 
+    { "<leader>fp", "<cmd> Telescope git_files <CR>", desc = "Telescope Git Files" }, 
+    { "<leader>fz", "<cmd> Telescope live_grep <CR>", desc = "Telescope Live Grep" },
+    { "<leader>fo", "<cmd> Telescope oldfiles <CR>", desc = "Telescope Old Files" },
     -- Git Menu
     { "<leader>g", group = "Git" },
     { "<leader>gb", "<cmd> Gedit HEAD <CR>", desc = "Git Browse Head" },
