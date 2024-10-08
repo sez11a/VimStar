@@ -7,7 +7,9 @@ return {
     { "<leader>ou", "<cmd>Outline<CR>", desc = "Toggle outline" },
   },
   opts = {
-    -- Your setup opts here
+    symbol_folding = {
+        autofold_depth = false,
+      },
   },
 },
 }

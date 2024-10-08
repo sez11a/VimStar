@@ -11,6 +11,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+function getWords()
+  return tostring(vim.fn.wordcount().words)
+end
+
 require("vim-options")
 require("lazy").setup("plugins")
 require("keymaps")
