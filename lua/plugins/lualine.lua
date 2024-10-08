@@ -44,7 +44,12 @@ return {
           },
           extensions = { "lazy", "fugitive" },
           winbar = {
-            lualine_a = {"filename"},
+            lualine_a = {
+              {
+                "filename",
+                path = 2
+              }
+            },
             lualine_b = {},
             lualine_c = {},
             lualine_x = {},
