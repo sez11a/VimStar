@@ -1,7 +1,25 @@
 return {
+--  {
+--    "tpope/vim-surround",
+--    lazy = false,
+--  },
   {
-    "tpope/vim-surround",
-    lazy = false,
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  },
+  {
+    "Pocco81/true-zen.nvim",
+    config = function()
+      require("true-zen").setup{
+
+      }
+    end,
   },
   -- required by vim-markdown
   {

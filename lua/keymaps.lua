@@ -57,6 +57,7 @@ wk.add(
     { "<leader>ok", "<cmd> bnext <CR>", desc = "Next Buffer" },
     { "<leader>ol", "<cmd> ToggleDiag <CR>", desc = "Toggle Diagnostics" },
     { "<leader>om", "<cmd> MarkmapOpen <CR>", desc = "Open Markmap" },
+    { "<leader>on", "<cmd> TZNarrow <CR>", desc = "Toggle Distraction-free Mode" },
     { "<leader>oo", "<cmd> set nospell <CR>", desc = "Spell Check Off" },
     { "<leader>op", "<cmd> MarkdownPreview <CR>", desc = "Markdown Preview" },
     { "<leader>or", vim.lsp.buf.references, desc = "Show References" },
