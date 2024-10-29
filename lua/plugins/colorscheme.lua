@@ -25,11 +25,42 @@ return {
     lazy = false,
   },
   {
+      'sainnhe/edge',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        -- Optionally configure and load the colorscheme
+        -- directly inside the plugin declaration.
+        vim.g.edge_enable_italic = true
+        vim.g.edge_style = 'aura'
+        -- vim.cmd.colorscheme('edge')
+      end
+  },
+  {
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "miikanissi/modus-themes.nvim",
+    priority = 1000
+  },
+  {
     'AlexvZyl/nordic.nvim',
     lazy = false,
     priority = 1000,
     config = function()
         require('nordic').load()
+    end
+  },
+  {
+    "navarasu/onedark.nvim",
+    config = function()
+      require("onedark").setup {
+        style = "darker"
+      }
+      require("onedark").load()
     end
   },
   {

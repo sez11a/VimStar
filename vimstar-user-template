@@ -3,11 +3,17 @@ vim.g.wiki_root = '~/.VimStar/wiki'
 
 -- Enable the color scheme you prefer below. 
 -- vim.cmd.colorscheme "carbonfox"
+
 require("catppuccin").setup({
   flavour = "catppuccin-mocha",
   transparent_background = true,
 })
 vim.cmd.colorscheme "catppuccin-mocha"
+
 -- vim.cmd.colorscheme "cyberdream"
+-- vim.cmd.colorscheme "edge"
+-- vim.cmd.colorscheme "modus"
+-- vim.cmd.colorscheme "moonfly"
+-- vim.cmd.colorscheme "onedark" 
 -- vim.cmd.colorscheme "purify"
 -- vim.cmd.colorscheme "tokyonight-night"
