@@ -1,0 +1,76 @@
+% Intended for use with Pandoc; make a printable Markdown document.
+
+%	Settings
+\documentclass[letterpaper, 11pt]{article} 
+
+\usepackage[protrusion=true,expansion=true]{microtype} 
+\usepackage{graphicx} % Include images
+\usepackage{wrapfig} % Wrap around images
+\usepackage{fontspec}
+\usepackage{calc}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{ctable}
+\usepackage{float}
+\usepackage{morefloats}
+\usepackage[T1]{fontenc} % Add accented characters
+\usepackage{geometry}
+\usepackage{titlesec}
+
+% Fonts 
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{IosevkaTermSlab Nerd Font}
+\newfontfamily\sectionfont{Libertinus Sans}
+\newfontfamily\subsectionfont{Libertinus Sans}
+\newfontfamily\subsubsectionfont{Libertinus Sans}
+\newfontfamily\captionfont{Libertinus Sans}
+% \titleformat*{\section}{\Large\bfseries\sffamily\sectionfont}
+% \titleformat*{\subsection}{\bfseries\sffamily\subsectionfont}
+% \titleformat*{\subsubsection}{\itshape\subsubsectionfont}
+% \captionnamefont{\tiny\sffamily}
+% \captiontitlefont{\tiny\sffamily}
+
+\geometry{letterpaper, hmargin={1in, 1in}, vmargin={1in,1in}}
+\setlistdepth{9}
+\setcounter{secnumdepth}{0}
+
+\makeatletter
+
+\renewcommand{\maketitle}{ % Custom title; put title and author in block below.
+\begin{flushright} 
+{\LARGE\@title} 
+
+\vspace{20pt} 
+
+{\large\@author} 
+% \\\@date 
+
+\vspace{20pt} 
+\end{flushright}
+}
+
+\makeatother
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{\hrule}
+
+%	Title
+
+\title{\textbf{$title$}\\  
+$subtitle$} % 
+
+\author{\textsc{$author$}}
+% \author{\textsc{$author$} % Author
+% \\{\textit{LightSpring}}} % Company/institution
+
+% \date{\today} % Date
+
+% Document actually begins here
+\begin{document}
+
+\maketitle % Print the title 
+
+%	Body
+$body$
+
+\end{document}
