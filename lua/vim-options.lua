@@ -42,3 +42,17 @@ vim.g.airline_powerline_fonts = 1
 function WikiMonthLink()
   return print(os.date("[%B %Y](/journal/%Y/%m/plan.md)"))
 end
+
+-- Pandoc <format> to compile documents quickly and easily:
+vim.api.nvim_create_user_command("Pandoc", function(args)
+	vim.cmd(
+		"!pandoc -i "
+			.. vim.fn.fnameescape(vim.fn.expand("%"))
+			.. " -o "
+			.. vim.fn.fnameescape(vim.fn.expand("%:r"))
+			.. "."
+			.. args.args
+	)
+end, {
+	nargs = 1,
+})
