@@ -41,12 +41,12 @@
 \begin{flushright} 
 {\LARGE\@title} 
 
-\vspace{20pt} 
+\vspace{10pt} 
 
 {\large\@author} 
 % \\\@date 
 
-\vspace{20pt} 
+\vspace{10pt} 
 \end{flushright}
 }
 
@@ -55,6 +55,10 @@
 \makeatother
 
 \titleformat{\section}{\large\bfseries\sffamily\sectionfont}{\thesection}{1em}{\hruleafter}
+
+% Pandoc quirks 
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 %	Title
 
