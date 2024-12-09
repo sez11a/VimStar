@@ -65,6 +65,9 @@ wk.add(
     { "<leader>ot", "<cmd> MarkdownPreviewStop <CR>", desc = "Stop Markdown Preview" },
     { "<leader>ow", "<cmd> MarkmapWatch <CR>", desc = "Markmap Watch" },
     --{ "<leader>ou", "<cmd> call voom#Init('markdown', 1, 1) <CR>", desc = "Toggle Outline" },
+    -- Print Controls Menu 
+    { "<leader>p", group = "Print Controls" },
+    { "<leader>pp", "<cmd> Pandoc pdf --template ~/.VimStar/templates/article-handout.tex <CR>", desc = "PDF Standard Template" },
     -- Quick Menu
     { "<leader>q", group = "Quick Menu" },
     { "<leader>qf", builtin.live_grep, desc = "Find in Files"},

@@ -25,9 +25,9 @@
 \newfontfamily\subsectionfont{Libertinus Sans}
 \newfontfamily\subsubsectionfont{Libertinus Sans}
 \newfontfamily\captionfont{Libertinus Sans}
-% \titleformat*{\section}{\Large\bfseries\sffamily\sectionfont}
-% \titleformat*{\subsection}{\bfseries\sffamily\subsectionfont}
-% \titleformat*{\subsubsection}{\itshape\subsubsectionfont}
+\titleformat*{\section}{\Large\bfseries\sffamily\sectionfont}
+\titleformat*{\subsection}{\bfseries\sffamily\subsectionfont}
+\titleformat*{\subsubsection}{\itshape\subsubsectionfont}
 % \captionnamefont{\tiny\sffamily}
 % \captiontitlefont{\tiny\sffamily}
 
@@ -50,9 +50,11 @@
 \end{flushright}
 }
 
+\newcommand{\hruleafter}[1]{#1\hrule}
+
 \makeatother
 
-\titleformat{\section}{\large\bfseries}{\thesection}{1em}{\hrule}
+\titleformat{\section}{\large\bfseries\sffamily\sectionfont}{\thesection}{1em}{\hruleafter}
 
 %	Title
 
