@@ -28,8 +28,6 @@
 \titleformat*{\section}{\Large\bfseries\sffamily\sectionfont}
 \titleformat*{\subsection}{\bfseries\sffamily\subsectionfont}
 \titleformat*{\subsubsection}{\itshape\subsubsectionfont}
-% \captionnamefont{\tiny\sffamily}
-% \captiontitlefont{\tiny\sffamily}
 
 \geometry{letterpaper, hmargin={1in, 1in}, vmargin={1in,1in}}
 \setlistdepth{9}
@@ -38,16 +36,16 @@
 \makeatletter
 
 \renewcommand{\maketitle}{ % Custom title; put title and author in block below.
-\begin{flushright} 
+\begin{center} 
 {\LARGE\@title} 
 
-\vspace{10pt} 
+\vspace{5pt} 
 
 {\large\@author} 
 % \\\@date 
 
-\vspace{10pt} 
-\end{flushright}
+% \vspace{5pt} 
+\end{center}
 }
 
 \newcommand{\hruleafter}[1]{#1\hrule}
@@ -55,6 +53,7 @@
 \makeatother
 
 \titleformat{\section}{\large\bfseries\sffamily\sectionfont}{\thesection}{1em}{\hruleafter}
+\titlespacing*{\section} {0pt}{5ex}{1ex}
 
 % Pandoc quirks 
 \providecommand{\tightlist}{%
