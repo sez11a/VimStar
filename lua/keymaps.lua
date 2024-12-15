@@ -68,6 +68,8 @@ wk.add(
     -- Print Controls Menu 
     { "<leader>p", group = "Print Controls" },
     { "<leader>pp", "<cmd> Pandoc pdf --pdf-engine lualatex --template ~/.VimStar/templates/article-handout.tex <CR>", desc = "PDF Standard Template" },
+    { "<leader>pm", "<cmd> MarkmapOpen <CR>", desc = "View Mindmap in Browser" },
+    { "<leader>ps", "<cmd> MarkmapSave <CR>", desc = "Save Mindmap; don't open it" },
     -- Quick Menu
     { "<leader>q", group = "Quick Menu" },
     { "<leader>qf", builtin.live_grep, desc = "Find in Files"},

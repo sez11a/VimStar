@@ -9,6 +9,7 @@
 \usepackage{fontspec}
 \usepackage{calc}
 \usepackage{hyperref}
+\usepackage{longtable}
 \usepackage{enumitem}
 \usepackage{ctable}
 \usepackage{float}
@@ -34,7 +35,21 @@
 \setcounter{secnumdepth}{0}
 
 \makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
 
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\makeatletter
 \renewcommand{\maketitle}{ % Custom title; put title and author in block below.
 \begin{center} 
 {\LARGE\@title} 
