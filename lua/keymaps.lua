@@ -68,6 +68,7 @@ wk.add(
     -- Print Controls Menu 
     { "<leader>p", group = "Print Controls" },
     { "<leader>pp", "<cmd> Pandoc pdf --pdf-engine lualatex --template ~/.VimStar/templates/article-handout.tex <CR>", desc = "Convert Markdown to PDF: article/handout template " },
+    { "<leader>pe", "<cmd> Pandoc pdf --pdf-engine lualatex --template ~/.VimStar/templates/planner-page.tex <CR>", desc = "Convert Markdown to PDF: Everbook Planner Page " },
     { "<leader>pm", "<cmd> MarkmapOpen <CR>", desc = "View Mindmap in Browser" },
     { "<leader>ps", "<cmd> MarkmapSave <CR>", desc = "Save Mindmap; don't open it" },
     { "<leader>po", "<cmd> Pandoc odt <CR>", desc = "Convert Markdown to ODT"},

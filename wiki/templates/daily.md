@@ -1,19 +1,21 @@
-# {name}
+---
+title: {name}
+---
 
 {{WikiMonthLink}}
 
-## Schedule
+# Schedule
 
 
 
-## Actions
+# Actions
 
 
 
-## Roles 
+# Roles 
 
 
 
-## Notes
+# Notes
 
 

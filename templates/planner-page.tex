@@ -1,0 +1,97 @@
+% Intended for use with Pandoc; make a printable Markdown document.
+
+%	Settings
+\documentclass[letterpaper, landscape, twocolumn, 11pt]{article} 
+
+\usepackage[protrusion=true,expansion=true]{microtype} 
+\usepackage{graphicx} % Include images
+\usepackage{wrapfig} % Wrap around images
+\usepackage{fontspec}
+\usepackage{calc}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{enumitem,amssymb}
+\usepackage{ctable}
+\usepackage{float}
+\usepackage{morefloats}
+\usepackage[T1]{fontenc} % Add accented characters
+\usepackage{geometry}
+\usepackage{titlesec}
+
+% Fonts 
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{IosevkaTermSlab Nerd Font}
+\newfontfamily\sectionfont{Libertinus Sans}
+\newfontfamily\subsectionfont{Libertinus Sans}
+\newfontfamily\subsubsectionfont{Libertinus Sans}
+\newfontfamily\captionfont{Libertinus Sans}
+\titleformat*{\section}{\Large\bfseries\sffamily\sectionfont}
+\titleformat*{\subsection}{\bfseries\sffamily\subsectionfont}
+\titleformat*{\subsubsection}{\itshape\subsubsectionfont}
+
+\geometry{letterpaper, hmargin={.5in, .5in}, vmargin={.5in,.5in}}
+\setlength{\columnsep}{0.24in}
+\setlistdepth{9}
+\setcounter{secnumdepth}{0}
+
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\makeatletter
+\renewcommand{\maketitle}{ % Custom title; put title and author in block below.
+\begin{center} 
+{\LARGE\@title} 
+
+\vspace{5pt} 
+
+{\large\@author} 
+% \\\@date 
+
+% \vspace{5pt} 
+\end{center}
+}
+
+\newcommand{\hruleafter}[1]{#1\hrule}
+
+\makeatother
+
+\titleformat{\section}{\large\bfseries\sffamily\sectionfont}{\thesection}{1em}{\hruleafter}
+\titlespacing*{\section} {0pt}{5ex}{1ex}
+
+% Pandoc quirks 
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%	Title
+
+\title{\textbf{$title$}\\  
+$subtitle$} % 
+
+\author{\textsc{$author$}}
+% \author{\textsc{$author$} % Author
+% \\{\textit{LightSpring}}} % Company/institution
+
+% \date{\today} % Date
+
+% Document actually begins here
+\begin{document}
+
+\maketitle % Print the title 
+
+%	Body
+$body$
+
+\end{document}
