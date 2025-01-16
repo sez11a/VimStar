@@ -50,7 +50,9 @@ return {
           match_func = function(context)
             if context.path_wiki:find "%d%d%d%d/%d%d/%d%d" then
               vim.api.nvim_put({
-                  "# " .. os.date("%A, %B %d, %Y"),
+                  "---",
+                  "title: " .. os.date("%A, %B %d, %Y"),
+                  "---",
                   "",
                   os.date("[%B %Y](/journal/%Y/%m/plan.md)"),
                   "",
