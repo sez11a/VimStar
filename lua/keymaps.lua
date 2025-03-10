@@ -52,6 +52,12 @@ wk.add(
     -- Onscreen Format menu
     { "<leader>o", group = "Onscreen Format" },
     { "<leader>oa", vim.lsp.buf.code_action, desc = "Code Actions" },
+    { "<leader>oc", function ()
+          vim.b.x = not vim.b.x
+          require('cmp').setup.buffer { enabled = not vim.b.x }
+          end,
+          desc = "Toggle Autocompletion"
+    },
     { "<leader>od", vim.lsp.buf.definition, desc = "Show Definition" },
     { "<leader>of", vim.lsp.buf.format, desc = "Format Buffer" },
     { "<leader>ok", "<cmd> bnext <CR>", desc = "Next Buffer" },
