@@ -1,0 +1,142 @@
+\documentclass[11pt,openright,twoside]{memoir}
+
+\usepackage[protrusion=true,expansion=true]{microtype} 
+\usepackage{graphicx} % Include images
+\usepackage{wrapfig} % Wrap around images
+\usepackage{fontspec}
+\usepackage{calc}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{enumitem,amssymb}
+\usepackage{ctable}
+\usepackage{float}
+\usepackage{morefloats}
+\usepackage[T1]{fontenc} % Add accented characters
+\usepackage{geometry}
+\usepackage{titlesec}
+
+% Fonts 
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{IosevkaTermSlab Nerd Font}
+\newfontfamily\sectionfont{Libertinus Sans}
+\newfontfamily\subsectionfont{Libertinus Sans}
+\newfontfamily\subsubsectionfont{Libertinus Sans}
+\newfontfamily\captionfont{Libertinus Sans}
+\titleformat*{\section}{\Large\bfseries\sffamily\sectionfont}
+\titleformat*{\subsection}{\bfseries\sffamily\subsectionfont}
+\titleformat*{\subsubsection}{\itshape\subsubsectionfont}
+
+\geometry{paperwidth=5.5in, paperheight=8.5in, hmargin={.75in, .75in}, vmargin={.75in,.75in}}
+\setlistdepth{9}
+\setcounter{secnumdepth}{0}
+
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\aliaspagestyle{part}{empty}
+
+\makeatletter
+\g@addto@macro\@verbatim\scriptsize
+\makeatother
+
+\newlength{\imgwidth}
+\newlength{\drop}% for my convenience
+
+\newcommand*{\titleGM}{\begingroup% Gentle Madness
+\drop = 0.1\textheight
+%\vspace*{\baselineskip}
+\vfill
+\hbox{%
+\hspace*{0.2\textwidth}%
+\rule{1pt}{\textheight}
+\hspace*{0.05\textwidth}%
+\parbox[b]{0.75\textwidth}{
+\vbox{%
+\vspace{\drop}
+{\noindent\HUGE\bfseries $title$\\[0.5\baselineskip]}\\[2\baselineskip]
+{\Large\itshape $subtitle$}\\[4\baselineskip]
+{\Large $author$}\par
+\vspace{0.25\textheight}
+{\noindent LightSpring Press}\\[\baselineskip]
+}% end of vbox
+}% end of parbox
+}% end of hbox
+\vfill
+\null
+\endgroup}
+
+\makeatletter
+\newcommand\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\setlength\midchapskip{10pt}
+\makechapterstyle{VZ14}{
+  \renewcommand\chapternamenum{}
+  \renewcommand\printchaptername{}
+  \renewcommand\chapnamefont{\sffamily\Large\scshape}
+  \renewcommand\printchapternum{%
+    \chapnamefont\null\thickhrulefill\quad
+    \@chapapp\space\thechapter\quad\thickhrulefill}
+  \renewcommand\printchapternonum{%
+    \par\thickhrulefill\par\vskip\midchapskip
+    \hrule\vskip\midchapskip
+  }
+  \renewcommand\chaptitlefont{\sffamily\Huge\scshape\centering}
+  \renewcommand\afterchapternum{%
+    \par\nobreak\vskip\midchapskip\hrule\vskip\midchapskip}
+  \renewcommand\afterchaptertitle{%
+    \par\vskip\midchapskip\hrule\nobreak\vskip\afterchapskip}
+}
+\makeatother
+
+%	Title
+
+\title{\textbf{$title$}\\  
+$subtitle$} % 
+
+\author{\textsc{$author$}}
+% \author{\textsc{$author$} % Author
+% \\{\textit{LightSpring}}} % Company/institution
+
+% \date{\today} % Date
+
+% Document actually begins here
+\begin{document}
+
+\pagestyle{empty}
+
+\titleGM
+
+$title$
+
+by $author$
+
+Copyright \copyright 2025 by $author$ \\[2\baselineskip]
+
+All rights reserved. 
+
+\clearpage
+
+\frontmatter
+\pagestyle {plain}
+\pagenumbering{roman}
+\chapterstyle{VZ14}
+
+\tableofcontents 
+\mainmatter
+\pagenumbering{arabic}
+\pagestyle{headings}
+$body$
+
+\end{document}
