@@ -13,5 +13,8 @@ return {
         indent = { enable = true },
       })
     end
-  }
+  },
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+  },
 }

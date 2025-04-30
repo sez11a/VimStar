@@ -65,10 +65,10 @@ wk.add(
     { "<leader>om", "<cmd> MarkmapOpen <CR>", desc = "Open Markmap" },
     { "<leader>on", "<cmd> TZNarrow <CR>", desc = "Toggle Distraction-free Mode" },
     { "<leader>oo", "<cmd> set nospell <CR>", desc = "Spell Check Off" },
-    { "<leader>op", "<cmd> MarkdownPreview <CR>", desc = "Markdown Preview" },
+    { "<leader>op", "<cmd> LivePreview start <CR>", desc = "Live Preview" },
     { "<leader>or", vim.lsp.buf.references, desc = "Show References" },
     { "<leader>os", "<cmd> set spell <CR>", desc = "Spell Check" },
-    { "<leader>ot", "<cmd> MarkdownPreviewStop <CR>", desc = "Stop Markdown Preview" },
+    { "<leader>ot", "<cmd> LivePreview close <CR>", desc = "Stop Live Preview" },
     { "<leader>ow", "<cmd> MarkmapWatch <CR>", desc = "Markmap Watch" },
     --{ "<leader>ou", "<cmd> call voom#Init('markdown', 1, 1) <CR>", desc = "Toggle Outline" },
     -- Print Controls Menu 

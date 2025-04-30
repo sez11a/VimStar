@@ -64,11 +64,17 @@ return {
     ft = "markdown",
   },
   {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
+    'brianhuster/live-preview.nvim',
+    dependencies = {
+        'nvim-telescope/telescope.nvim',
+    },
   },
+--  {
+--    "iamcco/markdown-preview.nvim",
+--    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+--    ft = { "markdown" },
+--    build = function() vim.fn["mkdp#util#install"]() end,
+--  },
 --  {
 --    "3rd/image.nvim",
 --    config = function()
