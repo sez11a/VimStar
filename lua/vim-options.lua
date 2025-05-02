@@ -38,6 +38,7 @@ vim.o.hidden = true
 vim.g.airline_theme = "minimalist"
 vim.cmd("let g:airline#extensions#tabline#enabled=1")
 vim.g.airline_powerline_fonts = 1
+vim.diagnostic.config({ virtual_text = true })
 
 function WikiMonthLink()
   return print(os.date("[%B %Y](/journal/%Y/%m/plan.md)"))
