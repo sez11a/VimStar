@@ -16,6 +16,15 @@ wk.add(
     { "<leader>dc", "<cmd> DapContinue <CR>", desc = "Continue" },
     { "<leader>dx", "<cmd> DapTerminate <CR>", desc = "Terminate Debugging" },
     { "<leader>do", "<cmd> DapStepOver <CR>", desc = "Step Over" },
+    -- Code Menu
+    { "<leader>c", group = "Code" },
+    { "<leader>co", function() 
+          vim.lsp.buf.code_action({
+            context = { only = { 'source.organizeImports' } },
+            apply = true,
+      })
+    end
+    },
     -- Find Menu
     { "<leader>f", group = "Find Menu" },
     { "<leader>fs", "<cmd> Telescope find_files <CR>", desc = "Telescope Find Files" }, 

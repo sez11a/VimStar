@@ -3,7 +3,7 @@ vim.g.maplocalleader = " "
 vim.wo.number = true
 vim.cmd("filetype plugin indent on")
 vim.cmd("set guicursor+=i:blinkon100")
-vim.cmd("set nofixeol")
+vim.cmd("set noeol nofixeol")
 vim.opt.encoding = "utf-8"
 vim.opt.signcolumn = "yes"
 vim.opt.syntax = "on"
