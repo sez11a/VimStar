@@ -87,7 +87,7 @@ wk.add(
     { "<leader>pe", "<cmd> Pandoc pdf --pdf-engine lualatex --template ~/.VimStar/templates/planner-page.tex <CR>", desc = "Convert Markdown to PDF: Everbook Planner Page " },
     { "<leader>pm", "<cmd> MarkmapOpen <CR>", desc = "View Mindmap in Browser" },
     { "<leader>ps", "<cmd> MarkmapSave <CR>", desc = "Save Mindmap; don't open it" },
-    { "<leader>po", "<cmd> Pandoc odt --template ~/.VimStar/templates/article-handout.odt <CR>", desc = "Convert Markdown to ODT"},
+    { "<leader>po", "<cmd> Pandoc odt <CR>", desc = "Convert Markdown to ODT"},
     -- Quick Menu
     { "<leader>q", group = "Quick Menu" },
     { "<leader>qf", builtin.live_grep, desc = "Find in Files"},
