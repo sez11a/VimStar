@@ -23,8 +23,6 @@ return {
       mason_tool_installer.setup({
         ensure_installed = {
           "tree-sitter-cli",
-          "vale",
-          "vale-ls",
           "texlab",
           "jdtls",
           "markmap-cli",
