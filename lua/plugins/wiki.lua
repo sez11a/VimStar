@@ -39,7 +39,7 @@ return {
         },
         {
           match_func = function(context)
-            return context.path_wiki:find "projects/."
+            return context.path_wiki:find "project/."
           end,
           source_filename = "~/.VimStar/wiki/templates/project.md"
         },
