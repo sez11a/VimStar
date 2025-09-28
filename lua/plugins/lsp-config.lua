@@ -26,7 +26,8 @@ return {
           "texlab",
           "jdtls",
           "markmap-cli",
-          "lua-language-server"
+          "lua-language-server",
+          "python-lsp-server"
         }
       })
     end,
