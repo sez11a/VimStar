@@ -45,17 +45,17 @@ return {
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 --      require('java').setup()
-      local lspconfig = require("lspconfig")
-      lspconfig.ts_ls.setup({
+      --local lspconfig = require("lspconfig")
+      vim.lsp.config("ts_ls", {
         capabilities = capabilities
       })
-      lspconfig.html.setup({
+      vim.lsp.config("html", {
         capabilities = capabilities
       })
-      lspconfig.lua_ls.setup({
+      vim.lsp.config("lua_ls", {
         capabilities = capabilities
       })
-      lspconfig.texlab.setup {}
+      vim.lsp.config("texlab",  {})
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
     end,
