@@ -19,14 +19,14 @@ return {
     }
   },
   config = function()
-    require('lspconfig').jdtls.setup({
+    vim.lsp.config("jdtls", {
       settings = {
         java = {
           configuration = {
             runtimes = {
               {
                 name = "Default Java",
-                path = "/usr/lib/jvm/default",
+                path = "/usr/lib/jvm/java",
                 default = true,
               }
             }
