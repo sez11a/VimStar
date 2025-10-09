@@ -13,6 +13,8 @@ return {
       win = {
         border = "single", -- double, rounded, single, shadow
         --position = "top", -- bottom, top
+        row=0,
+        col=0,
         no_overlap = true,
         padding = { 1, 2, 2, 2},
         title = true,
