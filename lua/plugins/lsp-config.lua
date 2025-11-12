@@ -1,5 +1,10 @@
 return {
   {
+    "folke/lazydev.nvim",
+    lazy = false,
+    opts = {},
+  },
+  {
     "williamboman/mason.nvim",
     lazy = false,
     dependencies = {
@@ -39,13 +44,10 @@ return {
       auto_install = true,
     },
   },
-  {
+{
     "neovim/nvim-lspconfig",
-    lazy = false,
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
---      require('java').setup()
-      --local lspconfig = require("lspconfig")
       vim.lsp.config("ts_ls", {
         capabilities = capabilities
       })
@@ -55,7 +57,9 @@ return {
       vim.lsp.config("lua_ls", {
         capabilities = capabilities
       })
-      vim.lsp.config("texlab",  {})
+      vim.lsp.enable("lua_ls")
+      vim.lsp.config("texlab", {})
+      vim.lsp.enable("texlab")
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
     end,

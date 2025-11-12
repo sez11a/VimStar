@@ -73,13 +73,24 @@ return {
       vim.cmd[[noremap <leader>wi <plug>(wiki-journal-index)]]
     end
   },
+--  {
+--  'lervag/lists.vim',
+--    init = function()
+--      vim.g.lists_filetypes = {
+--          'md',
+--          'mkd'
+--      }
+--    end
+--  },
   {
-  'lervag/lists.vim',
-    init = function()
-      vim.g.lists_filetypes = {
-          'md',
-          'mkd'
-      }
+    'hamidi-dev/org-list.nvim',
+    dependencies = {
+      'tpope/vim-repeat', -- for repeatable actions with '.'
+    },
+    config = function()
+      require("org-list").setup({
+
+      })
     end
   },
   --  Markdown Markmap, not related to wiki but used within it
