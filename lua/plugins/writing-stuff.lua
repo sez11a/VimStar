@@ -31,10 +31,10 @@ return {
     lazy = false,
     ft = "markdown",
   },
-  {
-    "vimoutliner/vimoutliner",
-    lazy = false,
-  },
+--  {
+--    "vimoutliner/vimoutliner",
+--    lazy = false,
+--  },
   {
     "chentoast/marks.nvim",
     config = function()
