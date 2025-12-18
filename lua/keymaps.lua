@@ -45,7 +45,7 @@ wk.add(
     { "<leader>ke", "<cmd> enew <CR>", desc = "New Buffer" },
     { "<leader>kf", "<cmd> terminal <CR>", desc = "Open Terminal" },
     { "<leader>kj", "<cmd> bd <CR>", desc = "Close Buffer" },
-    { "<leader>kl", "<cmd> cd %:p:help |<CR>|", desc = "Change Working Dir" },
+    { "<leader>kl", "<cmd> cd %:p:h |<CR>|", desc = "Change Working Dir" },
     { "<leader>km", "<cmd> MarkmapSave <CR>", desc = "Save Markmap" },
     { "<leader>ko", "<cmd> Explore <CR>", desc = "Open File" },
     { "<leader>kq", "<cmd> q! <CR>", desc = "Abandon Changes and Quit" },
@@ -83,7 +83,7 @@ wk.add(
     -- Print Controls Menu 
     { "<leader>p", group = "Print Controls" },
     { "<leader>pb", "<cmd> Pandoc pdf --pdf-engine=lualatex --template ~/.VimStar/templates/book.tex <CR>", desc="Convert Markdown to PDF: book template" },
-    { "<leader>pp", "<cmd> Pandoc pdf --pdf-engine lualatex --template ~/.VimStar/templates/article-handout.tex <CR>", desc = "Convert Markdown to PDF: article/handout template " },
+    { "<leader>pp", "<cmd> Pandoc pdf --pdf-engine lualatex --standalone --template ~/.VimStar/templates/article-handout.tex <CR>", desc = "Convert Markdown to PDF: article/handout template " },
     { "<leader>pe", "<cmd> Pandoc pdf --pdf-engine lualatex --template ~/.VimStar/templates/planner-page.tex <CR>", desc = "Convert Markdown to PDF: Everbook Planner Page " },
     { "<leader>pm", "<cmd> MarkmapOpen <CR>", desc = "View Mindmap in Browser" },
     { "<leader>ps", "<cmd> MarkmapSave <CR>", desc = "Save Mindmap; don't open it" },
