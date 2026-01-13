@@ -32,7 +32,9 @@
 
 \geometry{letterpaper, hmargin={1in, 1in}, vmargin={1in,1in}}
 \setlistdepth{9}
-\setcounter{secnumdepth}{0}
+%\setcounter{secnumdepth}{0}
+\newcounter{none}
+\def\LTcaptype{none}
 
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -48,7 +50,23 @@
 \def\fps@figure{htbp}
 \makeatother
 \setlength{\emergencystretch}{3em} % prevent overfull lines
-
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{%
+  % scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller scaling factor
+  \ifdim\@tempa\p@<\p@%
+    \scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else
+    \usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
 \makeatletter
 \renewcommand{\maketitle}{ % Custom title; put title and author in block below.
 \begin{center} 
