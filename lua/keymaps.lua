@@ -82,7 +82,7 @@ wk.add(
     --{ "<leader>ou", "<cmd> call voom#Init('markdown', 1, 1) <CR>", desc = "Toggle Outline" },
     -- Print Controls Menu 
     { "<leader>p", group = "Print Controls" },
-    { "<leader>pb", "<cmd> Pandoc pdf --pdf-engine=lualatex --template ~/.VimStar/templates/book.tex <CR>", desc="Convert Markdown to PDF: book template" },
+    { "<leader>pb", "<cmd> Pandoc pdf --pdf-engine=lualatex --standalone --template ~/.VimStar/templates/book.tex <CR>", desc="Convert Markdown to PDF: book template" },
     { "<leader>pp", "<cmd> Pandoc pdf --pdf-engine lualatex --standalone --template ~/.VimStar/templates/article-handout.tex <CR>", desc = "Convert Markdown to PDF: article/handout template " },
     { "<leader>pe", "<cmd> Pandoc pdf --pdf-engine lualatex --template ~/.VimStar/templates/planner-page.tex <CR>", desc = "Convert Markdown to PDF: Everbook Planner Page " },
     { "<leader>pm", "<cmd> MarkmapOpen <CR>", desc = "View Mindmap in Browser" },
