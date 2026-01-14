@@ -5,7 +5,7 @@ vim.g.wiki_root = '~/.VimStar/wiki'
 -- vim.cmd.colorscheme "carbonfox"
 
 require("catppuccin").setup({
-  flavour = "catppuccin-mocha",
+  flavour = "mocha",
   transparent_background = true,
 })
 vim.cmd.colorscheme "catppuccin-mocha"
