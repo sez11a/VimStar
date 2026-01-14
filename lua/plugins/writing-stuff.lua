@@ -22,14 +22,19 @@ return {
     end,
   },
   -- required by vim-markdown
+--  {
+--    "godlygeek/tabular",
+--    lazy = false,
+--  },
+--  {
+--    "preservim/vim-markdown",
+--    lazy = false,
+--    ft = "markdown",
+--  },
   {
-    "godlygeek/tabular",
-    lazy = false,
-  },
-  {
-    "preservim/vim-markdown",
-    lazy = false,
-    ft = "markdown",
+    'SCJangra/table-nvim',
+    ft = 'markdown',
+    opts = {},
   },
 --  {
 --    "vimoutliner/vimoutliner",
