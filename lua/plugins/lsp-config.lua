@@ -55,11 +55,12 @@ return {
     vim.lsp.config("texlab", {})
     vim.lsp.enable("texlab")
 
-    --Java
+    --[[Java
     vim.lsp.config("jdtls", {
         capabilities = capabilities
       })
     --vim.lsp.enable("jdtls")
+    ]]
 
     -- Python LSP
 	  vim.lsp.config("pylsp", {

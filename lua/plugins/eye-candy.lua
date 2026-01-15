@@ -20,6 +20,7 @@ return {
     -- See also `vertical_bar_cursor_insert_mode` and `distance_stop_animating_vertical_bar`.
     smear_insert_mode = true,
   },
+  --[[
 {
   "folke/noice.nvim",
   event = "VeryLazy",
@@ -35,4 +36,5 @@ return {
     "rcarriga/nvim-notify",
     }
 },
+]]
 }
