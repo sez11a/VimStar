@@ -2,11 +2,26 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    lazy = false,
+    main = "nvim-treesitter.config",
+    opts = {
+          },
     config = function()
-      local config = require("nvim-treesitter.configs")
-      config.setup({
+      ---@diagnostic disable: missing-fields
+      require("nvim-treesitter.config").setup({
         auto_install = true,
-        ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc' },
+        ensure_installed = {
+          'bash',
+          'vim',
+          'vimdoc',
+          'regex',
+          'lua',
+          'markdown',
+          'markdown-inline',
+          'html',
+          'c',
+          'python'
+        },
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = { 'ruby', 'markdown' },
@@ -14,6 +29,7 @@ return {
         },
         indent = { enable = true },
       })
+      ---@diagnostic enable:missing-fields
     end
   },
   {
