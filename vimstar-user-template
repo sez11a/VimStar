@@ -5,15 +5,33 @@ vim.g.wiki_root = '~/.VimStar/wiki'
 -- vim.cmd.colorscheme "carbonfox"
 
 require("catppuccin").setup({
-  flavour = "mocha",
+  flavour = "macchiato",
   transparent_background = true,
 })
-vim.cmd.colorscheme "catppuccin-mocha"
+-- vim.cmd.colorscheme "catppuccin-mocha"
 
 -- vim.cmd.colorscheme "cyberdream"
 -- vim.cmd.colorscheme "edge"
 -- vim.cmd.colorscheme "modus"
 -- vim.cmd.colorscheme "moonfly"
--- vim.cmd.colorscheme "onedark" 
+vim.cmd.colorscheme "onedark" 
 -- vim.cmd.colorscheme "purify"
 -- vim.cmd.colorscheme "tokyonight-night"
+
+-- Liferay Stuff: tabs on code
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+  pattern = { "*.sh", "*.java" },
+  callback = function()
+    vim.opt.autoindent = true
+    vim.opt.expandtab = false
+    vim.opt.tabstop = 4
+    vim.opt.shiftwidth = 4
+    vim.opt.fixendofline = false
+    vim.opt.endofline = false
+  end
+})
+-- No trailing blank line
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*.sh", "*.java" },
+  command = [[%s/\s\+$//e]],
+})
