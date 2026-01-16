@@ -39,7 +39,8 @@ return {
         "jdtls",
         "markmap-cli",
         "lua-language-server",
-        "python-lsp-server"
+        "python-lsp-server",
+        "debugpy"
       }
     })
   end,

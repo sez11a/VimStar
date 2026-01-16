@@ -28,6 +28,7 @@ return {
           disable = { "latex", },
         },
         indent = { enable = true },
+        parser_install_dir = vim.fn.stdpath("data") .."/treesitter",
       })
       ---@diagnostic enable:missing-fields
     end

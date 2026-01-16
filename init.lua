@@ -1,3 +1,7 @@
+local ts_path = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter"
+vim.opt.runtimepath:prepend(ts_path)
+local parser_path = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser"
+vim.opt.runtimepath:prepend(parser_path)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
