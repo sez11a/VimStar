@@ -67,6 +67,7 @@ wk.add(
           end,
           desc = "Toggle Autocompletion"
     },
+    { "<leader>oc", "<cmd> LivePreview close <CR>", desc = "Stop Live Preview" },
     { "<leader>od", vim.lsp.buf.definition, desc = "Show Definition" },
     { "<leader>of", vim.lsp.buf.format, desc = "Format Buffer" },
     { "<leader>ok", "<cmd> bnext <CR>", desc = "Next Buffer" },
@@ -74,10 +75,10 @@ wk.add(
     { "<leader>om", "<cmd> MarkmapOpen <CR>", desc = "Open Markmap" },
     { "<leader>on", "<cmd> TZNarrow <CR>", desc = "Toggle Distraction-free Mode" },
     { "<leader>oo", "<cmd> set nospell <CR>", desc = "Spell Check Off" },
-    { "<leader>op", "<cmd> LivePreview start <CR>", desc = "Live Preview" },
+    { "<leader>op", "<cmd> LivePreview start <CR>", desc = "Markdown Live Preview" },
     { "<leader>or", vim.lsp.buf.references, desc = "Show References" },
     { "<leader>os", "<cmd> set spell <CR>", desc = "Spell Check" },
-    { "<leader>ot", "<cmd> LivePreview close <CR>", desc = "Stop Live Preview" },
+    { "<leader>ot", "<cmd>TypstPreview toggle <CR>", desc = "Typst Preview Toggle" },
     { "<leader>ow", "<cmd> MarkmapWatch <CR>", desc = "Markmap Watch" },
     --{ "<leader>ou", "<cmd> call voom#Init('markdown', 1, 1) <CR>", desc = "Toggle Outline" },
     -- Print Controls Menu 

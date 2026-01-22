@@ -28,6 +28,7 @@ return {
         'html',
         'cssls',
         'pylsp',
+        'tinymist',
         'clangd',
       },
     })

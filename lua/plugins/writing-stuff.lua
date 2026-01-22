@@ -3,6 +3,10 @@ return {
 --    "tpope/vim-surround",
 --    lazy = false,
 --  },
+--[[
+  {
+    "ixru/nvim-markdown"
+  }, ]]
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -22,15 +26,15 @@ return {
     end,
   },
   -- required by vim-markdown
---  {
---    "godlygeek/tabular",
---    lazy = false,
---  },
---  {
---    "preservim/vim-markdown",
---    lazy = false,
---    ft = "markdown",
---  },
+  {
+    "godlygeek/tabular",
+    lazy = false,
+  },
+  {
+    "preservim/vim-markdown",
+    lazy = false,
+    ft = "markdown",
+  },
   {
     'SCJangra/table-nvim',
     ft = 'markdown',
