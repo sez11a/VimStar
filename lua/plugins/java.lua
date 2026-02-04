@@ -68,7 +68,7 @@ return {
               runtimes = {
                 {
                   name = "JavaSE-21",
-                  path = "/usr/lib/jvm/java-21-zulu-openjdk-ca",
+                  path = "/usr/lib/jvm/zulu-21",
                   default = true,
                 },
               },
