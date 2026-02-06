@@ -35,11 +35,13 @@ return {
     lazy = false,
     ft = "markdown",
   },
+  --[[ The below plugin promised much, but was buggy the last time I tried it. 
   {
     'SCJangra/table-nvim',
     ft = 'markdown',
     opts = {},
   },
+]]
 --  {
 --    "vimoutliner/vimoutliner",
 --    lazy = false,

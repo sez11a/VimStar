@@ -21,8 +21,6 @@ vim.opt.spell = true
 vim.opt.clipboard = "unnamedplus"
 vim.netrw_liststyle = 2
 vim.g.vim_markdown_folding_disabled = 1
-vim.g.voom_tree_placement = "right"
-vim.g.voom_tree_width = 55
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 2
 vim.o.guifont = "IosevkaTermSlab Nerd Font Mono:h12"
@@ -35,9 +33,7 @@ vim.opt.thesaurus:append { "~/.config/nvim/thesaurus/mthesaur.txt" }
 vim.cmd("autocmd BufEnter * if &filetype == '' | setlocal ft=markdown | endif")
 vim.cmd("set complete+=s")
 vim.o.hidden = true
-vim.g.airline_theme = "minimalist"
 vim.cmd("let g:airline#extensions#tabline#enabled=1")
-vim.g.airline_powerline_fonts = 1
 vim.diagnostic.config({ virtual_text = true })
 
 function WikiMonthLink()
