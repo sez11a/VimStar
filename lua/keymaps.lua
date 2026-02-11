@@ -70,6 +70,7 @@ wk.add(
     { "<leader>oc", "<cmd> LivePreview close <CR>", desc = "Stop Live Preview" },
     { "<leader>od", vim.lsp.buf.definition, desc = "Show Definition" },
     { "<leader>of", vim.lsp.buf.format, desc = "Format Buffer" },
+    { "<leader>oj", "<cmd> %!jq .<CR>", desc = "Use jq to format JSON" },
     { "<leader>ok", "<cmd> bnext <CR>", desc = "Next Buffer" },
     { "<leader>ol", "<cmd> ToggleDiag <CR>", desc = "Toggle Diagnostics" },
     { "<leader>om", "<cmd> MarkmapOpen <CR>", desc = "Open Markmap" },

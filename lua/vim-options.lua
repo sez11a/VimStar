@@ -17,7 +17,15 @@ vim.opt.expandtab = true
 vim.opt.wrap = true
 vim.opt.diffopt:append { "followwrap" }
 vim.opt.linebreak = true
-vim.opt.spell = true
+-- Enable spell checking for certain filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "typst", "tex", "plaintex", "latex" },
+  callback = function()
+    vim.opt_local.spell = true
+  end,
+  desc = "Enable spellcheck for prose filetypes",
+})
+-- vim.opt.spell = true
 vim.opt.clipboard = "unnamedplus"
 vim.netrw_liststyle = 2
 vim.g.vim_markdown_folding_disabled = 1
