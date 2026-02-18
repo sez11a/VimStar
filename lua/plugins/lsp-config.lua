@@ -30,7 +30,24 @@ return {
 
     -- TypeScript
     vim.lsp.config("ts_ls", {
-      capabilities = capabilities
+      capabilities = capabilities,
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact"},
+      root_dir = vim.fs.dirname(vim.fs.find({ "package.json", "tsconfig.json", ".git" }, { upward = true })[1]),
+      on_attach = on_attach,
+      settings = {
+          -- Optional React/TS-specific tweaks
+          typescript = {
+            inlayHints = {
+              includeInlayParameterNameHints = "all",
+              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
+            },
+          },
+       },
     })
     vim.lsp.enable("ts_ls")
 

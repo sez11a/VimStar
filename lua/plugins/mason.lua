@@ -27,6 +27,7 @@ return {
         'lua_ls',
         'html',
         'cssls',
+        'ts_ls',
         'pylsp',
         'tinymist',
         'clangd',
