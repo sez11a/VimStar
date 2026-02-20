@@ -93,6 +93,9 @@ wk.add(
     -- Quick Menu
     { "<leader>q", group = "Quick Menu" },
     { "<leader>qf", builtin.live_grep, desc = "Find in Files"},
+    { "<leader>ql", "<cmd> Lazy <CR>", desc = "Manage plugins with Lazy" },
+    { "<leader>qm", "<cmd> Mason <CR>", desc = "Manage completions and linters with Mason" },
+    { "<leader>qt", "<cmd> TSUpdate <CR>", desc = "Update Treesitter highlighting" },
   })
 
 -- Navigate vim panes better
