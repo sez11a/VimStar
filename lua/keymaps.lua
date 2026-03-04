@@ -18,17 +18,27 @@ wk.add(
     { "<leader>do", "<cmd> DapStepOver <CR>", desc = "Step Over" },
     -- Code Menu
     { "<leader>c", group = "Code" },
-    { "<leader>co", function() 
+    { "<leader>ca", "<cmd> CodeCompanionActions<CR>", mode = "v", desc = "AI Actions on Selection" },
+    { "<leader>cc", "<cmd> CodeCompanionChat Toggle <CR>", desc = "AI Chat" },
+    { "<leader>ci", "<cmd> CodeCompanionInline<CR>", mode = {"n", "v"}, desc = "Inline AI Edit" },
+    { "<leader>co", function()
           vim.lsp.buf.code_action({
             context = { only = { 'source.organizeImports' } },
             apply = true,
-      })
-    end
-    },
+          })
+        end, desc = "Organize Imports" },
+    { "<leader>cw", function()
+          require("neocodeium").toggle()
+          -- Optional: notify for feedback
+          if require("neocodeium").visible() or vim.fn.exists(":NeoCodeium") == 2 then
+            vim.notify("NeoCodeium: " .. (require("neocodeium").get_status() and "Enabled" or "Disabled"),
+              vim.log.levels.INFO)
+          end
+      end, desc = "Toggle Neocodeium (Windsurf)" },
     -- Find Menu
     { "<leader>f", group = "Find Menu" },
-    { "<leader>fs", "<cmd> Telescope find_files <CR>", desc = "Telescope Find Files" }, 
-    { "<leader>fp", "<cmd> Telescope git_files <CR>", desc = "Telescope Git Files" }, 
+    { "<leader>fs", "<cmd> Telescope find_files <CR>", desc = "Telescope Find Files" },
+    { "<leader>fp", "<cmd> Telescope git_files <CR>", desc = "Telescope Git Files" },
     { "<leader>fz", "<cmd> Telescope live_grep <CR>", desc = "Telescope Live Grep" },
     { "<leader>fo", "<cmd> Telescope oldfiles <CR>", desc = "Telescope Old Files" },
     -- Git Menu
