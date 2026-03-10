@@ -22,6 +22,10 @@ return {
     },
     config = function()
       require("codecompanion").setup({
+        opts = {
+          show_reasoning = false,
+          -- show_settings = false,
+        },
         adapters = {
           -- Pick one or more; example with Ollama (local/free) or Anthropic
           ollama = {
@@ -31,7 +35,8 @@ return {
           -- anthropic = { env = { api_key = "your-claude-key" } },
         },
         strategies = {
-          chat = { adapter = "ollama" }, -- or "anthropic"
+          -- chat = { adapter = "ollama" }, -- or "anthropic"
+          chat = { adapter = "ollama", model = "qwen3-coder-next" }, -- or "anthropic"
           inline = { adapter = "ollama", model = "qwen3-coder-next" },
         },
         vim.keymap.set("i", "C-l", "<cmd>CodeCompanionInline<cr>", { desc = "Ollama Inline Suggestion" })

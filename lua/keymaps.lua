@@ -77,7 +77,6 @@ wk.add(
           end,
           desc = "Toggle Autocompletion"
     },
-    { "<leader>oc", "<cmd> LivePreview close <CR>", desc = "Stop Live Preview" },
     { "<leader>od", vim.lsp.buf.definition, desc = "Show Definition" },
     { "<leader>of", vim.lsp.buf.format, desc = "Format Buffer" },
     { "<leader>oj", "<cmd> %!jq .<CR>", desc = "Use jq to format JSON" },
@@ -87,6 +86,7 @@ wk.add(
     { "<leader>on", "<cmd> TZNarrow <CR>", desc = "Toggle Distraction-free Mode" },
     { "<leader>oo", "<cmd> set nospell <CR>", desc = "Spell Check Off" },
     { "<leader>op", "<cmd> LivePreview start <CR>", desc = "Markdown Live Preview" },
+    { "<leader>oq", "<cmd> LivePreview close <CR>", desc = "Stop Live Preview" },
     { "<leader>or", vim.lsp.buf.references, desc = "Show References" },
     { "<leader>os", "<cmd> set spell <CR>", desc = "Spell Check" },
     { "<leader>ot", "<cmd>TypstPreview toggle <CR>", desc = "Typst Preview Toggle" },

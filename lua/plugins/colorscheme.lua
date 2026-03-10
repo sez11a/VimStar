@@ -122,7 +122,6 @@ return {
 
       end
   },
-  --[[
   {
     "loctvl842/monokai-pro.nvim",
     lazy = false,
@@ -157,5 +156,5 @@ return {
         },
       })
     end,
-  } ]]
+  }
 }
