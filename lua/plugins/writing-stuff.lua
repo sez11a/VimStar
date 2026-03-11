@@ -17,14 +17,6 @@ return {
         })
     end
   },
-  {
-    "Pocco81/true-zen.nvim",
-    config = function()
-      require("true-zen").setup{
-
-      }
-    end,
-  },
   -- required by vim-markdown
   {
     "godlygeek/tabular",
