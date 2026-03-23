@@ -71,6 +71,7 @@ wk.add(
     -- Onscreen Format menu
     { "<leader>o", group = "Onscreen Format" },
     { "<leader>oa", vim.lsp.buf.code_action, desc = "Code Actions" },
+    { "<leader>ob", "<cmd>RenderMarkdown toggle<cr>", desc = "Toggle Markdown Rendering" },
     { "<leader>oc", function ()
           vim.b.x = not vim.b.x
           require('cmp').setup.buffer { enabled = not vim.b.x }
