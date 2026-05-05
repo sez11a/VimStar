@@ -27,7 +27,7 @@ return {
 				keymap.set({ 'n', 'v' }, 'ga', vim.lsp.buf.code_action, opts('Show available code actions'))
         
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client and client.supports_method("textDocument/formatting") then
+        if client and client:supports_method("textDocument/formatting") then
           keymap.set('n', '<leader>of', vim.lsp.buf.format, opts('Format buffer'))
         end
       end,

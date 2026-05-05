@@ -14,11 +14,31 @@ This is a NeoVim distribution optimized for *writing*. Key shortcuts (using Spac
 
 ## Installation
 
+The installation scripts 
+
+- Clone/update VimStar to `~\.VimStar`
+- On Linux, symlink the ~/.VimStar to ~/.config/nvim
+- On Windows, copy the configuration to `%LOCALAPPDATA%\nvim`, create required directories, and set up user config template
+
+**Note:** You must have Git installed and available in your PATH. Also, take note that I used AI to generate the Windows script, and it hasn't been tested as far as I know. 
+
+### Linux/macOS
+
 Execute this at the CLI: 
 
 ```bash
 curl -sLf https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimstar.sh | bash
 ```
+
+### Windows
+
+Execute this in PowerShell:
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force
+irm https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimstar.ps1 | iex
+```
+
 
 ## Screenshots
 
