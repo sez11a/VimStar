@@ -1,6 +1,10 @@
 # Welcome to VimStar! 
 
-This is a NeoVim distribution optimized for *writing*. Key shortcuts (using Space instead of CTRL) are a homage to WordStar. 
+This is a NeoVim distribution optimized for *writing*. Key shortcuts (using Space instead of Ctrl) are a homage to WordStar. 
+
+## Documentation
+
+For comprehensive documentation, visit the [VimStar Site](https://sez11a.github.io/VimStar/) or check out the [site/](site/) directory.
 
 ## Quick Guide: 
 

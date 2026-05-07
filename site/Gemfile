@@ -1,0 +1,19 @@
+source "https://rubygems.org"
+
+# HamlLiquid is needed for Jekyll 4.x with Liquid templates
+gem "jekyll", "~> 4.3"
+gem "minima", "~> 2.5"
+gem "jekyll-seo-tag", "~> 2.8"
+gem "jekyll-relative-links", "~> 0.6"
+gem "kramdown", "~> 2.4"
+
+group :jekyll_plugins do
+  gem "jekyll-feed", "~> 0.12"
+end
+
+# Windows and JRuby does not include zoneinfo files, so we use a fallback
+gem "tzinfo", "~> 2.0"
+gem "tzinfo-data", "~> 1.2018"
+
+# For better Markdown rendering
+gem "markdown", "~> 0.7.3"
