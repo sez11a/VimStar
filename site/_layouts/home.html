@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<div class="hero">
+  <h1>{{ page.title }}</h1>
+  
+  {% if page.subtitle %}
+  <p class="subtitle">{{ page.subtitle }}</p>
+  {% endif %}
+  
+  {{ content }}
+</div>
+
+{% if page.wordstar_menu %}
+<div class="wordstar-hero">
+  <h2>WordStar Heritage</h2>
+  <p>VimStar borrows the intuitive menu system from the 1980s word processor that defined keyboard shortcuts for generations of writers.</p>
+  
+  <table class="wordstar-table">
+    <thead>
+      <tr>
+        <th>WordStar</th>
+        <th>VimStar (Space prefix)</th>
+        <th>Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>Ctrl-K</code></td>
+        <td><code>&lt;leader&gt;k</code></td>
+        <td>{{ page.wordstar_menu.k }}</td>
+      </tr>
+      <tr>
+        <td><code>Ctrl-O</code></td>
+        <td><code>&lt;leader&gt;o</code></td>
+        <td>{{ page.wordstar_menu.o }}</td>
+      </tr>
+      <tr>
+        <td><code>Ctrl-P</code></td>
+        <td><code>&lt;leader&gt;p</code></td>
+        <td>{{ page.wordstar_menu.p }}</td>
+      </tr>
+      <tr>
+        <td><code>Ctrl-Q</code></td>
+        <td><code>&lt;leader&gt;q</code></td>
+        <td>{{ page.wordstar_menu.q }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endif %}

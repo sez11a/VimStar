@@ -1,0 +1,42 @@
+# Project: VimStar Jekyll Site
+
+title: VimStar
+description: A Neovim distribution optimized for writing, inspired by WordStar
+theme: minima
+markdown: kramdown
+highlighter: rouge
+
+url: "https://sez11a.github.io/VimStar"
+baseurl: "/VimStar"
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-relative-links
+
+# Navigation
+nav:
+  - title: "Home"
+    url: /
+  - title: "Installation"
+    url: /install
+  - title: "Quick Start"
+    url: /quickstart
+  - title: "Keybindings"
+    url: /keybindings
+  - title: "Writing"
+    url: /writing
+  - title: "Coding"
+    url: /coding
+  - title: "Wiki"
+    url: /wiki
+  - title: "Customization"
+    url: /customization
+  - title: "Troubleshooting"
+    url: /troubleshooting
+
+# WordStar heritage note
+wordstar_menu:
+  k: "Block and Save"
+  o: "Onscreen Format"
+  p: "Print Controls"
+  q: "Quick Menu"
