@@ -1,28 +1,50 @@
 # Project: VimStar
 
-## Purpose
+## Quick Start
 
-- VimStar is a Neovim distribution optimized for writing, but also containing support for code. 
-- Its main purpose is to be the best Markdown editor available, while also enabling various publishing processes. 
-- Users should be able to write Markdown and then publish it in a variety of ways, including articles, fully formatted books in PDF, and more. 
-- Users should be able to use a docs as code methodology with Git to view and edit changes made by multiple users. 
-- Code support includes various languages including Java, Lua, and Python, along with integrated local AI. 
+- Run Neovim to load the distribution; plugins install automatically via Lazy.nvim
+- Press Space to see keymaps; Space-? shows buffer-local keymaps via which-key
 
 ## Architecture
 
-- Multiple Lua scripts supporting various plugins and functionality. 
-- Entry point: `init.lua`. 
-- Other Lua scripts are contained in `/lua`. 
-- Keymaps are centralized in `/lua/keymaps.lua` and configured via the Whichkey plugin. 
-- A user-customizable file called `vimstar-user.lua` enables end users to customize their own installations.
-- The [Lazy.nvim](https://github.com/folke/lazy.nvim) plugin manager manages plugins.
-- [Mason](https://github.com/mason-org/mason.nvim) manages packages, such as formatters and linters.
-- [Tree-Sitter](https://github.com/tree-sitter/tree-sitter) manages syntax highlighting.
+- **Entry point**: `init.lua` (loads modules in order: `vim-options`, `lazy`, `keymaps`, `vimstar-user`)
+- **Plugin config**: `/lua/plugins/*.lua` - each exports a table via `return {}`
+- **User customization**: `vimstar-user.lua` loads after core config for user overrides
+- **Keymaps**: `/lua/keymaps.lua` uses Space as leader; registered via which-key `wk.add()`
 
-## Core Behavior 
+## Critical Paths
 
-- VimStar assumes writing from the start, defaulting new files to Markdown and enabling spell checking. 
-- The status line counts the number of words in the file being edited.
-- Writing code is also supported and encouraged: the editor supports code completion, debugging, and integrates AI code assist tools.
-- Markdown files can be converted to PDFs via various hotkeys. 
-- A local wiki is integrated for taking notes. 
+- **Markdown focus**: filetype defaults to markdown; spell-check enabled for prose filetypes
+- ** Publishing**: `Space-pb` (book PDF), `Space-pp` (article PDF) via Pandoc
+- **Debugging**: Python (DAP), Go (DAP), Java (attach to port 5005); Space-dt toggles breakpoint
+- **Wiki**: Uses `wiki.vim` with journal templates; `~/.VimStar/wiki/templates/`
+- **AI**: CodeCompanion with Ollama (model `qwen3-coder-next-32k`); Space-cc opens chat
+
+## LSP & Tools (via Mason)
+
+**LSPs**: lua_ls, html, cssls, ts_ls, pylsp, tinymist, clangd  
+**Tools**: tree-sitter-cli, texlab, jdtls, markmap-cli, debugpy
+
+## Keybindings (Space-prefixed)
+
+- **Find**: `Space-fs` files, `Space-fp` git files, `Space-fz` grep  
+- **Git**: `Space-gs` status, `Space-gb` browse HEAD, `Space-gm` diff master  
+- **Buffers**: `Space-ke` new, `Space-kj` close, `Space-kb` switch, `Space-kx` save+quit  
+- **Format**: `Space-oa` code actions, `Space-of` format, `Space-od` definition  
+- **Preview**: `Space-op` markdown live preview, `Space-oq` stop preview  
+- **Plugins**: `Space-ql` Lazy, `Space-qm` Mason, `Space-qt` TSUpdate  
+
+## Installation
+
+- **Linux/macOS**: `curl -sLf https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimstar.sh | bash`
+- **Windows**: `Set-ExecutionPolicy Bypass -Scope Process -Force; irm https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimstar.ps1 | iex`
+- Installs to `~/.VimStar` (symlinked to `~/.config/nvim` on Linux)
+
+## Important Constraints
+
+- **Map leader**: Both `<leader>` and `<localleader>` are Space (`vim.g.mapleader = " "`)
+- **Color scheme**: Default is `onedark`; modify `vimstar-user.lua` to change
+- **Wiki root**: Defaults to `~/Share/pim/pkm`; override in `vimstar-user.lua`
+- **Spell check**: Enabled for markdown, typst, tex, plaintex, latex filetypes only
+- **Indent**: 2 spaces, expandtab (except Java: 4 spaces via tabset.nvim)
+- **Opacity**: Neovide sets `neovide_normal_opacity = 0.8`, `window_blurred = true` 
