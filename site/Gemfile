@@ -16,4 +16,4 @@ gem "tzinfo", "~> 2.0"
 gem "tzinfo-data", "~> 1.2018"
 
 # For better Markdown rendering
-gem "markdown", "~> 0.7.3"
+gem "markdown", "~> 1.2.1"
