@@ -7,7 +7,7 @@ subtitle: "A Neovim distribution for writing, inspired by WordStar"
 <div class="hero">
   <h1>{{ page.title }}</h1>
   
-  <p>VimStar is a pre-configured Neovim setup optimized for writing Markdown while maintaining strong coding support. It's inspired by the classic DOS word processor WordStar, using Space as the leader key for intuitive menu access.</p>
+  <p>VimStar turns Neovim into a word processor while retaining Neovim's powerful completion, debugging, and navigation for all your coding needs. With a menu system inspired by WordStar, it's ideal for technical writing, creative writing, coding, and even publishing.</p>
   
   <div class="quick-actions">
     <a href="/install" class="btn btn-primary">Get Started</a>
