@@ -30,6 +30,9 @@
 \geometry{paperwidth=5.5in, paperheight=8.5in, hmargin={.75in, .75in}, vmargin={.75in,.75in}}
 \setlistdepth{9}
 \setcounter{secnumdepth}{0}
+\counterwithout{footnote}{chapter}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
 
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -118,7 +121,14 @@
   \renewcommand\afterchaptertitle{%
     \par\vskip\midchapskip\hrule\nobreak\vskip\afterchapskip}
 }
-\makeatother
+
+\renewcommand{\chaptermark}[1]{}
+\pretocmd{\chapter}{\setcounter{footnote}{0}}{}{}
+\appto{\afterchaptertitle}{\thispagestyle{headings}\markright{$title$}}
+\renewcommand{\sectionmark}[1]{}
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
 
 %	Title
 
@@ -153,10 +163,12 @@ All rights reserved.
 \pagenumbering{roman}
 \chapterstyle{VZ14}
 
-\tableofcontents 
+\tableofcontents
+\clearpage\markboth{}{}
 \mainmatter
 \pagenumbering{arabic}
 \pagestyle{headings}
+\markright{$title$}
 $body$
 
 \end{document}
