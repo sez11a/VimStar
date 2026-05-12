@@ -50,7 +50,6 @@ return {
           'regex',
           'lua',
           'markdown',
-          'markdown-inline',
           'html',
           'javascript',
           'typescript',
