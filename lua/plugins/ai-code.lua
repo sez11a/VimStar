@@ -29,15 +29,14 @@ return {
         adapters = {
           -- Pick one or more; example with Ollama (local/free) or Anthropic
           ollama = {
-            -- schema = { model = "codellama" },
-            schema = { model = "qwen3-coder-next-32k" },
+            schema = { model = vim.g.ollama_model or "qwen3-coder-next-32k" },
           },
           -- anthropic = { env = { api_key = "your-claude-key" } },
         },
         strategies = {
           -- chat = { adapter = "ollama" }, -- or "anthropic"
-          chat = { adapter = "ollama", model = "qwen3-coder-next-32k" }, -- or "anthropic"
-          inline = { adapter = "ollama", model = "qwen3-coder-next-32k" },
+          chat = { adapter = "ollama", model = vim.g.ollama_model or "qwen3-coder-next-32k" }, -- or "anthropic"
+          inline = { adapter = "ollama", model = vim.g.ollama_model or "qwen3-coder-next-32k" },
         },
         vim.keymap.set("i", "C-l", "<cmd>CodeCompanionInline<cr>", { desc = "Ollama Inline Suggestion" })
       })

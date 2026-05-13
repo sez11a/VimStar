@@ -35,3 +35,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.sh", "*.java" },
   command = [[%s/\s\+$//e]],
 })
+
+-- Ollama model for AI coding (override to use a different model)
+vim.g.ollama_model = "qwen3-coder-next-32k"
+-- vim.g.ollama_writer_model = "specific-writer-model" -- placeholder for future
