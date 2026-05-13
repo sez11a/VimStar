@@ -11,7 +11,7 @@ subtitle: "A Neovim distribution for writing, inspired by WordStar"
   
   <div class="quick-actions">
     <a href="./install/" class="btn btn-primary">Get Started</a>
-    <a href="/keybindings" class="btn btn-secondary">View Keybindings</a>
+    <a href="./reference/" class="btn btn-secondary">View Keybindings</a>
   </div>
 </div>
 
