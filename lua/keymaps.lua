@@ -59,7 +59,17 @@ wk.add(
     { "<leader>km", "<cmd> MarkmapSave <CR>", desc = "Save Markmap" },
     { "<leader>ko", "<cmd> Explore <CR>", desc = "Open File" },
     { "<leader>kq", "<cmd> q! <CR>", desc = "Abandon Changes and Quit" },
-    { "<leader>ks", "<cmd> w <CR>", desc = "Save" },
+    { "<leader>ks", function()
+        if vim.fn.bufname() == "" then
+          vim.ui.input({ prompt = "Save buffer as: ", default = vim.fn.getcwd() .. "/" }, function(input)
+            if input then
+              vim.cmd("silent write " .. input)
+            end
+          end)
+        else
+          vim.cmd.w()
+        end
+      end, desc = "Save" },
     { "<leader>kt", function()
           if vim.bo.filetype == "neo-tree" then
             vim.cmd.wincmd "p"
@@ -67,7 +77,18 @@ wk.add(
             vim.cmd.Neotree "toggle"
           end
         end, desc = "Toggle Neotree" },
-    { "<leader>kx", "<cmd> wq <CR>", desc = "Save and Exit" },
+    { "<leader>kx", function()
+        if vim.fn.bufname() == "" then
+          vim.ui.input({ prompt = "Save and exit as: ", default = vim.fn.getcwd() .. "/" }, function(input)
+            if input then
+              vim.cmd("silent write " .. input)
+              vim.cmd.quit()
+            end
+          end)
+        else
+          vim.cmd.wq()
+        end
+      end, desc = "Save and Exit" },
     -- Onscreen Format menu
     { "<leader>o", group = "Onscreen Format" },
     { "<leader>oa", vim.lsp.buf.code_action, desc = "Code Actions" },
