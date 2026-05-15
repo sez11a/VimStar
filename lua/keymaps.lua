@@ -12,21 +12,18 @@ wk.add(
   {
     -- Debug Menu
     { "<leader>d", group = "Debug" },
-    { "<leader>dt", "<cmd> DapToggleBreakpoint <CR>", desc = "Toggle Breakpoint" },
+    { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+    { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Conditional Breakpoint" },
     { "<leader>dc", "<cmd> DapContinue <CR>", desc = "Continue" },
-    { "<leader>dx", "<cmd> DapTerminate <CR>", desc = "Terminate Debugging" },
+    { "<leader>dx", "<cmd> DapTerminate <CR>", desc = "Terminate" },
     { "<leader>do", "<cmd> DapStepOver <CR>", desc = "Step Over" },
+    { "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
+    { "<leader>dt", function() require("dap").step_out() end, desc = "Step Out" },
     -- Code Menu
     { "<leader>c", group = "Code" },
     { "<leader>ca", "<cmd> CodeCompanionActions<CR>", mode = "v", desc = "AI Actions on Selection" },
     { "<leader>cc", "<cmd> CodeCompanionChat Toggle <CR>", desc = "AI Chat" },
     { "<leader>ci", "<cmd> CodeCompanionInline<CR>", mode = {"n", "v"}, desc = "Inline AI Edit" },
-    { "<leader>co", function()
-          vim.lsp.buf.code_action({
-            context = { only = { 'source.organizeImports' } },
-            apply = true,
-          })
-        end, desc = "Organize Imports" },
     { "<leader>cw", function()
           require("neocodeium").toggle()
           -- Optional: notify for feedback
@@ -35,11 +32,20 @@ wk.add(
               vim.log.levels.INFO)
           end
       end, desc = "Toggle Neocodeium (Windsurf)" },
+    -- Java Menu
+    { "<leader>j", group = "Java" },
+    { "<leader>jd", function() require('jdtls').test_class() end, desc = "Java Test Class" },
+    { "<leader>jn", function() require('jdtls').test_nearest_method() end, desc = "Java Test Nearest" },
+    { "<leader>ji", function() require('jdtls').organize_imports() end, desc = "Java Organize Imports" },
+    -- Wiki Menu
+    { "<leader>w", group = "Wiki" },
+    { "<leader>wi", "<cmd>lua vim.cmd('WikiJournalIndex')<CR>", desc = "Wiki Journal Index" },
     -- Find Menu
     { "<leader>f", group = "Find Menu" },
     { "<leader>fs", "<cmd> Telescope find_files <CR>", desc = "Telescope Find Files" },
     { "<leader>fp", "<cmd> Telescope git_files <CR>", desc = "Telescope Git Files" },
     { "<leader>fz", "<cmd> Telescope live_grep <CR>", desc = "Telescope Live Grep" },
+    { "<leader>fg", builtin.live_grep, desc = "Live Grep" },
     { "<leader>fo", "<cmd> Telescope oldfiles <CR>", desc = "Telescope Old Files" },
     -- Git Menu
     { "<leader>g", group = "Git" },
@@ -107,13 +113,13 @@ wk.add(
     { "<leader>om", "<cmd> MarkmapOpen <CR>", desc = "Open Markmap" },
     { "<leader>on", "<cmd> ZenmodeToggle <CR>", desc = "Toggle Distraction-free Mode" },
     { "<leader>oo", "<cmd> set nospell <CR>", desc = "Spell Check Off" },
+    { "<leader>oi", "<Plug>CycleListType", desc = "Cycle List Type" },
     { "<leader>op", "<cmd> LivePreview start <CR>", desc = "Markdown Live Preview" },
     { "<leader>oq", "<cmd> LivePreview close <CR>", desc = "Stop Live Preview" },
     { "<leader>or", vim.lsp.buf.references, desc = "Show References" },
     { "<leader>os", "<cmd> set spell <CR>", desc = "Spell Check" },
     { "<leader>ot", "<cmd>TypstPreview toggle <CR>", desc = "Typst Preview Toggle" },
     { "<leader>ow", "<cmd> MarkmapWatch <CR>", desc = "Markmap Watch" },
-    --{ "<leader>ou", "<cmd> call voom#Init('markdown', 1, 1) <CR>", desc = "Toggle Outline" },
     -- Print Controls Menu 
     { "<leader>p", group = "Print Controls" },
     { "<leader>pb", "<cmd> Pandoc pdf --pdf-engine=lualatex --standalone --top-level-division=chapter --template ~/.VimStar/templates/book.tex <CR>", desc="Convert Markdown to PDF: book template" },

@@ -82,12 +82,6 @@ return {
       config['on_attach'] = function(client, bufnr)
         -- Enable debugger support
         require('jdtls').setup_dap({ hotcodereplace = 'auto' })
-
-        -- Helper for keymaps
-        local opts = { silent = true, buffer = bufnr }
-        vim.keymap.set('n', '<leader>df', function() require('jdtls').test_class() end, opts)
-        vim.keymap.set('n', '<leader>dn', function() require('jdtls').test_nearest_method() end, opts)
-        vim.keymap.set('n', '<leader>oi', function() require('jdtls').organize_imports() end, opts)
       end
 
       -- Finally, start the server

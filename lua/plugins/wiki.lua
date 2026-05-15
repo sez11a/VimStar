@@ -89,7 +89,16 @@ return {
     },
     config = function()
       require("org-list").setup({
-
+        mapping = {
+          key = "<leader>oi",
+          desc = "Cycle List Type"
+        },
+        checkbox_toggle = {
+          enabled = true,
+          key = "<C-Space>",
+          desc = "Toggle checkbox state",
+          filetypes = { "org", "markdown" }
+        }
       })
     end
   },
