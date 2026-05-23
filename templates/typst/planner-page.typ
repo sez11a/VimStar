@@ -6,8 +6,8 @@
 #set page(
   width: 5.5in,
   height: 8.5in,
-  flipped: true,           // landscape
-  binding: right,          // binding on right for folding
+  flipped: true,
+  binding: right,
   margin: 0.5in,
   columns: 2,
 )
@@ -16,26 +16,15 @@
 #set text(
   font: ("Libertinus Serif", "Noto Serif", "Noto Sans", "DejaVu Sans", "Helvetica", "Arial"),
   fallback: true,
-  10pt  // slightly smaller for compact layout
+  10pt
 )
 
-// Set column gap separately
 #set columns(gutter: 0.24in)
 
-// Headings: underlined (same as other templates)
-#show heading: (h: h) => {
-  let rule = hrule(length: 100%, weight: 0.5pt)
-  block(
-    flow: flow(),
-    spacing: 1em,
-    stack(v: h.body, rule)
-  )
-}
+$title$
 
-// Images: full width for compact layout
-#show image: (img) => {
-  img.with(width: 100%)
-}
+$subtitle$
 
-// No headers/footers: clean, minimalist layout
-// (page numbers would be added here if desired)
+$author$
+
+$body$
