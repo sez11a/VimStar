@@ -128,6 +128,7 @@ wk.add(
     { "<leader>pB", "<cmd> Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/book.typ <CR>", desc="Convert Markdown to PDF: book template (Typst)" },
     { "<leader>pP", "<cmd> Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/article-handout.typ <CR>", desc="Convert Markdown to PDF: article/handout template (Typst)" },
     { "<leader>pE", "<cmd> Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/planner-page.typ <CR>", desc="Convert Markdown to PDF: planner page template (Typst, n-up)" },
+    { "<leader>pk", "<cmd> Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/book-bookly.typ <CR>", desc="Convert Markdown to PDF: bookly book template (Typst)" },
     { "<leader>pm", "<cmd> MarkmapOpen <CR>", desc = "View Mindmap in Browser" },
     { "<leader>ps", "<cmd> MarkmapSave <CR>", desc = "Save Mindmap; don't open it" },
     { "<leader>po", "<cmd> Pandoc odt <CR>", desc = "Convert Markdown to ODT"},
