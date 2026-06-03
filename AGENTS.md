@@ -44,7 +44,7 @@
 
 - **Map leader**: Both `<leader>` and `<localleader>` are Space (`vim.g.mapleader = " "`)
 - **Color scheme**: Default is `onedark`; modify `vimstar-user.lua` to change
-- **Wiki root**: Defaults to `~/Share/pim/pkm`; override in `vimstar-user.lua`
+- **Wiki root**: Defaults to `~/.VimStar/wiki`; override in `vimstar-user.lua`
 - **Spell check**: Enabled for markdown, typst, tex, plaintex, latex filetypes only
 - **Indent**: 2 spaces, expandtab (except Java: 4 spaces via tabset.nvim)
 - **Opacity**: Neovide sets `neovide_normal_opacity = 0.8`, `window_blurred = true` 
