@@ -37,5 +37,5 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- Ollama model for AI coding (override to use a different model)
-vim.g.ollama_model = "qwen2.5-coder:14b"
+vim.g.ollama_model = "gemma4:31b"
 -- vim.g.ollama_writer_model = "specific-writer-model" -- placeholder for future

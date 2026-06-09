@@ -113,7 +113,7 @@ return {
           {
             filetypes = { "markdown", "mkd", "yaml"},
               config = {
-                tabwidth = 2,
+            tabwidth = 4,
                 expandtab = true,
                 softtabstop = 2
             }

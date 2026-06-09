@@ -9,16 +9,16 @@
 
 - **Entry point**: `init.lua` (loads modules in order: `vim-options`, `lazy`, `keymaps`, `vimstar-user`)
 - **Plugin config**: `/lua/plugins/*.lua` - each exports a table via `return {}`
-- **User customization**: `vimstar-user.lua` loads after core config for user overrides
+- **User customization**: `vimstar-user.lua` loads after core config for user overrides. No other files can be customized, or users introduce potential Git conflicts.
 - **Keymaps**: `/lua/keymaps.lua` uses Space as leader; registered via which-key `wk.add()`
 
 ## Critical Paths
 
 - **Markdown focus**: filetype defaults to markdown; spell-check enabled for prose filetypes
-- ** Publishing**: `Space-pb` (book PDF), `Space-pp` (article PDF) via Pandoc
-- **Debugging**: Python (DAP), Go (DAP), Java (attach to port 5005); Space-dt toggles breakpoint
+- ** Publishing**: Markdown files can be converted to various other formats with the `Space-p` menu via Pandoc
+- **Debugging**: Python (DAP), Go (DAP), Java (attach to port 5005); `Space-dt` toggles breakpoint
 - **Wiki**: Uses `wiki.vim` with journal templates; `~/.VimStar/wiki/templates/`
-- **AI**: CodeCompanion with Ollama (model `qwen3-coder-next-32k`); Space-cc opens chat
+- **AI**: CodeCompanion with Ollama (model `gemma4:31b`); `Space-cc` opens chat
 
 ## LSP & Tools (via Mason)
 
@@ -46,5 +46,4 @@
 - **Color scheme**: Default is `onedark`; modify `vimstar-user.lua` to change
 - **Wiki root**: Defaults to `~/.VimStar/wiki`; override in `vimstar-user.lua`
 - **Spell check**: Enabled for markdown, typst, tex, plaintex, latex filetypes only
-- **Indent**: 2 spaces, expandtab (except Java: 4 spaces via tabset.nvim)
-- **Opacity**: Neovide sets `neovide_normal_opacity = 0.8`, `window_blurred = true` 
+- **Indent**: 2 spaces, expandtab by default; 4 spaces for everything else via tabset.nvim.

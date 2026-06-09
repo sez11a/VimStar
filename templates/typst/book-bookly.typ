@@ -18,8 +18,8 @@
   fonts: (
     body: ("Libertinus Serif", "Noto Serif", "Noto Sans", "DejaVu Sans"),
     heading: ("Gillius ADF", "Noto Sans"),   // optional — some versions support it
-    math: ("Libertinus Math", "New Computer Modern Math"),  // required
-    raw: ("IosevkaTermSlab Nerd Font", "Fira Code", "Source Code Pro"), // required
+    math: ("IosevkaTermSlab NF", "New Computer Modern Math"),  // required
+    raw: ("IosevkaTermSlab NF", "Fira Code", "Source Code Pro"), // required
   ),
 )
 
@@ -84,8 +84,10 @@
     }
   })
 
+
 // Front-matter 
 #front-matter[
+  #counter(page).update(1)
   #outline(title: [Contents], depth: 3)
 ]
 
