@@ -102,7 +102,7 @@ return {
       config = function()
         require("tabset").setup({
           defaults = {
-            tabwidth = 2,
+            tabwidth = 4,
             expandtab = true
           },
           languages = {
@@ -113,7 +113,7 @@ return {
           {
             filetypes = { "markdown", "mkd", "yaml"},
               config = {
-            tabwidth = 4,
+                tabwidth = 2,
                 expandtab = true,
                 softtabstop = 2
             }
