@@ -39,3 +39,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 -- Ollama model for AI coding (override to use a different model)
 vim.g.ollama_model = "gemma4:31b"
 -- vim.g.ollama_writer_model = "specific-writer-model" -- placeholder for future
+
+-- Path to the Java SDK (optional)
+-- vim.g.java_sdk_path = "/path/to/your/jdk"

@@ -65,13 +65,13 @@ return {
             -- Mapping your specific JDK
             configuration = {
               updateBuildConfiguration = "interactive",
-              runtimes = {
-                {
-                  name = "JavaSE-21",
-                  path = "/usr/lib/jvm/zulu-21",
-                  default = true,
+                runtimes = {
+                  {
+                    name = "JavaSE-21",
+                    path = vim.g.java_sdk_path or "/usr/lib/jvm/zulu-21",
+                    default = true,
+                  },
                 },
-              },
             },
           },
         },
