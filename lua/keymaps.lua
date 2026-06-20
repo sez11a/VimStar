@@ -46,6 +46,12 @@ wk.add(
     { "<leader>fp", "<cmd> Telescope git_files <CR>", desc = "Telescope Git Files" },
     { "<leader>fz", "<cmd> Telescope live_grep <CR>", desc = "Telescope Live Grep" },
     { "<leader>fg", builtin.live_grep, desc = "Live Grep" },
+    { "<leader>fj", function()
+      local journal_path = vim.g.wiki_root .. '/journal'
+      builtin.live_grep({
+        cwd = vim.fn.expand(journal_path)
+      })
+    end, desc = "Find Journal Entries" },
     { "<leader>fo", "<cmd> Telescope oldfiles <CR>", desc = "Telescope Old Files" },
     -- Git Menu
     { "<leader>g", group = "Git" },
