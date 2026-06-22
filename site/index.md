@@ -26,7 +26,7 @@ subtitle: "A Neovim distribution for writing, inspired by WordStar"
   </div>
   <div class="feature-card">
     <h3>🤖 AI Assistant</h3>
-    <p>CodeCompanion with Ollama for inline suggestions and chat</p>
+    <p>Integrates [CodeCompanion](https://github.com/olimorris/codecompanion.nvim) with [Ollama](https://ollama.com) for inline suggestions and chat</p>
   </div>
   <div class="feature-card">
     <h3>💻 Language Support</h3>
@@ -34,11 +34,11 @@ subtitle: "A Neovim distribution for writing, inspired by WordStar"
   </div>
   <div class="feature-card">
     <h3>📚 Wiki System</h3>
-    <p>Journaling with templates (daily, monthly, project, notes)</p>
+    <p>Complete time management system implemented with [wiki.vim](https://github.com/lervag/wiki.vim) and Markdown.</p>
   </div>
   <div class="feature-card">
     <h3>🛠️ Auto-Installed</h3>
-    <p>Plugins install automatically via Lazy.nvim</p>
+    <p>[Lazy.nvim](https://github.com/folke/lazy.nvim) manages plugins, Mason manages LSPs, Tree-sitter manages syntax.</p>
   </div>
 </div>
 

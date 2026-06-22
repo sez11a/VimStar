@@ -36,9 +36,10 @@
 
 ## Installation
 
-- **Linux/macOS**: `curl -sLf https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimstar.sh | bash`
+- **Linux**: `curl -sLf https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimstar.sh | bash`
+- **macOS**: `curl -sLf https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimstar.sh | bash`
 - **Windows**: `Set-ExecutionPolicy Bypass -Scope Process -Force; irm https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimstar.ps1 | iex`
-- Installs to `~/.VimStar` (symlinked to `~/.config/nvim` on Linux)
+- Installs to `~/.VimStar` (symlinked to Neovim config dir: `~/.config/nvim` on Linux, `~/Library/Application Support/nvim` on macOS, `$env:LOCALAPPDATA/nvim` on Windows)
 
 ## Important Constraints
 

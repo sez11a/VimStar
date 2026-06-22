@@ -5,7 +5,12 @@ description: "Install VimStar on Linux, macOS, or Windows"
 permalink: /install/
 ---
 
-VimStar installs to `~/.VimStar` (symlinked to `~/.config/nvim` on Linux) and automatically downloads plugins via Lazy.nvim.
+VimStar installs to `~/.VimStar` and automatically downloads plugins via Lazy.nvim.
+
+The installation script creates a symlink to Neovim's config directory:
+- Linux: `~/.config/nvim`
+- macOS: `~/Library/Application Support/nvim`
+- Windows: `$env:LOCALAPPDATA\nvim`
 
 ## Requirements
 
@@ -21,11 +26,13 @@ curl -sLf https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimsta
 
 **What happens:**
 1. Clones/updates VimStar to `~/.VimStar`
-2. Creates `~/.config/nvim` symlink
+2. Creates Neovim config symlink (platform-specific)
 3. Creates spell directory `~/.VimStar/spell/`
 4. Copies user template if not present
 
 After installation, run `nvim` to finish setup (plugins download automatically).
+
+**Note:** The script detects your OS and uses the correct Neovim config directory.
 
 ## Windows
 
@@ -36,7 +43,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 irm https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimstar.ps1 | iex
 ```
 
-**Note:** The Windows script is community-maintained and may need testing. Report issues in the GitHub repository.
+**Note:** The Windows script creates a symbolic link. Report any issues in the GitHub repository.
 
 ## Manual Installation (Advanced)
 
@@ -44,12 +51,15 @@ irm https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimstar.ps1 
 # Clone the repository
 git clone https://github.com/sez11a/VimStar ~/.VimStar
 
-# Create symlink (Linux/macOS)
+# Create symlink (Linux)
 ln -sfn ~/.VimStar ~/.config/nvim
 
-# or copy to Windows location
-# Copy to %LOCALAPPDATA%\nvim
-```
+# Create symlink (macOS)
+ln -sfn ~/.VimStar ~/Library/Application\ Support/nvim
+
+# Create symlink (Windows PowerShell)
+New-Item -ItemType SymbolicLink -Path $env:LOCALAPPDATA\nvim -Target ~/.VimStar -Force
+``
 
 ## First Launch
 

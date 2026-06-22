@@ -16,13 +16,12 @@ if (-not (Test-Path $VimStarDir)) {
     git -C $VimStarDir pull
 }
 
-# Ensure Neovim config directory exists
+# Ensure Neovim config directory exists and create symlink
 Write-Host "Creating Neovim config directory..." -ForegroundColor Yellow
-New-Item -ItemType Directory -Path $NeovimConfigDir -Force | Out-Null
-
-# Copy VimStar to Neovim config directory
-Write-Host "Copying VimStar configuration to $NeovimConfigDir..." -ForegroundColor Yellow
-Copy-Item -Path (Join-Path $VimStarDir "*") -Destination $NeovimConfigDir -Recurse -Force
+if (Test-Path $NeovimConfigDir) {
+    Remove-Item -Path $NeovimConfigDir -Force
+}
+New-Item -ItemType SymbolicLink -Path $NeovimConfigDir -Target $VimStarDir -Force | Out-Null
 
 # Ensure spell directory exists
 Write-Host "Creating spell directory..." -ForegroundColor Yellow
@@ -33,6 +32,10 @@ $UserConfig = Join-Path $VimStarDir "lua" "vimstar-user.lua"
 if (-not (Test-Path $UserConfig)) {
     Write-Host "Copying default config to $UserConfig..." -ForegroundColor Yellow
     Copy-Item -Path (Join-Path $VimStarDir "vimstar-user-template") -Destination $UserConfig
+}
+
+if (-not (Get-Command nvim -ErrorAction SilentlyContinue)) {
+    Write-Host "Warning: Neovim not found. VimStar installed but requires Neovim to work." -ForegroundColor Yellow
 }
 
 Write-Host "Install finished! Run Neovim to finish setup!" -ForegroundColor Green
