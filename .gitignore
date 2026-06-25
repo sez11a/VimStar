@@ -7,5 +7,5 @@ spell/
 vimstar-user.lua
 lazy-lock.json
 .luarc.json
-site/Gemfile.lock 
-site/_site/
+docs/Gemfile.lock 
+docs/_site/
