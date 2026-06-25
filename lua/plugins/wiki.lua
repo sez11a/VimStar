@@ -27,9 +27,9 @@ return {
         },
         {
           match_func = function(context)
-            return context.path_wiki:find "actions/."
+            return context.path_wiki:find "tasks/."
           end,
-          source_filename = "~/.VimStar/wiki/templates/actions.md"
+          source_filename = "~/.VimStar/wiki/templates/tasks.md"
         },
         {
           match_func = function(context)
@@ -58,7 +58,7 @@ return {
                   "",
                   "# Schedule",
                   "",
-                  "# Actions",
+                  "# Tasks",
                   "",
                   "# Roles",
                   "",
