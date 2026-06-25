@@ -21,6 +21,9 @@ plugins:
   - jekyll-relative-links
   - jekyll-include-cache
 
+sass: 
+  style: compressed
+
 defaults:
   - scope:
       path: ""          # all files in the project

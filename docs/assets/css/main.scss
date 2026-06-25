@@ -15,3 +15,57 @@ search: false
 .page__content {
   padding-top: 2rem;
 }
+
+/* ====================== Alegreya Font ====================== */
+body {
+  font-family: "Alegreya", Georgia, serif;
+  font-size: 1.0rem;           /* ~16px — comfortable starting point */
+  line-height: 1.75;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Alegreya", Georgia, serif;
+  font-weight: 600;
+}
+
+/* If you really want smaller body text (closer to 12pt) */
+p, li, .feature__item p {
+  font-size: 0.95rem;
+}
+
+/* ====================== Improved Cards ====================== */
+.feature__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+  margin: 2.5rem 0 3rem;
+}
+
+.feature__item {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.35rem 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.feature__item h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.feature__item p {
+  margin: 0;
+  flex-grow: 1;
+  line-height: 1.6;
+}
+
+.feature__item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  border-color: var(--accent-color);
+}

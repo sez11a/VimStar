@@ -31,6 +31,9 @@
 
 
 
+  <meta property="og:image" content="http://localhost:4000/VimStar/images/hero-background.png">
+  
+
 
 
 
@@ -84,15 +87,11 @@
 
 
 
-    <!-- start custom head snippets -->
-
-<!-- insert favicons. use https://realfavicongenerator.net/ -->
-
-<!-- end custom head snippets -->
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   </head>
 
-  <body class="layout--single">
+  <body class="layout--single wide">
     
 <nav class="skip-links" aria-label="Skip links">
   <ul>
@@ -182,6 +181,46 @@
 
     <div class="initial-content">
       
+
+
+  
+
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/VimStar/images/hero-background.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          VimStar
+
+        
+      </h1>
+      
+      
+
+
+
+      
+        <p>
+        
+          <a href="/VimStar/#install" class="btn btn--light-outline btn--large">Get Started</a>
+        
+          <a href="https://github.com/sez11a/VimStar" class="btn btn--light-outline btn--large">View on GitHub</a>
+        
+        </p>
+      
+    </div>
+  
+  
+</div>
 
 
 
@@ -294,54 +333,45 @@
 
     <div class="page__inner-wrap">
       
-        <header>
-          <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/VimStar/" itemprop="url">VimStar
-</a>
-          </h1>
-          
-
-
-
-        </header>
-      
 
       <section class="page__content e-content" itemprop="text">
         
-          <aside class="sidebar__right ">
-            <nav class="toc" aria-label="Table of contents">
-              <header><h4 class="nav__title"><i class="fas fa-gears"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#requirements">Requirements</a></li><li><a href="#linuxmacos">Linux/macOS</a></li><li><a href="#windows">Windows</a></li><li><a href="#manual-installation">Manual Installation</a></li><li><a href="#first-launch">First Launch</a></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
-            </nav>
-          </aside>
-        
         <p>VimStar turns Neovim into a word processor while retaining Neovim's powerful completion, debugging, and navigation for all your coding needs. With a menu system inspired by WordStar, it's ideal for technical writing, creative writing, coding, and even publishing.</p>
 
-<div class="features">
-  <div class="feature-card">
-    <h3>📝 Writing First</h3>
-    <p>Supports Markdown, LaTeX, and Typst, displays word count, publishes with Pandoc.</p>
+<h3 id="why-vimstar">Why VimStar?</h3>
+
+<div class="feature__wrapper">
+
+  <div class="feature__item">
+    <h4>📝 Writing First</h4>
+    <p>Markdown, LaTeX, Typst, word count, and one-click Pandoc publishing.</p>
   </div>
-  <div class="feature-card">
-    <h3>⚡ WordStar Menus</h3>
-    <p>Space-K (Block &amp; Save), Space-O (Onscreen Format), Space-P (Print Controls), Space-Q (Quick Menu) organize word processing functions.</p>
+
+  <div class="feature__item">
+    <h4>⚡ WordStar Menus</h4>
+    <p>Inspired by WordStar: Space-K (Block &amp; Save), Space-O (Onscreen Format), Space-P (Print Controls), Space-Q (Quick Menu) organize word processing functions.</p>
   </div>
-  <div class="feature-card">
-    <h3>🤖 AI Assistant</h3>
-    <p>Integrates <a href="https://github.com/olimorris/codecompanion.nvim">CodeCompanion</a> with <a href="https://ollama.com">Ollama</a> for inline suggestions and chat</p>
+
+  <div class="feature__item">
+    <h4>🤖 AI Assistant</h4>
+    <p>Integrates <a href="https://github.com/olimorris/codecompanion.nvim">CodeCompanion</a> with <a href="https://ollama.com">Ollama</a> for inline suggestions and chat.</p>
   </div>
-  <div class="feature-card">
-    <h3>💻 Language Support</h3>
-    <p>LSPs for Lua, TypeScript, Python, Java, C; debugging for Python, Go, Java</p>
+
+  <div class="feature__item">
+    <h4>💻 Language Support</h4>
+    <p>LSPs and debugging for Python, Lua, TypeScript, Java, C, Go, and more.</p>
   </div>
-  <div class="feature-card">
-    <h3>📚 Wiki System</h3>
+
+  <div class="feature__item">
+    <h4>📚 Wiki System</h4>
     <p>Complete time management system implemented with <a href="https://github.com/lervag/wiki.vim">wiki.vim</a> and Markdown.</p>
   </div>
-  <div class="feature-card">
-    <h3>🛠️ Auto-Installed</h3>
-    <p><a href="https://github.com/folke/lazy.nvim">Lazy.vim</a> manages plugins, Mason manages LSPs, Tree-sitter manages syntax.</p>
+
+  <div class="feature__item">
+    <h4>🛠️ Batteries Included</h4>
+    <p>Lazy.nvim, Mason, Tree-sitter: everything auto-installed.</p>
   </div>
+
 </div>
 
 <h2>Screenshots</h2>
@@ -349,12 +379,12 @@
 <div class="screenshots">
   <div class="screenshot">
     <h3>Dashboard</h3>
-    <p>The ASCII art dashboard shows recently opened files.</p>
+    <p>Start right away with a new or recent file.</p>
     <img src="./images/vimstar-1.png" alt="VimStar dashboard" />
   </div>
   <div class="screenshot">
     <h3>Markdown Editing</h3>
-    <p>Markdown is the default filetype with spell check enabled.</p>
+    <p>Defaults to Markdown, with full Git support.</p>
     <img src="./images/vimstar-2.png" alt="Markdown editing" />
   </div>
 </div>

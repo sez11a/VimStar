@@ -2,35 +2,57 @@
 layout: single
 title: "VimStar"
 subtitle: "A Neovim distribution for writing, inspired by WordStar"
+header: 
+  overlay_image: /images/hero-background.png
+  overlay_filter: 0.4 
+  actions: 
+    - label: "Get Started"
+      url: "#install"
+    - label: "View on GitHub"
+      url: "https://github.com/sez11a/VimStar"
+sidebar: 
+  nav: "main"
+
+toc: false
+classes: wide
 ---
 
   <p>VimStar turns Neovim into a word processor while retaining Neovim's powerful completion, debugging, and navigation for all your coding needs. With a menu system inspired by WordStar, it's ideal for technical writing, creative writing, coding, and even publishing.</p>
 
-<div class="features">
-  <div class="feature-card">
-    <h3>📝 Writing First</h3>
-    <p>Supports Markdown, LaTeX, and Typst, displays word count, publishes with Pandoc.</p>
+### Why VimStar?
+
+<div class="feature__wrapper">
+
+  <div class="feature__item">
+    <h4>📝 Writing First</h4>
+    <p>Markdown, LaTeX, Typst, word count, and one-click Pandoc publishing.</p>
   </div>
-  <div class="feature-card">
-    <h3>⚡ WordStar Menus</h3>
-    <p>Space-K (Block & Save), Space-O (Onscreen Format), Space-P (Print Controls), Space-Q (Quick Menu) organize word processing functions.</p>
+
+  <div class="feature__item">
+    <h4>⚡ WordStar Menus</h4>
+    <p>Inspired by WordStar: Space-K (Block & Save), Space-O (Onscreen Format), Space-P (Print Controls), Space-Q (Quick Menu) organize word processing functions.</p>
   </div>
-  <div class="feature-card">
-    <h3>🤖 AI Assistant</h3>
-    <p>Integrates <a href="https://github.com/olimorris/codecompanion.nvim">CodeCompanion</a> with <a href="https://ollama.com">Ollama</a> for inline suggestions and chat</p>
+
+  <div class="feature__item">
+    <h4>🤖 AI Assistant</h4>
+    <p>Integrates <a href="https://github.com/olimorris/codecompanion.nvim">CodeCompanion</a> with <a href="https://ollama.com">Ollama</a> for inline suggestions and chat.</p>
   </div>
-  <div class="feature-card">
-    <h3>💻 Language Support</h3>
-    <p>LSPs for Lua, TypeScript, Python, Java, C; debugging for Python, Go, Java</p>
+
+  <div class="feature__item">
+    <h4>💻 Language Support</h4>
+    <p>LSPs and debugging for Python, Lua, TypeScript, Java, C, Go, and more.</p>
   </div>
-  <div class="feature-card">
-    <h3>📚 Wiki System</h3>
+
+  <div class="feature__item">
+    <h4>📚 Wiki System</h4>
     <p>Complete time management system implemented with <a href="https://github.com/lervag/wiki.vim">wiki.vim</a> and Markdown.</p>
   </div>
-  <div class="feature-card">
-    <h3>🛠️ Auto-Installed</h3>
-    <p><a href="https://github.com/folke/lazy.nvim">Lazy.vim</a> manages plugins, Mason manages LSPs, Tree-sitter manages syntax.</p>
+
+  <div class="feature__item">
+    <h4>🛠️ Batteries Included</h4>
+    <p>Lazy.nvim, Mason, Tree-sitter: everything auto-installed.</p>
   </div>
+
 </div>
 
 <h2>Screenshots</h2>
@@ -38,17 +60,18 @@ subtitle: "A Neovim distribution for writing, inspired by WordStar"
 <div class="screenshots">
   <div class="screenshot">
     <h3>Dashboard</h3>
-    <p>The ASCII art dashboard shows recently opened files.</p>
+    <p>Start right away with a new or recent file.</p>
     <img src="./images/vimstar-1.png" alt="VimStar dashboard">
   </div>
   <div class="screenshot">
     <h3>Markdown Editing</h3>
-    <p>Markdown is the default filetype with spell check enabled.</p>
+    <p>Defaults to Markdown, with full Git support.</p>
     <img src="./images/vimstar-2.png" alt="Markdown editing">
   </div>
 </div>
 
 ## Install
+{: #install}
 
 The installation script clones or updates VimStar to the active user's home directory and links that to Neovim's config directory:
 - Linux: `~/.config/nvim`
