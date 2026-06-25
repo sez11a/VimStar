@@ -1,4 +1,4 @@
-name: Deploy Jekyll site with remote theme
+name: Deploy Jekyll site
 
 on:
   push:
@@ -25,18 +25,16 @@ jobs:
         with:
           ruby-version: '3.3'
           bundler-cache: true
+          working-directory: ./docs
 
-      - name: Build with Jekyll
-        run: |
-          cd docs                    # ← important
-          bundle install
-          bundle exec jekyll build --trace
-        working-directory: docs      # ← also helps
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --trace
+        working-directory: ./docs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "docs/_site"         # ← point to the built site
+          path: ./docs/_site
 
   deploy:
     environment:
