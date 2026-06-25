@@ -12,7 +12,7 @@ permalink: /troubleshooting/
 **Symptom**: No plugins appear, or Neovim opens with no syntax highlighting.
 
 **Solution**: 
-1. Press *Space-ql* to open Lazy.nvim.
+1. Press `Space-ql` to open Lazy.nvim.
 2. Check if it's still installing (shows progress bar).
 3. Wait 30-60 seconds for initial install.
 
@@ -32,7 +32,7 @@ nvim -c "Lazy sync"
 
 **Symptom**: Colors wrong or no syntax highlighting.
 
-**Solution**: Update parsers *Space-qt*
+**Solution**: Update parsers `Space-qt`
 
 ### Parser installation fails
 
@@ -72,7 +72,7 @@ nvim -c "TSInstallAll"
 **Symptom**: No LSP client attached (check with `:LspAttach`).
 
 **Solution**:
-1. Open Mason: *Space-qm*
+1. Open Mason: `Space-qm`
 2. Check if LSP is installed (green checkmark)
 3. If not, install via Mason UI or: `Mason install <lsp-name>`
 
@@ -99,21 +99,21 @@ Common fixes:
 
 ### DAP UI not showing
 
-Press *Space-dc* to start debugging. The UI should auto-open on debug attach.
+Press `Space-dc` to start debugging. The UI should auto-open on debug attach.
 
 ## Buffers
 
 ### Buffers not switching properly
 
-Use *Space-kb* to see buffer list and select.
+Use `Space-kb` to see buffer list and select.
 
-To close a buffer, use *Space-kj*. 
+To close a buffer, use `Space-kj`. 
 
 ## File Explorer
 
 ### Neo-tree not showing
 
-Press `C-n` or *Space-kt* (toggle Neotree).
+Press `C-n` or `Space-kt` (toggle Neotree).
 
 If still not visible:
 ```vim
@@ -171,7 +171,7 @@ Manually enable:
 netstat -tlnp | grep 8084
 ````
 
-2. Restart preview: *Space-oq* then *Space-op*.
+2. Restart preview: `Space-oq` then `Space-op`.
 
 ### Pandoc not found
 
@@ -201,6 +201,6 @@ If not, restart Neovim to reload config.
 | `:messages` | Show recent messages/errors |
 | `:checkhealth` | Run Neovim health check |
 | `:scriptnames` | List loaded scripts |
-| *Space-ql* | Manage plugins |
-| *Space-qm | Manage LSPs/tools |
-| *Space-qt* | Update Tree-sitter |
+| `Space-ql` | Manage plugins |
+| `Space-qm` | Manage LSPs/tools |
+| `Space-qt` | Update Tree-sitter |

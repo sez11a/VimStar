@@ -33,7 +33,7 @@ The wiki has two functions:
 
 You can create a personal wiki out of Markdown files you organize yourself. 
 
-1. Use *Space-ww* to open the default wiki page. 
+1. Use `Space-ww` to open the default wiki page. 
 
 1. Add whatever information you want here. Most home pages contain links to the other sections of the site. Links can be wiki-style links or Markdown links relative to the folder in which you created the wiki. For example, this is a possible home page: 
 
@@ -64,7 +64,7 @@ You can create a personal wiki out of Markdown files you organize yourself.
    (etc)
    ```
 
-1. In Normal mode, pressing *Enter* on one of those links takes you to its page, where you can create whole hierarchies of pages. 
+1. In Normal mode, pressing `Enter` on one of those links takes you to its page, where you can create whole hierarchies of pages. 
 
 ## Using the *Finishing Well* System
 
@@ -77,7 +77,7 @@ The wiki has templates keyed to folder names:
 - Projects: `/projects`
 - Roles: `/roles`
 
-Your daily journal is easy to access. Hit *Space-w-Space-w* to open today's journal. You'll see a new Markdown file is created for today, where you can put your schedule for today, any tasks you want to complete today, any role tasks you have, and your journal notes for the day. 
+Your daily journal is easy to access. Hit `Space-w-Space-w` to open today's journal. You'll see a new Markdown file is created for today, where you can put your schedule for today, any tasks you want to complete today, any role tasks you have, and your journal notes for the day. 
 
 There is no weekly form in this version; it's similar to the analog planner version that way. 
 
@@ -91,7 +91,7 @@ I find it helpful to split the VimStar window vertically (`:vsplit`) with the mo
 |-----|-------|
 | `[w` | Previous journal entry |
 | `]w` | Next journal entry |
-| `<leader>wi` | Open journal index |
+| `Space-wi` | Open journal index |
 
 
 ## File Naming Convention
@@ -102,4 +102,4 @@ I find it helpful to split the VimStar window vertically (`:vsplit`) with the mo
 
 ## Integration
 
-Wikis work alongside Markdown files. The same spell check, pandoc, and markmap features apply.
+The wiki uses Markdown files. The same spell check, Pandoc, and Markmap features apply.
