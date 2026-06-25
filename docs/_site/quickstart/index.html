@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Start</title>
+  <meta name="description" content="Your first 5 minutes with VimStar">
+  
+  
+  <link rel="canonical" href="http://localhost:4000/quickstart/">
+  
+  
+  <link rel="stylesheet" href="/VimStar/assets/css/style.css?v=688b6e3813f42933590d951f404afce8fb650c3b">
+  
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Quick Start | VimStar</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Quick Start" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Your first 5 minutes with VimStar" />
+<meta property="og:description" content="Your first 5 minutes with VimStar" />
+<link rel="canonical" href="http://localhost:4000/VimStar/quickstart/" />
+<meta property="og:url" content="http://localhost:4000/VimStar/quickstart/" />
+<meta property="og:site_name" content="VimStar" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Quick Start" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Your first 5 minutes with VimStar","headline":"Quick Start","url":"http://localhost:4000/VimStar/quickstart/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h1><a href="/VimStar/">VimStar</a></h1>
+      <p>A Neovim distribution optimized for writing, inspired by WordStar</p>
+    </header>
+    
+    <nav>
+      <ul>
+        
+          <li><a href="/VimStar/">Home</a></li>
+        
+          <li><a href="/VimStar/quickstart">Quick Start</a></li>
+        
+          <li><a href="/VimStar/writing">Writing</a></li>
+        
+          <li><a href="/VimStar/coding">Coding</a></li>
+        
+          <li><a href="/VimStar/wiki">Wiki</a></li>
+        
+          <li><a href="/VimStar/reference">Reference</a></li>
+        
+          <li><a href="/VimStar/customization">Customization</a></li>
+        
+          <li><a href="/VimStar/troubleshooting">Troubleshooting</a></li>
+        
+      </ul>
+    </nav>
+    
+    <main>
+      <div class="content">
+  <h1>Quick Start</h1>
+  
+  
+  
+  <p>Welcome to VimStar! Here’s what to do in your first 5 minutes.</p>
+
+<h2 id="1-launch-vimstar">1. Launch VimStar</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvim
+</code></pre></div></div>
+
+<p>Press <code class="language-plaintext highlighter-rouge">e</code> to start a new file or press <code class="language-plaintext highlighter-rouge">Space-ko</code> to open an existing file.</p>
+
+<h2 id="2-write-something">2. Write Something</h2>
+
+<ol>
+  <li>
+    <p>VimStar is still Neovim, so press <code class="language-plaintext highlighter-rouge">i</code> to begin writing in Markdown. Completion is on by default. To toggle it, hit <code class="language-plaintext highlighter-rouge">Esc</code> to go back to Normal mode and then press <code class="language-plaintext highlighter-rouge">Space-oc</code>.</p>
+  </li>
+  <li>
+    <p>To preview your document, press <code class="language-plaintext highlighter-rouge">Space-op</code>.</p>
+  </li>
+  <li>
+    <p>If you have Pandoc and LaTeX or Typst installed, press <code class="language-plaintext highlighter-rouge">Space-p</code> and the relevant command from the menu to produce a PDF in the same folder as your file.</p>
+  </li>
+  <li>
+    <p>Use WordStar-inspired commands to save (<code class="language-plaintext highlighter-rouge">Space-ks</code>), save and exit (<code class="language-plaintext highlighter-rouge">Space-kx</code>), or abandon changes and exit (<code class="language-plaintext highlighter-rouge">Space-kq</code>).</p>
+  </li>
+</ol>
+
+<h2 id="3-try-the-ai-assistant">3. Try the AI Assistant</h2>
+
+<p>If you have <a href="https://ollama.com">Ollama</a> installed, make sure the <a href="https://ollama.com/library/qwen3.6">qwen3.6:27b</a> model is available and press <code class="language-plaintext highlighter-rouge">Space-cc</code> to chat. Type a prompt like “Explain the quicksort algorithm.”</p>
+
+<h2 id="4-navigate-files">4. Navigate Files</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Space-ko</code> to browse your file system</li>
+  <li><code class="language-plaintext highlighter-rouge">Space-fs</code> = Find files</li>
+  <li><code class="language-plaintext highlighter-rouge">Space-fs</code> = Find files in the current folder</li>
+  <li><code class="language-plaintext highlighter-rouge">Space-kt</code> = Toggle Neo-tree file explorer</li>
+  <li><code class="language-plaintext highlighter-rouge">Space-fp</code> = Find git-tracked files only</li>
+</ul>
+
+<h2 id="5-try-the-wiki">5. Try the Wiki</h2>
+
+<ol>
+  <li>
+    <p>Customize the Wiki location in <code class="language-plaintext highlighter-rouge">vimstar-user.lua</code> by setting <code class="language-plaintext highlighter-rouge">vim.g.wiki_root</code> and then restarting VimStar.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Space-ww</code> opens the first Wiki page.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Space-w-Space-w</code> opens today’s journal page.</p>
+  </li>
+</ol>
+
+<p>For more information, see the Wiki documentation by typing <code class="language-plaintext highlighter-rouge">:help wiki</code>.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<ul>
+  <li>Read the full <a href="/reference">Reference</a></li>
+  <li>Explore <a href="/writing">Writing Features</a></li>
+  <li>Learn about <a href="/coding">Coding Support</a></li>
+</ul>
+
+</div>
+    </main>
+    
+    <footer>
+      <p>&copy; 2026 VimStar</p>
+      <p><a href="https://github.com/sez11a/VimStar">GitHub</a> &bull; <a href="https://github.com/sez11a/VimStar">Report an issue</a></p>
+    </footer>
+  </div>
+</body>
+</html>

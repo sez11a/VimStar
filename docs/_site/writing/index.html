@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing Features</title>
+  <meta name="description" content="Markdown, spell check, Pandoc publishing, and more">
+  
+  
+  <link rel="canonical" href="http://localhost:4000/writing/">
+  
+  
+  <link rel="stylesheet" href="/VimStar/assets/css/style.css?v=688b6e3813f42933590d951f404afce8fb650c3b">
+  
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Writing Features | VimStar</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Writing Features" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Markdown, spell check, Pandoc publishing, and more" />
+<meta property="og:description" content="Markdown, spell check, Pandoc publishing, and more" />
+<link rel="canonical" href="http://localhost:4000/VimStar/writing/" />
+<meta property="og:url" content="http://localhost:4000/VimStar/writing/" />
+<meta property="og:site_name" content="VimStar" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Writing Features" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Markdown, spell check, Pandoc publishing, and more","headline":"Writing Features","url":"http://localhost:4000/VimStar/writing/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h1><a href="/VimStar/">VimStar</a></h1>
+      <p>A Neovim distribution optimized for writing, inspired by WordStar</p>
+    </header>
+    
+    <nav>
+      <ul>
+        
+          <li><a href="/VimStar/">Home</a></li>
+        
+          <li><a href="/VimStar/quickstart">Quick Start</a></li>
+        
+          <li><a href="/VimStar/writing">Writing</a></li>
+        
+          <li><a href="/VimStar/coding">Coding</a></li>
+        
+          <li><a href="/VimStar/wiki">Wiki</a></li>
+        
+          <li><a href="/VimStar/reference">Reference</a></li>
+        
+          <li><a href="/VimStar/customization">Customization</a></li>
+        
+          <li><a href="/VimStar/troubleshooting">Troubleshooting</a></li>
+        
+      </ul>
+    </nav>
+    
+    <main>
+      <div class="content">
+  <h1>Writing Features</h1>
+  
+  
+  
+  <p>VimStar’s main function is to turn Neovim into a word processor, with all the power of Vim navigation at your fingertips and a menu system inspired by WordStar. New files default to the Markdown file type, but VimStar also includes plugins to support writing in HTML, LaTeX, and Typst. As soon as you save your file, the syntax switches.</p>
+
+<p>Word count is available on-screen at all times, so writers can keep track of their progress.</p>
+
+<h2 id="word-processing-formats">Word Processing Formats</h2>
+
+<ul>
+  <li>Markdown</li>
+  <li>HTML</li>
+  <li>LaTeX, with <a href="https://github.com/lervag/vimtex">VimTex</a> for previews and compiling</li>
+  <li>Typst, with <a href="https://github.com/chomosuke/typst-preview.nvim">typst-preview</a> for live previews</li>
+</ul>
+
+<p>Markdown syntax is “polished” by default, but you can see the raw syntax via <code class="language-plaintext highlighter-rouge">Space-ob</code>.</p>
+
+<p>Markdown files can be converted to various formatted PDFs or to an ODT (OpenDocument format) for use with <a href="https://www.libreoffice.org">LibreOffice</a>. Writers can now use a distraction-free, efficient environment to work their magic. You can do the formatting later via LibreOffice or automatically via the provided Pandoc templates—and new ones are being created all the time.</p>
+
+<h2 id="file-conversion-with-pandoc">File Conversion with Pandoc</h2>
+
+<p>Beyond the Pandoc print functions in the <code class="language-plaintext highlighter-rouge">Space-p</code> menu, VimStar defines a <code class="language-plaintext highlighter-rouge">:Pandoc</code> user command so you can convert your file to any format Pandoc supports:</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span>Pandoc pdf
+<span class="p">:</span>Pandoc html
+<span class="p">:</span>Pandoc odt
+<span class="p">:</span>Pandoc docx
+</code></pre></div></div>
+
+<p>Pandoc templates ship with VimStar, including an article template and a full-on digest-size paperback book format, complete with chapter headings, headers, footers, and a table of contents. Update your <code class="language-plaintext highlighter-rouge">~/.VimStar</code> folder regularly via Git to grab new templates as they are created!</p>
+
+<h2 id="supports-the-full-creative-experience">Supports the Full Creative Experience</h2>
+
+<p>From the beginning of your project to the end, VimStar helps you along the way:</p>
+
+<ul>
+  <li>Use <a href="https://github.com/Zeioth/markmap.nvim">Markmap</a> to outline your project before starting to write.</li>
+  <li>Use <a href="https://github.com/brianhuster/live-preview.nvim">Live Preview</a> (Markdown), <a href="https://github.com/chomosuke/typst-preview.nvim">Typst Preview</a> (Typst), or <a href="https://github.com/lervag/vimtex">Vimtex</a> to preview your work.</li>
+  <li>Export your work to a pre-formatted PDF or any other format to ready it for publishing.</li>
+</ul>
+
+<p>As inspired by WordStar, preview functions appear in the Onscreen Format (<code class="language-plaintext highlighter-rouge">Space-o</code>) menu, and exporting is done by “printing” from the Print Controls (<code class="language-plaintext highlighter-rouge">Space-p</code>) menu.</p>
+
+<h2 id="marp-slides">Marp Slides</h2>
+
+<p>Do you mainly create slides? VimStar supports that too, via <a href="https://github.com/mpas/marp-nvim">Marp</a>! Now you can version control your presentations in a plain text format, ideal for writing teams.</p>
+
+<h2 id="technical-writing">Technical Writing</h2>
+
+<p>VimStar was designed for technical writing by a technical writer with decades of experience. Full Git support appears via <a href="https://github.com/tpope/vim-fugitive">Fugitive</a>. Use the <code class="language-plaintext highlighter-rouge">Space-g</code> menu or commands to add, commit, blame, diff, and more. VimStar fits neatly into any docs-as-code methodology, providing all the power any technical writer needs to produce great content.</p>
+
+</div>
+    </main>
+    
+    <footer>
+      <p>&copy; 2026 VimStar</p>
+      <p><a href="https://github.com/sez11a/VimStar">GitHub</a> &bull; <a href="https://github.com/sez11a/VimStar">Report an issue</a></p>
+    </footer>
+  </div>
+</body>
+</html>

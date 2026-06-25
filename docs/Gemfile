@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
 # HamlLiquid is needed for Jekyll 4.x with Liquid templates
-gem "jekyll", "~> 4.3"
+# gem "jekyll", "~> 4.3"
+gem "github-pages", "~> 232", group: :jekyll_plugins
 gem "minima", "~> 2.5"
 gem "jekyll-seo-tag", "~> 2.8"
 gem "jekyll-relative-links", "~> 0.6"

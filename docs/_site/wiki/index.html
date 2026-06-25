@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiki System</title>
+  <meta name="description" content="Wiki for journaling, note-taking, and knowledge management">
+  
+  
+  <link rel="canonical" href="http://localhost:4000/wiki/">
+  
+  
+  <link rel="stylesheet" href="/VimStar/assets/css/style.css?v=688b6e3813f42933590d951f404afce8fb650c3b">
+  
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Wiki System | VimStar</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Wiki System" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Wiki for journaling, note-taking, and knowledge management" />
+<meta property="og:description" content="Wiki for journaling, note-taking, and knowledge management" />
+<link rel="canonical" href="http://localhost:4000/VimStar/wiki/" />
+<meta property="og:url" content="http://localhost:4000/VimStar/wiki/" />
+<meta property="og:site_name" content="VimStar" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Wiki System" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Wiki for journaling, note-taking, and knowledge management","headline":"Wiki System","url":"http://localhost:4000/VimStar/wiki/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h1><a href="/VimStar/">VimStar</a></h1>
+      <p>A Neovim distribution optimized for writing, inspired by WordStar</p>
+    </header>
+    
+    <nav>
+      <ul>
+        
+          <li><a href="/VimStar/">Home</a></li>
+        
+          <li><a href="/VimStar/quickstart">Quick Start</a></li>
+        
+          <li><a href="/VimStar/writing">Writing</a></li>
+        
+          <li><a href="/VimStar/coding">Coding</a></li>
+        
+          <li><a href="/VimStar/wiki">Wiki</a></li>
+        
+          <li><a href="/VimStar/reference">Reference</a></li>
+        
+          <li><a href="/VimStar/customization">Customization</a></li>
+        
+          <li><a href="/VimStar/troubleshooting">Troubleshooting</a></li>
+        
+      </ul>
+    </nav>
+    
+    <main>
+      <div class="content">
+  <h1>Wiki System</h1>
+  
+  
+  
+  <p>VimStar includes a personal wiki system for journaling, note-taking, and knowledge management. These are stored as Markdown files in a directory configurable in <code class="language-plaintext highlighter-rouge">vimstar-user.lua</code>. The <a href="https://github.com/lervag/wiki.vim">wiki.vim</a> plugin provides the wiki functionality, and it has excellent documentation available <a href="https://github.com/lervag/wiki.vim/blob/master/doc/wiki.txt">online</a> or via <code class="language-plaintext highlighter-rouge">:help wiki</code>.</p>
+
+<h1 id="configure">Configure</h1>
+
+<p>You can configure where your wiki is stored. This is excellent for integrating it with other notes applications, such as Nextcloud notes.</p>
+
+<ol>
+  <li>
+    <p>Open <code class="language-plaintext highlighter-rouge">lua/vimstar-user.lua</code>.</p>
+  </li>
+  <li>
+    <p>Find the <code class="language-plaintext highlighter-rouge">vim.g.wiki_root</code> variable and change it to the folder you want:</p>
+
+    <div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vim</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="n">wiki_root</span> <span class="o">=</span> <span class="s2">"~/Documents/notes"</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Now you’re ready to use the wiki.</p>
+
+<h1 id="quick-start">Quick Start</h1>
+
+<p>The wiki has two functions:</p>
+
+<ol>
+  <li>
+    <p>It functions as a standard, linkable wiki with a home page.</p>
+  </li>
+  <li>
+    <p>It functions as a Personal Information Manager you can use for your daily tasks and notes, using the <em>Finishing Well</em> system outlined in my (@sez11a) upcoming book of the same name.</p>
+  </li>
+</ol>
+
+<h2 id="using-a-personal-wiki">Using a Personal Wiki</h2>
+
+<p>You can create a personal wiki out of Markdown files you organize yourself.</p>
+
+<ol>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">Space-ww</code> to open the default wiki page.</p>
+  </li>
+  <li>
+    <p>Add whatever information you want here. Most home pages contain links to the other sections of the site. Links can be wiki-style links or Markdown links relative to the folder in which you created the wiki. For example, this is a possible home page:</p>
+
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># My Wiki </span>
+
+[[Notes]]
+
+[[Roles]]
+
+[[Tasks]]
+
+[[Agendas]]
+
+[[Projects]]
+
+[[Goals]]
+
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>If you want more control over the location and names of the Markdown files, use Markdown-style links:</p>
+
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># My Wiki</span>
+
+<span class="p">[</span><span class="nv">Notes</span><span class="p">](</span><span class="sx">/notes/notes.md</span><span class="p">)</span>
+
+(etc)
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>In Normal mode, pressing <code class="language-plaintext highlighter-rouge">Enter</code> on one of those links takes you to its page, where you can create whole hierarchies of pages.</p>
+  </li>
+</ol>
+
+<h2 id="using-the-finishing-well-system">Using the <em>Finishing Well</em> System</h2>
+
+<p>Since I’ve written an entire book on the <em>Finishing Well</em> system, it would be impossible to cover everything in the book here. If you’re familiar with the book, you’ll notice the categories above map to the categories of forms you use in the analog system. Use Roles, Tasks, Agendas, Projects, and Goals as you would in the analog system, with a new, linked Wiki file to cover each Role, Task category, person you have an Agenda for, Project you’re working on, and Goal that you have.</p>
+
+<p>The wiki has templates keyed to folder names:</p>
+
+<ul>
+  <li>Tasks: <code class="language-plaintext highlighter-rouge">/tasks</code></li>
+  <li>Agendas: <code class="language-plaintext highlighter-rouge">/agendas</code></li>
+  <li>Projects: <code class="language-plaintext highlighter-rouge">/projects</code></li>
+  <li>Roles: <code class="language-plaintext highlighter-rouge">/roles</code></li>
+</ul>
+
+<p>Your daily journal is easy to access. Hit <code class="language-plaintext highlighter-rouge">Space-w-Space-w</code> to open today’s journal. You’ll see a new Markdown file is created for today, where you can put your schedule for today, any tasks you want to complete today, any role tasks you have, and your journal notes for the day.</p>
+
+<p>There is no weekly form in this version; it’s similar to the analog planner version that way.</p>
+
+<p>A link to access this month’s form appears at the top of your daily journal. Move the cursor to it and press <em>Enter</em> to access it and plan out your month.</p>
+
+<p>I find it helpful to split the VimStar window vertically (<code class="language-plaintext highlighter-rouge">:vsplit</code>) with the month on the right and the day on the left.</p>
+
+<h2 id="journal-navigation">Journal Navigation</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">[w</code></td>
+      <td>Previous journal entry</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">]w</code></td>
+      <td>Next journal entry</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-wi</code></td>
+      <td>Open journal index</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="file-naming-convention">File Naming Convention</h2>
+
+<ul>
+  <li>Daily: <code class="language-plaintext highlighter-rouge">YYYY/MM/DD.md</code></li>
+  <li>Monthly: <code class="language-plaintext highlighter-rouge">YYYY/MM/plan.md</code></li>
+</ul>
+
+<h2 id="integration">Integration</h2>
+
+<p>The wiki uses Markdown files. The same spell check, Pandoc, and Markmap features apply.</p>
+
+</div>
+    </main>
+    
+    <footer>
+      <p>&copy; 2026 VimStar</p>
+      <p><a href="https://github.com/sez11a/VimStar">GitHub</a> &bull; <a href="https://github.com/sez11a/VimStar">Report an issue</a></p>
+    </footer>
+  </div>
+</body>
+</html>

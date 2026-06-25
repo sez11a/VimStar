@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reference</title>
+  <meta name="description" content="Complete list of VimStar keybindings, organized by menu">
+  
+  
+  <link rel="canonical" href="http://localhost:4000/reference/">
+  
+  
+  <link rel="stylesheet" href="/VimStar/assets/css/style.css?v=688b6e3813f42933590d951f404afce8fb650c3b">
+  
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Reference | VimStar</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Reference" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Complete list of VimStar keybindings, organized by menu" />
+<meta property="og:description" content="Complete list of VimStar keybindings, organized by menu" />
+<link rel="canonical" href="http://localhost:4000/VimStar/reference/" />
+<meta property="og:url" content="http://localhost:4000/VimStar/reference/" />
+<meta property="og:site_name" content="VimStar" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Reference" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Complete list of VimStar keybindings, organized by menu","headline":"Reference","url":"http://localhost:4000/VimStar/reference/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h1><a href="/VimStar/">VimStar</a></h1>
+      <p>A Neovim distribution optimized for writing, inspired by WordStar</p>
+    </header>
+    
+    <nav>
+      <ul>
+        
+          <li><a href="/VimStar/">Home</a></li>
+        
+          <li><a href="/VimStar/quickstart">Quick Start</a></li>
+        
+          <li><a href="/VimStar/writing">Writing</a></li>
+        
+          <li><a href="/VimStar/coding">Coding</a></li>
+        
+          <li><a href="/VimStar/wiki">Wiki</a></li>
+        
+          <li><a href="/VimStar/reference">Reference</a></li>
+        
+          <li><a href="/VimStar/customization">Customization</a></li>
+        
+          <li><a href="/VimStar/troubleshooting">Troubleshooting</a></li>
+        
+      </ul>
+    </nav>
+    
+    <main>
+      <div class="content">
+  <h1>Reference</h1>
+  
+  
+  
+  <p>All keybindings use Space as the leader key (<code class="language-plaintext highlighter-rouge">&lt;leader&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;localleader&gt;</code> are both Space).</p>
+
+<h2 id="wordstar-menus">WordStar Menus</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Menu</th>
+      <th>Key</th>
+      <th>Function</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Block and Save</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">Space-k</code></td>
+      <td>Buffer management, saving, quitting</td>
+    </tr>
+    <tr>
+      <td><strong>Onscreen Format</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">Space-o</code></td>
+      <td>Code actions, formatting, preview</td>
+    </tr>
+    <tr>
+      <td><strong>Print Controls</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">Space-p</code></td>
+      <td>Pandoc publishing, markmap</td>
+    </tr>
+    <tr>
+      <td><strong>Quick Menu</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">Space-q</code></td>
+      <td>Plugin management, updates, debugging</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="block-and-save-space-k">Block and Save (<code class="language-plaintext highlighter-rouge">Space-k</code>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ke</code></td>
+      <td><code class="language-plaintext highlighter-rouge">enew</code></td>
+      <td>New buffer</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kb</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Neotree buffers</code></td>
+      <td>Switch buffer (shows list)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kj</code></td>
+      <td><code class="language-plaintext highlighter-rouge">bd</code></td>
+      <td>Close buffer</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ks</code></td>
+      <td><code class="language-plaintext highlighter-rouge">w</code></td>
+      <td>Save file</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kx</code></td>
+      <td><code class="language-plaintext highlighter-rouge">wq</code></td>
+      <td>Save and exit</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kq</code></td>
+      <td><code class="language-plaintext highlighter-rouge">q!</code></td>
+      <td>Abandon changes and quit</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cd %:p:h</code></td>
+      <td>Change working directory</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-km</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MarkmapSave</code></td>
+      <td>Save markmap diagram</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kt</code></td>
+      <td>Toggle Neotree</td>
+      <td>File explorer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="onscreen-format-space-o">Onscreen Format (<code class="language-plaintext highlighter-rouge">Space-o</code>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-oa</code></td>
+      <td><code class="language-plaintext highlighter-rouge">vim.lsp.buf.code_action</code></td>
+      <td>Show code actions</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-of</code></td>
+      <td><code class="language-plaintext highlighter-rouge">vim.lsp.buf.format</code></td>
+      <td>Format buffer</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-od</code></td>
+      <td><code class="language-plaintext highlighter-rouge">vim.lsp.buf.definition</code></td>
+      <td>Show definition</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-or</code></td>
+      <td><code class="language-plaintext highlighter-rouge">vim.lsp.buf.references</code></td>
+      <td>Show references</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-om</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MarkmapOpen</code></td>
+      <td>Open markmap diagram</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ow</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MarkmapWatch</code></td>
+      <td>Watch markmap (auto-update)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-oc</code></td>
+      <td>Toggle nvim-cmp</td>
+      <td>Disable/enable completion</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-oj</code></td>
+      <td><code class="language-plaintext highlighter-rouge">:%!jq .</code></td>
+      <td>Format JSON</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ox</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ZenmodeToggle</code></td>
+      <td>Distraction-free mode</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ob</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RenderMarkdown toggle</code></td>
+      <td>Toggle markdown preview</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-op</code></td>
+      <td><code class="language-plaintext highlighter-rouge">LivePreview start</code></td>
+      <td>Start markdown live preview</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-oq</code></td>
+      <td><code class="language-plaintext highlighter-rouge">LivePreview close</code></td>
+      <td>Stop live preview</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ok</code></td>
+      <td><code class="language-plaintext highlighter-rouge">bnext</code></td>
+      <td>Next buffer</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ol</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ToggleDiag</code></td>
+      <td>Toggle diagnostics</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="print-controls-space-p">Print Controls (<code class="language-plaintext highlighter-rouge">Space-p</code>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-pb</code></td>
+      <td>pandoc pdf</td>
+      <td>Book template</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-pp</code></td>
+      <td>pandoc pdf</td>
+      <td>Article/handout template</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-pm</code></td>
+      <td>MarkmapOpen</td>
+      <td>View mindmap in browser</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-po</code></td>
+      <td>pandoc odt</td>
+      <td>OpenDocument format</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ps</code></td>
+      <td>MarkmapSave</td>
+      <td>Save markmap (don’t open)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> All <code class="language-plaintext highlighter-rouge">Space-p</code> commands use the <code class="language-plaintext highlighter-rouge">:Pandoc</code> user command defined in <code class="language-plaintext highlighter-rouge">vim-options.lua</code>.</p>
+
+<h3 id="quick-menu-space-q">Quick Menu (<code class="language-plaintext highlighter-rouge">Space-q</code>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ql</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Lazy</code></td>
+      <td>Manage plugins</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qm</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Mason</code></td>
+      <td>Manage LSPs and tools</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qt</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TSUpdate</code></td>
+      <td>Update Treesitter parsers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qf</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Telescope live_grep</code></td>
+      <td>Find in files</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="modern-menus">Modern Menus</h2>
+
+<h3 id="find-space-f">Find (<code class="language-plaintext highlighter-rouge">Space-f</code>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-fs</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Telescope find_files</code></td>
+      <td>Find files</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-fp</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Telescope git_files</code></td>
+      <td>Git-tracked files</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-fz</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Telescope live_grep</code></td>
+      <td>Live grep</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-fo</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Telescope oldfiles</code></td>
+      <td>Open recent files</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="git-space-g">Git (<code class="language-plaintext highlighter-rouge">Space-g</code>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-gs</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Git</code></td>
+      <td>Git status</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-gb</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Gedit HEAD</code></td>
+      <td>Browse HEAD commit</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-gm</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Git difftool -y master</code></td>
+      <td>Diff with master</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-gp</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Gitsigns preview_hunk</code></td>
+      <td>Preview change hunk</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-gt</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Gitsigns toggle_blame</code></td>
+      <td>Show/hide blame</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="code-space-c">Code (<code class="language-plaintext highlighter-rouge">Space-c</code>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ca</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CodeCompanionActions</code></td>
+      <td>AI actions on selection (visual mode)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-cc</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CodeCompanionChat Toggle</code></td>
+      <td>Open AI chat</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ci</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CodeCompanionInline</code></td>
+      <td>Inline AI edit</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-co</code></td>
+      <td>Organize imports</td>
+      <td>LSP organize imports</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-cw</code></td>
+      <td>Toggle Neocodeium</td>
+      <td>Toggle AI completion</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="debug-space-d">Debug (<code class="language-plaintext highlighter-rouge">Space-d</code>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-dt</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DapToggleBreakpoint</code></td>
+      <td>Toggle breakpoint</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-dc</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DapContinue</code></td>
+      <td>Continue execution</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-dx</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DapTerminate</code></td>
+      <td>Stop debugging</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-do</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DapStepOver</code></td>
+      <td>Step over</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-di</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DapStepInto</code></td>
+      <td>Step into</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-dd</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DapStepOut</code></td>
+      <td>Step out</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Debugging support:</strong></p>
+<ul>
+  <li><strong>Python</strong>: Launch current file, Pytest (verbose)</li>
+  <li><strong>Go</strong>: DAP via nvim-dap-go</li>
+  <li><strong>Java</strong>: Attach to port 5005</li>
+</ul>
+
+<h2 id="utility-keybindings">Utility Keybindings</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">C-p</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Telescope find_files</code></td>
+      <td>Quick find files</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">C-n</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Neotree toggle</code></td>
+      <td>Toggle file explorer</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-?</code></td>
+      <td><code class="language-plaintext highlighter-rouge">which-key</code></td>
+      <td>Show buffer keymaps</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">C-k/j/h/l</code></td>
+      <td><code class="language-plaintext highlighter-rouge">wincmd</code></td>
+      <td>Navigate vertically/horizontally</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+    </main>
+    
+    <footer>
+      <p>&copy; 2026 VimStar</p>
+      <p><a href="https://github.com/sez11a/VimStar">GitHub</a> &bull; <a href="https://github.com/sez11a/VimStar">Report an issue</a></p>
+    </footer>
+  </div>
+</body>
+</html>

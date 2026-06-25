@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding Support</title>
+  <meta name="description" content="LSPs, debugging, and AI assistant">
+  
+  
+  <link rel="canonical" href="http://localhost:4000/coding/">
+  
+  
+  <link rel="stylesheet" href="/VimStar/assets/css/style.css?v=688b6e3813f42933590d951f404afce8fb650c3b">
+  
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Coding Support | VimStar</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Coding Support" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="LSPs, debugging, and AI assistant" />
+<meta property="og:description" content="LSPs, debugging, and AI assistant" />
+<link rel="canonical" href="http://localhost:4000/VimStar/coding/" />
+<meta property="og:url" content="http://localhost:4000/VimStar/coding/" />
+<meta property="og:site_name" content="VimStar" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Coding Support" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"LSPs, debugging, and AI assistant","headline":"Coding Support","url":"http://localhost:4000/VimStar/coding/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h1><a href="/VimStar/">VimStar</a></h1>
+      <p>A Neovim distribution optimized for writing, inspired by WordStar</p>
+    </header>
+    
+    <nav>
+      <ul>
+        
+          <li><a href="/VimStar/">Home</a></li>
+        
+          <li><a href="/VimStar/quickstart">Quick Start</a></li>
+        
+          <li><a href="/VimStar/writing">Writing</a></li>
+        
+          <li><a href="/VimStar/coding">Coding</a></li>
+        
+          <li><a href="/VimStar/wiki">Wiki</a></li>
+        
+          <li><a href="/VimStar/reference">Reference</a></li>
+        
+          <li><a href="/VimStar/customization">Customization</a></li>
+        
+          <li><a href="/VimStar/troubleshooting">Troubleshooting</a></li>
+        
+      </ul>
+    </nav>
+    
+    <main>
+      <div class="content">
+  <h1>Coding Support</h1>
+  
+  
+  
+  <p>VimStar includes robust support for code development, powered by Mason, a package manager for LSP (Language Server Protocol) servers, DAP (Debug Adapter Protocol) servers, linters, and formatters.</p>
+
+<p>VimStar installs several tools by default, but you can install whatever you want via <code class="language-plaintext highlighter-rouge">Space-qm</code>.</p>
+
+<h2 id="lsp-support-via-mason">LSP Support (via Mason)</h2>
+
+<p>During the install, Mason installs these pre-configured LSPs:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>LSP</th>
+      <th>Language</th>
+      <th>Configuration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lua_ls</code></td>
+      <td>Lua</td>
+      <td>Diagnostics for vim globals enabled</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">html</code></td>
+      <td>HTML</td>
+      <td>Full support</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cssls</code></td>
+      <td>CSS</td>
+      <td>Full support</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ts_ls</code></td>
+      <td>TypeScript</td>
+      <td>Inlay hints enabled</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">jdtls</code></td>
+      <td>Java</td>
+      <td>Full support</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">clangd</code></td>
+      <td>C/C++</td>
+      <td><code class="language-plaintext highlighter-rouge">-std=c11</code> fallback</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pylsp</code></td>
+      <td>Python</td>
+      <td>pycodestyle, pyflakes, pylint enabled</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">texlab</code></td>
+      <td>LaTeX</td>
+      <td>Full support</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tinymist</code></td>
+      <td>Typst</td>
+      <td>Full support</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="ts_ls-configuration">ts_ls Configuration</h3>
+
+<p>TypeScript LSP has inlay hints enabled for parameter names, types, and return values.</p>
+
+<h3 id="pylsp-configuration">pylsp Configuration</h3>
+
+<p>Python LSP has multiple linters enabled:</p>
+<ul>
+  <li>pycodestyle</li>
+  <li>pyflakes</li>
+  <li>pylint</li>
+  <li>mccabe</li>
+  <li>rope_completion</li>
+</ul>
+
+<h2 id="debugging-via-dap">Debugging (via DAP)</h2>
+
+<p>All debugging is configured via <code class="language-plaintext highlighter-rouge">nvim-dap</code> for Python, Go, and Java.</p>
+
+<p>Pre-configured via <code class="language-plaintext highlighter-rouge">nvim-dap-go</code>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Space-dt</code> = Toggle breakpoint</li>
+  <li><code class="language-plaintext highlighter-rouge">Space-dc</code> = Continue</li>
+</ul>
+
+<h3 id="python-debugging">Python Debugging</h3>
+
+<p><strong>Pytest (verbose):</strong></p>
+<ol>
+  <li>Open test file</li>
+  <li>Use DAP configuration (via DAP UI or attach)</li>
+</ol>
+
+<p><strong>Debugpy path:</strong></p>
+<ul>
+  <li>Uses Mason’s debugpy.</li>
+  <li>Or virtual environment if <code class="language-plaintext highlighter-rouge">VIRTUAL_ENV</code> is set</li>
+</ul>
+
+<h3 id="java-debugging">Java Debugging</h3>
+
+<p><strong>Attach to running process:</strong></p>
+<ul>
+  <li>Host: <code class="language-plaintext highlighter-rouge">127.0.0.1</code></li>
+  <li>Port: <code class="language-plaintext highlighter-rouge">5005</code></li>
+</ul>
+
+<p><strong>Keymaps in Java files:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Space-df</code> = Run test class</li>
+  <li><code class="language-plaintext highlighter-rouge">Space-dn</code> = Run nearest method test</li>
+  <li><code class="language-plaintext highlighter-rouge">Space-oi</code> = Organize imports</li>
+</ul>
+
+<p><strong>Setup:</strong></p>
+<ol>
+  <li>Run Java with debug agent: <code class="language-plaintext highlighter-rouge">java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005</code>.</li>
+  <li>Press <code class="language-plaintext highlighter-rouge">Space-dc</code> to attach.</li>
+</ol>
+
+<h2 id="ai-assistant-codecompanion">AI Assistant (CodeCompanion)</h2>
+
+<p><strong>Pre-configured model</strong>: Ollama for local LLMs. Default model is <code class="language-plaintext highlighter-rouge">qwen3.6:27b</code>.</p>
+
+<h3 id="keybindings">Keybindings</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-cc</code></td>
+      <td>Toggle AI chat</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ci</code></td>
+      <td>Inline AI edit</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ca</code></td>
+      <td>AI actions on selection</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="setup">Setup</h3>
+
+<ol>
+  <li>Install <a href="https://ollama.com">Ollama</a>.</li>
+  <li>Pull the model: <code class="language-plaintext highlighter-rouge">ollama pull qwen3.6:27b</code></li>
+  <li>Start Ollama daemon.</li>
+  <li>
+    <p>Increase the default context on the model by creating a <code class="language-plaintext highlighter-rouge">Modelfile</code>:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM qwen3.6:27b 
+PARAMETER num_ctx [size]
+</code></pre></div>    </div>
+
+    <p>Depending on your RAM, use 32768 (32k), 65536 (64k), 131072 (128k), or 262144 (256k).</p>
+  </li>
+  <li>
+    <p>Create the model:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ollama create qwen3.6:27b-[size] <span class="nt">-f</span> Modelfile
+</code></pre></div>    </div>
+
+    <p>For example,</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ollama create qwen3.6:27b-256k <span class="nt">-f</span> Modelfile
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Edit <code class="language-plaintext highlighter-rouge">vimstar-user.lua</code> and change <code class="language-plaintext highlighter-rouge">vim.g.ollama_model</code> to your new, higher context model:</p>
+
+    <div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vim</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="n">ollama_model</span> <span class="o">=</span> <span class="s2">"qwen3.6:27b-256k"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Press <code class="language-plaintext highlighter-rouge">Space-cc</code> to chat</li>
+</ol>
+
+<h3 id="neocodeium-alternative">Neocodeium (Alternative)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-cw</code></td>
+      <td>Toggle Neocodeium</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lsp-keybindings-buffer-local">LSP Keybindings (buffer-local)</h2>
+
+<p>When LSP attaches to a buffer, these keybindings become available:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">K</code></td>
+      <td>Show hover documentation</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">gD</code></td>
+      <td>Go to declaration</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">gd</code></td>
+      <td>Go to definition</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">gi</code></td>
+      <td>Go to implementation</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">gR</code></td>
+      <td>Show references</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ga</code></td>
+      <td>Show code actions</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="code-formatting">Code Formatting</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Space-of</code> = Format buffer (via LSP if available)</p>
+
+<h2 id="indentation-rules">Indentation Rules</h2>
+
+<ul>
+  <li><strong>Markdown:</strong> 2 spaces, expandtab</li>
+  <li><strong>Java:</strong> 4 spaces, no expandtab (via tabset.nvim)</li>
+  <li><strong>Everything Else:</strong> 4 spaces, expandtab</li>
+</ul>
+
+<h2 id="language-specific-configs">Language-Specific Configs</h2>
+
+<h3 id="java">Java</h3>
+
+<p>Configure your JDK in <code class="language-plaintext highlighter-rouge">vimstar-user.lua</code>:</p>
+
+<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vim</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="n">java_sdk_path</span> <span class="o">=</span> <span class="s2">"/path/to/your/jdk"</span>
+</code></pre></div></div>
+
+<p>Gradle/Maven build scripts import Java projects. If you don’t have one, only basic syntax highlighting occurs.</p>
+
+<h3 id="typescriptjavascript">TypeScript/JavaScript</h3>
+
+<p><strong>Inlay hints</strong> enabled:</p>
+<ul>
+  <li>Parameter names: all</li>
+  <li>Parameter types: true</li>
+  <li>Variable types: true</li>
+  <li>Function return types: true</li>
+</ul>
+
+<h2 id="lsp-status">LSP Status</h2>
+
+<p>Check LSP status in lualine status bar (right side shows active clients).</p>
+
+</div>
+    </main>
+    
+    <footer>
+      <p>&copy; 2026 VimStar</p>
+      <p><a href="https://github.com/sez11a/VimStar">GitHub</a> &bull; <a href="https://github.com/sez11a/VimStar">Report an issue</a></p>
+    </footer>
+  </div>
+</body>
+</html>

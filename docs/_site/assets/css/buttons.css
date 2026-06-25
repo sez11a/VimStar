@@ -1,0 +1,47 @@
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-primary {
+  background-color: #0969da;
+  color: white;
+  border: 1px solid #0969da;
+}
+
+.btn-primary:hover {
+  background-color: #075bb5;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #0969da;
+  border: 1px solid #0969da;
+}
+
+.btn-secondary:hover {
+  background-color: #f0f6fc;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #0969da;
+  border: 1px solid #0969da;
+}
+
+.btn-outline:hover {
+  background-color: #0969da;
+  color: white;
+}
+
+ /* Add button styles after .btn definitions */
+.btn:hover {
+  text-decoration: none;
+}

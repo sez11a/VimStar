@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customization</title>
+  <meta name="description" content="How to customize VimStar">
+  
+  
+  <link rel="canonical" href="http://localhost:4000/customization/">
+  
+  
+  <link rel="stylesheet" href="/VimStar/assets/css/style.css?v=688b6e3813f42933590d951f404afce8fb650c3b">
+  
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Customization | VimStar</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Customization" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How to customize VimStar" />
+<meta property="og:description" content="How to customize VimStar" />
+<link rel="canonical" href="http://localhost:4000/VimStar/customization/" />
+<meta property="og:url" content="http://localhost:4000/VimStar/customization/" />
+<meta property="og:site_name" content="VimStar" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Customization" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"How to customize VimStar","headline":"Customization","url":"http://localhost:4000/VimStar/customization/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h1><a href="/VimStar/">VimStar</a></h1>
+      <p>A Neovim distribution optimized for writing, inspired by WordStar</p>
+    </header>
+    
+    <nav>
+      <ul>
+        
+          <li><a href="/VimStar/">Home</a></li>
+        
+          <li><a href="/VimStar/quickstart">Quick Start</a></li>
+        
+          <li><a href="/VimStar/writing">Writing</a></li>
+        
+          <li><a href="/VimStar/coding">Coding</a></li>
+        
+          <li><a href="/VimStar/wiki">Wiki</a></li>
+        
+          <li><a href="/VimStar/reference">Reference</a></li>
+        
+          <li><a href="/VimStar/customization">Customization</a></li>
+        
+          <li><a href="/VimStar/troubleshooting">Troubleshooting</a></li>
+        
+      </ul>
+    </nav>
+    
+    <main>
+      <div class="content">
+  <h1>Customization</h1>
+  
+  
+  
+  <p>VimStar is designed for easy customization without forking the entire repository.</p>
+
+<h2 id="user-configuration">User Configuration</h2>
+
+<p><strong>File</strong>: <code class="language-plaintext highlighter-rouge">~/.VimStar/lua/vimstar-user.lua</code></p>
+
+<p>This file loads after core configuration. Settings here override other defaults. If you see a setting elsewhere, override it in this file. Do not edit the other files; otherwise, you won’t be able to update VimStar from GitHub (you’ll have conflicts).</p>
+
+<h3 id="color-scheme">Color Scheme</h3>
+
+<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Comment out current, uncomment desired:</span>
+<span class="c1">-- vim.cmd.colorscheme "carbonfox"</span>
+<span class="c1">-- vim.cmd.colorscheme "catppuccin"</span>
+<span class="c1">-- vim.cmd.colorscheme "cyberdream"</span>
+<span class="c1">-- vim.cmd.colorscheme "edge"</span>
+<span class="c1">-- vim.cmd.colorscheme "modus"</span>
+<span class="c1">-- vim.cmd.colorscheme "moonfly"</span>
+<span class="c1">-- vim.cmd.colorscheme "onedark"  -- Default</span>
+<span class="c1">-- vim.cmd.colorscheme "purify"</span>
+<span class="c1">-- vim.cmd.colorscheme "tokyonight-night"</span>
+</code></pre></div></div>
+
+<h3 id="wiki-root">Wiki Root</h3>
+
+<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vim</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="n">wiki_root</span> <span class="o">=</span> <span class="s1">'~/custom/wiki/path'</span>
+</code></pre></div></div>
+
+<h2 id="loading-order">Loading Order</h2>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">init.lua</code> - Entry point</li>
+  <li><code class="language-plaintext highlighter-rouge">vim-options.lua</code> - Core settings</li>
+  <li><code class="language-plaintext highlighter-rouge">lazy.setup("plugins")</code> - Plugins</li>
+  <li><code class="language-plaintext highlighter-rouge">keymaps.lua</code> - Keybindings</li>
+  <li><code class="language-plaintext highlighter-rouge">vimstar-user.lua</code> - User overrides</li>
+</ol>
+
+<h2 id="tips">Tips</h2>
+
+<ul>
+  <li>Use <code class="language-plaintext highlighter-rouge">:Lazy</code> to reload plugins after changes</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">:lua reload()</code> in Neovim for config reload</li>
+  <li>Check <code class="language-plaintext highlighter-rouge">:scriptnames</code> to see which config files loaded</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">:messages</code> to see plugin errors</li>
+</ul>
+
+<h2 id="presets">Presets</h2>
+
+<p>See <code class="language-plaintext highlighter-rouge">vimstar-user-template</code> for default user config.</p>
+
+</div>
+    </main>
+    
+    <footer>
+      <p>&copy; 2026 VimStar</p>
+      <p><a href="https://github.com/sez11a/VimStar">GitHub</a> &bull; <a href="https://github.com/sez11a/VimStar">Report an issue</a></p>
+    </footer>
+  </div>
+</body>
+</html>

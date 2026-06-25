@@ -8,4 +8,3 @@ vimstar-user.lua
 lazy-lock.json
 .luarc.json
 docs/Gemfile.lock 
-docs/_site/

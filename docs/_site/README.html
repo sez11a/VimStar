@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VimStar - Documentation Site</title>
+  <meta name="description" content="A Neovim distribution optimized for writing, inspired by WordStar">
+  
+  
+  <link rel="canonical" href="http://localhost:4000/README.html">
+  
+  
+  <link rel="stylesheet" href="/VimStar/assets/css/style.css?v=688b6e3813f42933590d951f404afce8fb650c3b">
+  
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>VimStar - Documentation Site | VimStar</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="VimStar - Documentation Site" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Neovim distribution optimized for writing, inspired by WordStar" />
+<meta property="og:description" content="A Neovim distribution optimized for writing, inspired by WordStar" />
+<link rel="canonical" href="http://localhost:4000/VimStar/README.html" />
+<meta property="og:url" content="http://localhost:4000/VimStar/README.html" />
+<meta property="og:site_name" content="VimStar" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="VimStar - Documentation Site" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"A Neovim distribution optimized for writing, inspired by WordStar","headline":"VimStar - Documentation Site","url":"http://localhost:4000/VimStar/README.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h1><a href="/VimStar/">VimStar</a></h1>
+      <p>A Neovim distribution optimized for writing, inspired by WordStar</p>
+    </header>
+    
+    <nav>
+      <ul>
+        
+          <li><a href="/VimStar/">Home</a></li>
+        
+          <li><a href="/VimStar/quickstart">Quick Start</a></li>
+        
+          <li><a href="/VimStar/writing">Writing</a></li>
+        
+          <li><a href="/VimStar/coding">Coding</a></li>
+        
+          <li><a href="/VimStar/wiki">Wiki</a></li>
+        
+          <li><a href="/VimStar/reference">Reference</a></li>
+        
+          <li><a href="/VimStar/customization">Customization</a></li>
+        
+          <li><a href="/VimStar/troubleshooting">Troubleshooting</a></li>
+        
+      </ul>
+    </nav>
+    
+    <main>
+      <h1 id="vimstar-documentation-site">VimStar Documentation Site</h1>
+
+<p>This directory contains the Jekyll site source for documenting VimStar.</p>
+
+<h2 id="site-structure">Site Structure</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>site/
+├── _config.yml          # Jekyll configuration
+├── Gemfile              # Ruby dependencies
+├── index.md             # Home page
+├── _pages/              # Documentation pages
+│   ├── install.md
+│   ├── quickstart.md
+│   ├── keybindings.md
+│   ├── writing.md
+│   ├── coding.md
+│   ├── wiki.md
+│   ├── customization.md
+│   ├── troubleshooting.md
+│   └── license.md
+├── _layouts/            # HTML layouts
+│   ├── default.html
+│   ├── home.html
+│   └── page.html
+├── _includes/           # Reusable components
+├── assets/
+│   └── css/
+│       └── style.css    # Theme styles
+└── README.md            # This file
+</code></pre></div></div>
+
+<h2 id="development">Development</h2>
+
+<h3 id="requirements">Requirements</h3>
+
+<ul>
+  <li>Ruby 2.7+ (or use Bundler)</li>
+  <li>Bundler (install: <code class="language-plaintext highlighter-rouge">gem install bundler</code>)</li>
+</ul>
+
+<h3 id="running-locally">Running Locally</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>site
+bundle <span class="nb">install
+</span>bundle <span class="nb">exec </span>jekyll serve
+</code></pre></div></div>
+
+<p>The site will be available at <code class="language-plaintext highlighter-rouge">http://localhost:4000/VimStar/</code>.</p>
+
+<h3 id="building-for-github-pages">Building for GitHub Pages</h3>
+
+<p>The site is configured for GitHub Pages at <code class="language-plaintext highlighter-rouge">https://sez11a.github.io/VimStar/</code>.</p>
+
+<p>To preview before committing:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll build <span class="nt">--destination</span> _site
+</code></pre></div></div>
+
+<h2 id="content-guidelines">Content Guidelines</h2>
+
+<h3 id="writing-style">Writing Style</h3>
+
+<ul>
+  <li><strong>Concise</strong>: Get to the point quickly</li>
+  <li><strong>Action-oriented</strong>: Use imperative voice (“Press Space-k” not “You should press”)</li>
+  <li><strong>Code-first</strong>: Show examples before explanations</li>
+  <li><strong>WordStar-aware</strong>: Mention heritage where relevant</li>
+</ul>
+
+<h3 id="file-format">File Format</h3>
+
+<ul>
+  <li>Use Markdown (<code class="language-plaintext highlighter-rouge">.md</code>)</li>
+  <li>Include front matter:
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">page</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Title"</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Short</span><span class="nv"> </span><span class="s">description"</span>
+<span class="na">permalink</span><span class="pi">:</span> <span class="s">/path/</span>
+<span class="nn">---</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Add <code class="language-plaintext highlighter-rouge">##</code> headers for sections</li>
+  <li>Use code blocks with language identifiers: ```bash</li>
+</ul>
+
+<h3 id="linking">Linking</h3>
+
+<ul>
+  <li>Use relative links: <code class="language-plaintext highlighter-rouge">[Title](/path/)</code></li>
+  <li>GitHub Pages prefix: The site lives at <code class="language-plaintext highlighter-rouge">/VimStar/</code></li>
+</ul>
+
+<h3 id="screenshots">Screenshots</h3>
+
+<p>Place in <code class="language-plaintext highlighter-rouge">site/assets/images/</code> and reference as:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">Caption</span><span class="p">](</span><span class="sx">./images/filename.png</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="updating-the-site">Updating the Site</h2>
+
+<ol>
+  <li>Edit/add pages in <code class="language-plaintext highlighter-rouge">_pages/</code></li>
+  <li>Update navigation in <code class="language-plaintext highlighter-rouge">_config.yml</code> if needed</li>
+  <li>Update <code class="language-plaintext highlighter-rouge">index.md</code> for major changes</li>
+  <li>Test locally with <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code></li>
+  <li>Commit and push - GitHub Pages auto-deploys</li>
+</ol>
+
+<h2 id="adding-a-new-page">Adding a New Page</h2>
+
+<ol>
+  <li>Create <code class="language-plaintext highlighter-rouge">site/_pages/newpage.md</code></li>
+  <li>Add to <code class="language-plaintext highlighter-rouge">site/_config.yml</code> nav section</li>
+  <li>Add link in navigation or index as needed</li>
+</ol>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="missing-gems">Missing gems</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="layout-not-found">Layout not found</h3>
+
+<p>Ensure <code class="language-plaintext highlighter-rouge">_layouts/</code> exists and contains the layout file.</p>
+
+<h3 id="liquid-errors">Liquid errors</h3>
+
+<p>Check YAML front matter syntax - ensure all quotes are balanced.</p>
+
+<h2 id="deployment">Deployment</h2>
+
+<p>The site deploys automatically to GitHub Pages when pushing to the repo root.</p>
+
+    </main>
+    
+    <footer>
+      <p>&copy; 2026 VimStar</p>
+      <p><a href="https://github.com/sez11a/VimStar">GitHub</a> &bull; <a href="https://github.com/sez11a/VimStar">Report an issue</a></p>
+    </footer>
+  </div>
+</body>
+</html>

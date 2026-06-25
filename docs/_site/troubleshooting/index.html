@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troubleshooting</title>
+  <meta name="description" content="Common issues and solutions">
+  
+  
+  <link rel="canonical" href="http://localhost:4000/troubleshooting/">
+  
+  
+  <link rel="stylesheet" href="/VimStar/assets/css/style.css?v=688b6e3813f42933590d951f404afce8fb650c3b">
+  
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Troubleshooting | VimStar</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Troubleshooting" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Common issues and solutions" />
+<meta property="og:description" content="Common issues and solutions" />
+<link rel="canonical" href="http://localhost:4000/VimStar/troubleshooting/" />
+<meta property="og:url" content="http://localhost:4000/VimStar/troubleshooting/" />
+<meta property="og:site_name" content="VimStar" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Troubleshooting" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Common issues and solutions","headline":"Troubleshooting","url":"http://localhost:4000/VimStar/troubleshooting/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h1><a href="/VimStar/">VimStar</a></h1>
+      <p>A Neovim distribution optimized for writing, inspired by WordStar</p>
+    </header>
+    
+    <nav>
+      <ul>
+        
+          <li><a href="/VimStar/">Home</a></li>
+        
+          <li><a href="/VimStar/quickstart">Quick Start</a></li>
+        
+          <li><a href="/VimStar/writing">Writing</a></li>
+        
+          <li><a href="/VimStar/coding">Coding</a></li>
+        
+          <li><a href="/VimStar/wiki">Wiki</a></li>
+        
+          <li><a href="/VimStar/reference">Reference</a></li>
+        
+          <li><a href="/VimStar/customization">Customization</a></li>
+        
+          <li><a href="/VimStar/troubleshooting">Troubleshooting</a></li>
+        
+      </ul>
+    </nav>
+    
+    <main>
+      <div class="content">
+  <h1>Troubleshooting</h1>
+  
+  
+  
+  <h2 id="installation">Installation</h2>
+
+<h3 id="plugins-not-installing-on-first-launch">Plugins not installing on first launch</h3>
+
+<p><strong>Symptom</strong>: No plugins appear, or Neovim opens with no syntax highlighting.</p>
+
+<p><strong>Solution</strong>:</p>
+<ol>
+  <li>Press <code class="language-plaintext highlighter-rouge">Space-ql</code> to open Lazy.nvim.</li>
+  <li>Check if it’s still installing (shows progress bar).</li>
+  <li>Wait 30-60 seconds for initial install.</li>
+</ol>
+
+<p>If still stuck:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Clear plugin cache</span>
+<span class="nb">rm</span> <span class="nt">-rf</span> ~/.local/state/nvim/lazy
+<span class="nb">rm</span> <span class="nt">-rf</span> ~/.local/share/nvim/lazy
+
+<span class="c"># Reinstall</span>
+nvim <span class="nt">-c</span> <span class="s2">"Lazy sync"</span>
+</code></pre></div></div>
+
+<h2 id="tree-sitter">Tree-sitter</h2>
+
+<h3 id="incorrect-syntax-highlighting">Incorrect syntax highlighting</h3>
+
+<p><strong>Symptom</strong>: Colors wrong or no syntax highlighting.</p>
+
+<p><strong>Solution</strong>: Update parsers <code class="language-plaintext highlighter-rouge">Space-qt</code></p>
+
+<h3 id="parser-installation-fails">Parser installation fails</h3>
+
+<p><strong>Symptom</strong>: Error about missing parser or compilation.</p>
+
+<p><strong>Solution</strong>: Install build tools (Linux)</p>
+
+<p>Use your package manager to install build tools. For example,</p>
+
+<p><strong>OpenMandriva:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nt">-y</span> <span class="nb">install </span>task-devel task-c-devel task-c++-devel clang llvm yarn
+</code></pre></div></div>
+
+<p><strong>Arch:</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pacman <span class="nt">-S</span> base-devel yarn
+</code></pre></div></div>
+
+<p><strong>Debian:</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>build-essential yarn
+</code></pre></div></div>
+
+<h1 id="reinstall-tree-sitter">Reinstall Tree-sitter</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> <span class="nt">-rf</span> ~/.local/share/nvim/mason/share/nvim-treesitter/parser/<span class="k">*</span>
+nvim <span class="nt">-c</span> <span class="s2">"TSInstallAll"</span>
+</code></pre></div></div>
+
+<h2 id="lsp">LSP</h2>
+
+<h3 id="lsp-not-starting">LSP not starting</h3>
+
+<p><strong>Symptom</strong>: No LSP client attached (check with <code class="language-plaintext highlighter-rouge">:LspAttach</code>).</p>
+
+<p><strong>Solution</strong>:</p>
+<ol>
+  <li>Open Mason: <code class="language-plaintext highlighter-rouge">Space-qm</code></li>
+  <li>Check if LSP is installed (green checkmark)</li>
+  <li>If not, install via Mason UI or: <code class="language-plaintext highlighter-rouge">Mason install &lt;lsp-name&gt;</code></li>
+</ol>
+
+<h3 id="lsp-shows-errors-but-code-runs-fine">LSP shows errors but code runs fine</h3>
+
+<p>This is expected; LSP checks for code quality/issues, not runtime errors.</p>
+
+<p>Common fixes:</p>
+<ul>
+  <li>Python: Ensure virtual environment is activated or Mason’s Python path is correct</li>
+  <li>Java: Add <code class="language-plaintext highlighter-rouge">module-info.java</code> if using modules</li>
+  <li>TypeScript: Check <code class="language-plaintext highlighter-rouge">tsconfig.json</code> exists</li>
+</ul>
+
+<h2 id="debugging">Debugging</h2>
+
+<h3 id="breakpoints-dont-work">Breakpoints don’t work</h3>
+
+<p><strong>Python</strong>:</p>
+<ol>
+  <li>Ensure <code class="language-plaintext highlighter-rouge">debugpy</code> is installed via Mason</li>
+  <li>Check Python path: <code class="language-plaintext highlighter-rouge">:echo $VIRTUAL_ENV</code> (if using venv)</li>
+</ol>
+
+<p><strong>Java</strong>:</p>
+<ol>
+  <li>Run with debug agent: <code class="language-plaintext highlighter-rouge">java -agentlib:jdwp=...</code></li>
+  <li>Port 5005 must be available</li>
+</ol>
+
+<h3 id="dap-ui-not-showing">DAP UI not showing</h3>
+
+<p>Press <code class="language-plaintext highlighter-rouge">Space-dc</code> to start debugging. The UI should auto-open on debug attach.</p>
+
+<h2 id="buffers">Buffers</h2>
+
+<h3 id="buffers-not-switching-properly">Buffers not switching properly</h3>
+
+<p>Use <code class="language-plaintext highlighter-rouge">Space-kb</code> to see buffer list and select.</p>
+
+<p>To close a buffer, use <code class="language-plaintext highlighter-rouge">Space-kj</code>.</p>
+
+<h2 id="file-explorer">File Explorer</h2>
+
+<h3 id="neo-tree-not-showing">Neo-tree not showing</h3>
+
+<p>Press <code class="language-plaintext highlighter-rouge">C-n</code> or <code class="language-plaintext highlighter-rouge">Space-kt</code> (toggle Neotree).</p>
+
+<p>If still not visible:</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span>Neotree toggle
+</code></pre></div></div>
+
+<h2 id="performance">Performance</h2>
+
+<h3 id="neovim-feels-slow">Neovim feels slow</h3>
+
+<p><strong>Check startup time</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvim <span class="nt">--startuptime</span> profile.log
+</code></pre></div></div>
+
+<p><strong>Common fixes</strong>:</p>
+<ol>
+  <li>Update plugins: <code class="language-plaintext highlighter-rouge">Space-ql</code> → <code class="language-plaintext highlighter-rouge">Lazy update</code></li>
+  <li>Enable lazy loading: Some plugins already load on demand</li>
+  <li>Reduce Tree-sitter parsers: Only install needed ones</li>
+  <li>Disable plugins temporarily to isolate issue</li>
+</ol>
+
+<h3 id="high-memory-usage">High memory usage</h3>
+
+<p>Memory-heavy plugins:</p>
+<ul>
+  <li>Tree-sitter (caches parsers in memory)</li>
+  <li>LSP clients (each uses RAM)</li>
+  <li>Neo-tree (keeps file list)</li>
+</ul>
+
+<p><strong>Reduce memory</strong>:</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span>TSUninstall unused<span class="p">-</span>parsers
+<span class="p">:</span>Lazy clean
+</code></pre></div></div>
+
+<h2 id="spell-check">Spell Check</h2>
+
+<h3 id="spell-check-doesnt-enable">Spell check doesn’t enable</h3>
+
+<p>Ensure filetype is recognized:</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span><span class="k">set</span> <span class="k">filetype</span>?
+</code></pre></div></div>
+
+<p>Manually enable:</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span><span class="k">set</span> <span class="nb">spell</span>
+</code></pre></div></div>
+
+<h2 id="markdown">Markdown</h2>
+
+<h3 id="live-preview-not-working">Live preview not working</h3>
+
+<ol>
+  <li>Check port 8084 is available:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat <span class="nt">-tlnp</span> | <span class="nb">grep </span>8084
+</code></pre></div>    </div>
+  </li>
+  <li>Restart preview: <code class="language-plaintext highlighter-rouge">Space-oq</code> then <code class="language-plaintext highlighter-rouge">Space-op</code>.</li>
+</ol>
+
+<h3 id="pandoc-not-found">Pandoc not found</h3>
+
+<p>Install Pandoc:</p>
+<ul>
+  <li>Linux: Check your package manager or see https://pandoc.org.</li>
+  <li>macOS: <code class="language-plaintext highlighter-rouge">brew install pandoc</code></li>
+  <li>Windows: Download from https://pandoc.org.</li>
+</ul>
+
+<h2 id="keybindings">Keybindings</h2>
+
+<h3 id="space-key-doesnt-trigger">Space key doesn’t trigger</h3>
+
+<p>Check leader settings:</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span>echo <span class="k">vim</span><span class="p">.</span><span class="k">g</span><span class="p">.</span>mapleader
+<span class="p">:</span>echo <span class="k">vim</span><span class="p">.</span><span class="k">g</span><span class="p">.</span>maplocalleader
+</code></pre></div></div>
+
+<p>Both should show ` ` (space).</p>
+
+<p>If not, restart Neovim to reload config.</p>
+
+<h2 id="general-commands">General Commands</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">:messages</code></td>
+      <td>Show recent messages/errors</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">:checkhealth</code></td>
+      <td>Run Neovim health check</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">:scriptnames</code></td>
+      <td>List loaded scripts</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ql</code></td>
+      <td>Manage plugins</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qm</code></td>
+      <td>Manage LSPs/tools</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qt</code></td>
+      <td>Update Tree-sitter</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+    </main>
+    
+    <footer>
+      <p>&copy; 2026 VimStar</p>
+      <p><a href="https://github.com/sez11a/VimStar">GitHub</a> &bull; <a href="https://github.com/sez11a/VimStar">Report an issue</a></p>
+    </footer>
+  </div>
+</body>
+</html>

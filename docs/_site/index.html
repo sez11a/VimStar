@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VimStar</title>
+  <meta name="description" content="A Neovim distribution optimized for writing, inspired by WordStar">
+  
+  
+  <link rel="canonical" href="http://localhost:4000/">
+  
+  
+  <link rel="stylesheet" href="/VimStar/assets/css/style.css?v=688b6e3813f42933590d951f404afce8fb650c3b">
+  
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>VimStar | A Neovim distribution optimized for writing, inspired by WordStar</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="VimStar" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Neovim distribution optimized for writing, inspired by WordStar" />
+<meta property="og:description" content="A Neovim distribution optimized for writing, inspired by WordStar" />
+<link rel="canonical" href="http://localhost:4000/VimStar/" />
+<meta property="og:url" content="http://localhost:4000/VimStar/" />
+<meta property="og:site_name" content="VimStar" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="VimStar" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"A Neovim distribution optimized for writing, inspired by WordStar","headline":"VimStar","name":"VimStar","url":"http://localhost:4000/VimStar/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h1><a href="/VimStar/">VimStar</a></h1>
+      <p>A Neovim distribution optimized for writing, inspired by WordStar</p>
+    </header>
+    
+    <nav>
+      <ul>
+        
+          <li><a href="/VimStar/">Home</a></li>
+        
+          <li><a href="/VimStar/quickstart">Quick Start</a></li>
+        
+          <li><a href="/VimStar/writing">Writing</a></li>
+        
+          <li><a href="/VimStar/coding">Coding</a></li>
+        
+          <li><a href="/VimStar/wiki">Wiki</a></li>
+        
+          <li><a href="/VimStar/reference">Reference</a></li>
+        
+          <li><a href="/VimStar/customization">Customization</a></li>
+        
+          <li><a href="/VimStar/troubleshooting">Troubleshooting</a></li>
+        
+      </ul>
+    </nav>
+    
+    <main>
+      <div class="hero">
+  
+  <p>VimStar turns Neovim into a word processor while retaining Neovim's powerful completion, debugging, and navigation for all your coding needs. With a menu system inspired by WordStar, it's ideal for technical writing, creative writing, coding, and even publishing.</p>
+
+<div class="features">
+  <div class="feature-card">
+    <h3>📝 Writing First</h3>
+    <p>Supports Markdown, LaTeX, and Typst, displays word count, publishes with Pandoc.</p>
+  </div>
+  <div class="feature-card">
+    <h3>⚡ WordStar Menus</h3>
+    <p>Space-K (Block &amp; Save), Space-O (Onscreen Format), Space-P (Print Controls), Space-Q (Quick Menu) organize word processing functions.</p>
+  </div>
+  <div class="feature-card">
+    <h3>🤖 AI Assistant</h3>
+    <p>Integrates <a href="https://github.com/olimorris/codecompanion.nvim">CodeCompanion</a> with <a href="https://ollama.com">Ollama</a> for inline suggestions and chat</p>
+  </div>
+  <div class="feature-card">
+    <h3>💻 Language Support</h3>
+    <p>LSPs for Lua, TypeScript, Python, Java, C; debugging for Python, Go, Java</p>
+  </div>
+  <div class="feature-card">
+    <h3>📚 Wiki System</h3>
+    <p>Complete time management system implemented with <a href="https://github.com/lervag/wiki.vim">wiki.vim</a> and Markdown.</p>
+  </div>
+  <div class="feature-card">
+    <h3>🛠️ Auto-Installed</h3>
+    <p><a href="https://github.com/folke/lazy.nvim">Lazy.vim</a> manages plugins, Mason manages LSPs, Tree-sitter manages syntax.</p>
+  </div>
+</div>
+
+<h2>Screenshots</h2>
+
+<div class="screenshots">
+  <div class="screenshot">
+    <h3>Dashboard</h3>
+    <p>The ASCII art dashboard shows recently opened files.</p>
+    <img src="./images/vimstar-1.png" alt="VimStar dashboard" />
+  </div>
+  <div class="screenshot">
+    <h3>Markdown Editing</h3>
+    <p>Markdown is the default filetype with spell check enabled.</p>
+    <img src="./images/vimstar-2.png" alt="Markdown editing" />
+  </div>
+</div>
+
+<h2 id="install">Install</h2>
+
+<p>The installation script clones or updates VimStar to the active user’s home directory and links that to Neovim’s config directory:</p>
+<ul>
+  <li>Linux: <code class="language-plaintext highlighter-rouge">~/.config/nvim</code></li>
+  <li>macOS: <code class="language-plaintext highlighter-rouge">~/Library/Application Support/nvim</code></li>
+  <li>Windows: <code class="language-plaintext highlighter-rouge">$env:LOCALAPPDATA\nvim</code></li>
+</ul>
+
+<p>If you have a Neovim configuration already, rename the config directory or back it up and remove it before installing.</p>
+
+<h3 id="requirements">Requirements</h3>
+
+<ul>
+  <li><a href="https://neovim.io">Neovim</a> 0.9+</li>
+  <li><a href="https://git-scm.com/">Git</a> (must be available in PATH)</li>
+  <li><a href="https://pandoc.org">Pandoc</a> for publishing/conversions</li>
+  <li><a href="https://ollama.com">Ollama</a> for AI chat/completion features</li>
+  <li><a href="https://yarnpkg.com/">Yarn</a> to compile Markdown preview</li>
+</ul>
+
+<h3 id="linuxmacos">Linux/macOS</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-sLf</span> https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimstar.sh | bash
+</code></pre></div></div>
+
+<h3 id="windows">Windows</h3>
+
+<p>Open PowerShell and run</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Set-ExecutionPolicy</span><span class="w"> </span><span class="nx">Bypass</span><span class="w"> </span><span class="nt">-Scope</span><span class="w"> </span><span class="nx">Process</span><span class="w"> </span><span class="nt">-Force</span><span class="w">
+</span><span class="n">irm</span><span class="w"> </span><span class="nx">https://raw.githubusercontent.com/sez11a/VimStar/master/install-vimstar.ps1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">iex</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Note:</strong> The Windows script was generated by AI and has not been tested. Report any issues in the GitHub repository.</p>
+
+<h3 id="manual-installation">Manual Installation</h3>
+
+<p>You should read the scripts above before running them. If you don’t want to or you want to install manually, here’s how:</p>
+
+<p><strong>Clone the Repository</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/sez11a/VimStar ~/.VimStar
+</code></pre></div></div>
+
+<p><strong>Create symlink (Linux)</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ln</span> <span class="nt">-sfn</span> ~/.VimStar ~/.config/nvim
+</code></pre></div></div>
+
+<p><strong>Create symlink (macOS)</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ln</span> <span class="nt">-sfn</span> ~/.VimStar ~/Library/Application<span class="se">\ </span>Support/nvim
+</code></pre></div></div>
+
+<p><strong>Create symlink (Windows PowerShell)</strong></p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">New-Item</span><span class="w"> </span><span class="nt">-ItemType</span><span class="w"> </span><span class="nx">SymbolicLink</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="nv">$</span><span class="nn">env</span><span class="p">:</span><span class="nv">LOCALAPPDATA</span><span class="nx">\nvim</span><span class="w"> </span><span class="nt">-Target</span><span class="w"> </span><span class="nx">~/.VimStar</span><span class="w"> </span><span class="nt">-Force</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="first-launch">First Launch</h3>
+
+<ol>
+  <li>Run <code class="language-plaintext highlighter-rouge">nvim</code>.</li>
+  <li>Wait for Lazy.nvim to install plugins.</li>
+  <li>Quit and restart <code class="language-plaintext highlighter-rouge">nvim</code>. It is now VimStar!</li>
+</ol>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+
+<ul>
+  <li><strong>Plugins not installing</strong>: Run <code class="language-plaintext highlighter-rouge">Space-ql</code> to open Lazy.nvim and check for errors</li>
+  <li><strong>Treesitter highlighting broken</strong>: Run <code class="language-plaintext highlighter-rouge">Space-qt</code> to update parsers</li>
+  <li><strong>Spell check not working</strong>: Ensure <code class="language-plaintext highlighter-rouge">~/.VimStar/spell/</code> directory exists</li>
+</ul>
+
+<h2>License</h2>
+
+<p>MIT License - see <a href="/license">LICENSE</a> for details.</p>
+
+
+</div>
+
+
+    </main>
+    
+    <footer>
+      <p>&copy; 2026 VimStar</p>
+      <p><a href="https://github.com/sez11a/VimStar">GitHub</a> &bull; <a href="https://github.com/sez11a/VimStar">Report an issue</a></p>
+    </footer>
+  </div>
+</body>
+</html>
