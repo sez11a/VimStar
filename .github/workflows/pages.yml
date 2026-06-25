@@ -27,12 +27,16 @@ jobs:
           bundler-cache: true
 
       - name: Build with Jekyll
-        run: bundle exec jekyll build --trace
+        run: |
+          cd docs                    # ← important
+          bundle install
+          bundle exec jekyll build --trace
+        working-directory: docs      # ← also helps
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "_site"
+          path: "docs/_site"         # ← point to the built site
 
   deploy:
     environment:
