@@ -12,9 +12,9 @@ permalink: /troubleshooting/
 **Symptom**: No plugins appear, or Neovim opens with no syntax highlighting.
 
 **Solution**: 
-1. Press `Space-ql` to open Lazy.nvim
-2. Check if it's still installing (shows progress bar)
-3. Wait 30-60 seconds for initial install
+1. Press *Space-ql* to open Lazy.nvim.
+2. Check if it's still installing (shows progress bar).
+3. Wait 30-60 seconds for initial install.
 
 If still stuck:
 ```bash
@@ -26,30 +26,41 @@ rm -rf ~/.local/share/nvim/lazy
 nvim -c "Lazy sync"
 ```
 
-## Treesitter
+## Tree-sitter
 
 ### Incorrect syntax highlighting
 
-**Symptom**: Colors wrong, or no syntax highlighting.
+**Symptom**: Colors wrong or no syntax highlighting.
 
-**Solution**:
-```bash
-# Update parsers
-Space-qt  # Via keymap
-# or
-:TSUpdate
-````
+**Solution**: Update parsers *Space-qt*
 
 ### Parser installation fails
 
 **Symptom**: Error about missing parser or compilation.
 
-**Solution**:
-```bash
-# Install build tools (Linux)
-sudo apt install build-essential
+**Solution**: Install build tools (Linux)
 
-# Reinstall Treesitter
+Use your package manager to install build tools. For example, 
+
+**OpenMandriva:** 
+
+```bash
+sudo dnf -y install task-devel task-c-devel task-c++-devel clang llvm yarn
+```
+
+**Arch:**
+```bash
+sudo pacman -S base-devel yarn
+```
+
+**Debian:** 
+```bash
+sudo apt install build-essential yarn
+```
+
+# Reinstall Tree-sitter
+
+```bash
 rm -rf ~/.local/share/nvim/mason/share/nvim-treesitter/parser/*
 nvim -c "TSInstallAll"
 ````
@@ -61,13 +72,13 @@ nvim -c "TSInstallAll"
 **Symptom**: No LSP client attached (check with `:LspAttach`).
 
 **Solution**:
-1. Open Mason: `Space-qm`
+1. Open Mason: *Space-qm*
 2. Check if LSP is installed (green checkmark)
 3. If not, install via Mason UI or: `Mason install <lsp-name>`
 
 ### LSP shows errors but code runs fine
 
-This is expected - LSP checks for code quality/issues, not runtime errors.
+This is expected; LSP checks for code quality/issues, not runtime errors.
 
 Common fixes:
 - Python: Ensure virtual environment is activated or Mason's Python path is correct
@@ -88,29 +99,21 @@ Common fixes:
 
 ### DAP UI not showing
 
-Press `Space-dc` to start debugging - the UI should auto-open on debug attach.
+Press *Space-dc* to start debugging. The UI should auto-open on debug attach.
 
 ## Buffers
 
 ### Buffers not switching properly
 
-Use `Space-kb` to see buffer list and select.
+Use *Space-kb* to see buffer list and select.
 
-To see all buffers:
-```vim
-:buffers
-```
-
-To close all but current:
-```vim
-:bufdo bd
-```
+To close a buffer, use *Space-kj*. 
 
 ## File Explorer
 
 ### Neo-tree not showing
 
-Press `C-n` or `Space-kt` (toggle Neotree).
+Press `C-n` or *Space-kt* (toggle Neotree).
 
 If still not visible:
 ```vim
@@ -129,13 +132,13 @@ nvim --startuptime profile.log
 **Common fixes**:
 1. Update plugins: `Space-ql` → `Lazy update`
 2. Enable lazy loading: Some plugins already load on demand
-3. Reduce treesitter parsers: Only install needed ones
+3. Reduce Tree-sitter parsers: Only install needed ones
 4. Disable plugins temporarily to isolate issue
 
 ### High memory usage
 
 Memory-heavy plugins:
-- Treesitter (caches parsers in memory)
+- Tree-sitter (caches parsers in memory)
 - LSP clients (each uses RAM)
 - Neo-tree (keeps file list)
 
@@ -159,11 +162,6 @@ Manually enable:
 :set spell
 ```
 
-Add new filetypes in `vim-options.lua`:
-```lua
-pattern = { "markdown", "typst", "tex", "plaintex", "latex", "newtype" }
-```
-
 ## Markdown
 
 ### Live preview not working
@@ -173,14 +171,14 @@ pattern = { "markdown", "typst", "tex", "plaintex", "latex", "newtype" }
 netstat -tlnp | grep 8084
 ````
 
-2. Restart preview: `Space-oq` then `Space-op`
+2. Restart preview: *Space-oq* then *Space-op*.
 
-### pandoc not found
+### Pandoc not found
 
-Install pandoc:
-- Linux: `sudo apt install pandoc`
+Install Pandoc:
+- Linux: Check your package manager or see https://pandoc.org. 
 - macOS: `brew install pandoc`
-- Windows: Download from https://pandoc.org
+- Windows: Download from https://pandoc.org. 
 
 ## Keybindings
 
@@ -203,6 +201,6 @@ If not, restart Neovim to reload config.
 | `:messages` | Show recent messages/errors |
 | `:checkhealth` | Run Neovim health check |
 | `:scriptnames` | List loaded scripts |
-| `:Lazy` | Manage plugins |
-| `:Mason` | Manage LSPs/tools |
-| `:TSUpdate` | Update Treesitter |
+| *Space-ql* | Manage plugins |
+| *Space-qm | Manage LSPs/tools |
+| *Space-qt* | Update Tree-sitter |

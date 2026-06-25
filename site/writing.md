@@ -5,54 +5,25 @@ description: "Markdown, spell check, Pandoc publishing, and more"
 permalink: /writing/
 ---
 
-VimStar is optimized for writing, especially Markdown.
+VimStar's main function is to turn Neovim into a word processor, with all the power of Vim navigation at your fingertips and a menu system inspired by WordStar. New files default to the Markdown file type, but VimStar also includes plugins to support writing in HTML, LaTeX, and Typst. As soon as you save your file, the syntax switches. 
 
-## Default Filetype
+Word count is available on-screen at all times, so writers can keep track of their progress. 
 
-New buffers default to Markdown (via autocmd in `vim-options.lua:41`):
+## Word Processing Formats 
 
-```lua
-vim.cmd("autocmd BufEnter * if &filetype == '' | setlocal ft=markdown | endif")
-```
+- Markdown
+- HTML
+- LaTeX, with [VimTex](https://github.com/lervag/vimtex) for previews and compiling
+- Typst, with [typst-preview](https://github.com/chomosuke/typst-preview.nvim) for live previews
 
-## Spell Check
+Markdown syntax is "polished" by default, but you can see the raw syntax via `Space-ob`. 
 
-Spell checking is enabled automatically for prose filetypes:
+Markdown files can be converted to various formatted PDFs or to an ODT (OpenDocument format) for use with [LibreOffice](https://www.libreoffice.org). Writers can now use a distraction-free, efficient environment to work their magic. You can do the formatting later via LibreOffice or automatically via the provided Pandoc templates---and new ones are being created all the time. 
 
-```lua
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown", "typst", "tex", "plaintex", "latex" },
-  callback = function() vim.opt_local.spell = true end,
-})
-```
+## File Conversion with Pandoc
 
-**Enable/disable on demand:**
-- `Space-os` = Enable spell check
-- `Space-oo` = Disable spell check
+Beyond the Pandoc print functions in the `Space-p` menu, VimStar defines a `:Pandoc` user command so you can convert your file to any format Pandoc supports:
 
-## Word Count
-
-The lualine status bar shows word count (configured in `lualine.lua:22-25`):
-
-```lua
-function()
-  return vim.fn.wordcount().words .. " words"
-end,
-```
-
-Press `Space-?` to see buffer-local keymaps for the current word count shortcut.
-
-## Pandoc Publishing
-
-VimStar defines a `:Pandoc` user command (in `vim-options.lua:52-63`) and keybindings:
-
-| Key | Format | Description |
-|-----|--------|-------------|
-| `Space-pb` | PDF (book) | Uses `~/.VimStar/templates/book.tex` |
-| `Space-pp` | PDF (article) | Uses `~/.VimStar/templates/article-handout.tex` |
-| `Space-po` | ODT | OpenDocument format |
-
-**Manual Pandoc:**
 ```vim
 :Pandoc pdf
 :Pandoc html
@@ -60,69 +31,23 @@ VimStar defines a `:Pandoc` user command (in `vim-options.lua:52-63`) and keybin
 :Pandoc docx
 ```
 
-### Pandoc Templates
+Pandoc templates ship with VimStar, including an article template and a full-on digest-size paperback book format, complete with chapter headings, headers, footers, and a table of contents. Update your `~/.VimStar` folder regularly via Git to grab new templates as they are created! 
 
-Location: `~/.VimStar/templates/`
+## Supports the Full Creative Experience 
 
-- `book.tex` - Full book formatting with cover
-- `article-handout.tex` - Article or handout format
-- `planner-page.tex` - Planner page format (via `Space-pe`)
+From the beginning of your project to the end, VimStar helps you along the way: 
 
-## Markdown Preview
+- Use [Markmap](https://github.com/Zeioth/markmap.nvim) to outline your project before starting to write. 
+- Use [Live Preview](https://github.com/brianhuster/live-preview.nvim) (Markdown), [Typst Preview](https://github.com/chomosuke/typst-preview.nvim) (Typst), or [Vimtex](https://github.com/lervag/vimtex) to preview your work. 
+- Export your work to a pre-formatted PDF or any other format to ready it for publishing. 
 
-### Live Preview
+As inspired by WordStar, preview functions appear in the Onscreen Format (`Space-o`) menu, and exporting is done by "printing" from the Print Controls (`Space-p`) menu. 
 
-Start preview: `Space-op`  
-Stop preview: `Space-oq`
-
-Uses `live-preview.nvim` plugin.
-
-### RenderMarkdown
-
-Toggle markdown rendering: `Space-ob`
-
-Uses `render-markdown.nvim` for in-buffer rendering.
-
-## Markmap (Mindmaps)
-
-| Key | Action |
-|-----|--------|
-| `Space-om` | Open markmap |
-| `Space-m` | Save markmap |
-| `Space-ow` | Watch markmap (auto-update) |
-
-## Vim-Pencil
-
-Writing-focused features via `vim-pencil` plugin:
-
-- Soft wrap mode enabled
-- Automatic formatting disabled (manual only)
-
-## Typst Support
-
-Typst files get preview support:
-
-| Key | Action |
-|-----|--------|
-| `Space-ot` | Toggle Typst preview |
-
-Uses `typst-preview.nvim` plugin.
 
 ## Marp Slides
 
-Convert Markdown to slides:
+Do you mainly create slides? VimStar supports that too, via [Marp](https://github.com/mpas/marp-nvim)! Now you can version control your presentations in a plain text format, ideal for writing teams. 
 
-```bash
-# Start Marp server (default port 8084)
-npm install -g @marp-team/marp-cli
-````
+## Technical Writing 
 
-## Common Shortcuts
-
-| Action | Key | Command |
-|--------|-----|-------|
-| Toggle markdown preview | `Space-ob` | `RenderMarkdown toggle` |
-| Toggle live preview | `Space-op` | `LivePreview start` |
-| Stop live preview | `Space-oq` | `LivePreview close` |
-| Open markmap | `Space-om` | `MarkmapOpen` |
-| Save markmap | `Space-ps` | `MarkmapSave` |
+VimStar was designed for technical writing by a technical writer with decades of experience. Full Git support appears via [Fugitive](https://github.com/tpope/vim-fugitive). Use the `Space-g` menu or commands to add, commit, blame, diff, and more. VimStar fits neatly into any docs-as-code methodology, providing all the power any technical writer needs to produce great content.

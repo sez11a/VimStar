@@ -13,71 +13,42 @@ Welcome to VimStar! Here's what to do in your first 5 minutes.
 nvim
 ```
 
-You'll see the ASCII art dashboard (alpha-nvim) and a list of most-recently-used files.
+Press `e` to start a new file or press `Space-ko` to open an existing file. 
 
-## 2. See the Keymaps
+## 2. Write Something
 
-Press `Space` in normal mode to see the available menus:
+1. VimStar is still Neovim, so press `i` to begin writing in Markdown. Completion is on by default. To toggle it, hit `Esc` to go back to Normal mode and then press `Space-oc`. 
 
-- `Space-k` = Block and Save
-- `Space-o` = Onscreen Format  
-- `Space-p` = Print Controls
-- `Space-q` = Quick Menu
-- `Space-c` = Code (AI)
-- `Space-d` = Debug
-- `Space-f` = Find
-- `Space-g` = Git
-- `Space-w` = Wiki
+1. To preview your document, press `Space-op`. 
 
-Press `Space-?` to see buffer-local keymaps via which-key.
+1. If you have Pandoc and LaTeX or Typst installed, press `Space-p` and the relevant command from the menu to produce a PDF in the same folder as your file. 
 
-## 3. Write Something
+1. Use WordStar-inspired commands to save (`Space-ks`), save and exit (`Space-kx`), or abandon changes and exit (`Space-kq`).
 
-VimStar defaults new buffers to Markdown:
+## 3. Try the AI Assistant
 
-```bash
-:edit new-file.md
-```
+If you have [Ollama](https://ollama.com) installed, make sure the [qwen3.6:27b](https://ollama.com/library/qwen3.6) model is available and press `Space-cc` to chat. Type a prompt like "Explain the quicksort algorithm." 
 
-Start typing. You'll notice:
-- Spell check is enabled
-- Word count appears in the status bar
-- Tabs are 2 spaces (expandtab)
+## 4. Navigate Files
 
-## 4. Publish to PDF
-
-Open a Markdown file and press:
-
-- `Space-pb` = Convert to PDF (book template)
-- `Space-pp` = Convert to PDF (article template)
-
-Behind the scenes, this runs pandoc with your configured templates.
-
-## 5. Try the AI Assistant
-
-Press `Space-cc` to open CodeCompanion chat with Ollama (default model: `qwen3-coder-next-32k`).
-
-Type a prompt like: "Explain the quicksort algorithm"
-
-## 6. Navigate Files
-
-- `Space-fs` = Find files (Telescope)
-- `C-p` = Quick find files (Telescope)
-- `C-n` = Toggle Neo-tree file explorer
+- `Space-ko` to browse your file system
+- `Space-fs` = Find files 
+- `Space-fs` = Find files in the current folder
+- `Space-kt` = Toggle Neo-tree file explorer
 - `Space-fp` = Find git-tracked files only
 
-## 7. Try the Wiki
+## 5. Try the Wiki
 
-Open your journal:
+1. Customize the Wiki location in `vimstar-user.lua` by setting `vim.g.wiki_root` and then restarting VimStar. 
 
-```bash
-:Wiki日记
-````
+1. `Space-ww` opens the first Wiki page. 
 
-(Defaults to `~/Share/pim/pkm` - customize in `vimstar-user.lua`)
+1. `Space-w-Space-w` opens today's journal page. 
+
+For more information, see the Wiki documentation by typing `:help wiki`. 
 
 ## Next Steps
 
-- Read the full [Keybindings Reference](/keybindings)
+- Read the full [Reference](/reference)
 - Explore [Writing Features](/writing)
 - Learn about [Coding Support](/coding)

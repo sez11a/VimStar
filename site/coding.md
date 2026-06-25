@@ -5,13 +5,14 @@ description: "LSPs, debugging, and AI assistant"
 permalink: /coding/
 ---
 
-VimStar includes robust support for code development, powered by LSP and Mason.
+VimStar includes robust support for code development, powered by Mason, a package manager for LSP (Language Server Protocol) servers, DAP (Debug Adapter Protocol) servers, linters, and formatters.
+
+VimStar installs several tools by default, but you can install whatever you want via `Space-qm`. 
 
 ## LSP Support (via Mason)
 
-Install LSPs via `Space-qm` (Mason) or the command line.
+During the install, Mason installs these pre-configured LSPs: 
 
-### Installed LSPs
 
 | LSP | Language | Configuration |
 |-----|----------|---------------|
@@ -19,9 +20,11 @@ Install LSPs via `Space-qm` (Mason) or the command line.
 | `html` | HTML | Full support |
 | `cssls` | CSS | Full support |
 | `ts_ls` | TypeScript | Inlay hints enabled |
-| `pylsp` | Python | pycodestyle, pyflakes, pylint enabled |
-| `tinymist` | Typst | Full support |
+| `jdtls` | Java | Full support | 
 | `clangd` | C/C++ | `-std=c11` fallback |
+| `pylsp` | Python | pycodestyle, pyflakes, pylint enabled |
+| `texlab` | LaTeX | Full support |
+| `tinymist` | Typst | Full support |
 
 ### ts_ls Configuration
 
@@ -31,35 +34,28 @@ TypeScript LSP has inlay hints enabled for parameter names, types, and return va
 
 Python LSP has multiple linters enabled:
 - pycodestyle
-- pyflakes  
+- pyflakes
 - pylint
 - mccabe
 - rope_completion
 
 ## Debugging (via DAP)
 
-All debugging is configured via `nvim-dap`.
+All debugging is configured via `nvim-dap` for Python, Go, and Java.
+
+Pre-configured via `nvim-dap-go`:
+- `Space-dt` = Toggle breakpoint
+- `Space-dc` = Continue
 
 ### Python Debugging
-
-**Launch current file:**
-1. Open Python file
-2. Press `Space-dt` to set breakpoint
-3. Press `Space-dc` to start debugging
 
 **Pytest (verbose):**
 1. Open test file
 2. Use DAP configuration (via DAP UI or attach)
 
 **Debugpy path:**
-- Uses Mason's debugpy: `~/.local/share/nvim/mason/packages/debugpy/venv/bin/python`
+- Uses Mason's debugpy. 
 - Or virtual environment if `VIRTUAL_ENV` is set
-
-### Go Debugging
-
-Pre-configured via `nvim-dap-go`:
-- `Space-dt` = Toggle breakpoint
-- `Space-dc` = Continue
 
 ### Java Debugging
 
@@ -73,13 +69,12 @@ Pre-configured via `nvim-dap-go`:
 - `Space-oi` = Organize imports
 
 **Setup:**
-1. Install JDTLS via Mason
-2. Run Java with debug agent: `java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005`
-3. Press `Space-dc` to attach
+1. Run Java with debug agent: `java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005`.
+1. Press `Space-dc` to attach.
 
 ## AI Assistant (CodeCompanion)
 
-**Models**: Ollama (`qwen3-coder-next-32k`)
+**Pre-configured model**: Ollama for local LLMs. Default model is `qwen3.6:27b`. 
 
 ### Keybindings
 
@@ -91,10 +86,37 @@ Pre-configured via `nvim-dap-go`:
 
 ### Setup
 
-1. Install Ollama: https://ollama.ai
-2. Pull the model: `ollama pull qwen3-coder-next-32k`
-3. Start Ollama daemon
-4. Press `Space-cc` to chat
+1. Install [Ollama](https://ollama.com).
+1. Pull the model: `ollama pull qwen3.6:27b`
+1. Start Ollama daemon.
+1. Increase the default context on the model by creating a `Modelfile`: 
+  
+   ```
+   FROM qwen3.6:27b 
+   PARAMETER num_ctx [size]
+   ```
+
+   Depending on your RAM, use 32768 (32k), 65536 (64k), 131072 (128k), or 262144 (256k). 
+
+1. Create the model: 
+
+   ```bash
+   ollama create qwen3.6:27b-[size] -f Modelfile
+   ```
+
+   For example, 
+
+   ```bash
+   ollama create qwen3.6:27b-256k -f Modelfile
+   ```
+
+1. Edit `vimstar-user.lua` and change `vim.g.ollama_model` to your new, higher context model: 
+
+   ```lua
+   vim.g.ollama_model = "qwen3.6:27b-256k"
+   ```
+
+1. Press `Space-cc` to chat
 
 ### Neocodeium (Alternative)
 
@@ -121,24 +143,25 @@ When LSP attaches to a buffer, these keybindings become available:
 
 ## Indentation Rules
 
-- **Default**: 2 spaces, expandtab
-- **Java**: 4 spaces, no expandtab (via tabset.nvim)
-
-Configure in `writing-stuff.lua` tabset.nvim section.
+- **Markdown:** 2 spaces, expandtab
+- **Java:** 4 spaces, no expandtab (via tabset.nvim)
+- **Everything Else:** 4 spaces, expandtab
 
 ## Language-Specific Configs
 
 ### Java
 
-**JDTLS setup** in `java.lua`:
-- Workspace cache: `~/.cache/jdtls/workspace/`
-- Config directory: `~/.local/share/nvim/mason/packages/jdtls/`
-- JDK: Zulu 21 (change in config if using different JDK)
-- Gradle/Maven: Automatic import
+Configure your JDK in `vimstar-user.lua`: 
+
+```lua
+vim.g.java_sdk_path = "/path/to/your/jdk"
+```
+
+Gradle/Maven build scripts import Java projects. If you don't have one, only basic syntax highlighting occurs.
 
 ### TypeScript/JavaScript
 
-**Inlay hints** enabled in `lsp-config.lua:46-53`:
+**Inlay hints** enabled:
 - Parameter names: all
 - Parameter types: true
 - Variable types: true
