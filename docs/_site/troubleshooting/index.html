@@ -1,71 +1,311 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Troubleshooting</title>
-  <meta name="description" content="Common issues and solutions">
-  
-  
-  <link rel="canonical" href="http://localhost:4000/troubleshooting/">
-  
-  
-  <link rel="stylesheet" href="/VimStar/assets/css/style.css?v=688b6e3813f42933590d951f404afce8fb650c3b">
-  
-  <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Troubleshooting | VimStar</title>
-<meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="Troubleshooting" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Common issues and solutions" />
-<meta property="og:description" content="Common issues and solutions" />
-<link rel="canonical" href="http://localhost:4000/VimStar/troubleshooting/" />
-<meta property="og:url" content="http://localhost:4000/VimStar/troubleshooting/" />
-<meta property="og:site_name" content="VimStar" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Troubleshooting" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Common issues and solutions","headline":"Troubleshooting","url":"http://localhost:4000/VimStar/troubleshooting/"}</script>
-<!-- End Jekyll SEO tag -->
 
-</head>
-<body>
-  <div id="wrapper">
-    <header>
-      <h1><a href="/VimStar/">VimStar</a></h1>
-      <p>A Neovim distribution optimized for writing, inspired by WordStar</p>
-    </header>
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js" dir="ltr">
+  <head>
     
-    <nav>
-      <ul>
-        
-          <li><a href="/VimStar/">Home</a></li>
-        
-          <li><a href="/VimStar/quickstart">Quick Start</a></li>
-        
-          <li><a href="/VimStar/writing">Writing</a></li>
-        
-          <li><a href="/VimStar/coding">Coding</a></li>
-        
-          <li><a href="/VimStar/wiki">Wiki</a></li>
-        
-          <li><a href="/VimStar/reference">Reference</a></li>
-        
-          <li><a href="/VimStar/customization">Customization</a></li>
-        
-          <li><a href="/VimStar/troubleshooting">Troubleshooting</a></li>
-        
-      </ul>
-    </nav>
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Troubleshooting - VimStar</title>
+<meta name="description" content="Common issues and solutions">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VimStar">
+<meta property="og:title" content="Troubleshooting">
+<meta property="og:url" content="http://localhost:4000/VimStar/troubleshooting/">
+
+
+  <meta property="og:description" content="Common issues and solutions">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/VimStar/troubleshooting/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/VimStar/feed.xml" type="application/atom+xml" rel="alternate" title="VimStar Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/VimStar/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
     
-    <main>
-      <div class="content">
-  <h1>Troubleshooting</h1>
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/VimStar/">
+          VimStar
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/VimStar/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/VimStar/quickstart/"
+                
+                
+              >Quick Start</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/VimStar/writing/"
+                
+                
+              >Writing</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/VimStar/coding/"
+                
+                
+              >Coding</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/VimStar/wiki/"
+                
+                
+              >Wiki</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/VimStar/reference/"
+                
+                
+              >Reference</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/VimStar/customization/"
+                
+                
+              >Customization</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/VimStar/troubleshooting/"
+                
+                
+              >Troubleshooting</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
   
   
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
   
-  <h2 id="installation">Installation</h2>
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <a href="/VimStar/"><span class="nav__sub-title">Home</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/VimStar/quickstart/"><span class="nav__sub-title">Quick Start</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/VimStar/writing/"><span class="nav__sub-title">Writing</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/VimStar/coding/"><span class="nav__sub-title">Coding</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/VimStar/wiki/"><span class="nav__sub-title">Wiki</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/VimStar/reference/"><span class="nav__sub-title">Reference</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/VimStar/customization/"><span class="nav__sub-title">Customization</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/VimStar/troubleshooting/"><span class="nav__sub-title">Troubleshooting</span></a>
+          
+
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Troubleshooting">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/VimStar/troubleshooting/" itemprop="url">Troubleshooting
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc" aria-label="Table of contents">
+              <header><h4 class="nav__title"><i class="fas fa-gears"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#installation">Installation</a><ul><li><a href="#plugins-not-installing-on-first-launch">Plugins not installing on first launch</a></li></ul></li><li><a href="#tree-sitter">Tree-sitter</a><ul><li><a href="#incorrect-syntax-highlighting">Incorrect syntax highlighting</a></li><li><a href="#parser-installation-fails">Parser installation fails</a></li></ul></li><li><a href="#lsp">LSP</a><ul><li><a href="#lsp-not-starting">LSP not starting</a></li><li><a href="#lsp-shows-errors-but-code-runs-fine">LSP shows errors but code runs fine</a></li></ul></li><li><a href="#debugging">Debugging</a><ul><li><a href="#breakpoints-dont-work">Breakpoints don’t work</a></li><li><a href="#dap-ui-not-showing">DAP UI not showing</a></li></ul></li><li><a href="#buffers">Buffers</a><ul><li><a href="#buffers-not-switching-properly">Buffers not switching properly</a></li></ul></li><li><a href="#file-explorer">File Explorer</a><ul><li><a href="#neo-tree-not-showing">Neo-tree not showing</a></li></ul></li><li><a href="#performance">Performance</a><ul><li><a href="#neovim-feels-slow">Neovim feels slow</a></li><li><a href="#high-memory-usage">High memory usage</a></li></ul></li><li><a href="#spell-check">Spell Check</a><ul><li><a href="#spell-check-doesnt-enable">Spell check doesn’t enable</a></li></ul></li><li><a href="#markdown">Markdown</a><ul><li><a href="#live-preview-not-working">Live preview not working</a></li><li><a href="#pandoc-not-found">Pandoc not found</a></li></ul></li><li><a href="#keybindings">Keybindings</a><ul><li><a href="#space-key-doesnt-trigger">Space key doesn’t trigger</a></li></ul></li><li><a href="#general-commands">General Commands</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="installation">Installation</h2>
 
 <h3 id="plugins-not-installing-on-first-launch">Plugins not installing on first launch</h3>
 
@@ -297,13 +537,99 @@ nvim <span class="nt">-c</span> <span class="s2">"TSInstallAll"</span>
   </tbody>
 </table>
 
-</div>
-    </main>
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
     
-    <footer>
-      <p>&copy; 2026 VimStar</p>
-      <p><a href="https://github.com/sez11a/VimStar">GitHub</a> &bull; <a href="https://github.com/sez11a/VimStar">Report an issue</a></p>
-    </footer>
-  </div>
-</body>
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        
+<div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/VimStar/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">VimStar</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/VimStar/assets/js/main.min.js"></script>
+
+
+
+
+
+<script src="/VimStar/assets/js/lunr/lunr.min.js"></script>
+<script src="/VimStar/assets/js/lunr/lunr-store.js"></script>
+<script src="/VimStar/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+
+  </body>
 </html>

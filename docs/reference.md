@@ -1,8 +1,11 @@
 ---
-layout: page
+layout: single
 title: "Reference"
 description: "Complete list of VimStar keybindings, organized by menu"
 permalink: /reference/
+sidebar: 
+  nav: "main"
+toc: true
 ---
 
 All keybindings use Space as the leader key (`<leader>` and `<localleader>` are both Space).

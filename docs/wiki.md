@@ -1,8 +1,11 @@
 ---
-layout: page
+layout: single
 title: "Wiki System"
 description: "Wiki for journaling, note-taking, and knowledge management"
 permalink: /wiki/
+sidebar: 
+  nav: "main"
+toc: true
 ---
 
 VimStar includes a personal wiki system for journaling, note-taking, and knowledge management. These are stored as Markdown files in a directory configurable in `vimstar-user.lua`. The [wiki.vim](https://github.com/lervag/wiki.vim) plugin provides the wiki functionality, and it has excellent documentation available [online](https://github.com/lervag/wiki.vim/blob/master/doc/wiki.txt) or via `:help wiki`. 

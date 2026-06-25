@@ -1,7 +1,10 @@
 ---
-layout: page
+layout: single
 title: "Customization"
 description: "How to customize VimStar"
+sidebar: 
+  nav: "main"
+toc: true
 permalink: /customization/
 ---
 

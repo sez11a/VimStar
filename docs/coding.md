@@ -1,7 +1,10 @@
 ---
-layout: page
+layout: single
 title: "Coding Support"
 description: "LSPs, debugging, and AI assistant"
+sidebar: 
+  nav: "main"
+toc: true
 permalink: /coding/
 ---
 

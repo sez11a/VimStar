@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: single
 title: "VimStar"
 subtitle: "A Neovim distribution for writing, inspired by WordStar"
 ---

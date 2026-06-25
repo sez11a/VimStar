@@ -1,8 +1,11 @@
 ---
-layout: page
+layout: single
 title: "Troubleshooting"
 description: "Common issues and solutions"
 permalink: /troubleshooting/
+sidebar: 
+  nav: "main"
+toc: true
 ---
 
 ## Installation

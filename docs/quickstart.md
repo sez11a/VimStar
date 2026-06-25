@@ -1,8 +1,11 @@
 ---
-layout: page
+layout: single
 title: "Quick Start"
 description: "Your first 5 minutes with VimStar"
 permalink: /quickstart/
+sidebar: 
+  nav: "main"
+toc: true
 ---
 
 Welcome to VimStar! Here's what to do in your first 5 minutes.

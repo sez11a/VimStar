@@ -1,34 +1,52 @@
 # Project: VimStar Jekyll Site
 
+remote_theme: mmistakes/minimal-mistakes
 title: VimStar
 description: A Neovim distribution optimized for writing, inspired by WordStar
-theme: minima
+# theme: minima
+# theme: just-the-docs
 markdown: kramdown
 highlighter: rouge
+
+# Dark skin
+minimal_mistakes_skin: "dark"
+search: true
 
 url: "https://sez11a.github.io/VimStar"
 baseurl: "/VimStar"
 
 plugins:
+  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-relative-links
+  - jekyll-include-cache
 
+defaults:
+  - scope:
+      path: ""          # all files in the project
+    values:
+      layout: single
+      sidebar:
+        nav: "main"
+      toc: true
+      toc_label: "On this page"
+      toc_icon: "gears"
 # Navigation
-nav:
-  - title: "Home"
-    url: /
-  - title: "Quick Start"
-    url: /quickstart
-  - title: "Writing"
-    url: /writing
-  - title: "Coding"
-    url: /coding
-  - title: "Wiki"
-    url: /wiki
-  - title: "Reference"
-    url: /reference
-  - title: "Customization"
-    url: /customization
-  - title: "Troubleshooting"
-    url: /troubleshooting
+# nav:
+#   - title: "Home"
+#    url: /
+#  - title: "Quick Start"
+#    url: /quickstart
+#  - title: "Writing"
+#    url: /writing
+#  - title: "Coding"
+#    url: /coding
+#  - title: "Wiki"
+#    url: /wiki
+#  - title: "Reference"
+#    url: /reference
+#  - title: "Customization"
+#    url: /customization
+#  - title: "Troubleshooting"
+#    url: /troubleshooting
 

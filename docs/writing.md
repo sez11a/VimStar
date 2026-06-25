@@ -1,8 +1,11 @@
 ---
-layout: page
+layout: single
 title: "Writing Features"
 description: "Markdown, spell check, Pandoc publishing, and more"
 permalink: /writing/
+sidebar: 
+  nav: "main"
+toc: true
 ---
 
 VimStar's main function is to turn Neovim into a word processor, with all the power of Vim navigation at your fingertips and a menu system inspired by WordStar. New files default to the Markdown file type, but VimStar also includes plugins to support writing in HTML, LaTeX, and Typst. As soon as you save your file, the syntax switches. 
