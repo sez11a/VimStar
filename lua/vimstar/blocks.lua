@@ -4,7 +4,8 @@
 local M = {}
 
 local ns = vim.api.nvim_create_namespace("VimStarBlocks")
-local state = {}  -- per-buffer state
+local highlight_ns = vim.api.nvim_create_namespace("VimStarBlockHighlight")
+local state = {}  
 
 local function ensure_state(buf)
   buf = buf or vim.api.nvim_get_current_buf()
@@ -35,10 +36,17 @@ local function get_mark_pos(buf, id)
   return nil
 end
 
+local function clear_all_highlights(buf)
+  buf = buf or vim.api.nvim_get_current_buf()
+  vim.api.nvim_buf_clear_namespace(buf, highlight_ns, 0, -1)
+end
+
 function M.mark_begin()
   local buf = vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
-  
+
+  clear_all_highlights(buf)
+
   -- Old current becomes previous
   s.previous = s.current
   s.current = { begin_id = nil, end_id = nil }
@@ -56,7 +64,6 @@ function M.mark_begin()
   vim.notify("Block begin marked (previous saved)", vim.log.levels.INFO)
 end
 
--- Similar update for mark_end (sets on current, removes virt_text from begin)
 function M.mark_end()
   local buf = vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
@@ -85,7 +92,10 @@ function M.toggle_previous_block()
   local buf = vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
   s.current, s.previous = s.previous, s.current
+
+  clear_all_highlights(buf)
   M.update_highlight(buf)
+
   vim.notify("Switched to previous block", vim.log.levels.INFO)
 end
 
@@ -93,9 +103,7 @@ function M.update_highlight(buf)
   buf = buf or vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
 
-  -- Clear previous highlight extmarks (we'll use a dedicated range one if needed)
-  -- For simplicity, we'll set a range highlight on the end mark or use a separate one
-  -- Alternative: use vim.highlight.range for quick updates, but extmark range is more persistent
+  clear_all_highlights(buf)
 
   local begin_pos = get_mark_pos(buf, s.current.begin_id)
   local end_pos = get_mark_pos(buf, s.current.end_id)
@@ -104,8 +112,7 @@ function M.update_highlight(buf)
     return
   end
 
-  -- Simple range highlight using extmark (reuses Visual)
-  vim.api.nvim_buf_set_extmark(buf, ns, begin_pos.row, begin_pos.col, {
+  vim.api.nvim_buf_set_extmark(buf, highlight_ns, begin_pos.row, begin_pos.col, {
     end_row = end_pos.row,
     end_col = end_pos.col,
     hl_group = "Visual",
@@ -176,15 +183,10 @@ function M.copy_block()
   M.update_highlight(buf)
 end
 
-local function clear_all_highlights(buf)
-  buf = buf or vim.api.nvim_get_current_buf()
-  vim.api.nvim_buf_clear_namespace(buf, ns, 0, -1)  -- clears ALL extmarks in our namespace
-end
-
 function M.unmark_block()
   local buf = vim.api.nvim_get_current_buf()
   M.clear_block(buf, false)
-  clear_all_highlights(buf)   -- force-remove any lingering range highlight
+  clear_all_highlights(buf)
   vim.notify("Block unmarked", vim.log.levels.INFO)
 end
 
@@ -219,8 +221,7 @@ function M.move_block()
   -- Insert
   insert_text_at_cursor(text, regtype)
 
-  -- === Precise re-marking (avoids cursor side-effects) ===
-  local new_begin_row = paste_start_row - 1          -- 0-based
+  local new_begin_row = paste_start_row - 1
   local new_begin_col = 0
 
   local new_end_row = paste_start_row - 1 + #text - 1
@@ -234,7 +235,7 @@ function M.move_block()
   })
 
   -- Set end extmark directly
-  clear_extmark(buf, s.end_id)
+  clear_extmark(buf, s.current.end_id)
   s.current.end_id = vim.api.nvim_buf_set_extmark(buf, ns, new_end_row, new_end_col, {
     right_gravity = true,
   })
@@ -268,7 +269,7 @@ function M.clear_block(buf, preserve_source)
     s.source_id = nil
   end
   s.current.begin_id, s.current.end_id = nil, nil
-  clear_all_highlights(buf)  -- ensure visual clean-up
+  clear_all_highlights(buf)
 end
 
 function M.jump_to_begin()
