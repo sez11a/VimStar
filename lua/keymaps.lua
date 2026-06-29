@@ -75,6 +75,7 @@ wk.add(
     { "<leader>kn", blocks.toggle_column_mode, desc = "Toggle Column Mode" },
     { "<leader>ko", "<cmd> Explore <CR>", desc = "Open File" },
     { "<leader>kq", "<cmd> q! <CR>", desc = "Abandon Changes and Quit" },
+    { "<leader>kr", "<cmd> Neotree buffers reveal float <CR>", desc = "Switch Buffer" },
     { "<leader>ks", function()
         if vim.fn.bufname() == "" then
           vim.ui.input({ prompt = "Save buffer as: ", default = vim.fn.getcwd() .. "/" }, function(input)
@@ -93,7 +94,7 @@ wk.add(
             vim.cmd.Neotree "toggle"
           end
         end, desc = "Toggle Neotree" },
-    { "<leader>ku", "<cmd> Neotree buffers reveal float <CR>", desc = "Switch Buffer" },
+    { "<leader>ku", require("vimstar.blocks").toggle_previous_block, desc = "Toggle Previous Block" },
     { "<leader>kv", blocks.move_block, desc = "Move Block" },
     { "<leader>kx", function()
         if vim.fn.bufname() == "" then
