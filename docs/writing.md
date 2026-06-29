@@ -8,9 +8,37 @@ sidebar:
 toc: true
 ---
 
-VimStar's main function is to turn Neovim into a word processor, with all the power of Vim navigation at your fingertips and a menu system inspired by WordStar. New files default to the Markdown file type, but VimStar also includes plugins to support writing in HTML, LaTeX, and Typst. As soon as you save your file, the syntax switches. 
+VimStar was inspired by Robert J. Sawyer’s essay "[WordStar: A Writer’s Word Processor](https://www.sfwriter.com/wordstar.htm)." I had the idea to combine the power of Vim's movement with "the longhand metaphor" of working with large blocks of text, like books, novels, and short stories. VimStar's main function is to turn Neovim into a word processor, with all the power of Vim navigation at your fingertips and a menu system inspired by WordStar. New files default to the Markdown file type, but VimStar also includes plugins to support writing in HTML, LaTeX, and Typst. As soon as you save your file, the syntax switches. 
 
 Word count is available on-screen at all times, so writers can keep track of their progress. 
+
+## WordStar-enhanced Block Functions 
+
+VimStar brings back one of the most beloved features of classic WordStar: **persistent marked blocks**. You can mark a block, continue writing or editing freely anywhere in the document (or even switch windows), and later decide to copy or move it-—-exactly like Mr. Sawyer does it in WordStar.
+
+**Key Commands (under Space-K Block & Save)**
+- `Space kb` — Mark block begin
+- `Space kk` — Mark block end (block highlights with your current Visual style)
+- `Space kc` — Copy (i.e., paste) block to cursor
+- `Space kv` — Move block to cursor
+- `Space ky` — Delete block
+- `Space kh` — Toggle block highlight on/off
+- `Space kn` — Toggle column (rectangular) mode
+
+**Quick Navigation (under Space-Q)**
+- `Space qb` — Jump to block begin
+- `Space qk` — Jump to block end
+- `Space qv` — Jump to where the block was moved from (after a move)
+
+### Why This Matters
+
+Unlike modern editors that force you to act on a selection immediately, VimStar's blocks stay marked indefinitely. Mark the beginning of a paragraph, keep writing for ten minutes, mark the end, and then decide where it belongs. This is the longhand flexibility from Sawyer's essay. Now it's available in a modern, extensible Neovim environment optimized for serious writing! And if you don't like it, that's fine: use Neovim's Visual mode like you always have. It's the best of both worlds. 
+
+### Tips
+
+- The highlight automatically updates as you edit.
+- It works great with Markdown, LaTeX, Typst, etc.
+- Column mode is ideal for tables or code alignment.
 
 ## Word Processing Formats 
 

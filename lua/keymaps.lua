@@ -4,8 +4,8 @@ local expr_options = { expr = true, silent = true }
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
 
+local blocks = require("vimstar.blocks")
 local builtin = require("telescope.builtin")
-
 local wk = require("which-key")
 
 wk.add(
@@ -63,12 +63,16 @@ wk.add(
     { "<leader>gt", "<cmd> Gitsigns toggle_current_line_blame <CR>", desc = "Toggle Current Line Blame" },
     -- Block and Save Menu
     { "<leader>k", group = "Block and Save" },
-    { "<leader>kb", "<cmd> Neotree buffers reveal float <CR>", desc = "Switch Buffer" },
+    { "<leader>kb", blocks.mark_begin, desc = "Mark Block Begin" },
+    { "<leader>kc", blocks.copy_block, desc = "Copy Block" },
     { "<leader>ke", "<cmd> enew <CR>", desc = "New Buffer" },
     { "<leader>kf", "<cmd> terminal <CR>", desc = "Open Terminal" },
+    { "<leader>kh", blocks.toggle_visibility, desc = "Hide/Show Block" },
     { "<leader>kj", "<cmd> bd <CR>", desc = "Close Buffer" },
+    { "<leader>kk", blocks.mark_end, desc = "Mark Block End" },
     { "<leader>kl", "<cmd> cd %:p:h |<CR>|", desc = "Change Working Dir" },
     { "<leader>km", "<cmd> MarkmapSave <CR>", desc = "Save Markmap" },
+    { "<leader>kn", blocks.toggle_column_mode, desc = "Toggle Column Mode" },
     { "<leader>ko", "<cmd> Explore <CR>", desc = "Open File" },
     { "<leader>kq", "<cmd> q! <CR>", desc = "Abandon Changes and Quit" },
     { "<leader>ks", function()
@@ -89,6 +93,8 @@ wk.add(
             vim.cmd.Neotree "toggle"
           end
         end, desc = "Toggle Neotree" },
+    { "<leader>ku", "<cmd> Neotree buffers reveal float <CR>", desc = "Switch Buffer" },
+    { "<leader>kv", blocks.move_block, desc = "Move Block" },
     { "<leader>kx", function()
         if vim.fn.bufname() == "" then
           vim.ui.input({ prompt = "Save and exit as: ", default = vim.fn.getcwd() .. "/" }, function(input)
@@ -101,6 +107,8 @@ wk.add(
           vim.cmd.wq()
         end
       end, desc = "Save and Exit" },
+    { "<leader>ky", blocks.delete_block, desc = "Delete Block" },
+
     -- Onscreen Format menu
     { "<leader>o", group = "Onscreen Format" },
     { "<leader>oa", vim.lsp.buf.code_action, desc = "Code Actions" },
@@ -138,12 +146,16 @@ wk.add(
     { "<leader>pm", "<cmd> MarkmapOpen <CR>", desc = "View Mindmap in Browser" },
     { "<leader>ps", "<cmd> MarkmapSave <CR>", desc = "Save Mindmap; don't open it" },
     { "<leader>po", "<cmd> Pandoc odt <CR>", desc = "Convert Markdown to ODT"},
+
     -- Quick Menu
     { "<leader>q", group = "Quick Menu" },
+    { "<leader>qb", blocks.jump_to_begin, desc = "Jump to Block Begin" },
     { "<leader>qf", builtin.live_grep, desc = "Find in Files"},
+    { "<leader>qk", blocks.jump_to_end, desc = "Jump to Block End" },
     { "<leader>ql", "<cmd> Lazy <CR>", desc = "Manage plugins with Lazy" },
     { "<leader>qm", "<cmd> Mason <CR>", desc = "Manage completions and linters with Mason" },
     { "<leader>qt", "<cmd> TSUpdate <CR>", desc = "Update Treesitter highlighting" },
+    { "<leader>qv", blocks.jump_to_source, desc = "Jump to Move Source" },
   })
 
 -- Navigate vim panes better
