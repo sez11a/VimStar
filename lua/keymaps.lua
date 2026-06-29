@@ -108,6 +108,7 @@ wk.add(
         end
       end, desc = "Save and Exit" },
     { "<leader>ky", blocks.delete_block, desc = "Delete Block" },
+    { "<leader>k<", require("vimstar.blocks").unmark_block, desc = "Unmark Block" },
 
     -- Onscreen Format menu
     { "<leader>o", group = "Onscreen Format" },

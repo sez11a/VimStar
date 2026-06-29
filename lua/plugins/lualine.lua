@@ -33,7 +33,10 @@ return {
                 dos = '',  -- e70f
                 mac = '',  -- e711
               }
-             }
+             },
+                {
+                    require("vimstar.blocks").get_status
+                },
             },
             lualine_y = { "progress" },
             lualine_z = { "location" },

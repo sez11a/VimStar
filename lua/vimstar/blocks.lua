@@ -43,12 +43,16 @@ function M.mark_begin()
   local buf = vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
   local cursor = vim.api.nvim_win_get_cursor(0)
+  local row, col = cursor[1] - 1, cursor[2]
 
   clear_extmark(buf, s.begin_id)
-  s.begin_id = vim.api.nvim_buf_set_extmark(buf, ns, cursor[1] - 1, cursor[2], {
+  s.begin_id = vim.api.nvim_buf_set_extmark(buf, ns, row, col, {
     id = s.begin_id,
     right_gravity = false,
+    virt_text = { { " ⟪B⟫", "Comment" } },   -- or any highlight group you like
+    virt_text_pos = "inline",                 -- or "right_align" / "eol"
   })
+
   M.update_highlight(buf)
   vim.notify("Block begin marked", vim.log.levels.INFO)
 end
@@ -63,6 +67,20 @@ function M.mark_end()
     id = s.end_id,
     right_gravity = true,
   })
+
+  -- Remove the begin marker (keep the position, drop virt_text)
+  if s.begin_id then
+    local begin_pos = get_mark_pos(buf, s.begin_id)
+    if begin_pos then
+      clear_extmark(buf, s.begin_id)
+      s.begin_id = vim.api.nvim_buf_set_extmark(buf, ns, begin_pos.row, begin_pos.col, {
+        id = s.begin_id,
+        right_gravity = false,
+        -- no virt_text = marker disappears
+      })
+    end
+  end
+
   M.update_highlight(buf)
   vim.notify("Block end marked", vim.log.levels.INFO)
 end
@@ -154,6 +172,18 @@ function M.copy_block()
   M.update_highlight(buf)
 end
 
+local function clear_all_highlights(buf)
+  buf = buf or vim.api.nvim_get_current_buf()
+  vim.api.nvim_buf_clear_namespace(buf, ns, 0, -1)  -- clears ALL extmarks in our namespace
+end
+
+function M.unmark_block()
+  local buf = vim.api.nvim_get_current_buf()
+  M.clear_block(buf, false)
+  clear_all_highlights(buf)   -- force-remove any lingering range highlight
+  vim.notify("Block unmarked", vim.log.levels.INFO)
+end
+
 function M.move_block()
   local buf = vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
@@ -166,32 +196,50 @@ function M.move_block()
   end
 
   local text, regtype = get_block_region(buf, begin_pos, end_pos, s.column_mode)
+  if #text == 0 then return end
 
   -- Remember source
-  s.source_id = vim.api.nvim_buf_set_extmark(buf, ns, begin_pos.row, begin_pos.col, { id = s.source_id })
+  s.source_id = vim.api.nvim_buf_set_extmark(buf, ns, begin_pos.row, begin_pos.col, {
+    id = s.source_id,
+  })
 
-  -- Delete original (safe columns)
+  -- Delete original
   local lines = vim.api.nvim_buf_get_lines(buf, end_pos.row, end_pos.row + 1, true)
   local max_col = lines[1] and #lines[1] or 0
   vim.api.nvim_buf_set_text(buf, begin_pos.row, begin_pos.col, end_pos.row, math.min(end_pos.col, max_col), {})
 
+  -- Record paste start (1-based)
+  local paste_start = vim.api.nvim_win_get_cursor(0)
+  local paste_start_row = paste_start[1]
+
   -- Insert
   insert_text_at_cursor(text, regtype)
 
-  -- Re-mark roughly at new location
-  local new_cursor = vim.api.nvim_win_get_cursor(0)
-  local buf_line_count = vim.api.nvim_buf_line_count(buf)
-  local start_line = math.max(1, math.min(new_cursor[1] - #text + 1, buf_line_count))
+  -- === Precise re-marking (avoids cursor side-effects) ===
+  local new_begin_row = paste_start_row - 1          -- 0-based
+  local new_begin_col = 0
 
-  vim.api.nvim_win_set_cursor(0, { start_line, 0 })
-  M.mark_begin()
-  vim.api.nvim_win_set_cursor(0, new_cursor)
+  local new_end_row = paste_start_row - 1 + #text - 1
+  local last_line = text[#text] or ""
+  local new_end_col = #last_line
+
+  -- Set begin extmark directly
+  clear_extmark(buf, s.begin_id)
+  s.begin_id = vim.api.nvim_buf_set_extmark(buf, ns, new_begin_row, new_begin_col, {
+    right_gravity = false,
+  })
+
+  -- Set end extmark directly
+  clear_extmark(buf, s.end_id)
+  s.end_id = vim.api.nvim_buf_set_extmark(buf, ns, new_end_row, new_end_col, {
+    right_gravity = true,
+  })
 
   M.update_highlight(buf)
+  vim.notify("Block moved (highlighted at new location)", vim.log.levels.INFO)
 end
 
 function M.delete_block()
-  -- (unchanged from previous safe version)
   local buf = vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
   local begin_pos = get_mark_pos(buf, s.begin_id)
@@ -206,13 +254,17 @@ function M.delete_block()
   vim.notify("Block deleted", vim.log.levels.INFO)
 end
 
-function M.clear_block(buf)
+function M.clear_block(buf, preserve_source)
   buf = buf or vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
   clear_extmark(buf, s.begin_id)
   clear_extmark(buf, s.end_id)
-  clear_extmark(buf, s.source_id)
-  s.begin_id, s.end_id, s.source_id = nil, nil, nil
+  if not preserve_source then
+    clear_extmark(buf, s.source_id)
+    s.source_id = nil
+  end
+  s.begin_id, s.end_id = nil, nil
+  clear_all_highlights(buf)  -- ensure visual clean-up
 end
 
 function M.jump_to_begin()
@@ -251,5 +303,24 @@ vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
     end
   end,
 })
+
+-- Status for lualine / statusline
+function M.get_status()
+  local buf = vim.api.nvim_get_current_buf()
+  local s = state[buf]
+  if not s then return "" end
+
+  local has_block = s.begin_id and s.end_id
+  if not has_block then return "" end
+
+  local begin_pos = get_mark_pos(buf, s.begin_id)
+  local end_pos = get_mark_pos(buf, s.end_id)
+
+  if begin_pos and end_pos then
+    local lines = end_pos.row - begin_pos.row + 1
+    return string.format("Block:%d", lines)  -- e.g. "Block:5"
+  end
+  return "Block"
+end
 
 return M
