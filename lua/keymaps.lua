@@ -10,72 +10,12 @@ local wk = require("which-key")
 
 wk.add(
   {
-    -- Debug Menu
-    { "<leader>d", group = "Debug" },
-    { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-    { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Conditional Breakpoint" },
-    { "<leader>dc", "<cmd> DapContinue <CR>", desc = "Continue" },
-    { "<leader>dx", "<cmd> DapTerminate <CR>", desc = "Terminate" },
-    { "<leader>do", "<cmd> DapStepOver <CR>", desc = "Step Over" },
-    { "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
-    { "<leader>dt", function() require("dap").step_out() end, desc = "Step Out" },
-    -- Code Menu
-    { "<leader>c", group = "Code" },
-    { "<leader>ca", "<cmd> CodeCompanionActions<CR>", mode = "v", desc = "AI Actions on Selection" },
-    { "<leader>cc", "<cmd> CodeCompanionChat Toggle <CR>", desc = "AI Chat" },
-    { "<leader>ci", "<cmd> CodeCompanionInline<CR>", mode = {"n", "v"}, desc = "Inline AI Edit" },
-    { "<leader>cw", function()
-          require("neocodeium").toggle()
-          -- Optional: notify for feedback
-          if require("neocodeium").visible() or vim.fn.exists(":NeoCodeium") == 2 then
-            vim.notify("NeoCodeium: " .. (require("neocodeium").get_status() and "Enabled" or "Disabled"),
-              vim.log.levels.INFO)
-          end
-      end, desc = "Toggle Neocodeium (Windsurf)" },
-    -- Java Menu
-    { "<leader>j", group = "Java" },
-    { "<leader>jd", function() require('jdtls').test_class() end, desc = "Java Test Class" },
-    { "<leader>jn", function() require('jdtls').test_nearest_method() end, desc = "Java Test Nearest" },
-    { "<leader>ji", function() require('jdtls').organize_imports() end, desc = "Java Organize Imports" },
-    -- Wiki Menu
-    { "<leader>w", group = "Wiki" },
-    { "<leader>wi", "<cmd>lua vim.cmd('WikiJournalIndex')<CR>", desc = "Wiki Journal Index" },
-    -- Find Menu
-    { "<leader>f", group = "Find Menu" },
-    { "<leader>fs", "<cmd> Telescope find_files <CR>", desc = "Telescope Find Files" },
-    { "<leader>fp", "<cmd> Telescope git_files <CR>", desc = "Telescope Git Files" },
-    { "<leader>fz", "<cmd> Telescope live_grep <CR>", desc = "Telescope Live Grep" },
-    { "<leader>fg", builtin.live_grep, desc = "Live Grep" },
-    { "<leader>fj", function()
-      local journal_path = vim.g.wiki_root .. '/journal'
-      builtin.live_grep({
-        cwd = vim.fn.expand(journal_path)
-      })
-    end, desc = "Find Journal Entries" },
-    { "<leader>fo", "<cmd> Telescope oldfiles <CR>", desc = "Telescope Old Files" },
-    -- Git Menu
-    { "<leader>g", group = "Git" },
-    { "<leader>gb", "<cmd> Gedit HEAD <CR>", desc = "Git Browse Head" },
-    { "<leader>gc", "<cmd> Git commit <CR>", desc = "Git Commit" },
-    { "<leader>gm", "<cmd> Git difftool -y master <CR>", desc = "Git Diff Master" },
-    { "<leader>gp", "<cmd> Gitsigns preview_hunk <CR>", desc = "Preview Hunk" },
-    { "<leader>gs", "<cmd> Git <CR>", desc = "Git Status" },
-    { "<leader>gt", "<cmd> Gitsigns toggle_current_line_blame <CR>", desc = "Toggle Current Line Blame" },
     -- Block and Save Menu
     { "<leader>k", group = "Block and Save" },
-    { "<leader>kb", blocks.mark_begin, desc = "Mark Block Begin" },
-    { "<leader>kc", blocks.copy_block, desc = "Copy Block" },
+    { "<leader>k-", "", desc = "────────── SAVE ──────────" },
     { "<leader>ke", "<cmd> enew <CR>", desc = "New Buffer" },
-    { "<leader>kf", "<cmd> terminal <CR>", desc = "Open Terminal" },
-    { "<leader>kh", blocks.toggle_visibility, desc = "Hide/Show Block" },
-    { "<leader>kj", "<cmd> bd <CR>", desc = "Close Buffer" },
-    { "<leader>kk", blocks.mark_end, desc = "Mark Block End" },
-    { "<leader>kl", "<cmd> cd %:p:h |<CR>|", desc = "Change Working Dir" },
-    { "<leader>km", "<cmd> MarkmapSave <CR>", desc = "Save Markmap" },
-    { "<leader>kn", blocks.toggle_column_mode, desc = "Toggle Column Mode" },
     { "<leader>ko", "<cmd> Explore <CR>", desc = "Open File" },
-    { "<leader>kq", "<cmd> q! <CR>", desc = "Abandon Changes and Quit" },
-    { "<leader>kr", "<cmd> Neotree buffers reveal float <CR>", desc = "Switch Buffer" },
+    { "<leader>kl", "<cmd> cd %:p:h |<CR>|", desc = "Change Working Dir" },
     { "<leader>ks", function()
         if vim.fn.bufname() == "" then
           vim.ui.input({ prompt = "Save buffer as: ", default = vim.fn.getcwd() .. "/" }, function(input)
@@ -94,8 +34,6 @@ wk.add(
             vim.cmd.Neotree "toggle"
           end
         end, desc = "Toggle Neotree" },
-    { "<leader>ku", require("vimstar.blocks").toggle_previous_block, desc = "Toggle Previous Block" },
-    { "<leader>kv", blocks.move_block, desc = "Move Block" },
     { "<leader>kx", function()
         if vim.fn.bufname() == "" then
           vim.ui.input({ prompt = "Save and exit as: ", default = vim.fn.getcwd() .. "/" }, function(input)
@@ -108,8 +46,22 @@ wk.add(
           vim.cmd.wq()
         end
       end, desc = "Save and Exit" },
+    { "<leader>km", "<cmd> MarkmapSave <CR>", desc = "Save Markmap" },
+    { "<leader>kq", "<cmd> q! <CR>", desc = "Abandon Changes and Quit" },
+    { "<leader>kf", "<cmd> terminal <CR>", desc = "Open Terminal" },
+    { "<leader>k_", "", desc = "────────── BLOCK ──────────" },
+    { "<leader>kb", blocks.mark_begin, desc = "Begin Block" },
+    { "<leader>kk", blocks.mark_end, desc = "End Block" },
+    { "<leader>kc", blocks.copy_block, desc = "Copy Block" },
+    { "<leader>kv", blocks.move_block, desc = "Move Block" },
     { "<leader>ky", blocks.delete_block, desc = "Delete Block" },
+    { "<leader>kh", blocks.toggle_visibility, desc = "Hide/Show Block" },
+    { "<leader>ku", require("vimstar.blocks").toggle_previous_block, desc = "Toggle Previous Block" },
     { "<leader>k<", require("vimstar.blocks").unmark_block, desc = "Unmark Block" },
+    { "<leader>kn", blocks.toggle_column_mode, desc = "Toggle Column Mode" },
+    { "<leader>k~", "", desc = "────────── BUFFER ──────────" },
+    { "<leader>kj", "<cmd> bd <CR>", desc = "Close Buffer" },
+    { "<leader>kr", "<cmd> Neotree buffers reveal float <CR>", desc = "Switch Buffer" },
 
     -- Onscreen Format menu
     { "<leader>o", group = "Onscreen Format" },
@@ -136,6 +88,7 @@ wk.add(
     { "<leader>os", "<cmd> set spell <CR>", desc = "Spell Check" },
     { "<leader>ot", "<cmd>TypstPreview toggle <CR>", desc = "Typst Preview Toggle" },
     { "<leader>ow", "<cmd> MarkmapWatch <CR>", desc = "Markmap Watch" },
+
     -- Print Controls Menu 
     { "<leader>p", group = "Print Controls" },
     { "<leader>pb", "<cmd> Pandoc pdf --pdf-engine=lualatex --standalone --top-level-division=chapter --template ~/.VimStar/templates/latex/book.tex <CR>", desc="Convert Markdown to PDF: book template (LaTeX)" },
@@ -158,6 +111,62 @@ wk.add(
     { "<leader>qm", "<cmd> Mason <CR>", desc = "Manage completions and linters with Mason" },
     { "<leader>qt", "<cmd> TSUpdate <CR>", desc = "Update Treesitter highlighting" },
     { "<leader>qv", blocks.jump_to_source, desc = "Jump to Move Source" },
+
+    -- Debug menu
+    { "<leader>d", group = "Debug" },
+    { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+    { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Conditional Breakpoint" },
+    { "<leader>dc", "<cmd> DapContinue <CR>", desc = "Continue" },
+    { "<leader>dx", "<cmd> DapTerminate <CR>", desc = "Terminate" },
+    { "<leader>do", "<cmd> DapStepOver <CR>", desc = "Step Over" },
+    { "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
+    { "<leader>dt", function() require("dap").step_out() end, desc = "Step Out" },
+    -- Code Menu
+    { "<leader>c", group = "Code" },
+    { "<leader>ca", "<cmd> CodeCompanionActions<CR>", mode = "v", desc = "AI Actions on Selection" },
+    { "<leader>cc", "<cmd> CodeCompanionChat Toggle <CR>", desc = "AI Chat" },
+    { "<leader>ci", "<cmd> CodeCompanionInline<CR>", mode = {"n", "v"}, desc = "Inline AI Edit" },
+    { "<leader>cw", function()
+          require("neocodeium").toggle()
+          -- Optional: notify for feedback
+          if require("neocodeium").visible() or vim.fn.exists(":NeoCodeium") == 2 then
+            vim.notify("NeoCodeium: " .. (require("neocodeium").get_status() and "Enabled" or "Disabled"),
+              vim.log.levels.INFO)
+          end
+      end, desc = "Toggle Neocodeium (Windsurf)" },
+    -- Java Menu
+    { "<leader>j", group = "Java" },
+    { "<leader>jd", function() require('jdtls').test_class() end, desc = "Java Test Class" },
+    { "<leader>jn", function() require('jdtls').test_nearest_method() end, desc = "Java Test Nearest" },
+    { "<leader>ji", function() require('jdtls').organize_imports() end, desc = "Java Organize Imports" },
+    
+    -- Wiki Menu
+    { "<leader>w", group = "Wiki" },
+    { "<leader>wi", "<cmd>lua vim.cmd('WikiJournalIndex')<CR>", desc = "Wiki Journal Index" },
+
+    -- Find Menu
+    { "<leader>f", group = "Find Menu" },
+    { "<leader>fs", "<cmd> Telescope find_files <CR>", desc = "Telescope Find Files" },
+    { "<leader>fp", "<cmd> Telescope git_files <CR>", desc = "Telescope Git Files" },
+    { "<leader>fz", "<cmd> Telescope live_grep <CR>", desc = "Telescope Live Grep" },
+    { "<leader>fg", builtin.live_grep, desc = "Live Grep" },
+    { "<leader>fj", function()
+      local journal_path = vim.g.wiki_root .. '/journal'
+      builtin.live_grep({
+        cwd = vim.fn.expand(journal_path)
+      })
+    end, desc = "Find Journal Entries" },
+    { "<leader>fo", "<cmd> Telescope oldfiles <CR>", desc = "Telescope Old Files" },
+
+    -- Git Menu
+    { "<leader>g", group = "Git" },
+    { "<leader>gb", "<cmd> Gedit HEAD <CR>", desc = "Git Browse Head" },
+    { "<leader>gc", "<cmd> Git commit <CR>", desc = "Git Commit" },
+    { "<leader>gm", "<cmd> Git difftool -y master <CR>", desc = "Git Diff Master" },
+    { "<leader>gp", "<cmd> Gitsigns preview_hunk <CR>", desc = "Preview Hunk" },
+    { "<leader>gs", "<cmd> Git <CR>", desc = "Git Status" },
+    { "<leader>gt", "<cmd> Gitsigns toggle_current_line_blame <CR>", desc = "Toggle Current Line Blame" },
+
   })
 
 -- Navigate vim panes better
