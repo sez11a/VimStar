@@ -104,13 +104,16 @@ wk.add(
 
     -- Quick Menu
     { "<leader>q", group = "Quick Menu" },
+    { "<leader>q_", "", desc = "────────── CURSOR ─────────" },
     { "<leader>qb", blocks.jump_to_begin, desc = "Jump to Block Begin" },
-    { "<leader>qf", builtin.live_grep, desc = "Find in Files"},
     { "<leader>qk", blocks.jump_to_end, desc = "Jump to Block End" },
-    { "<leader>ql", "<cmd> Lazy <CR>", desc = "Manage plugins with Lazy" },
-    { "<leader>qm", "<cmd> Mason <CR>", desc = "Manage completions and linters with Mason" },
-    { "<leader>qt", "<cmd> TSUpdate <CR>", desc = "Update Treesitter highlighting" },
     { "<leader>qv", blocks.jump_to_source, desc = "Jump to Move Source" },
+    { "<leader>q-", "", desc = "────────── FIND ──────────" },
+    { "<leader>qf", builtin.live_grep, desc = "Find in Files"},
+    { "<leader>q~", "", desc = "────────── MANAGE ─────────" },
+    { "<leader>ql", "<cmd> Lazy <CR>", desc = "Manage plugins with Lazy" },
+    { "<leader>qm", "<cmd> Mason <CR>", desc = "Manage LSP and linters with Mason" },
+    { "<leader>qt", "<cmd> TSUpdate <CR>", desc = "Update Treesitter highlighting" },
 
     -- Debug menu
     { "<leader>d", group = "Debug" },

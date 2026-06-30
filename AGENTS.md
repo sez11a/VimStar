@@ -8,6 +8,7 @@
 ## Architecture
 
 - **Entry point**: `init.lua` (loads modules in order: `vim-options`, `lazy`, `keymaps`, `vimstar-user`)
+- **Core functions:** `/lua/vimstar/*.lua`. Contains VimStar-specific functionality that duplicates WordStar functionality. WordStar's block functions for defining, copying, moving, deleting, and switching blocks, as well as cursor movement to current and former block locations are implemented. 
 - **Plugin config**: `/lua/plugins/*.lua` - each exports a table via `return {}`
 - **User customization**: `vimstar-user.lua` loads after core config for user overrides. No other files can be customized, or users introduce potential Git conflicts.
 - **Keymaps**: `/lua/keymaps.lua` uses Space as leader; registered via which-key `wk.add()`
@@ -27,6 +28,7 @@
 
 ## Keybindings (Space-prefixed)
 
+- **Block:** `Space-kn` toggle column mode, `Space-kb` begin, `Space-kk` end, `space-kh` hide/show, `Space-ku` toggle previous, `Space-kc` copy, `Space-kv` move, `Space-ky` delete, `Space-k<` unmark, `Space-qb` jump to begin, `Space-qk` jump to end, `Space-qv` jump to move source
 - **Find**: `Space-fs` files, `Space-fp` git files, `Space-fz` grep  
 - **Git**: `Space-gs` status, `Space-gb` browse HEAD, `Space-gm` diff master  
 - **Buffers**: `Space-ke` new, `Space-kj` close, `Space-kb` switch, `Space-kx` save+quit  
