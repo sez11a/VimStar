@@ -45,6 +45,7 @@ function M.mark_begin()
   local buf = vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
 
+  clear_extmark(buf, s.current.begin_id)
   clear_all_highlights(buf)
 
   -- Old current becomes previous
