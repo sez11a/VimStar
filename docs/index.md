@@ -145,4 +145,4 @@ New-Item -ItemType SymbolicLink -Path $env:LOCALAPPDATA\nvim -Target ~/.VimStar 
 
 <h2>License</h2>
 
-<p>MIT License - see <a href="/license">LICENSE</a> for details.</p>
+<p>MIT License - see <a href="/VimStar/license">LICENSE</a> for details.</p>
