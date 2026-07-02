@@ -111,6 +111,11 @@ wk.add(
     { "<leader>q-", "", desc = "────────── FIND ──────────" },
     { "<leader>qf", builtin.live_grep, desc = "Find in Files"},
     { "<leader>q~", "", desc = "────────── MANAGE ─────────" },
+    { "<leader>qu", function()
+        local vimstar_dir = vim.fn.stdpath("config")
+        local cmd = string.format("cd %s && git pull origin master", vim.fn.shellescape(vimstar_dir))
+        vim.cmd("!" .. cmd)
+      end, desc = "Update VimStar" },
     { "<leader>ql", "<cmd> Lazy <CR>", desc = "Manage plugins with Lazy" },
     { "<leader>qm", "<cmd> Mason <CR>", desc = "Manage LSP and linters with Mason" },
     { "<leader>qt", "<cmd> TSUpdate <CR>", desc = "Update Treesitter highlighting" },
