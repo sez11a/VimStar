@@ -5,7 +5,7 @@ local M = {}
 
 local ns = vim.api.nvim_create_namespace("VimStarBlocks")
 local highlight_ns = vim.api.nvim_create_namespace("VimStarBlockHighlight")
-local state = {}  
+local state = {}
 
 local function ensure_state(buf)
   buf = buf or vim.api.nvim_get_current_buf()
@@ -45,8 +45,11 @@ function M.mark_begin()
   local buf = vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
 
-  clear_extmark(buf, s.current.begin_id)
-  clear_all_highlights(buf)
+  -- Clear old begin marker ONLY if we are re-marking the current block (no end yet)
+  if s.current.begin_id and not s.current.end_id then
+    clear_extmark(buf, s.current.begin_id)
+    clear_all_highlights(buf)
+  end
 
   -- Old current becomes previous
   s.previous = s.current
@@ -62,7 +65,6 @@ function M.mark_begin()
   })
 
   M.update_highlight(buf)
-  vim.notify("Block begin marked (previous saved)", vim.log.levels.INFO)
 end
 
 function M.mark_end()
@@ -86,7 +88,6 @@ function M.mark_end()
   end
 
   M.update_highlight(buf)
-  vim.notify("Block end marked", vim.log.levels.INFO)
 end
 
 function M.toggle_previous_block()
@@ -97,17 +98,18 @@ function M.toggle_previous_block()
   clear_all_highlights(buf)
   M.update_highlight(buf)
 
-  vim.notify("Switched to previous block", vim.log.levels.INFO)
 end
 
 function M.update_highlight(buf)
   buf = buf or vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
 
+
   clear_all_highlights(buf)
 
   local begin_pos = get_mark_pos(buf, s.current.begin_id)
   local end_pos = get_mark_pos(buf, s.current.end_id)
+
 
   if not (begin_pos and end_pos and s.visible) then
     return
@@ -141,7 +143,7 @@ local function get_block_region(buf, begin_pos, end_pos, column_mode)
   if not (begin_pos and end_pos) then 
     print("BLOCK DEBUG: No valid begin/end positions")
     vim.notify("No valid positions", vim.log.levels.WARN)
-    return {}, nil 
+    return {}, nil
   end
 
   -- Normalize so begin is before end
@@ -164,12 +166,11 @@ local function get_block_region(buf, begin_pos, end_pos, column_mode)
 end
 
 local function insert_text_at_cursor(text, regtype)
-  if #text == 0 then 
+  if #text == 0 then
     vim.notify("No text to insert", vim.log.levels.WARN)
-    return 
+    return
   end
   vim.api.nvim_put(text, regtype, true, true)  -- after=true, follow=true
-  vim.notify("Inserted " .. #text .. " lines", vim.log.levels.INFO)
 end
 
 function M.copy_block()
@@ -194,8 +195,9 @@ end
 function M.move_block()
   local buf = vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
-  local begin_pos = get_mark_pos(buf, s.current.begin_id)
-  local end_pos = get_mark_pos(buf, s.current.end_id)
+  local c = s.current
+  local begin_pos = get_mark_pos(buf, c.begin_id)
+  local end_pos = get_mark_pos(buf, c.end_id)
 
   if not (begin_pos and end_pos) then
     vim.notify("No block marked", vim.log.levels.WARN)
@@ -205,44 +207,31 @@ function M.move_block()
   local text, regtype = get_block_region(buf, begin_pos, end_pos, s.column_mode)
   if #text == 0 then return end
 
-  -- Remember source
-  s.source_id = vim.api.nvim_buf_set_extmark(buf, ns, begin_pos.row, begin_pos.col, {
-    id = s.source_id,
-  })
+  -- Remember source for Space-qv
+  s.source_id = vim.api.nvim_buf_set_extmark(buf, ns, begin_pos.row, begin_pos.col, { id = s.source_id })
 
-  -- Delete original
-  local lines = vim.api.nvim_buf_get_lines(buf, end_pos.row, end_pos.row + 1, true)
-  local max_col = lines[1] and #lines[1] or 0
-  vim.api.nvim_buf_set_text(buf, begin_pos.row, begin_pos.col, end_pos.row, math.min(end_pos.col, max_col), {})
+  -- Delete the original block
+  vim.api.nvim_buf_set_text(buf, begin_pos.row, begin_pos.col, end_pos.row, end_pos.col, {})
 
-  -- Record paste start (1-based)
+  -- Record paste position *right before paste*
   local paste_start = vim.api.nvim_win_get_cursor(0)
-  local paste_start_row = paste_start[1]
 
-  -- Insert
+  -- Paste
   insert_text_at_cursor(text, regtype)
 
-  local new_begin_row = paste_start_row - 1
-  local new_begin_col = 0
+  -- Cursor after paste
+  local paste_end = vim.api.nvim_win_get_cursor(0)
 
-  local new_end_row = paste_start_row - 1 + #text - 1
-  local last_line = text[#text] or ""
-  local new_end_col = #last_line
+  -- Clear old block (the one we moved from)
+  M.clear_block(buf, true)   -- preserve source for qv
 
-  -- Set begin extmark directly
-  clear_extmark(buf, s.current.begin_id)
-  s.current.begin_id = vim.api.nvim_buf_set_extmark(buf, ns, new_begin_row, new_begin_col, {
-    right_gravity = false,
-  })
+  -- Re-mark the pasted block as the new current
+  vim.api.nvim_win_set_cursor(0, {paste_start[1], paste_start[2]})
+  M.mark_begin()
 
-  -- Set end extmark directly
-  clear_extmark(buf, s.current.end_id)
-  s.current.end_id = vim.api.nvim_buf_set_extmark(buf, ns, new_end_row, new_end_col, {
-    right_gravity = true,
-  })
+  vim.api.nvim_win_set_cursor(0, {paste_end[1], paste_end[2]})
+  M.mark_end()
 
-  M.update_highlight(buf)
-  vim.notify("Block moved (highlighted at new location)", vim.log.levels.INFO)
 end
 
 function M.delete_block()
