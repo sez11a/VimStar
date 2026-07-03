@@ -1,21 +1,25 @@
 ---
 layout: single
-title: "VimStar"
-subtitle: "A Neovim distribution for writing, inspired by WordStar"
-header: 
-  overlay_image: /images/hero-background.png
-  overlay_filter: 0.4 
-  actions: 
-    - label: "Get Started"
-      url: "#install"
-    - label: "View on GitHub"
-      url: "https://github.com/sez11a/VimStar"
-sidebar: 
+title: "" 
+permalink: /
+sidebar:
   nav: "main"
-
-toc: false
 classes: wide
+toc: false
 ---
+
+<div class="custom-hero" style="background-image: url('{{ "/assets/images/hero-background.png" | relative_url }}');">
+  <div class="custom-hero-content">
+    <img src="{{ '/assets/images/vimstar-logo-header.png' | relative_url }}" alt="VimStar" style="height: 120px; margin-bottom: 1rem;">
+    <p style="font-size: 1.35rem; margin: 0 auto 1.5rem; max-width: 700px;">
+      A Neovim distribution optimized for writing, inspired by WordStar
+    </p>
+    <div class="hero-buttons">
+      <a href="#install" class="btn btn--primary">Get Started</a>
+      <a href="https://github.com/sez11a/VimStar" class="btn btn--inverse">View on GitHub</a>
+    </div>
+  </div>
+</div>
 
   <p>VimStar turns Neovim into a word processor while retaining Neovim's powerful completion, debugging, and navigation for all your coding needs. With a menu system inspired by WordStar, it's ideal for technical writing, creative writing, coding, and even publishing.</p>
 

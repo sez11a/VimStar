@@ -1,7 +1,8 @@
 # Project: VimStar Jekyll Site
 
 remote_theme: mmistakes/minimal-mistakes
-title: VimStar
+title: "VimStar"
+logo: ""   
 description: A Neovim distribution optimized for writing, inspired by WordStar
 # theme: minima
 # theme: just-the-docs
@@ -34,22 +35,3 @@ defaults:
       toc: true
       toc_label: "On this page"
       toc_icon: "gears"
-# Navigation
-# nav:
-#   - title: "Home"
-#    url: /
-#  - title: "Quick Start"
-#    url: /quickstart
-#  - title: "Writing"
-#    url: /writing
-#  - title: "Coding"
-#    url: /coding
-#  - title: "Wiki"
-#    url: /wiki
-#  - title: "Reference"
-#    url: /reference
-#  - title: "Customization"
-#    url: /customization
-#  - title: "Troubleshooting"
-#    url: /troubleshooting
-

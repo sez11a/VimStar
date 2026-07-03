@@ -6,20 +6,10 @@ search: false
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
 
-/* Hide the top masthead navigation */
-.masthead {
-  display: none !important;
-}
-
-/* Optional: Add extra top padding so content isn't hidden under the empty header area */
-.page__content {
-  padding-top: 2rem;
-}
-
 /* ====================== Alegreya Font ====================== */
 body {
   font-family: "Alegreya", Georgia, serif;
-  font-size: 1.0rem;           /* ~16px — comfortable starting point */
+  font-size: 1.0rem;
   line-height: 1.75;
 }
 
@@ -28,7 +18,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-/* If you really want smaller body text (closer to 12pt) */
 p, li, .feature__item p {
   font-size: 0.95rem;
 }
@@ -68,4 +57,70 @@ p, li, .feature__item p {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
   border-color: var(--accent-color);
+}
+
+/* ====================== Thin Top Title Bar ====================== */
+.masthead {
+  display: block !important;
+  padding: 0.75rem 1.5rem !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.site-title {
+  font-family: "Alegreya", Georgia, serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 700;
+  color: var(--text-color) !important;
+}
+
+/* Custom Hero */
+.custom-hero {
+  background-image: url('/assets/images/hero-background.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 3rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.custom-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.custom-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.custom-hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.custom-hero p {
+  font-size: 1.35rem;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero-buttons .btn {
+  margin: 0 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 1.1rem;
 }

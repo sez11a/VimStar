@@ -88,80 +88,11 @@
   </ul>
 </nav>
 
-    
-
-
-<div class="masthead">
+    <div class="masthead">
   <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
-        
-        <a class="site-title" href="/VimStar/">
-          VimStar
-          
-        </a>
-        <ul class="visible-links"><li class="masthead__menu-item">
-              <a
-                href="/VimStar/"
-                
-                
-              >Home</a>
-            </li><li class="masthead__menu-item">
-              <a
-                href="/VimStar/quickstart/"
-                
-                
-              >Quick Start</a>
-            </li><li class="masthead__menu-item">
-              <a
-                href="/VimStar/writing/"
-                
-                
-              >Writing</a>
-            </li><li class="masthead__menu-item">
-              <a
-                href="/VimStar/coding/"
-                
-                
-              >Coding</a>
-            </li><li class="masthead__menu-item">
-              <a
-                href="/VimStar/wiki/"
-                
-                
-              >Wiki</a>
-            </li><li class="masthead__menu-item">
-              <a
-                href="/VimStar/reference/"
-                
-                
-              >Reference</a>
-            </li><li class="masthead__menu-item">
-              <a
-                href="/VimStar/customization/"
-                
-                
-              >Customization</a>
-            </li><li class="masthead__menu-item">
-              <a
-                href="/VimStar/troubleshooting/"
-                
-                
-              >Troubleshooting</a>
-            </li></ul>
-        
-        <button class="search__toggle" type="button">
-          <span class="visually-hidden">Toggle search</span>
-          <i class="fas fa-search"></i>
-        </button>
-        
-        <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">Toggle menu</span>
-          <div class="navicon"></div>
-        </button>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
+    <a href="/VimStar/">
+      <img src="/VimStar/assets/images/vimstar-logo-header.png" alt="VimStar" style="height: 38px; vertical-align: middle;">
+    </a>
   </div>
 </div>
 
@@ -297,13 +228,47 @@
           <aside class="sidebar__right ">
             <nav class="toc" aria-label="Table of contents">
               <header><h4 class="nav__title"><i class="fas fa-gears"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#word-processing-formats">Word Processing Formats</a></li><li><a href="#file-conversion-with-pandoc">File Conversion with Pandoc</a></li><li><a href="#supports-the-full-creative-experience">Supports the Full Creative Experience</a></li><li><a href="#marp-slides">Marp Slides</a></li><li><a href="#technical-writing">Technical Writing</a></li></ul>
+              <ul class="toc__menu"><li><a href="#wordstar-enhanced-block-functions">WordStar-enhanced Block Functions</a><ul><li><a href="#why-this-matters">Why This Matters</a></li><li><a href="#tips">Tips</a></li></ul></li><li><a href="#word-processing-formats">Word Processing Formats</a></li><li><a href="#file-conversion-with-pandoc">File Conversion with Pandoc</a></li><li><a href="#supports-the-full-creative-experience">Supports the Full Creative Experience</a></li><li><a href="#marp-slides">Marp Slides</a></li><li><a href="#technical-writing">Technical Writing</a></li></ul>
             </nav>
           </aside>
         
-        <p>VimStar’s main function is to turn Neovim into a word processor, with all the power of Vim navigation at your fingertips and a menu system inspired by WordStar. New files default to the Markdown file type, but VimStar also includes plugins to support writing in HTML, LaTeX, and Typst. As soon as you save your file, the syntax switches.</p>
+        <p>VimStar was inspired by Robert J. Sawyer’s essay “<a href="https://www.sfwriter.com/wordstar.htm">WordStar: A Writer’s Word Processor</a>.” I had the idea to combine the power of Vim’s movement with “the longhand metaphor” of working with large blocks of text, like books, novels, and short stories. VimStar’s main function is to turn Neovim into a word processor, with all the power of Vim navigation at your fingertips and a menu system inspired by WordStar. New files default to the Markdown file type, but VimStar also includes plugins to support writing in HTML, LaTeX, and Typst. As soon as you save your file, the syntax switches.</p>
 
 <p>Word count is available on-screen at all times, so writers can keep track of their progress.</p>
+
+<h2 id="wordstar-enhanced-block-functions">WordStar-enhanced Block Functions</h2>
+
+<p>VimStar brings back one of the most beloved features of classic WordStar: <strong>persistent marked blocks</strong>. You can mark a block, continue writing or editing freely anywhere in the document (or even switch windows), and later decide to copy or move it-—-exactly like Mr. Sawyer does it in WordStar.</p>
+
+<p><strong>Key Commands (under Space-K Block &amp; Save)</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Space kb</code> — Mark block begin</li>
+  <li><code class="language-plaintext highlighter-rouge">Space kk</code> — Mark block end (block highlights with your current Visual style)</li>
+  <li><code class="language-plaintext highlighter-rouge">Space kc</code> — Copy (i.e., paste) block to cursor</li>
+  <li><code class="language-plaintext highlighter-rouge">Space kv</code> — Move block to cursor</li>
+  <li><code class="language-plaintext highlighter-rouge">Space ky</code> — Delete block</li>
+  <li><code class="language-plaintext highlighter-rouge">Space kh</code> — Toggle block highlight on/off</li>
+  <li><code class="language-plaintext highlighter-rouge">Space kn</code> — Toggle column (rectangular) mode</li>
+</ul>
+
+<p><strong>Quick Navigation (under Space-Q)</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Space qb</code> — Jump to block begin</li>
+  <li><code class="language-plaintext highlighter-rouge">Space qk</code> — Jump to block end</li>
+  <li><code class="language-plaintext highlighter-rouge">Space qv</code> — Jump to where the block was moved from (after a move)</li>
+</ul>
+
+<h3 id="why-this-matters">Why This Matters</h3>
+
+<p>Unlike modern editors that force you to act on a selection immediately, VimStar’s blocks stay marked indefinitely. Mark the beginning of a paragraph, keep writing for ten minutes, mark the end, and then decide where it belongs. This is the longhand flexibility from Sawyer’s essay. Now it’s available in a modern, extensible Neovim environment optimized for serious writing! And if you don’t like it, that’s fine: use Neovim’s Visual mode like you always have. It’s the best of both worlds.</p>
+
+<h3 id="tips">Tips</h3>
+
+<ul>
+  <li>The highlight automatically updates as you edit.</li>
+  <li>It works great with Markdown, LaTeX, Typst, etc.</li>
+  <li>Column mode is ideal for tables or code alignment.</li>
+</ul>
 
 <h2 id="word-processing-formats">Word Processing Formats</h2>
 
