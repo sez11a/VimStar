@@ -1,15 +1,15 @@
 -- Change the below path if you want to sync your wiki
 vim.g.wiki_root = '~/.VimStar/wiki'
 
--- Enable the color scheme you prefer below. 
--- vim.cmd.colorscheme "carbonfox"
-
 require("catppuccin").setup({
   flavour = "macchiato",
   transparent_background = true,
 })
--- vim.cmd.colorscheme "catppuccin-mocha"
 
+-- Enable the color scheme you prefer below. 
+
+-- vim.cmd.colorscheme "carbonfox"
+-- vim.cmd.colorscheme "catppuccin-mocha"
 -- vim.cmd.colorscheme "cyberdream"
 -- vim.cmd.colorscheme "edge"
 -- vim.cmd.colorscheme "modus"
@@ -17,6 +17,7 @@ require("catppuccin").setup({
 vim.cmd.colorscheme "onedark" 
 -- vim.cmd.colorscheme "purify"
 -- vim.cmd.colorscheme "tokyonight-night"
+-- vim.cmd.colorscheme "wordstar-blue"
 
 -- Liferay Stuff: tabs on code
 vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {

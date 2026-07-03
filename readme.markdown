@@ -1,10 +1,10 @@
 # Welcome to VimStar! 
 
-This is a NeoVim distribution optimized for *writing*. Key shortcuts (using Space instead of Ctrl) are a homage to WordStar. 
+This is a Neovim distribution optimized for *writing*. Key shortcuts (using Space instead of Ctrl) are a homage to WordStar. 
 
 ## Documentation
 
-For comprehensive documentation, visit the [VimStar Site](https://sez11a.github.io/VimStar/) or check out the [site/](site/) directory.
+For comprehensive documentation, visit the [VimStar Site](https://sez11a.github.io/VimStar/) or check out the [docs/](docs/) directory.
 
 ## Quick Guide: 
 
@@ -12,16 +12,16 @@ For comprehensive documentation, visit the [VimStar Site](https://sez11a.github.
 
 2.  There are WordStar-like key bindings with helpful menus. Instead, however, of the Ctrl key, they're prefixed with Space instead, to avoid collision with Vim keys (such as Ctrl-o). See Space-k, Space-o, Space-q, and Space-g. 
 
-3.  Plugins are downloaded automatically via Lazy, and should be downloaded automatically after installing. 
+3.  Plugins are downloaded automatically via Lazy and should be downloaded automatically after installing. 
 
-4.  Configuration is symlinked, so you can try VimStar and then easily go back to your own configuration (have a look at the install script). 
+4.  Configuration on Linux/macOS is symlinked, so you can try VimStar and then easily go back to your own configuration (have a look at the install script). 
 
 ## Installation
 
 The installation scripts 
 
-- Clone/update VimStar to `~\.VimStar`
-- On Linux, symlink the ~/.VimStar to ~/.config/nvim
+- Clone/update VimStar to `~/.VimStar`
+- On Linux, symlink the `~/.VimStar` to `~/.config/nvim`
 - On Windows, copy the configuration to `%LOCALAPPDATA%\nvim`, create required directories, and set up user config template
 
 **Note:** You must have Git installed and available in your PATH. Also, take note that I used AI to generate the Windows script, and it hasn't been tested as far as I know. 
