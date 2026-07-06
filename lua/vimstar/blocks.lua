@@ -129,7 +129,6 @@ function M.toggle_visibility()
   local s = ensure_state(buf)
   s.visible = not s.visible
   M.update_highlight(buf)
-  vim.notify("Block display " .. (s.visible and "ON" or "OFF"), vim.log.levels.INFO)
 end
 
 function M.toggle_column_mode()
@@ -189,7 +188,6 @@ function M.unmark_block()
   local buf = vim.api.nvim_get_current_buf()
   M.clear_block(buf, false)
   clear_all_highlights(buf)
-  vim.notify("Block unmarked", vim.log.levels.INFO)
 end
 
 function M.move_block()
@@ -246,7 +244,6 @@ function M.delete_block()
     vim.api.nvim_buf_set_text(buf, begin_pos.row, begin_pos.col, end_pos.row, math.min(end_pos.col, max_col), {})
   end
   M.clear_block(buf)
-  vim.notify("Block deleted", vim.log.levels.INFO)
 end
 
 function M.clear_block(buf, preserve_source)
