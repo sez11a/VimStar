@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 local ts_path = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter"
 vim.opt.runtimepath:prepend(ts_path)
 local parser_path = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser"
@@ -19,8 +21,9 @@ function getWords()
   return tostring(vim.fn.wordcount().words)
 end
 
-require("vim-options")
 require("lazy").setup("plugins")
+require("vim-options")
+require("vimstar.functions")
 require("vimstar.blocks")
 require("keymaps")
 require("vimstar-user")
