@@ -10,11 +10,11 @@ require("catppuccin").setup({
 
 -- vim.cmd.colorscheme "carbonfox"
 -- vim.cmd.colorscheme "catppuccin-mocha"
--- vim.cmd.colorscheme "cyberdream"
+vim.cmd.colorscheme "cyberdream"
 -- vim.cmd.colorscheme "edge"
 -- vim.cmd.colorscheme "modus"
 -- vim.cmd.colorscheme "moonfly"
-vim.cmd.colorscheme "onedark" 
+-- vim.cmd.colorscheme "onedark" 
 -- vim.cmd.colorscheme "purify"
 -- vim.cmd.colorscheme "tokyonight-night"
 -- vim.cmd.colorscheme "wordstar-blue"
