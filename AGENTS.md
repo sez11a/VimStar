@@ -29,6 +29,7 @@
 ## Keybindings (Space-prefixed)
 
 - **Block:** `Space-kn` toggle column mode, `Space-kb` begin, `Space-kk` end, `space-kh` hide/show, `Space-ku` toggle previous, `Space-kc` copy, `Space-kv` move, `Space-ky` delete, `Space-k<` unmark, `Space-qb` jump to begin, `Space-qk` jump to end, `Space-qv` jump to move source
+- **Movement:** `Space-qe` jump to top, `Space-qs` jump to left, `Space-qd` jump to right, `Space-qx` jump to bottom, `Space-qp` jump to previous position
 - **Find**: `Space-fs` files, `Space-fp` git files, `Space-fz` grep  
 - **Git**: `Space-gs` status, `Space-gb` browse HEAD, `Space-gm` diff master  
 - **Buffers**: `Space-ke` new, `Space-kj` close, `Space-kb` switch, `Space-kx` save+quit  

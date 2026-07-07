@@ -14,7 +14,7 @@ Word count is available on-screen at all times, so writers can keep track of the
 
 ## WordStar-enhanced Block Functions 
 
-VimStar brings back one of the most beloved features of classic WordStar: **persistent marked blocks**. You can mark a block, continue writing or editing freely anywhere in the document (or even switch windows), and later decide to copy or move it-—-exactly like Mr. Sawyer does it in WordStar.
+VimStar brings back one of the most beloved features of classic WordStar: **persistent marked blocks**. You can mark a block, continue writing or editing freely anywhere in the document (or even switch windows), and later decide to copy or move the block-—-exactly like Mr. Sawyer does it in WordStar.
 
 **Key Commands (under Space-K Block & Save)**
 - `Space kb` — Mark block begin

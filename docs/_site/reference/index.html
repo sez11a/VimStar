@@ -75,6 +75,7 @@
 
 
     <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="/VimStar/favicon.ico" type="image/x-icon">
 
   </head>
 
@@ -236,7 +237,7 @@
           <aside class="sidebar__right ">
             <nav class="toc" aria-label="Table of contents">
               <header><h4 class="nav__title"><i class="fas fa-gears"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#wordstar-menus">WordStar Menus</a><ul><li><a href="#block-and-save-space-k">Block and Save (Space-k)</a></li><li><a href="#onscreen-format-space-o">Onscreen Format (Space-o)</a></li><li><a href="#print-controls-space-p">Print Controls (Space-p)</a></li><li><a href="#quick-menu-space-q">Quick Menu (Space-q)</a></li></ul></li><li><a href="#modern-menus">Modern Menus</a><ul><li><a href="#find-space-f">Find (Space-f)</a></li><li><a href="#git-space-g">Git (Space-g)</a></li><li><a href="#code-space-c">Code (Space-c)</a></li><li><a href="#debug-space-d">Debug (Space-d)</a></li></ul></li><li><a href="#utility-keybindings">Utility Keybindings</a></li></ul>
+              <ul class="toc__menu"><li><a href="#wordstar-menus">WordStar Menus</a><ul><li><a href="#block-and-save-space-k">Block and Save (Space-k)</a></li><li><a href="#onscreen-format-space-o">Onscreen Format (Space-o)</a></li><li><a href="#print-controls-space-p">Print Controls (Space-p)</a></li><li><a href="#quick-menu-space-q">Quick Menu (Space-q)</a></li></ul></li><li><a href="#modern-menus">Modern Menus</a><ul><li><a href="#find-space-f">Find (Space-f)</a></li><li><a href="#git-space-g">Git (Space-g)</a></li><li><a href="#code-space-c">Code (Space-c)</a></li><li><a href="#java-space-j">Java (Space-j)</a></li><li><a href="#wiki-space-w">Wiki (Space-w)</a></li><li><a href="#debug-space-d">Debug (Space-d)</a></li></ul></li><li><a href="#utility-keybindings">Utility Keybindings</a></li></ul>
             </nav>
           </aside>
         
@@ -256,7 +257,7 @@
     <tr>
       <td><strong>Block and Save</strong></td>
       <td><code class="language-plaintext highlighter-rouge">Space-k</code></td>
-      <td>Buffer management, saving, quitting</td>
+      <td>Buffer management, saving, quitting, blocks</td>
     </tr>
     <tr>
       <td><strong>Onscreen Format</strong></td>
@@ -271,7 +272,7 @@
     <tr>
       <td><strong>Quick Menu</strong></td>
       <td><code class="language-plaintext highlighter-rouge">Space-q</code></td>
-      <td>Plugin management, updates, debugging</td>
+      <td>Cursor movement, block navigation, manage</td>
     </tr>
   </tbody>
 </table>
@@ -293,29 +294,9 @@
       <td>New buffer</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Space-kb</code></td>
-      <td><code class="language-plaintext highlighter-rouge">Neotree buffers</code></td>
-      <td>Switch buffer (shows list)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Space-kj</code></td>
-      <td><code class="language-plaintext highlighter-rouge">bd</code></td>
-      <td>Close buffer</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Space-ks</code></td>
-      <td><code class="language-plaintext highlighter-rouge">w</code></td>
-      <td>Save file</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Space-kx</code></td>
-      <td><code class="language-plaintext highlighter-rouge">wq</code></td>
-      <td>Save and exit</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Space-kq</code></td>
-      <td><code class="language-plaintext highlighter-rouge">q!</code></td>
-      <td>Abandon changes and quit</td>
+      <td><code class="language-plaintext highlighter-rouge">Space-ko</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Explore</code></td>
+      <td>Open file explorer</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-kl</code></td>
@@ -323,14 +304,89 @@
       <td>Change working directory</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Space-km</code></td>
-      <td><code class="language-plaintext highlighter-rouge">MarkmapSave</code></td>
-      <td>Save markmap diagram</td>
+      <td><code class="language-plaintext highlighter-rouge">Space-ks</code></td>
+      <td><code class="language-plaintext highlighter-rouge">w</code></td>
+      <td>Save file</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-kt</code></td>
       <td>Toggle Neotree</td>
       <td>File explorer</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kx</code></td>
+      <td><code class="language-plaintext highlighter-rouge">wq</code></td>
+      <td>Save and exit</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kf</code></td>
+      <td><code class="language-plaintext highlighter-rouge">terminal</code></td>
+      <td>Open terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kq</code></td>
+      <td><code class="language-plaintext highlighter-rouge">q!</code></td>
+      <td>Abandon changes and quit</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-km</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MarkmapSave</code></td>
+      <td>Save markmap diagram</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kn</code></td>
+      <td>Toggle column mode</td>
+      <td>Block mode toggle</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kb</code></td>
+      <td><code class="language-plaintext highlighter-rouge">blocks.mark_begin</code></td>
+      <td>Begin block</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kk</code></td>
+      <td><code class="language-plaintext highlighter-rouge">blocks.mark_end</code></td>
+      <td>End block</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kh</code></td>
+      <td><code class="language-plaintext highlighter-rouge">blocks.toggle_visibility</code></td>
+      <td>Hide/show block</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ku</code></td>
+      <td><code class="language-plaintext highlighter-rouge">toggle_previous_block</code></td>
+      <td>Toggle previous block</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kc</code></td>
+      <td><code class="language-plaintext highlighter-rouge">copy_block</code></td>
+      <td>Copy block</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kv</code></td>
+      <td><code class="language-plaintext highlighter-rouge">move_block</code></td>
+      <td>Move block</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ky</code></td>
+      <td><code class="language-plaintext highlighter-rouge">delete_block</code></td>
+      <td>Delete block</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-k&lt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">unmark_block</code></td>
+      <td>Unmark block</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kj</code></td>
+      <td><code class="language-plaintext highlighter-rouge">bd</code></td>
+      <td>Close buffer</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-kr</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Neotree buffers reveal float</code></td>
+      <td>Switch buffer (reveal)</td>
     </tr>
   </tbody>
 </table>
@@ -387,7 +443,7 @@
       <td>Format JSON</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Space-ox</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Space-on</code></td>
       <td><code class="language-plaintext highlighter-rouge">ZenmodeToggle</code></td>
       <td>Distraction-free mode</td>
     </tr>
@@ -405,6 +461,11 @@
       <td><code class="language-plaintext highlighter-rouge">Space-oq</code></td>
       <td><code class="language-plaintext highlighter-rouge">LivePreview close</code></td>
       <td>Stop live preview</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ot</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TypstPreview toggle</code></td>
+      <td>Typst preview toggle</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-ok</code></td>
@@ -433,12 +494,37 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-pb</code></td>
       <td>pandoc pdf</td>
-      <td>Book template</td>
+      <td>Book template (LaTeX)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-pp</code></td>
       <td>pandoc pdf</td>
-      <td>Article/handout template</td>
+      <td>Article/handout template (LaTeX)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-pe</code></td>
+      <td>pandoc pdf</td>
+      <td>Planner page template (LaTeX)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-pB</code></td>
+      <td>pandoc pdf</td>
+      <td>Book template (Typst)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-pP</code></td>
+      <td>pandoc pdf</td>
+      <td>Article/handout template (Typst)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-pE</code></td>
+      <td>pandoc pdf</td>
+      <td>Planner page template (Typst, n-up)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-pk</code></td>
+      <td>pandoc pdf</td>
+      <td>Bookly book template (Typst)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-pm</code></td>
@@ -446,14 +532,14 @@
       <td>View mindmap in browser</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Space-po</code></td>
-      <td>pandoc odt</td>
-      <td>OpenDocument format</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-ps</code></td>
       <td>MarkmapSave</td>
       <td>Save markmap (don’t open)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-po</code></td>
+      <td>pandoc odt</td>
+      <td>OpenDocument format</td>
     </tr>
   </tbody>
 </table>
@@ -472,6 +558,56 @@
   </thead>
   <tbody>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qb</code></td>
+      <td><code class="language-plaintext highlighter-rouge">jump_to_begin</code></td>
+      <td>Jump to block begin</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qk</code></td>
+      <td><code class="language-plaintext highlighter-rouge">jump_to_end</code></td>
+      <td>Jump to block end</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qv</code></td>
+      <td><code class="language-plaintext highlighter-rouge">jump_to_source</code></td>
+      <td>Jump to move source</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qe</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MoveMotion("gg")</code></td>
+      <td>Jump to top</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qs</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MoveMotion("0")</code></td>
+      <td>Jump to left</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qd</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MoveMotion("$")</code></td>
+      <td>Jump to right</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qx</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MoveMotion("G")</code></td>
+      <td>Jump to bottom</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qp</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MoveMotion("&lt;C-o&gt;")</code></td>
+      <td>Jump to previous position</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qf</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Telescope live_grep</code></td>
+      <td>Find in files</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-qu</code></td>
+      <td><code class="language-plaintext highlighter-rouge">git pull origin master</code></td>
+      <td>Update VimStar</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-ql</code></td>
       <td><code class="language-plaintext highlighter-rouge">Lazy</code></td>
       <td>Manage plugins</td>
@@ -485,11 +621,6 @@
       <td><code class="language-plaintext highlighter-rouge">Space-qt</code></td>
       <td><code class="language-plaintext highlighter-rouge">TSUpdate</code></td>
       <td>Update Treesitter parsers</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Space-qf</code></td>
-      <td><code class="language-plaintext highlighter-rouge">Telescope live_grep</code></td>
-      <td>Find in files</td>
     </tr>
   </tbody>
 </table>
@@ -521,6 +652,16 @@
       <td><code class="language-plaintext highlighter-rouge">Space-fz</code></td>
       <td><code class="language-plaintext highlighter-rouge">Telescope live_grep</code></td>
       <td>Live grep</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-fg</code></td>
+      <td><code class="language-plaintext highlighter-rouge">live_grep</code></td>
+      <td>Live grep (alias)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-fj</code></td>
+      <td><code class="language-plaintext highlighter-rouge">live_grep (journal)</code></td>
+      <td>Find journal entries</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-fo</code></td>
@@ -555,6 +696,16 @@
       <td><code class="language-plaintext highlighter-rouge">Space-gm</code></td>
       <td><code class="language-plaintext highlighter-rouge">Git difftool -y master</code></td>
       <td>Diff with master</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ga</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Git difftool -y main</code></td>
+      <td>Diff with main</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-gc</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Git commit</code></td>
+      <td>Git commit</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-gp</code></td>
@@ -596,14 +747,57 @@
       <td>Inline AI edit</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Space-co</code></td>
-      <td>Organize imports</td>
-      <td>LSP organize imports</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-cw</code></td>
       <td>Toggle Neocodeium</td>
       <td>Toggle AI completion</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="java-space-j">Java (<code class="language-plaintext highlighter-rouge">Space-j</code>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-jd</code></td>
+      <td><code class="language-plaintext highlighter-rouge">jdtls.test_class</code></td>
+      <td>Java test class</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-jn</code></td>
+      <td><code class="language-plaintext highlighter-rouge">jdtls.test_nearest_method</code></td>
+      <td>Java test nearest</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-ji</code></td>
+      <td><code class="language-plaintext highlighter-rouge">jdtls.organize_imports</code></td>
+      <td>Java organize imports</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="wiki-space-w">Wiki (<code class="language-plaintext highlighter-rouge">Space-w</code>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Space-wi</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WikiJournalIndex</code></td>
+      <td>Wiki journal index</td>
     </tr>
   </tbody>
 </table>
@@ -621,8 +815,8 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-dt</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DapToggleBreakpoint</code></td>
-      <td>Toggle breakpoint</td>
+      <td><code class="language-plaintext highlighter-rouge">DapStepOut</code></td>
+      <td>Step out</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Space-dc</code></td>
@@ -645,9 +839,9 @@
       <td>Step into</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Space-dd</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DapStepOut</code></td>
-      <td>Step out</td>
+      <td><code class="language-plaintext highlighter-rouge">Space-dB</code></td>
+      <td><code class="language-plaintext highlighter-rouge">set_breakpoint(condition)</code></td>
+      <td>Conditional breakpoint</td>
     </tr>
   </tbody>
 </table>
