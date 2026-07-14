@@ -2,11 +2,12 @@ return {
   -- Modern version for Neovim 0.12+
   {
     "neovim-treesitter/nvim-treesitter",
-    name = "nvim-treesitter-modern", -- Avoids lazy.nvim merging specs
+    name = "nvim-treesitter-modern",
     cond = function()
       local v = vim.version()
       return (v.major == 0 and v.minor >= 12) or v.major > 0
     end,
+    dependencies = { 'neovim-treesitter/treesitter-parser-registry' },
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter").setup {
