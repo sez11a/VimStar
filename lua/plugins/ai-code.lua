@@ -17,8 +17,6 @@ return {
     "olimorris/codecompanion.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      { "MeanderingProgrammer/render-markdown.nvim", opts = {} }, -- nice for chat rendering
     },
     config = function()
       require("codecompanion").setup({
@@ -38,7 +36,7 @@ return {
           chat = { adapter = "ollama", model = vim.g.ollama_model or "gemma4-31b-256k" }, -- or "anthropic"
           inline = { adapter = "ollama", model = vim.g.ollama_model or "gemma4-31b-256k" },
         },
-        vim.keymap.set("i", "C-l", "<cmd>CodeCompanionInline<cr>", { desc = "Ollama Inline Suggestion" })
+        vim.keymap.set("i", "<C-l>", "<cmd>CodeCompanionInline<cr>", { desc = "Ollama Inline Suggestion" })
       })
     end,
   },

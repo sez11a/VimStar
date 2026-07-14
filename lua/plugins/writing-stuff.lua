@@ -62,6 +62,9 @@ return {
       vim.cmd("call pencil#init()")
     end,
   },
+  { "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        opts = {} },
   {
     "preservim/vim-wordchipper",
     ft = "markdown",
