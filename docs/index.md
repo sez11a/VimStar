@@ -86,9 +86,9 @@ If you have a Neovim configuration already, rename the config directory or back 
 
 ### Requirements 
 
-- [Neovim](https://neovim.io) 0.9+ 
+- [Neovim](https://neovim.io) 0.11+ 
 - [Git](https://git-scm.com/) (must be available in PATH)
-- [Pandoc](https://pandoc.org) for publishing/conversions
+- [Pandoc](https://pandoc.org) with [LaTeX](https://www.tug.org/texlive/) and/or [Typst](https://typst.app/) for publishing/conversions
 - [npm](https://www.npmjs.com/) for some Markdown plugins
 - [Ollama](https://ollama.com) for AI chat/completion features
 - [Yarn](https://yarnpkg.com/) to compile Markdown preview
