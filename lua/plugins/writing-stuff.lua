@@ -66,10 +66,6 @@ return {
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         opts = {} },
   {
-    "preservim/vim-wordchipper",
-    ft = "markdown",
-  },
-  {
     'brianhuster/live-preview.nvim',
     dependencies = {
         'nvim-telescope/telescope.nvim',

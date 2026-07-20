@@ -6,7 +6,7 @@
 
 // Font setup
 #set text(
-  font: ("Libertinus Serif", "Noto Serif", "Noto Sans", "DejaVu Sans", "Helvetica", "Arial"),
+  font: ("Libertinus Serif", "Noto Serif", "Noto Sans", "DejaVu Sans"),
   fallback: true,
   11pt
 )
