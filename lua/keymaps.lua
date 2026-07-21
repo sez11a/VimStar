@@ -7,6 +7,7 @@ map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
 local blocks = require("vimstar.blocks")
 local builtin = require("telescope.builtin")
 local wk = require("which-key")
+local depcheck = require("vimstar.depcheck")
 
 wk.add(
   {
@@ -46,7 +47,13 @@ wk.add(
           vim.cmd.wq()
         end
       end, desc = "Save and Exit" },
-    { "<leader>km", "<cmd> MarkmapSave <CR>", desc = "Save Markmap" },
+    { "<leader>km", function()
+    if not depcheck.has_executable("markmap") and vim.fn.executable("yarn") == 0 then
+      vim.notify("Please install markmap-cli (yarn global add markmap-cli) to enable this feature", vim.log.levels.WARN, { title = "VimStar" })
+      return
+    end
+    vim.cmd("MarkmapSave")
+  end, desc = "Save Markmap" },
     { "<leader>kq", "<cmd> q! <CR>", desc = "Abandon Changes and Quit" },
     { "<leader>kf", "<cmd> terminal <CR>", desc = "Open Terminal" },
     { "<leader>k_", "", desc = "────────── BLOCK ──────────" },
@@ -78,29 +85,113 @@ wk.add(
     { "<leader>oj", "<cmd> %!jq .<CR>", desc = "Use jq to format JSON" },
     { "<leader>ok", "<cmd> bnext <CR>", desc = "Next Buffer" },
     { "<leader>ol", "<cmd> ToggleDiag <CR>", desc = "Toggle Diagnostics" },
-    { "<leader>om", "<cmd> MarkmapOpen <CR>", desc = "Open Markmap" },
+    { "<leader>om", function()
+    if not depcheck.has_executable("markmap") and vim.fn.executable("yarn") == 0 then
+      vim.notify("Please install markmap-cli (yarn global add markmap-cli) to enable this feature", vim.log.levels.WARN, { title = "VimStar" })
+      return
+    end
+    vim.cmd("MarkmapOpen")
+  end, desc = "Open Markmap" },
     { "<leader>on", "<cmd> ZenmodeToggle <CR>", desc = "Toggle Distraction-free Mode" },
     { "<leader>oo", "<cmd> set nospell <CR>", desc = "Spell Check Off" },
     { "<leader>oi", "<Plug>CycleListType", desc = "Cycle List Type" },
-    { "<leader>op", "<cmd> LivePreview start <CR>", desc = "Markdown Live Preview" },
+    { "<leader>op", function()
+      if not depcheck.has_executable("node") and vim.fn.executable("npm") == 0 then
+        vim.notify("Please install node/npm for LivePreview (visit github.com/brianhuster/live-preview.nvim)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("LivePreview start") 
+    end, desc = "Markdown Live Preview" },
     { "<leader>oq", "<cmd> LivePreview close <CR>", desc = "Stop Live Preview" },
     { "<leader>or", vim.lsp.buf.references, desc = "Show References" },
     { "<leader>os", "<cmd> set spell <CR>", desc = "Spell Check" },
-    { "<leader>ot", "<cmd>TypstPreview toggle <CR>", desc = "Typst Preview Toggle" },
-    { "<leader>ow", "<cmd> MarkmapWatch <CR>", desc = "Markmap Watch" },
+    { "<leader>ot", function()
+      if not depcheck.has_typst() then
+        vim.notify("Please install Typst for preview (run :Mason or install typst)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("TypstPreview toggle") 
+    end, desc = "Typst Preview Toggle" },
+    { "<leader>ow", function()
+      if not depcheck.has_executable("markmap") and not depcheck.has_yarn() then
+        vim.notify("Please install markmap-cli or yarn for this feature", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("MarkmapWatch") 
+    end, desc = "Markmap Watch" },
 
     -- Print Controls Menu 
     { "<leader>p", group = "Print Controls" },
-    { "<leader>pb", "<cmd> Pandoc pdf --pdf-engine=lualatex --standalone --top-level-division=chapter --template ~/.VimStar/templates/latex/book.tex <CR>", desc="Convert Markdown to PDF: book template (LaTeX)" },
-    { "<leader>pp", "<cmd> Pandoc pdf --pdf-engine lualatex --standalone --template ~/.VimStar/templates/latex/article-handout.tex <CR>", desc = "Convert Markdown to PDF: article/handout template (LaTeX)" },
-    { "<leader>pe", "<cmd> Pandoc pdf --pdf-engine lualatex --template ~/.VimStar/templates/latex/planner-page.tex <CR>", desc = "Convert Markdown to PDF: planner page template (LaTeX)" },
-    { "<leader>pB", "<cmd> Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/book.typ <CR>", desc="Convert Markdown to PDF: book template (Typst)" },
-    { "<leader>pP", "<cmd> Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/article-handout.typ <CR>", desc="Convert Markdown to PDF: article/handout template (Typst)" },
-    { "<leader>pE", "<cmd> Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/planner-page.typ <CR>", desc="Convert Markdown to PDF: planner page template (Typst, n-up)" },
-    { "<leader>pk", "<cmd> Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/book-bookly.typ <CR>", desc="Convert Markdown to PDF: bookly book template (Typst)" },
-    { "<leader>pm", "<cmd> MarkmapOpen <CR>", desc = "View Mindmap in Browser" },
-    { "<leader>ps", "<cmd> MarkmapSave <CR>", desc = "Save Mindmap; don't open it" },
-    { "<leader>po", "<cmd> Pandoc odt <CR>", desc = "Convert Markdown to ODT"},
+    { "<leader>pb", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc to enable PDF export (visit pandoc.org)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc pdf --pdf-engine=lualatex --standalone --top-level-division=chapter --template ~/.VimStar/templates/latex/book.tex")
+    end, desc="Convert Markdown to PDF: book template (LaTeX)" },
+    { "<leader>pp", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc to enable PDF export (visit pandoc.org)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc pdf --pdf-engine lualatex --standalone --template ~/.VimStar/templates/latex/article-handout.tex")
+    end, desc = "Convert Markdown to PDF: article/handout template (LaTeX)" },
+    { "<leader>pe", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc to enable PDF export (visit pandoc.org)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc pdf --pdf-engine lualatex --template ~/.VimStar/templates/latex/planner-page.tex")
+    end, desc = "Convert Markdown to PDF: planner page template (LaTeX)" },
+    { "<leader>pB", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/book.typ")
+    end, desc="Convert Markdown to PDF: book template (Typst)" },
+    { "<leader>pP", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/article-handout.typ")
+    end, desc="Convert Markdown to PDF: article/handout template (Typst)" },
+    { "<leader>pE", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/planner-page.typ")
+    end, desc="Convert Markdown to PDF: planner page template (Typst, n-up)" },
+    { "<leader>pk", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/book-bookly.typ")
+    end, desc="Convert Markdown to PDF: bookly book template (Typst)" },
+    { "<leader>pm", function()
+      if not depcheck.has_executable("markmap") and not depcheck.has_yarn() then
+        vim.notify("Please install markmap-cli or yarn for this feature", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("MarkmapOpen")
+    end, desc = "View Mindmap in Browser" },
+    { "<leader>ps", function()
+      if not depcheck.has_executable("markmap") and not depcheck.has_yarn() then
+        vim.notify("Please install markmap-cli or yarn for this feature", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("MarkmapSave")
+    end, desc = "Save Mindmap; don't open it" },
+    { "<leader>po", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc to enable ODT export (visit pandoc.org)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc odt")
+    end, desc = "Convert Markdown to ODT"},
 
     -- Quick Menu
     { "<leader>q", group = "Quick Menu" },
@@ -127,18 +218,78 @@ wk.add(
 
     -- Debug menu
     { "<leader>d", group = "Debug" },
-    { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-    { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Conditional Breakpoint" },
-    { "<leader>dc", "<cmd> DapContinue <CR>", desc = "Continue" },
-    { "<leader>dx", "<cmd> DapTerminate <CR>", desc = "Terminate" },
-    { "<leader>do", "<cmd> DapStepOver <CR>", desc = "Step Over" },
-    { "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
-    { "<leader>dt", function() require("dap").step_out() end, desc = "Step Out" },
+    { "<leader>db", function()
+      if not pcall(require, "dap") then
+        vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require("dap").toggle_breakpoint() 
+    end, desc = "Toggle Breakpoint" },
+    { "<leader>dB", function()
+      if not pcall(require, "dap") then
+        vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) 
+    end, desc = "Conditional Breakpoint" },
+    { "<leader>dc", function()
+      if not pcall(require, "dap") then
+        vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require("dap").continue() 
+    end, desc = "Continue" },
+    { "<leader>dx", function()
+      if not pcall(require, "dap") then
+        vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require("dap").terminate() 
+    end, desc = "Terminate" },
+    { "<leader>do", function()
+      if not pcall(require, "dap") then
+        vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require("dap").step_over() 
+    end, desc = "Step Over" },
+    { "<leader>di", function()
+      if not pcall(require, "dap") then
+        vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require("dap").step_into() 
+    end, desc = "Step Into" },
+    { "<leader>dt", function()
+      if not pcall(require, "dap") then
+        vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require("dap").step_out() 
+    end, desc = "Step Out" },
     -- Code Menu
     { "<leader>c", group = "Code" },
-    { "<leader>ca", "<cmd> CodeCompanionActions<CR>", mode = "v", desc = "AI Actions on Selection" },
-    { "<leader>cc", "<cmd> CodeCompanionChat Toggle <CR>", desc = "AI Chat" },
-    { "<leader>ci", "<cmd> CodeCompanionInline<CR>", mode = {"n", "v"}, desc = "Inline AI Edit" },
+    { "<leader>ca", function()
+      if not pcall(require, "codecompanion") then
+        vim.notify("Please install Ollama to enable AI features (visit ollama.com)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require("CodeCompanionActions").run() 
+    end, mode = "v", desc = "AI Actions on Selection" },
+    { "<leader>cc", function()
+      if not pcall(require, "codecompanion") then
+        vim.notify("Please install Ollama to enable AI features (visit ollama.com)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require("codecompanion").chat() 
+    end, desc = "AI Chat" },
+    { "<leader>ci", function()
+      if not pcall(require, "codecompanion") then
+        vim.notify("Please install Ollama to enable AI features (visit ollama.com)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require("CodeCompanionInline").run() 
+    end, mode = {"n", "v"}, desc = "Inline AI Edit" },
     { "<leader>cw", function()
           require("neocodeium").toggle()
           -- Optional: notify for feedback
@@ -149,9 +300,27 @@ wk.add(
       end, desc = "Toggle Neocodeium (Windsurf)" },
     -- Java Menu
     { "<leader>j", group = "Java" },
-    { "<leader>jd", function() require('jdtls').test_class() end, desc = "Java Test Class" },
-    { "<leader>jn", function() require('jdtls').test_nearest_method() end, desc = "Java Test Nearest" },
-    { "<leader>ji", function() require('jdtls').organize_imports() end, desc = "Java Organize Imports" },
+    { "<leader>jd", function()
+      if not pcall(require, "jdtls") then
+        vim.notify("Please install jdtls for Java support (run :Mason)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require('jdtls').test_class() 
+    end, desc = "Java Test Class" },
+    { "<leader>jn", function()
+      if not pcall(require, "jdtls") then
+        vim.notify("Please install jdtls for Java support (run :Mason)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require('jdtls').test_nearest_method() 
+    end, desc = "Java Test Nearest" },
+    { "<leader>ji", function()
+      if not pcall(require, "jdtls") then
+        vim.notify("Please install jdtls for Java support (run :Mason)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require('jdtls').organize_imports() 
+    end, desc = "Java Organize Imports" },
     
     -- Wiki Menu
     { "<leader>w", group = "Wiki" },
