@@ -105,6 +105,7 @@ return {
   --  Markdown Markmap, not related to wiki but used within it
   {
     "Zeioth/markmap.nvim",
+    cond = function() return require("vimstar.depcheck").has_yarn() end,
     build = "yarn global add markmap-cli",
     cmd = { "MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop" },
     opts = {
