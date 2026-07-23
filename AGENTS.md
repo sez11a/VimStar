@@ -26,6 +26,30 @@
 **LSPs**: lua_ls, html, cssls, ts_ls, pylsp, tinymist, clangd  
 **Tools**: tree-sitter-cli, texlab, jdtls, markmap-cli, debugpy
 
+## Dependency-Gated Plugin Loading
+
+VimStar uses a smart plugin loading system that only installs plugins when their dependencies are available:
+
+### Dependency Checking (`/lua/vimstar/depcheck.lua`)
+- `has_executable(name)` - Check if binary exists in PATH  
+- `has_pandoc()`, `has_typst()` - Publishing tools availability  
+- `has_python_debugger()`, `has_go_debugger()`, `has_java_debugger()` - Debug adapter via Mason  
+- `has_ollama()` - HTTP check for Ollama API server availability  
+- `has_yarn()` - For markmap-cli installation
+
+### Conditional Installation (`/lua/plugins/*.lua`)
+Plugins are loaded only when their dependencies satisfy conditions:
+| Plugin File | Installed When... |
+|-------------|-------------------|
+| `mason.lua` | node/npm for web LSPs, git for tree-sitter-cli |  
+| `wiki.lua` | yarn available (for markmap.nvim) |
+| `typst.lua` | typst binary found |
+| `debugging.lua` | Python/Go/Java debugger detected via Mason/VENV |
+| `ai-code.lua` | Ollama server responding at localhost:11434 |
+
+### Keymaps with Graceful Degradation (`/lua/keymaps.lua`)
+Keymaps check dependencies and show helpful messages instead of errors when unavailable. For example, pressing `<leader>pB` (Typst PDF export) shows "Please install Pandoc and Typst for this feature" if missing.
+
 ## Keybindings (Space-prefixed)
 
 - **Block:** `Space-kn` toggle column mode, `Space-kb` begin, `Space-kk` end, `space-kh` hide/show, `Space-ku` toggle previous, `Space-kc` copy, `Space-kv` move, `Space-ky` delete, `Space-k<` unmark, `Space-qb` jump to begin, `Space-qk` jump to end, `Space-qv` jump to move source
