@@ -6,6 +6,7 @@ return {
   },
   config = function()
     local mason = require('mason')
+    local depcheck = require("vimstar.depcheck")
     local mason_lspconfig = require('mason-lspconfig')
     local mason_tool_installer = require('mason-tool-installer')
 
@@ -22,28 +23,31 @@ return {
       }
     })
 
+    local ensure_lsps = {'lua_ls'}
+    local has_node = vim.fn.executable("node") == 1 or vim.fn.executable("npm") == 1
+    
+    if has_node then
+      table.insert(ensure_lsps, 'html')
+      table.insert(ensure_lsps, 'cssls')
+      table.insert(ensure_lsps, 'ts_ls')
+    end
+
     mason_lspconfig.setup({
-      ensure_installed = {
-        'lua_ls',
-        'html',
-        'cssls',
-        'ts_ls',
-        'pylsp',
-        'tinymist',
-        'clangd',
-      },
+      ensure_installed = ensure_lsps,
     })
 
+    local ensure_tools = {}
+    
+    if vim.fn.executable("git") == 1 then
+      table.insert(ensure_tools, "tree-sitter-cli")
+    end
+
+    if has_node and depcheck.has_yarn() then
+      table.insert(ensure_tools, "markmap-cli")
+    end
+
     mason_tool_installer.setup({
-      ensure_installed = {
-        "tree-sitter-cli",
-        "texlab",
-        "jdtls",
-        "markmap-cli",
-        "lua-language-server",
-        "python-lsp-server",
-        "debugpy"
-      }
+      ensure_installed = ensure_tools
     })
   end,
 }
