@@ -39,7 +39,8 @@
   #text(size: 18pt, weight: "bold")[$title$]
   $if(subtitle)$
   #v(0.4em)
-  #text(size: 14pt)[#em[$subtitle$]]
+  //#text(size: 14pt)[#em[$subtitle$]]
+  #text(size: 14pt)[$subtitle$]
   $endif$
 ]
 
@@ -53,7 +54,8 @@
   #text(size: 3.5em, weight: "bold")[$title$]
   $if(subtitle)$
   #v(0.6em)
-  #text(size: 1.6em)[#em[$subtitle$]]
+  //#text(size: 1.6em)[#em[$subtitle$]]
+  #text(size: 1.6em)[$subtitle$]
   #v(0.6em)
   $endif$
   #v(0.5em)

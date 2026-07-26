@@ -6,15 +6,26 @@
 
 // Font setup
 #set text(
-  font: ("Libertinus Serif", "Noto Serif", "Noto Sans", "DejaVu Sans"),
-  fallback: true,
-  11pt
+  font: "Libertinus Serif",
 )
 
-$title$
+#show heading: it => block(width: 100%)[
+  #it
+  #v(-0.85em)
+  #line(length: 100%, stroke: 0.5pt)
+]
 
-$subtitle$
+#show heading.where(level: 2): it => { text(size: 12pt, weight: "bold")[#it ] }
+#show heading.where(level: 3): it => { text(size: 12pt, weight: "bold")[#it ] }
+#show heading.where(level: 4): it => { text(size: 12pt, weight: "bold")[ #it ] }
 
-$author$
+#(align(center)[#text(font: "Libertinus Serif", weight: "bold", size: 20pt)[$title$]])
+
+#(align(center)[#text(weight: "bold", size: 18pt)[$subtitle$]])
+
+#(align(center)[#text(font: "Libertinus Serif", size: 16pt)[$author$]])
+
+// NOTE: For small-caps support, install Libertinus Serif Small Caps font variant.
+// Alternatively, modify YAML to pass author name already in caps.
 
 $body$
