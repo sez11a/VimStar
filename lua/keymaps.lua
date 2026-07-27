@@ -192,7 +192,13 @@ wk.add(
       end
       vim.cmd("Pandoc odt")
     end, desc = "Convert Markdown to ODT"},
-
+    { "<leader>ps", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/submission-format.typ")
+    end, desc = "Convert Markdown to PDF: Submission Format"},
     -- Quick Menu
     { "<leader>q", group = "Quick Menu" },
     { "<leader>q_", "", desc = "────────── CURSOR ─────────" },
