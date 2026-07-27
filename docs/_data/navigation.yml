@@ -5,6 +5,11 @@ main:
     url: /quickstart/
   - title: "Writing"
     url: /writing/
+    children: 
+      - title: "Templates"
+        url: /writing/templates/
+      - title: "WordStar"
+        url: /writing/wordstar/
   - title: "Coding"
     url: /coding/
   - title: "Wiki"
