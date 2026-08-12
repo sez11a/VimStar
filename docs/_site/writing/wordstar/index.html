@@ -15,22 +15,19 @@
 <meta charset="utf-8">
 
 
-<!-- begin _includes/seo.html --><title>Customization - VimStar</title>
-<meta name="description" content="How to customize VimStar">
+<!-- begin _includes/seo.html --><title>WordStar - VimStar</title>
+<meta name="description" content="A Neovim distribution optimized for writing, inspired by WordStar">
 
 
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VimStar">
-<meta property="og:title" content="Customization">
-<meta property="og:url" content="http://localhost:4000/VimStar/customization/">
+<meta property="og:title" content="WordStar">
+<meta property="og:url" content="http://localhost:4000/VimStar/writing/wordstar/">
 
 
-  <meta property="og:description" content="How to customize VimStar">
-
-
-
+  <meta property="og:description" content="A Neovim distribution optimized for writing, inspired by WordStar">
 
 
 
@@ -42,7 +39,10 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/VimStar/customization/">
+
+
+
+<link rel="canonical" href="http://localhost:4000/VimStar/writing/wordstar/">
 
 
 
@@ -155,7 +155,7 @@
             
               <li><a href="/VimStar/writing/templates/">Templates</a></li>
             
-              <li><a href="/VimStar/writing/wordstar/">WordStar</a></li>
+              <li><a href="/VimStar/writing/wordstar/" class="active">WordStar</a></li>
             
           </ul>
           
@@ -221,7 +221,7 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Customization">
+    <meta itemprop="headline" content="WordStar">
     
     
     
@@ -230,7 +230,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/VimStar/customization/" itemprop="url">Customization
+            <a href="http://localhost:4000/VimStar/writing/wordstar/" itemprop="url">WordStar
 </a>
           </h1>
           
@@ -245,59 +245,14 @@
           <aside class="sidebar__right ">
             <nav class="toc" aria-label="Table of contents">
               <header><h4 class="nav__title"><i class="fas fa-gears"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#user-configuration">User Configuration</a><ul><li><a href="#color-scheme">Color Scheme</a></li><li><a href="#wiki-root">Wiki Root</a></li></ul></li><li><a href="#loading-order">Loading Order</a></li><li><a href="#tips">Tips</a></li><li><a href="#presets">Presets</a></li></ul>
+              
             </nav>
           </aside>
         
-        <p>VimStar is designed for easy customization without forking the entire repository.</p>
+        <p>VimStar takes its inspiration from WordStar, a decades-old word processor first written for CP/M and then DOS in the 1980s. Neovim itself derives from Vim, which was written originally in the 1980s for the Commodore Amiga and then ported to Linux. Was there something about the 80s we’re all missing? One might ask the question first: why Neovim, and second: why WordStar?</p>
 
-<h2 id="user-configuration">User Configuration</h2>
+<p>The answer: speed. Modern systems are great for novices. They offer a nice, visual interface for commanding the system through point and click, dialog boxes, rows of icons, and more. The keyboard is used solely for typing. This should be contrasted with what Vim and WordStar offer: a keyboard-only interface. Whether you use the DOS, Amiga, or Linux CLI, you do <em>nothing</em> with the mouse. For touch typists, this means speed, speed, speed. For more on this, see <a href="/vimstar-a-writers-wordprocessor/">VimStar: A Writer’s Word Processor</a>.</p>
 
-<p><strong>File</strong>: <code class="language-plaintext highlighter-rouge">~/.VimStar/lua/vimstar-user.lua</code></p>
-
-<p>This file loads after core configuration. Settings here override other defaults. If you see a setting elsewhere, override it in this file. Do not edit the other files; otherwise, you won’t be able to update VimStar from GitHub (you’ll have conflicts).</p>
-
-<h3 id="color-scheme">Color Scheme</h3>
-
-<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Comment out current, uncomment desired:</span>
-<span class="c1">-- vim.cmd.colorscheme "carbonfox"</span>
-<span class="c1">-- vim.cmd.colorscheme "catppuccin"</span>
-<span class="c1">-- vim.cmd.colorscheme "cyberdream"</span>
-<span class="c1">-- vim.cmd.colorscheme "edge"</span>
-<span class="c1">-- vim.cmd.colorscheme "modus"</span>
-<span class="c1">-- vim.cmd.colorscheme "moonfly"</span>
-<span class="c1">-- vim.cmd.colorscheme "onedark"  -- Default</span>
-<span class="c1">-- vim.cmd.colorscheme "purify"</span>
-<span class="c1">-- vim.cmd.colorscheme "tokyonight-night"</span>
-</code></pre></div></div>
-
-<h3 id="wiki-root">Wiki Root</h3>
-
-<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vim</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="n">wiki_root</span> <span class="o">=</span> <span class="s1">'~/custom/wiki/path'</span>
-</code></pre></div></div>
-
-<h2 id="loading-order">Loading Order</h2>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">init.lua</code> - Entry point</li>
-  <li><code class="language-plaintext highlighter-rouge">vim-options.lua</code> - Core settings</li>
-  <li><code class="language-plaintext highlighter-rouge">lazy.setup("plugins")</code> - Plugins</li>
-  <li><code class="language-plaintext highlighter-rouge">keymaps.lua</code> - Keybindings</li>
-  <li><code class="language-plaintext highlighter-rouge">vimstar-user.lua</code> - User overrides</li>
-</ol>
-
-<h2 id="tips">Tips</h2>
-
-<ul>
-  <li>Use <code class="language-plaintext highlighter-rouge">:Lazy</code> to reload plugins after changes</li>
-  <li>Use <code class="language-plaintext highlighter-rouge">:lua reload()</code> in Neovim for config reload</li>
-  <li>Check <code class="language-plaintext highlighter-rouge">:scriptnames</code> to see which config files loaded</li>
-  <li>Use <code class="language-plaintext highlighter-rouge">:messages</code> to see plugin errors</li>
-</ul>
-
-<h2 id="presets">Presets</h2>
-
-<p>See <code class="language-plaintext highlighter-rouge">vimstar-user-template</code> for default user config.</p>
 
         
       </section>

@@ -21,7 +21,7 @@ toc: false
   </div>
 </div>
 
-  <p>VimStar turns Neovim into a word processor while retaining Neovim's powerful completion, debugging, and navigation for all your coding needs. With a menu system inspired by WordStar, it's ideal for technical writing, creative writing, coding, and even publishing.</p>
+  <p>VimStar turns Neovim into a word processor while retaining Neovim's powerful completion, debugging, and navigation for all your coding needs. With a menu system inspired by WordStar, it's ideal for technical writing, creative writing, coding, and even publishing. The goal for VimStar is to provide the best writing and editing environment possible for text and code alike by combining the functionality of two of the best editors that have ever existed. </p>
 
 ### Why VimStar?
 
