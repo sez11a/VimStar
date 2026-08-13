@@ -21,7 +21,11 @@ function getWords()
   return tostring(vim.fn.wordcount().words)
 end
 
-require("lazy").setup("plugins")
+-- require("lazy").setup("plugins")
+require("lazy").setup({
+    { import = "plugins" },
+    { import = "user.plugins" },
+})
 require("vim-options")
 require("vimstar.functions")
 require("vimstar.blocks")

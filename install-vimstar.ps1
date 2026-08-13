@@ -34,6 +34,17 @@ if (-not (Test-Path $UserConfig)) {
     Copy-Item -Path (Join-Path $VimStarDir "vimstar-user-template") -Destination $UserConfig
 }
 
+# Copy user plugins template if not exists
+$UserPluginsDir = Join-Path $VimStarDir "lua" "user-plugins"
+if (-not (Test-Path $UserPluginsDir)) {
+    Write-Host "Copying user plugins template..." -ForegroundColor Yellow
+    New-Item -ItemType Directory -Path $UserPluginsDir -Force | Out-Null
+}
+$UserPluginsInit = Join-Path $UserPluginsDir "init.lua"
+if (-not (Test-Path $UserPluginsInit)) {
+    Copy-Item -Path (Join-Path $VimStarDir "vimstar-user-plugins-template.lua") -Destination $UserPluginsInit
+}
+
 if (-not (Get-Command nvim -ErrorAction SilentlyContinue)) {
     Write-Host "Warning: Neovim not found. VimStar installed but requires Neovim to work." -ForegroundColor Yellow
 }
