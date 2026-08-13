@@ -46,11 +46,33 @@ vim.g.wiki_root = '~/custom/wiki/path'
 
 Once you customize the wiki's location, you can then sync those files via Syncthing, Nextcloud, Dropbox, or other software to your phone or other systems where you need your notes. 
 
+## Advanced Configuration
+
+**Directory**: `~/.VimStar/lua/user/plugins/`
+
+Here, you can add your own Neovim plugins that persist through VimStar updates. By default, the install creates a file named `init.lua` in this folder ready to contain your plugin configurations. Per the Lazy plugin manager, add your plugins in this format: 
+
+```lua
+-- ~/.VimStar/lua/user/plugins/init.lua
+return {
+  {
+    "username/my-plugin",
+    config = function()
+      require("my-plugin").setup({ option = "value" })
+    end,
+  },
+}
+```
+
+Adding your plugins here keeps them separate from core configuration so you can update via `Space-qu`. Since Git ignores the directory, your customizations don't conflict with future VimStar updates. Be sure to back up or sync your configuration somewhere in case you must reinstall later! 
+
 ## Loading Order
 
 1. `init.lua` - Entry point
 2. `vim-options.lua` - Core settings
-3. `lazy.setup("plugins")` - Plugins
+3. Lazy.nvim loads:
+   - `plugins/` directory (core plugins)
+   - `user/plugins/` directory (custom user plugins) 
 4. `keymaps.lua` - Keybindings
 5. `vimstar-user.lua` - User overrides
 
