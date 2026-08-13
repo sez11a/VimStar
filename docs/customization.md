@@ -8,13 +8,20 @@ toc: true
 permalink: /customization/
 ---
 
-VimStar is designed for easy customization without forking the entire repository.
+You can customize VimStar without forking the entire repository. I wanted everyone to be able to add whatever they want and still update VimStar via `Space-qu`. This gives you the freedom to add to VimStar any plugins and configuration you need. 
 
-## User Configuration
+There are two places where you can add your customizations: 
+
+1. `vimstar-user.lua` (easy)
+1. `lua/user/plugins/` (advanced)
+
+These can be understood as "easy" configuration and "advanced" configuration.
+
+## Easy Configuration
 
 **File**: `~/.VimStar/lua/vimstar-user.lua`
 
-This file loads after core configuration. Settings here override other defaults. If you see a setting elsewhere, override it in this file. Do not edit the other files; otherwise, you won't be able to update VimStar from GitHub (you'll have conflicts). 
+This file loads after core configuration. Settings here override other defaults. If you see a setting elsewhere that you want to change (i.e., like indent size, etc.), override it in this file. Do not edit other files except for what's under the `lua/user` directory; otherwise, you won't be able to update VimStar from GitHub (you'll have conflicts). 
 
 ### Color Scheme
 
@@ -22,11 +29,11 @@ This file loads after core configuration. Settings here override other defaults.
 -- Comment out current, uncomment desired:
 -- vim.cmd.colorscheme "carbonfox"
 -- vim.cmd.colorscheme "catppuccin"
--- vim.cmd.colorscheme "cyberdream"
+vim.cmd.colorscheme "cyberdream"
 -- vim.cmd.colorscheme "edge"
 -- vim.cmd.colorscheme "modus"
 -- vim.cmd.colorscheme "moonfly"
--- vim.cmd.colorscheme "onedark"  -- Default
+-- vim.cmd.colorscheme "onedark"  
 -- vim.cmd.colorscheme "purify"
 -- vim.cmd.colorscheme "tokyonight-night"
 ```
@@ -36,6 +43,8 @@ This file loads after core configuration. Settings here override other defaults.
 ```lua
 vim.g.wiki_root = '~/custom/wiki/path'
 ```
+
+Once you customize the wiki's location, you can then sync those files via Syncthing, Nextcloud, Dropbox, or other software to your phone or other systems where you need your notes. 
 
 ## Loading Order
 

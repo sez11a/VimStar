@@ -35,7 +35,7 @@ if (-not (Test-Path $UserConfig)) {
 }
 
 # Copy user plugins template if not exists
-$UserPluginsDir = Join-Path $VimStarDir "lua" "user-plugins"
+$UserPluginsDir = Join-Path $VimStarDir "lua" "user" "plugins"
 if (-not (Test-Path $UserPluginsDir)) {
     Write-Host "Copying user plugins template..." -ForegroundColor Yellow
     New-Item -ItemType Directory -Path $UserPluginsDir -Force | Out-Null
