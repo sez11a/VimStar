@@ -65,7 +65,7 @@ function M.has_ollama()
 end
 
 function M.has_yarn()
-  return vim.fn.executable("yarn") == 1 or vim.fn.executable("npm") == 1
+  return vim.fn.executable("yarn") == 1
 end
 
 function M.report(msg)
