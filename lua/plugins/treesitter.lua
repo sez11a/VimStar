@@ -13,6 +13,7 @@ return {
         highlight = { enable = true },
         indent = { enable = true },
         parser_install_dir = vim.fn.stdpath("data") .. "/treesitter",
+        auto_install = true,
       })
       vim.opt.runtimepath:append(vim.fn.stdpath("data") .. "/treesitter")
     end,
@@ -32,6 +33,7 @@ return {
         parser_install_dir = vim.fn.stdpath("data") .. "/treesitter",
         highlight = { enable = true },
         indent = { enable = true },
+        auto_install = true,
       })
       vim.opt.runtimepath:append(vim.fn.stdpath("data") .. "/treesitter")
     end,
