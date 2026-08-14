@@ -8,6 +8,14 @@ function M.has_pandoc()
   return M.has_executable("pandoc")
 end
 
+function M.has_neovide()
+    return vim.g.neovide
+end
+
+function M.has_node()
+    return vim.fn.executable("node") == 1 or vim.fn.executable("npm") == 1
+end
+
 function M.has_typst()
   if vim.fn.executable("typst") == 1 then
     return true

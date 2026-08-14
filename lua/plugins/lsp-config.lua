@@ -25,7 +25,7 @@ return {
 				keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<cr>', opts('Show LSP implementations'))
 				--keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', opts('Show LSP type definitions'))
 				keymap.set({ 'n', 'v' }, 'ga', vim.lsp.buf.code_action, opts('Show available code actions'))
-        
+
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         if client and client:supports_method("textDocument/formatting") then
           keymap.set('n', '<leader>of', vim.lsp.buf.format, opts('Format buffer'))
@@ -76,13 +76,6 @@ return {
     --Texlab
     vim.lsp.config("texlab", {})
     vim.lsp.enable("texlab")
-
-    --[[Java
-    vim.lsp.config("jdtls", {
-        capabilities = capabilities
-      })
-    --vim.lsp.enable("jdtls")
-    ]]
 
     -- Python LSP
 	  vim.lsp.config("pylsp", {

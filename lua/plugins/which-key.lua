@@ -10,7 +10,6 @@ return {
          sort = { "group", "manual" },
          win = {
             border = "single", -- double, rounded, single, shadow
-            --position = "top", -- bottom, top
             row=0,
             col=0,
             no_overlap = true,

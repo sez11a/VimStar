@@ -24,9 +24,8 @@ return {
     })
 
     local ensure_lsps = {'lua_ls'}
-    local has_node = vim.fn.executable("node") == 1 or vim.fn.executable("npm") == 1
-    
-    if has_node then
+
+    if depcheck.has_node() then
       table.insert(ensure_lsps, 'html')
       table.insert(ensure_lsps, 'cssls')
       table.insert(ensure_lsps, 'ts_ls')
@@ -37,12 +36,12 @@ return {
     })
 
     local ensure_tools = {}
-    
-    if vim.fn.executable("git") == 1 then
+
+    if depcheck.has_executable("git") then
       table.insert(ensure_tools, "tree-sitter-cli")
     end
 
-    if has_node and depcheck.has_yarn() then
+    if depcheck.has_node() and depcheck.has_yarn() then
       table.insert(ensure_tools, "markmap-cli")
     end
 
