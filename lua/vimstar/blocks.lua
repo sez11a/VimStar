@@ -45,13 +45,13 @@ function M.mark_begin()
   local buf = vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
 
-  -- Clear old begin marker ONLY if we are re-marking the current block (no end yet)
+  -- Clear old begin marker if one already exists
   if s.current.begin_id and not s.current.end_id then
     clear_extmark(buf, s.current.begin_id)
     clear_all_highlights(buf)
   end
 
-  -- Old current becomes previous
+  -- Current becomes previous
   s.previous = s.current
   s.current = { begin_id = nil, end_id = nil }
 
@@ -139,8 +139,7 @@ function M.toggle_column_mode()
 end
 
 local function get_block_region(buf, begin_pos, end_pos, column_mode)
-  if not (begin_pos and end_pos) then 
-    print("BLOCK DEBUG: No valid begin/end positions")
+  if not (begin_pos and end_pos) then
     vim.notify("No valid positions", vim.log.levels.WARN)
     return {}, nil
   end
@@ -154,7 +153,7 @@ local function get_block_region(buf, begin_pos, end_pos, column_mode)
 
   local text = {}
   if column_mode then
-    -- TODO: rectangular support (keep getregion for now or implement later)
+    -- TODO: rectangular support untested (keep getregion for now or implement later)
     text = vim.fn.getregion({start_row + 1, start_col + 1}, {end_row + 1, end_col + 1}, { type = "b", trim = false })
   else
     -- Charwise: use nvim_buf_get_text (very reliable)
