@@ -2,7 +2,7 @@
 
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.28.1 by Michael Rose
   Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
   Copyright 2024-2026 iBug - ibugone.com | @iBug
   Free for personal and commercial use under the MIT license
@@ -245,28 +245,37 @@
           <aside class="sidebar__right ">
             <nav class="toc" aria-label="Table of contents">
               <header><h4 class="nav__title"><i class="fas fa-gears"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#user-configuration">User Configuration</a><ul><li><a href="#color-scheme">Color Scheme</a></li><li><a href="#wiki-root">Wiki Root</a></li></ul></li><li><a href="#loading-order">Loading Order</a></li><li><a href="#tips">Tips</a></li><li><a href="#presets">Presets</a></li></ul>
+              <ul class="toc__menu"><li><a href="#easy-configuration">Easy Configuration</a><ul><li><a href="#color-scheme">Color Scheme</a></li><li><a href="#wiki-root">Wiki Root</a></li></ul></li><li><a href="#advanced-configuration">Advanced Configuration</a></li><li><a href="#loading-order">Loading Order</a></li><li><a href="#tips">Tips</a></li><li><a href="#presets">Presets</a></li></ul>
             </nav>
           </aside>
         
-        <p>VimStar is designed for easy customization without forking the entire repository.</p>
+        <p>You can customize VimStar without forking the entire repository. I wanted everyone to be able to add whatever they want and still update VimStar via <code class="language-plaintext highlighter-rouge">Space-qu</code>. This gives you the freedom to add to VimStar any plugins and configuration you need.</p>
 
-<h2 id="user-configuration">User Configuration</h2>
+<p>There are two places where you can add your customizations:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">vimstar-user.lua</code> (easy)</li>
+  <li><code class="language-plaintext highlighter-rouge">lua/user/plugins/</code> (advanced)</li>
+</ol>
+
+<p>These can be understood as “easy” configuration and “advanced” configuration.</p>
+
+<h2 id="easy-configuration">Easy Configuration</h2>
 
 <p><strong>File</strong>: <code class="language-plaintext highlighter-rouge">~/.VimStar/lua/vimstar-user.lua</code></p>
 
-<p>This file loads after core configuration. Settings here override other defaults. If you see a setting elsewhere, override it in this file. Do not edit the other files; otherwise, you won’t be able to update VimStar from GitHub (you’ll have conflicts).</p>
+<p>This file loads after core configuration. Settings here override other defaults. If you see a setting elsewhere that you want to change (i.e., like indent size, etc.), override it in this file. Do not edit other files except for what’s under the <code class="language-plaintext highlighter-rouge">lua/user</code> directory; otherwise, you won’t be able to update VimStar from GitHub (you’ll have conflicts).</p>
 
 <h3 id="color-scheme">Color Scheme</h3>
 
 <div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Comment out current, uncomment desired:</span>
 <span class="c1">-- vim.cmd.colorscheme "carbonfox"</span>
 <span class="c1">-- vim.cmd.colorscheme "catppuccin"</span>
-<span class="c1">-- vim.cmd.colorscheme "cyberdream"</span>
+<span class="n">vim</span><span class="p">.</span><span class="n">cmd</span><span class="p">.</span><span class="n">colorscheme</span> <span class="s2">"cyberdream"</span>
 <span class="c1">-- vim.cmd.colorscheme "edge"</span>
 <span class="c1">-- vim.cmd.colorscheme "modus"</span>
 <span class="c1">-- vim.cmd.colorscheme "moonfly"</span>
-<span class="c1">-- vim.cmd.colorscheme "onedark"  -- Default</span>
+<span class="c1">-- vim.cmd.colorscheme "onedark"  </span>
 <span class="c1">-- vim.cmd.colorscheme "purify"</span>
 <span class="c1">-- vim.cmd.colorscheme "tokyonight-night"</span>
 </code></pre></div></div>
@@ -276,12 +285,38 @@
 <div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vim</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="n">wiki_root</span> <span class="o">=</span> <span class="s1">'~/custom/wiki/path'</span>
 </code></pre></div></div>
 
+<p>Once you customize the wiki’s location, you can then sync those files via Syncthing, Nextcloud, Dropbox, or other software to your phone or other systems where you need your notes.</p>
+
+<h2 id="advanced-configuration">Advanced Configuration</h2>
+
+<p><strong>Directory</strong>: <code class="language-plaintext highlighter-rouge">~/.VimStar/lua/user/plugins/</code></p>
+
+<p>Here, you can add your own Neovim plugins that persist through VimStar updates. By default, the install creates a file named <code class="language-plaintext highlighter-rouge">init.lua</code> in this folder ready to contain your plugin configurations. Per the Lazy plugin manager, add your plugins in this format:</p>
+
+<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- ~/.VimStar/lua/user/plugins/init.lua</span>
+<span class="k">return</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="s2">"username/my-plugin"</span><span class="p">,</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span>
+      <span class="nb">require</span><span class="p">(</span><span class="s2">"my-plugin"</span><span class="p">).</span><span class="n">setup</span><span class="p">({</span> <span class="n">option</span> <span class="o">=</span> <span class="s2">"value"</span> <span class="p">})</span>
+    <span class="k">end</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Adding your plugins here keeps them separate from core configuration so you can update via <code class="language-plaintext highlighter-rouge">Space-qu</code>. Since Git ignores the directory, your customizations don’t conflict with future VimStar updates. Be sure to back up or sync your configuration somewhere in case you must reinstall later!</p>
+
 <h2 id="loading-order">Loading Order</h2>
 
 <ol>
   <li><code class="language-plaintext highlighter-rouge">init.lua</code> - Entry point</li>
   <li><code class="language-plaintext highlighter-rouge">vim-options.lua</code> - Core settings</li>
-  <li><code class="language-plaintext highlighter-rouge">lazy.setup("plugins")</code> - Plugins</li>
+  <li>Lazy.nvim loads:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">plugins/</code> directory (core plugins)</li>
+      <li><code class="language-plaintext highlighter-rouge">user/plugins/</code> directory (custom user plugins)</li>
+    </ul>
+  </li>
   <li><code class="language-plaintext highlighter-rouge">keymaps.lua</code> - Keybindings</li>
   <li><code class="language-plaintext highlighter-rouge">vimstar-user.lua</code> - User overrides</li>
 </ol>

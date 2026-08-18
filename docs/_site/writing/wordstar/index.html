@@ -2,7 +2,7 @@
 
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.28.1 by Michael Rose
   Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
   Copyright 2024-2026 iBug - ibugone.com | @iBug
   Free for personal and commercial use under the MIT license
@@ -245,14 +245,101 @@
           <aside class="sidebar__right ">
             <nav class="toc" aria-label="Table of contents">
               <header><h4 class="nav__title"><i class="fas fa-gears"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#block-commands">Block Commands</a></li><li><a href="#movement">Movement</a></li><li><a href="#menu-system">Menu System</a></li></ul>
             </nav>
           </aside>
         
-        <p>VimStar takes its inspiration from WordStar, a decades-old word processor first written for CP/M and then DOS in the 1980s. Neovim itself derives from Vim, which was written originally in the 1980s for the Commodore Amiga and then ported to Linux. Was there something about the 80s we’re all missing? One might ask the question first: why Neovim, and second: why WordStar?</p>
+        <p>VimStar takes its inspiration from WordStar, a decades-old word processor first written for CP/M and then DOS in the 1980s. Neovim itself derives from Vim, which was written originally in the 1980s for the Commodore Amiga and then ported to Linux. Clearly, if both Vim and WordStar still have an influence when they were invented in the 80s, there’s something to them. One might ask the question first: why Neovim, and second: why WordStar?</p>
 
-<p>The answer: speed. Modern systems are great for novices. They offer a nice, visual interface for commanding the system through point and click, dialog boxes, rows of icons, and more. The keyboard is used solely for typing. This should be contrasted with what Vim and WordStar offer: a keyboard-only interface. Whether you use the DOS, Amiga, or Linux CLI, you do <em>nothing</em> with the mouse. For touch typists, this means speed, speed, speed. For more on this, see <a href="/vimstar-a-writers-wordprocessor/">VimStar: A Writer’s Word Processor</a>.</p>
+<p>The answer: speed. Modern systems are great for novices. They offer a nice, visual interface for commanding the system through point and click, dialog boxes, rows of icons, and more. The keyboard is used solely for typing. Vim and WordStar (and thus VimStar) offer a keyboard-only interface. Whether you use the DOS, Amiga, or Linux CLI, you do <em>nothing</em> with the mouse. For touch typists, this means speed, speed, speed. At some point, novices <em>must</em> graduate from the point and click to the keyboard interface and take their places as experts. For more on this, see <a href="/vimstar-a-writers-wordprocessor/">VimStar: A Writer’s Word Processor</a>.</p>
 
+<p>There are <a href="https://www.vim-hero.com">great</a> <a href="https://openvim.com/">tutorials</a> out there for Vim already, so I commend you to them. As for WordStar, I only recommend trying to run it for research purposes, to see where VimStar gets its influences. You can try in your browser a version of WordStar that’s older than the one I used <a href="https://nampara-ai.github.io/wordstar/">here</a>. Your other options are to get Robert J. Sawyer’s <a href="https://sfwriter.com/ws7.htm">WordStar archive</a> running in a DOS emulator, or try the alpha quality <a href="https://wordtsar.ca/">WordTsar</a> clone.</p>
+
+<p>VimStar is influenced by WordStar in several ways:</p>
+
+<ul>
+  <li>It adopts the WordStar block commands. These are unique to WordStar and aren’t found in any other software I know about (other than clones like <a href="https://wordtsar.ca/">WordTsar</a> or <a href="https://joe-editor.sourceforge.io/">Joe’s Own Editor</a>).</li>
+  <li>It adds WordStar movement keys in Vim’s Insert mode. This makes Vim a little easier to adopt, and it supports the WordStar die hards’ muscle memory.</li>
+  <li>It organizes its menu system the way WordStar did, which you’ll find is quite intuitive.</li>
+</ul>
+
+<h1 id="block-commands">Block Commands</h1>
+
+<p>WordStar’s block commands are legendary for writers. They’re probably the main reason some writers have stuck with WordStar for so long. Nothing else, including Vim and Neovim, has had them, until now. These block commands are implemented in VimStar. They’re clearly designed for someone who is creating, not editing, at the keyboard. Once you start using them, you’ll likely prefer them.</p>
+
+<p>In VimStar, you can use the WordStar block commands in concert with Vim’s regular block highlighting (i.e., Visual mode) and registers.</p>
+
+<p>Every other editor expects you to mark a block and then do something with that block immediately. That’s not how VimStar’s block commands work. You can mark the beginning of a block (<code class="language-plaintext highlighter-rouge">Space-kb</code>) and then go keep writing elsewhere in the document. If you decide later that you want the beginning of the block somewhere else, you mark that spot (<code class="language-plaintext highlighter-rouge">Space-kb</code> again), and the beginning marker moves there. Once you figure out where the end of the block should go, mark that (<code class="language-plaintext highlighter-rouge">Space-kk</code>), and the block is highlighted.</p>
+
+<p>At that point, you still don’t have to do anything with the block. You can go write or edit in the document somewhere else. The block stays marked. When you figure out where you want that block to go, a command moves (<code class="language-plaintext highlighter-rouge">Space-kv</code>) or copies (<code class="language-plaintext highlighter-rouge">Space-kc</code>) it to the cursor location. If you want to bounce back to where the block was moved from, you can (<code class="language-plaintext highlighter-rouge">Space-qv</code>).</p>
+
+<p>VimStar, as WordStar did, stores two blocks this way. If you have a block marked, you can mark another one. Once the second block is marked, you can switch back and forth between the two blocks (<code class="language-plaintext highlighter-rouge">Space-ku</code>) to perform operations on them (i.e., copying or moving).</p>
+
+<p>These block operations make sense when the use case is creating and editing at the keyboard. Sometimes you realize your brain jumped ahead, and you wrote something that doesn’t belong where it is. You may not know where it’s supposed to go yet—in fact, you may not even have yet written the passage where it’s supposed to go. You can mark that block and keep going.</p>
+
+<p>Most editors use their block commands not only for moving text around, but also for formatting with bold and italics and such. These commands are not for that; they’re for <em>editing</em> the text: moving it, shaping it, carving it into what it should be.</p>
+
+<p>When you want to format the text in VimStar, use the regular Visual mode commands—for example, hit <code class="language-plaintext highlighter-rouge">v</code> to go to visual mode, highlight some text, and then hit <code class="language-plaintext highlighter-rouge">S</code> for Surround, and then <code class="language-plaintext highlighter-rouge">*</code> for italics (in Markdown). These existing Vim commands are perfect for operations like those, when you know exactly what you want to do with the text you’re highlighting. When you want to <em>edit</em> the text—move it, shape it—use the WordStar-inspired block commands.</p>
+
+<h1 id="movement">Movement</h1>
+
+<p>WordStar (and thus VimStar in Insert mode) organizes its movement keys differently from Vim, in what’s called the WordStar diamond:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>E</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S</td>
+      <td> </td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>X</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>While in Insert mode, you can access these keys via the Ctrl key, so Ctrl-E moves the cursor up, Ctrl-S moves the cursor to the left, Ctrl-D moves the cursor to the right, and Ctrl-X moves the cursor down.</p>
+
+<p>Various other commands expand the diamond. Ctrl-F (next to the D) moves the cursor one word to the right; Ctrl-A moves the cursor one word to the left. WordStar expanded this further, by implementing page up and page down via Ctrl-R and Ctrl-C, but that’s not implemented in VimStar.</p>
+
+<p>In Neovim’s Normal mode, WordStar’s other movement commands appear in the Q menu (<code class="language-plaintext highlighter-rouge">Space-q</code>) in VimStar.</p>
+
+<h1 id="menu-system">Menu System</h1>
+
+<p>Vim (and Neovim) by themselves have no menu system at all. One of the common criticisms of Vim is how unapproachable it is for newcomers. VimStar aims to change that by implementing a menu system mirrored from WordStar.</p>
+
+<p>I came to WordStar later than most, so both the versions I used (version 6.0 and version 7.0d) had pull-down menus. VimStar doesn’t emulate those; instead, along with menus of its own that cover features the WordStar people could never have predicted (i.e., Git), it emulates the classic WordStar menus:</p>
+
+<ul>
+  <li>Block and Save (<code class="language-plaintext highlighter-rouge">Space-k</code>)</li>
+  <li>Onscreen Format (<code class="language-plaintext highlighter-rouge">Space-o</code>)</li>
+  <li>Print Controls (<code class="language-plaintext highlighter-rouge">Space-p</code>)</li>
+  <li>Quick Menu (<code class="language-plaintext highlighter-rouge">Space-q</code>)</li>
+</ul>
+
+<p>As WordStar was modeless, these menus were accessed via the Control key on the keyboard; VimStar implements them in Normal mode via the space bar. The Block and Save menu particularly should help those who are new to Vim perform basic functions such as saving a file or exiting VimStar, freeing them from the famous “exit Vim” meme.</p>
+
+<p>VimStar adds these menus for functions WordStar didn’t have:</p>
+
+<ul>
+  <li>Debug (<code class="language-plaintext highlighter-rouge">Space-d</code>), for debugging code</li>
+  <li>Code (<code class="language-plaintext highlighter-rouge">Space-c</code>), for AI integration features</li>
+  <li>Java (<code class="language-plaintext highlighter-rouge">Space-j</code>), for Java-specific functions</li>
+  <li>Wiki (<code class="language-plaintext highlighter-rouge">Space-w</code>), for Wiki functions</li>
+  <li>Find (<code class="language-plaintext highlighter-rouge">Space-f</code>), for various Telescope and find functions</li>
+  <li>Git (<code class="language-plaintext highlighter-rouge">Space-g</code>), for various Git functions</li>
+</ul>
+
+<p>The goal for VimStar is to provide the best writing and editing environment possible for text and code alike by combining the functionality of two of the best editors that have ever existed.</p>
 
         
       </section>
