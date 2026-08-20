@@ -9,6 +9,42 @@ local builtin = require("telescope.builtin")
 local wk = require("which-key")
 local depcheck = require("vimstar.depcheck")
 
+local function save_as_dialog()
+    -- Start at the current buffer's directory, or fallback to CWD if unsaved
+    local start_dir = vim.fn.expand("%:p:h")
+    if start_dir == "" then start_dir = vim.uv.cwd() end
+
+    local dirs = {}
+    -- Gather directories using shellescape to protect spaces in paths
+    local handle = io.popen(string.format("find %s -maxdepth 2 -type d", vim.fn.shellescape(start_dir)))
+
+    if handle then
+        for line in handle:lines() do
+            table.insert(dirs, line) -- 'find' with absolute start returns absolute paths
+        end
+        handle:close()
+    end
+
+    -- Directory picker (Dressing/Telescope will intercept this as a floating window)
+    vim.ui.select(dirs, { 
+        prompt = "Select Save Directory:", 
+        kind = "saveas_dir" 
+    }, function(selected)
+        if not selected then return end
+
+        -- Filename input
+        vim.ui.input({ prompt = "Filename: " }, function(filename)
+            if not filename or #filename == 0 then return end
+
+            -- Safely join directory and filename, handling spaces/trailing slashes automatically
+            local full_path = vim.fs.joinpath(selected, filename)
+
+            -- Execute the save command with proper escaping
+            vim.cmd(string.format("saveas %s", vim.fn.fnameescape(full_path)))
+        end)
+    end)
+end
+
 wk.add(
   {
     -- Block and Save Menu
@@ -19,11 +55,12 @@ wk.add(
     { "<leader>kl", "<cmd> cd %:p:h |<CR>|", desc = "Change Working Dir" },
     { "<leader>ks", function()
         if vim.fn.bufname() == "" then
-          vim.ui.input({ prompt = "Save buffer as: ", default = vim.fn.getcwd() .. "/" }, function(input)
+         --[[ vim.ui.input({ prompt = "Save buffer as: ", default = vim.fn.getcwd() .. "/" }, function(input)
             if input then
               vim.cmd("silent write " .. input)
             end
-          end)
+          end) ]]
+          save_as_dialog()
         else
           vim.cmd.w()
         end
