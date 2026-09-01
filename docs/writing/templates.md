@@ -80,7 +80,14 @@ affiliation: ""
 ---
 ```
 
-Set these headers and then hit `<Space>ps`. This produces a manuscript in the proper format for a publication: 
+Set these headers and then hit one of the commands below. This produces a manuscript in the proper format for a publication: 
 
 ![The submission format is for submitting a story or article to a publication.](/assets/images/submission-screenshot.png)
+
+| Command | Output |
+| -------------- | --------------- |
+| `Space-ps` | Submission in PDF format |
+| `Space-pS` | Submission in .odt (LibreOffice) format |
+
+Submission in .docx format (exported from LibreOffice) coming soon! 
 

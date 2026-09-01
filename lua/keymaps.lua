@@ -222,6 +222,16 @@ wk.add(
       end
       vim.cmd("MarkmapSave")
     end, desc = "Save Mindmap; don't open it" },
+    { "<leader>pS", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc to enable ODT export.", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      require("vimstar.shunn_odt").export({
+        reference_doc = vim.fn.expand("~/.VimStar/templates/odt/shunn-modern-reference.odt"),
+        filter = vim.fn.expand("~/.VimStar/templates/odt/shunn-frontmatter.lua"),
+      })
+    end, desc = "Convert Markdown to ODT: Submission Format" },
     { "<leader>po", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc to enable ODT export (visit pandoc.org)", vim.log.levels.WARN, { title = "VimStar" })
