@@ -56,7 +56,23 @@ This way, you can cut the page in half or fold it and stick it in your paper-bas
 
 The book template formats your document as a digest-sized paperback book. If you are a writer who self-publishes your work, you could write your entire novel in VimStar, use this template to lay it out, and upload it to Amazon, IngramSpark, Lulu, or any other self-publishing platform. 
 
-I'm still working on the book; it has most everything except a dedication page. When that gets implemented, I'll update this page. For now, it needs no more header information than the Article/Handout and the Planner page do. 
+The book template accepts the same YAML headers as the Article/Handout (`title`, `subtitle`, `author`), with two optional headers for the dedication and the ISBN: 
+
+```markdown
+---
+title: "My Great Book"
+subtitle: "A Story of Greatness"
+author: "Firstname Lastname"
+dedication: "For my family, who endured the writing process."
+isbn: "978-1234567890"
+---
+
+# Chapter One
+
+The rest of your Markdown file goes here. Each level-1 heading begins a new chapter. 
+```
+
+The dedication, if present, appears on its own page after the copyright page. The ISBN, if present, appears on the copyright page.
 
 ![The book template formats your Markdown file as a paperback book.](/assets/images/book-screenshot.png)
 

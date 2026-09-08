@@ -72,7 +72,19 @@
   #text(size: 10pt)[Copyright © #datetime.today().year() $author$.]
   #v(0.3em)
   #text(size: 10pt)[All rights reserved.]
+  $if(isbn)$
+  #v(0.3em)
+  #text(size: 10pt)[ISBN: $isbn$]
+  $endif$
 ]
+
+$if(dedication)$
+#pagebreak()
+#align(center + horizon)[
+  #v(20%)
+  #emph(text(size: 12pt)[$dedication$])
+]
+$endif$
 
 // Get ready for the ToC 
 
