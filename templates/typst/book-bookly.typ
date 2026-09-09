@@ -5,6 +5,34 @@
 // === Bookly takes over ===
 #import "@preview/bookly:3.1.1": *
 
+// Fonts can be overridden in the document's YAML header via `body-font`
+// (serif) and `heading-font` (sans). Each fallback list is ordered so the
+// first *installed* font on Windows, macOS, or Linux wins.
+#let body-font = (
+  $if(body-font)$
+  "$body-font$",
+  $endif$
+  "Libertinus Serif",
+  "Times New Roman",
+  "Georgia",
+  "Noto Serif",
+  "DejaVu Serif",
+  "Liberation Serif",
+)
+
+#let heading-font = (
+  $if(heading-font)$
+  "$heading-font$",
+  $endif$
+  "Gillius ADF",
+  "Arial",
+  "Helvetica",
+  "Verdana",
+  "Noto Sans",
+  "DejaVu Sans",
+  "Liberation Sans",
+)
+
 #show: bookly.with(
   title: "$title$",
   author: "$author$",
@@ -16,8 +44,8 @@
     alt-margins: false,
   ),
   fonts: (
-    body: ("Libertinus Serif", "Noto Serif", "Noto Sans", "DejaVu Sans"),
-    heading: ("Gillius ADF", "Noto Sans"),   // optional — some versions support it
+    body: body-font,
+    heading: heading-font,   // optional — some versions support it
     math: ("IosevkaTermSlab NF", "New Computer Modern Math"),  // required
     raw: ("IosevkaTermSlab NF", "Fira Code", "Source Code Pro"), // required
   ),
@@ -120,7 +148,7 @@ $endif$
       none  // ← suppress header + rule on chapter opener pages
     } else {
       // Normal pages: Chapter (left) | Author (right)
-      let header-font = ("Gillius ADF", "Noto Serif")
+      let header-font = heading-font
       let header-size = 9.5pt
       let header-weight = "regular"
       let header-color = black
@@ -160,7 +188,7 @@ $endif$
 
 // Body text
 #set text(
-  font: ("Libertinus Serif", "Noto Serif", "Noto Sans", "DejaVu Sans"),
+  font: body-font,
   fallback: true,
   lang: "en",
   11pt,
@@ -172,7 +200,7 @@ $endif$
 //   v(1em)
 //   align(left)[
 //     #text(
-//       font: ("Gillius ADF", "Noto Sans"),
+//       font: heading-font,
 //       size: 18pt,
 //       weight: "bold",
 //     )[#it.body]
@@ -188,7 +216,7 @@ $endif$
   // Design with CHAPTER above
   // align(center)[
   //  #text(
-  //    font: ("Gillius ADF", "Noto Sans"),
+  //    font: heading-font,
   //    size: 11pt,
   //    weight: "bold",
   //    tracking: 2pt,          // spreads the letters nicely
@@ -199,64 +227,64 @@ $endif$
   //  #v(0.8em)
     
   //  #text(
-  //    font: ("Gillius ADF", "Noto Sans"),
+  //    font: heading-font,
   //    size: 24pt,
   //    weight: "bold",
   //  )[
   //    #it.body
   //  ]
- // ]
+  // ]
 
   // Design with line
   // align(center)[
-  // #text(font: ("Gillius ADF", "Noto Sans"), size: 10pt, weight: "bold")[
+  // #text(font: heading-font, size: 10pt, weight: "bold")[
   //   CHAPTER #counter(heading.where(level: 1)).display()
-//   ]
+  // ]
   
-//   #v(0.4em)
-//   #line(length: 40%, stroke: 1.5pt)   // or use a symbol: ★ ★ ★
-//   #v(0.6em)
+  // #v(0.4em)
+  // #line(length: 40%, stroke: 1.5pt)   // or use a symbol: ★ ★ ★
+  // #v(0.6em)
   
-//   #text(font: ("Gillius ADF", "Noto Sans"), size: 26pt, weight: "bold")[
-//     #it.body
-//   ]
-// ]
+  // #text(font: heading-font, size: 26pt, weight: "bold")[
+  //   #it.body
+  // ]
+  // ]
 
   // Left Aligned
-align(left)[
-  #text(
-    font: ("Gillius ADF", "Noto Sans"),
-    size: 13pt,
-    weight: "bold",
-    fill: rgb("#444")
-  )[CHAPTER #counter(heading.where(level: 1)).display()]
-  
-  #v(0.3em)
-  
-  #text(
-    font: ("Gillius ADF", "Noto Sans"),
-    size: 22pt,
-    weight: "bold"
-  )[#it.body]
-]
+  align(left)[
+    #text(
+      font: heading-font,
+      size: 13pt,
+      weight: "bold",
+      fill: rgb("#444")
+    )[CHAPTER #counter(heading.where(level: 1)).display()]
+    
+    #v(0.3em)
+    
+    #text(
+      font: heading-font,
+      size: 22pt,
+      weight: "bold"
+    )[#it.body]
+  ]
   v(1.5em)   // space after chapter title
 }
 
-// === Lower-level headings (2+) - use Gillius ADF (sans) ===
+// === Lower-level headings (2+) - use the sans heading font ===
 #show heading.where(level: 2): set text(
-  font: ("Gillius ADF", "Noto Sans"),
+  font: heading-font,
   size: 14pt,
   weight: "bold",
 )
 
 #show heading.where(level: 3): set text(
-  font: ("Gillius ADF", "Noto Sans"),
+  font: heading-font,
   size: 12pt,
   weight: "bold",
 )
 
 #show heading.where(level: 4): set text(
-  font: ("Gillius ADF", "Noto Sans"),
+  font: heading-font,
   size: 11pt,
   weight: "bold",
 )
@@ -268,7 +296,7 @@ align(left)[
 
 // Picture (and other figure) captions use the sans font
 #show figure.caption: set text(
-  font: ("Gillius ADF", "Noto Sans"),
+  font: heading-font,
   size: 11pt,
 )
 

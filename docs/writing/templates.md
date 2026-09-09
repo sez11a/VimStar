@@ -56,7 +56,7 @@ This way, you can cut the page in half or fold it and stick it in your paper-bas
 
 The book template formats your document as a digest-sized paperback book. If you are a writer who self-publishes your work, you could write your entire novel in VimStar, use this template to lay it out, and upload it to Amazon, IngramSpark, Lulu, or any other self-publishing platform. 
 
-The book template accepts the same YAML headers as the Article/Handout (`title`, `subtitle`, `author`), with two optional headers for the dedication and the ISBN: 
+The book template accepts the same YAML headers as the Article/Handout (`title`, `subtitle`, `author`), with optional headers for the dedication, the ISBN, and the book typefaces: 
 
 ```markdown
 ---
@@ -65,6 +65,8 @@ subtitle: "A Story of Greatness"
 author: "Firstname Lastname"
 dedication: "For my family, who endured the writing process."
 isbn: "978-1234567890"
+body-font: "Alegreya"
+heading-font: "Alegreya Sans"
 ---
 
 # Chapter One
@@ -73,6 +75,12 @@ The rest of your Markdown file goes here. Each level-1 heading begins a new chap
 ```
 
 The dedication, if present, appears on its own page after the copyright page. The ISBN, if present, appears on the copyright page.
+
+`body-font` sets the serif font used for the body text.
+
+`heading-font` sets the sans font used for the chapter headings (level 1), the sub-headings (levels 2–4), the figure captions, and the running header.
+
+Both are optional. The value is the name of a font installed on the computer doing the compilation. If you leave a header out or name a font that isn't installed there, the template walks down a fallback list of common, cross-platform fonts (Windows, macOS, and Linux) and uses the first one it can find, so the PDF always renders with a sensible typeface. If you set a font that is installed, it takes precedence over the built-in defaults. Note that Typst shows warnings when fonts aren't installed; these are normal and don't affect the PDF output.
 
 ![The book template formats your Markdown file as a paperback book.](/assets/images/book-screenshot.png)
 
