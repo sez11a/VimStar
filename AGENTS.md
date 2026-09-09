@@ -10,16 +10,37 @@
 - **Entry point**: `init.lua` (loads modules in order: `vim-options`, `lazy`, `keymaps`, `vimstar-user`)
 - **Core functions:** `/lua/vimstar/*.lua`. Contains VimStar-specific functionality that duplicates WordStar functionality. WordStar's block functions for defining, copying, moving, deleting, and switching blocks, as well as cursor movement to current and former block locations are implemented. 
 - **Plugin config**: `/lua/plugins/*.lua` - each exports a table via `return {}`
-- **User customization**: `vimstar-user.lua` loads after core config for user overrides. No other files can be customized, or users introduce potential Git conflicts.
+- **User customization**: `vimstar-user.lua` loads after core config for user overrides. Users can customize plugins in `/lua/user/plugins` by adding Lua files there; it is ignored by Git. 
+- **Loading Order**: 
+  1. `init.lua` - Entry point
+  2. `vim-options.lua` - Core settings
+  3. Lazy.nvim loads:
+     - `plugins/` directory (core plugins)
+     - `user/plugins/` directory (custom user plugins) 
+  4. `keymaps.lua` - Keybindings
+  5. `vimstar-user.lua` - User overrides
 - **Keymaps**: `/lua/keymaps.lua` uses Space as leader; registered via which-key `wk.add()`
 
 ## Critical Paths
 
 - **Markdown focus**: filetype defaults to markdown; spell-check enabled for prose filetypes
-- ** Publishing**: Markdown files can be converted to various other formats with the `Space-p` menu via Pandoc
+- ** Publishing**: Markdown files can be converted to various other formats with the `Space-p` menu via Pandoc; see the Book Template section below for the book layout's font settings
 - **Debugging**: Python (DAP), Go (DAP), Java (attach to port 5005); `Space-dt` toggles breakpoint
 - **Wiki**: Uses `wiki.vim` with journal templates; `~/.VimStar/wiki/templates/`
-- **AI**: CodeCompanion with Ollama (model `gemma4:31b`); `Space-cc` opens chat
+- **AI**: CodeCompanion with Ollama (model `qwen3.8:latest`); `Space-cc` opens chat
+
+## Book Template (Typst): templates/typst/book-bookly.typ
+
+Layout for a digest-sized paperback (5.5x8.5in), invoked via Pandoc (`<Space>pk` → `Pandoc pdf --to pdf --pdf-engine typst --template .../book-bookly.typ`).
+
+- **Fonts** are centralized in two `#let` variables at the top of the template (`body-font`, `heading-font`). Every font site (bookly `fonts:`, body `#set text`, level-1/2/3/4 headings, running header, figure captions) references one of these two — change a font there, not at the call sites.
+- **Per-document overrides** via YAML headers: `body-font` (serif, body text) and `heading-font` (sans, headings + captions + running header). Set via Pandoc `$if(...)$`; when unset (or the named font isn't installed) the template falls through a cross-OS list (Times/Georgia/Noto/DejaVu/Liberation for serif; Arial/Helvetica/Verdana/Noto/DejaVu/Liberation for sans). An installed user font takes precedence.
+- **Default look**: body = Libertinus Serif, headings/captions = Gillius ADF (both not standard on Windows/macOS — that's why the fallback lists exist).
+
+### Typst gotchas (learned while debugging the heading font)
+- A global `#show text: set text(font: …)` rule fires on the inner text of *every* element and is the nearest scope to the heading's text, so it **overrides** a less-nested `#show heading: set text(font: …)` rule. That was the original "headings render in the body font" bug — fixed by removing the global rule. Do not reintroduce a global `#show text` font rule.
+- Style lower-level headings with a `set text(…)` show rule (keeps the element a real **block** heading, so it breaks to its own line and stays in `outline`/ToC). Do **not** replace the heading with a bare `#text(…)[#it.body]` element — that makes it inline, which drops the following paragraph onto the same line and removes it from the ToC.
+- Verify font changes with `pdffonts out.pdf` (lists embedded families) and `pdftotext -layout` (checks line breaks); Pandoc emits a harmless "unknown font family" warning for any fallback entry not installed on the compiling machine.
 
 ## LSP & Tools (via Mason)
 
@@ -59,6 +80,7 @@ Keymaps check dependencies and show helpful messages instead of errors when unav
 - **Buffers**: `Space-ke` new, `Space-kj` close, `Space-kb` switch, `Space-kx` save+quit  
 - **Format**: `Space-oa` code actions, `Space-of` format, `Space-od` definition  
 - **Preview**: `Space-op` markdown live preview, `Space-oq` stop preview  
+- **Publish**: `Space-pk` book (Typst), `Space-pP` article/handout (Typst), `Space-pE` planner (Typst), `Space-pS` submission (.odt), `Space-po` generic .odt
 - **Plugins**: `Space-ql` Lazy, `Space-qm` Mason, `Space-qt` TSUpdate  
 
 ## Installation
