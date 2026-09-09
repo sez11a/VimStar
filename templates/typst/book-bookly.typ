@@ -31,8 +31,6 @@
   footer: none,
 )
 
-#show text: set text(font: ("Libertinus Serif", "Noto Serif"))
-
 // Pre-title (page 1)
 #align(center + horizon)[
   #v(40%)
@@ -247,7 +245,7 @@ align(left)[
 // === Lower-level headings (2+) - use Gillius ADF (sans) ===
 #show heading.where(level: 2): set text(
   font: ("Gillius ADF", "Noto Sans"),
-  size: 14pt,      // adjust size as needed
+  size: 14pt,
   weight: "bold",
 )
 
@@ -267,6 +265,12 @@ align(left)[
 #show heading.where(level: 2): set heading(numbering: none)
 #show heading.where(level: 3): set heading(numbering: none)
 #show heading.where(level: 4): set heading(numbering: none)
+
+// Picture (and other figure) captions use the sans font
+#show figure.caption: set text(
+  font: ("Gillius ADF", "Noto Sans"),
+  size: 11pt,
+)
 
 // Fully-justified body text with automatic hyphenation
 #set par(justify: true)
