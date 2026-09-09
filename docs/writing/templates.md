@@ -10,6 +10,7 @@ toc: true
 VimStar ships with several templates for exporting Markdown files into various formats: 
 
 - Article/Handout
+- Business Letter
 - Book
 - Submission Format
 - Planner Page 
@@ -43,6 +44,35 @@ The rest of your Markdown file goes here. Use headings and other Markdown featur
 When you're ready to produce your article or handout, in Normal mode hit `<Space>pp` (LaTeX) or `<Space>pP` (Typst). It produces a document suitable as an article or handout: 
 
 ![The article/handout is a basic format with a title, subtitle, author, headings, and page numbers.](/assets/images/article-screenshot.png)
+
+# Business Letter
+
+The business letter template formats your Markdown file as a simple business letter on US-Letter paper. The body of the letter is just the text of your Markdown document; all of the letterhead, addressing, salutation, and signature details come from YAML headers:
+
+```markdown
+---
+date: "September 9, 2026"
+from-name: "Jane Doe"
+from-address-1: "123 Main Street"
+from-address-2: "Springfield, IL 62701"
+to-company-name: "Acme Corporation"
+to-name: "John Smith"
+to-address-1: "456 Oak Avenue"
+to-address-2: "Chicago, IL 60601"
+salutation: "Dear Mr. Smith"
+complimentary-close: "Sincerely"
+---
+
+Thank you for taking the time to review my application. I look forward to hearing from you.
+
+Please contact me if you need any further information.
+```
+
+This produces the classic business-letter layout:
+
+![The letter template creates a business letter.](/assets/images/letter-screenshot.png)
+
+To use it, hit `<Space>pL`. Note that you can write the date in any way you like-—-`date` is just a string-—-and any field you leave out is skipped, so minimalist letters with fewer headers render fine. 
 
 # Planner Page 
 

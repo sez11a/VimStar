@@ -80,7 +80,7 @@ Keymaps check dependencies and show helpful messages instead of errors when unav
 - **Buffers**: `Space-ke` new, `Space-kj` close, `Space-kb` switch, `Space-kx` save+quit  
 - **Format**: `Space-oa` code actions, `Space-of` format, `Space-od` definition  
 - **Preview**: `Space-op` markdown live preview, `Space-oq` stop preview  
-- **Publish**: `Space-pk` book (Typst), `Space-pP` article/handout (Typst), `Space-pE` planner (Typst), `Space-pS` submission (.odt), `Space-po` generic .odt
+- **Publish**: `Space-pk` book (Typst), `Space-pP` article/handout (Typst), `Space-pE` planner (Typst), `Space-pL` business letter (Typst), `Space-pS` submission (.odt), `Space-po` generic .odt
 - **Plugins**: `Space-ql` Lazy, `Space-qm` Mason, `Space-qt` TSUpdate  
 
 ## Installation

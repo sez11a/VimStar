@@ -201,6 +201,13 @@ wk.add(
       end
       vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/planner-page.typ")
     end, desc="Convert Markdown to PDF: planner page template (Typst, n-up)" },
+    { "<leader>pL", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/business-letter.typ")
+    end, desc = "Convert Markdown to PDF: business letter template (Typst)" },
     { "<leader>pk", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
