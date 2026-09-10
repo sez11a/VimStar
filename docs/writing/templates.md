@@ -27,6 +27,18 @@ Templates format your Markdown document in useful ways. Type one command in VimS
 
 Exporting your Markdown file to a PDF using the templates requires using the `<Space>p` (Print Controls) menu. Commands for the various templates appear there. Note that if you're using images in your Markdown files, before exporting via a template, change the working directory to the location of the currently open file with `<Space>kl`. 
 
+# YAML Header Snippets
+
+Rather than typing out an entire YAML header from memory, VimStar ships with snippets that insert a pre-filled header for each template. Start typing a trigger in an empty Markdown file, select it from the completion menu, and the whole front matter appears with placeholder values. Tab through the placeholders to fill in your own details; each tab moves you to the next field, and the final tab places your cursor in the body of the document.
+
+| Trigger | Template | Fields |
+| ------- | -------- | ------ |
+| `yaml-article` | Article/Handout | `title`, `subtitle`, `author` |
+| `yaml-letter` | Business Letter | `date`, `from-name`, `from-address-1`, `from-address-2`, `to-company-name`, `to-name`, `to-address-1`, `to-address-2`, `salutation`, `complimentary-close` |
+| `yaml-book` | Book | `title`, `subtitle`, `author`, `dedication`, `isbn`, `body-font`, `heading-font` |
+| `yaml-submission` | Submission Format | `title`, `author`, `surname`, `shorttitle`, `wordcount`, `name`, `address`, `city`, `phone`, `email`, `affiliation` |
+| `yaml-planner` | Planner Page | `title`, `subtitle`, `author` |
+
 # Article/Handout 
 
 This, along with the planner, is the simplest template. At the top of your Markdown file, place a YAML header containing these fields: 

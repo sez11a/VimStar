@@ -80,3 +80,68 @@ snippet grid
   :link: ./tutorials/building-a-third-thing.md
   :::
   ::::
+
+# YAML front matter: Article/Handout
+snippet yaml-article
+  ---
+  title: "${1:Your Title}"
+  subtitle: "${2:Your Subtitle}"
+  author: "${3:Firstname Lastname}"
+  ---
+
+  ${4}
+# YAML front matter: Business Letter
+snippet yaml-letter
+  ---
+  date: "${1:January 1, 2026}"
+  from-name: "${2:Firstname Lastname}"
+  from-address-1: "${3:123 Main Street}"
+  from-address-2: "${4:City, ST 00000}"
+  to-company-name: "${5:Company Name}"
+  to-name: "${6:Firstname Lastname}"
+  to-address-1: "${7:456 Oak Avenue}"
+  to-address-2: "${8:City, ST 00000}"
+  salutation: "${9:Dear Firstname Lastname}"
+  complimentary-close: "${10:Sincerely}"
+  ---
+
+  ${11}
+# YAML front matter: Book
+snippet yaml-book
+  ---
+  title: "${1:My Great Book}"
+  subtitle: "${2:A Story of Greatness}"
+  author: "${3:Firstname Lastname}"
+  dedication: "${4:For my family, who endured the writing process.}"
+  isbn: "${5:978-1234567890}"
+  body-font: "${6:Alegreya}"
+  heading-font: "${7:Alegreya Sans}"
+  ---
+
+  ${8}
+# YAML front matter: Submission Format
+snippet yaml-submission
+  ---
+  title: "${1:A Great Story}"
+  author: "${2:Dude Dud}"
+  surname: "${3:Dud}"
+  shorttitle: "${4:Story}"
+  wordcount: "${5:about 12,000 words}"
+  name: "${6:Dudeness M. Dud}"
+  address: "${7:123 Main Street}"
+  city: "${8:Anywhere, XX  00000}"
+  phone: "${9:123-456-7890}"
+  email: "${10:dude@place.com}"
+  affiliation: "${11:}"
+  ---
+
+  ${12}
+# YAML front matter: Planner Page
+snippet yaml-planner
+  ---
+  title: "${1:Your Title}"
+  subtitle: "${2:Your Subtitle}"
+  author: "${3:Firstname Lastname}"
+  ---
+
+  ${4}
