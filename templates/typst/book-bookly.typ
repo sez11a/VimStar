@@ -95,7 +95,7 @@
 // Copyright (page 4)
 #align(center)[
   #v(40%)
-  #text(size: 10pt)[Copyright © #datetime.today().year() $author$.]
+  #text(size: 10pt)[Copyright © #datetime.today().year() $if(copyright-holder)$$copyright-holder$$else$$author$$endif$.]
   #v(0.3em)
   #text(size: 10pt)[All rights reserved.]
   $if(isbn)$

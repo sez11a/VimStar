@@ -35,7 +35,7 @@ Rather than typing out an entire YAML header from memory, VimStar ships with sni
 | ------- | -------- | ------ |
 | `yaml-article` | Article/Handout | `title`, `subtitle`, `author` |
 | `yaml-letter` | Business Letter | `date`, `from-name`, `from-address-1`, `from-address-2`, `to-company-name`, `to-name`, `to-address-1`, `to-address-2`, `salutation`, `complimentary-close` |
-| `yaml-book` | Book | `title`, `subtitle`, `author`, `dedication`, `isbn`, `body-font`, `heading-font` |
+| `yaml-book` | Book | `title`, `subtitle`, `author`, `copyright-holder`, `dedication`, `isbn`, `body-font`, `heading-font` |
 | `yaml-submission` | Submission Format | `title`, `author`, `surname`, `shorttitle`, `wordcount`, `name`, `address`, `city`, `phone`, `email`, `affiliation` |
 | `yaml-planner` | Planner Page | `title`, `subtitle`, `author` |
 
@@ -98,13 +98,14 @@ This way, you can cut the page in half or fold it and stick it in your paper-bas
 
 The book template formats your document as a digest-sized paperback book. If you are a writer who self-publishes your work, you could write your entire novel in VimStar, use this template to lay it out, and upload it to Amazon, IngramSpark, Lulu, or any other self-publishing platform. 
 
-The book template accepts the same YAML headers as the Article/Handout (`title`, `subtitle`, `author`), with optional headers for the dedication, the ISBN, and the book typefaces: 
+The book template accepts the same YAML headers as the Article/Handout (`title`, `subtitle`, `author`), with optional headers for an alternate copyright holder, the dedication, the ISBN, and the book typefaces: 
 
 ```markdown
 ---
 title: "My Great Book"
 subtitle: "A Story of Greatness"
 author: "Firstname Lastname"
+copyright-holder: "Publisher Name"
 dedication: "For my family, who endured the writing process."
 isbn: "978-1234567890"
 body-font: "Alegreya"
@@ -113,10 +114,10 @@ heading-font: "Alegreya Sans"
 
 # Chapter One
 
-The rest of your Markdown file goes here. Each level-1 heading begins a new chapter. 
+The rest of your Markdown file goes here. Each level-1 heading begins a new chapter.
 ```
 
-The dedication, if present, appears on its own page after the copyright page. The ISBN, if present, appears on the copyright page.
+The dedication, if present, appears on its own page after the copyright page. The ISBN, if present, appears on the copyright page. If `copyright-holder` is provided, it is used instead of `author` on the copyright page.
 
 `body-font` sets the serif font used for the body text.
 
