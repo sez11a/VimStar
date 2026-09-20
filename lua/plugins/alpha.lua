@@ -22,12 +22,18 @@ return {
     }
 
     local function wordstar_netrw()
-      -- Leave the greeter so splits behave normally.
       vim.cmd("enew")
 
-      -- Empty buffer on top, Netrw below (~40% of the screen).
+      local top_buf = vim.api.nvim_get_current_buf()
+      vim.api.nvim_buf_set_lines(top_buf, 0, -1, false, dashboard.section.header.val)
+      vim.bo[top_buf].readonly = true
+      vim.bo[top_buf].bufhidden = "wipe"
+      vim.bo[top_buf].buftype = "nofile"
+      vim.bo[top_buf].modified = false
+
       vim.cmd("botright split")
-      vim.cmd("resize " .. math.floor(vim.o.lines * 0.4))
+      vim.cmd("wincmd j")
+      vim.cmd("resize " .. math.floor(vim.o.lines * 0.7))
       vim.cmd("Explore")
 
       local netrw_win = vim.api.nvim_get_current_win()

@@ -16,7 +16,7 @@ Welcome to VimStar! Here's what to do in your first 5 minutes.
 nvim
 ```
 
-Press `e` to start a new file or press `Space-ko` to open an existing file. 
+Press `e` to start a new file or press `f` to open an existing file. If you want to open another file later, use `Space-ko`; if while you have a file open you want to start a new one, use `Space-ke`. 
 
 ## 2. Write Something
 
