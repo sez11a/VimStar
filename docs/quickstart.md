@@ -30,12 +30,17 @@ Press `e` to start a new file or press `f` to open an existing file. If you want
 
 ## 3. Try the AI Assistant
 
-If you have [Ollama](https://ollama.com) installed, make sure the [qwen3.6:27b](https://ollama.com/library/qwen3.6) model is available and press `Space-cc` to chat. Type a prompt like "Explain the quicksort algorithm." 
+1. If you have [Ollama](https://ollama.com) installed, install a model you like. 
+
+1. Edit `~/.VimStar/lua/vimstar-user.lua` and set your model's name in the `vim.g.ollama_model` variable. 
+
+1. Save and exit VimStar, and then re-open it. 
+
+1. Press `Space-cc` to chat. Type a prompt like "Explain the quicksort algorithm." 
 
 ## 4. Navigate Files
 
 - `Space-ko` to browse your file system
-- `Space-fs` = Find files 
 - `Space-fs` = Find files in the current folder
 - `Space-kt` = Toggle Neo-tree file explorer
 - `Space-fp` = Find git-tracked files only
@@ -52,6 +57,6 @@ For more information, see the Wiki documentation by typing `:help wiki`.
 
 ## Next Steps
 
-- Read the full [Reference](/reference)
 - Explore [Writing Features](/writing)
 - Learn about [Coding Support](/coding)
+- Read the full [Reference](/reference)
