@@ -202,7 +202,7 @@ wk.add(
       end
       vim.cmd("MarkmapOpen")
     end, desc = "View Mindmap in Browser" },
-    { "<leader>ps", function()
+    { "<leader>pn", function()
       if not depcheck.has_executable("markmap") and not depcheck.has_yarn() then
         vim.notify("Please install markmap-cli or yarn for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return

@@ -68,16 +68,16 @@ All keybindings use Space as the leader key (`<leader>` and `<localleader>` are 
 
 | Key | Action | Description |
 |-----|--------|-------------|
-| `Space-pb` | pandoc pdf | Book template (LaTeX) |
-| `Space-pp` | pandoc pdf | Article/handout template (LaTeX) |
-| `Space-pe` | pandoc pdf | Planner page template (LaTeX) |
-| `Space-pB` | pandoc pdf | Book template (Typst) |
-| `Space-pP` | pandoc pdf | Article/handout template (Typst) |
-| `Space-pE` | pandoc pdf | Planner page template (Typst, n-up) |
+| `Space-pb` | pandoc pdf | Book template (Typst) |
+| `Space-pp` | pandoc pdf | Article/handout template (Typst) |
+| `Space-pe` | pandoc pdf | Planner page template (Typst, n-up) |
+| `Space-pl` | pandoc pdf | Business letter template (Typst) |
 | `Space-pk` | pandoc pdf | Bookly book template (Typst) |
-| `Space-pm` | MarkmapOpen | View mindmap in browser |
-| `Space-ps` | MarkmapSave | Save markmap (don't open) |
+| `Space-ps` | pandoc pdf | Submission Format template (Typst) |
+| `Space-pS` | pandoc odt | Submission Format (ODT) |
 | `Space-po` | pandoc odt | OpenDocument format |
+| `Space-pm` | MarkmapOpen | View mindmap in browser |
+| `Space-pn` | MarkmapSave | Save mindmap (don't open) |
 
 **Note:** All `Space-p` commands use the `:Pandoc` user command defined in `vim-options.lua`.
 

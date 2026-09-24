@@ -55,6 +55,16 @@ Press `e` to start a new file or press `f` to open an existing file. If you want
 
 For more information, see the Wiki documentation by typing `:help wiki`. 
 
+## 6. Update VimStar 
+
+1. To take advantage of new VimStar features, press `Space-qu` and then restart VimStar. 
+
+1. To update your plugins, press `Space-ql` to launch the Lazy package manager. 
+
+1. To update your LSPs and linters, press `Space-qm` to launch Mason. 
+
+1. To update Tree-Sitter parsers, press `Space-qt`. 
+
 ## Next Steps
 
 - Explore [Writing Features](/writing)

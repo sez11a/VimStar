@@ -17,9 +17,7 @@ VimStar ships with several templates for exporting Markdown files into various f
 
 More templates are planned; if you have an idea for a template, [submit an issue](https://github.com/sez11a/VimStar/issues) for it. 
 
-To make these work, you must have installed either [LaTeX](https://tug.org/texlive/) or [Typst](https://typst.app/open-source/#download), along with [Pandoc](https://pandoc.org). 
-
-Currently, templates are formatted via both LaTeX and Typst. LaTeX has been around a lot longer and has a lot more features, but Typst is catching up. LaTeX, however, is a gigantic download and sometimes difficult to install and configure. Because of this, I'm in the process of migrating the templates to Typst. My hope is since Typst is smaller and easier to install, it'll be a better prerequisite for people to get going than LaTeX is. Once I'm done, I'll remove the LaTeX prerequisite, and only Pandoc and Typst will be necessary. For now, however, you'll see `<Space>p` menu items for both the Typst and LaTeX templates. 
+To make these work, install [Typst](https://typst.app/open-source/#download) and [Pandoc](https://pandoc.org). The templates are formatted via Typst, and Pandoc handles the conversions from Markdown to Typst to PDF.  
 
 # Using Templates 
 
@@ -59,7 +57,7 @@ The optional `body-font` header sets the serif font used for the body text and t
 
 If you leave a header out or name a font that isn't installed on the computer doing the compilation, the template walks down a fallback list of common, cross-platform fonts (Windows, macOS, and Linux) and uses the first one it can find, so the PDF always renders with a sensible typeface. If you set a font that is installed, it takes precedence over the built-in defaults. Note that Typst shows warnings when fonts aren't installed; these are normal and don't affect the PDF output.
 
-When you're ready to produce your article or handout, in Normal mode hit `<Space>pp` (LaTeX) or `<Space>pP` (Typst). It produces a document suitable as an article or handout: 
+When you're ready to produce your article or handout, in Normal mode hit `<Space>pp`. It produces a document suitable as an article or handout: 
 
 ![The article/handout is a basic format with a title, subtitle, author, headings, and page numbers.](/assets/images/article-screenshot.png)
 
@@ -90,7 +88,7 @@ This produces the classic business-letter layout:
 
 ![The letter template creates a business letter.](/assets/images/letter-screenshot.png)
 
-To use it, hit `<Space>pL`. Note that you can write the date in any way you like-—-`date` is just a string-—-and any field you leave out is skipped, so minimalist letters with fewer headers render fine. 
+To use it, hit `<Space>pl`. Note that you can write the date in any way you like-—-`date` is just a string-—-and any field you leave out is skipped, so minimalist letters with fewer headers render fine. 
 
 # Planner Page 
 
