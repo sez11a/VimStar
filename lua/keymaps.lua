@@ -148,74 +148,53 @@ wk.add(
         vim.notify("Please install Typst for preview (run :Mason or install typst)", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      vim.cmd("TypstPreview toggle") 
+      vim.cmd("TypstPreview toggle")
     end, desc = "Typst Preview Toggle" },
     { "<leader>ow", function()
       if not depcheck.has_executable("markmap") and not depcheck.has_yarn() then
         vim.notify("Please install markmap-cli or yarn for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      vim.cmd("MarkmapWatch") 
+      vim.cmd("MarkmapWatch")
     end, desc = "Markmap Watch" },
 
     -- Print Controls Menu 
     { "<leader>p", group = "Print Controls" },
     { "<leader>pb", function()
       if not depcheck.has_pandoc() then
-        vim.notify("Please install Pandoc to enable PDF export (visit pandoc.org)", vim.log.levels.WARN, { title = "VimStar" })
-        return
-      end
-      vim.cmd("Pandoc pdf --pdf-engine=lualatex --standalone --top-level-division=chapter --template ~/.VimStar/templates/latex/book.tex")
-    end, desc="Convert Markdown to PDF: book template (LaTeX)" },
-    { "<leader>pp", function()
-      if not depcheck.has_pandoc() then
-        vim.notify("Please install Pandoc to enable PDF export (visit pandoc.org)", vim.log.levels.WARN, { title = "VimStar" })
-        return
-      end
-      vim.cmd("Pandoc pdf --pdf-engine lualatex --standalone --template ~/.VimStar/templates/latex/article-handout.tex")
-    end, desc = "Convert Markdown to PDF: article/handout template (LaTeX)" },
-    { "<leader>pe", function()
-      if not depcheck.has_pandoc() then
-        vim.notify("Please install Pandoc to enable PDF export (visit pandoc.org)", vim.log.levels.WARN, { title = "VimStar" })
-        return
-      end
-      vim.cmd("Pandoc pdf --pdf-engine lualatex --template ~/.VimStar/templates/latex/planner-page.tex")
-    end, desc = "Convert Markdown to PDF: planner page template (LaTeX)" },
-    { "<leader>pB", function()
-      if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
       vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/book.typ")
-    end, desc="Convert Markdown to PDF: book template (Typst)" },
-    { "<leader>pP", function()
+    end, desc="Convert Markdown to PDF: book template" },
+    { "<leader>pp", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
       vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/article-handout.typ")
-    end, desc="Convert Markdown to PDF: article/handout template (Typst)" },
-    { "<leader>pE", function()
+    end, desc="Convert Markdown to PDF: article/handout template" },
+    { "<leader>pe", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
       vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/planner-page.typ")
-    end, desc="Convert Markdown to PDF: planner page template (Typst, n-up)" },
-    { "<leader>pL", function()
+    end, desc="Convert Markdown to PDF: planner page template (n-up)" },
+    { "<leader>pl", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
       vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/business-letter.typ")
-    end, desc = "Convert Markdown to PDF: business letter template (Typst)" },
+    end, desc = "Convert Markdown to PDF: business letter template" },
     { "<leader>pk", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
       vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/book-bookly.typ")
-    end, desc="Convert Markdown to PDF: bookly book template (Typst)" },
+    end, desc="Convert Markdown to PDF: bookly book template" },
     { "<leader>pm", function()
       if not depcheck.has_executable("markmap") and not depcheck.has_yarn() then
         vim.notify("Please install markmap-cli or yarn for this feature", vim.log.levels.WARN, { title = "VimStar" })

@@ -33,11 +33,11 @@ Rather than typing out an entire YAML header from memory, VimStar ships with sni
 
 | Trigger | Template | Fields |
 | ------- | -------- | ------ |
-| `yaml-article` | Article/Handout | `title`, `subtitle`, `author` |
+| `yaml-article` | Article/Handout | `title`, `subtitle`, `author`, `body-font`, `heading-font` |
 | `yaml-letter` | Business Letter | `date`, `from-name`, `from-address-1`, `from-address-2`, `to-company-name`, `to-name`, `to-address-1`, `to-address-2`, `salutation`, `complimentary-close` |
 | `yaml-book` | Book | `title`, `subtitle`, `author`, `copyright-holder`, `dedication`, `isbn`, `body-font`, `heading-font` |
 | `yaml-submission` | Submission Format | `title`, `author`, `surname`, `shorttitle`, `wordcount`, `name`, `address`, `city`, `phone`, `email`, `affiliation` |
-| `yaml-planner` | Planner Page | `title`, `subtitle`, `author` |
+| `yaml-planner` | Planner Page | `title`, `subtitle`, `author`, `body-font`, `heading-font` |
 
 # Article/Handout 
 
@@ -48,10 +48,16 @@ This, along with the planner, is the simplest template. At the top of your Markd
 title: Your Title
 subtitle: Your Subtitle
 author: Firstname Lastname
+body-font: "Alegreya"
+heading-font: "Alegreya Sans"
 ---
 
 The rest of your Markdown file goes here. Use headings and other Markdown features normally. 
 ```
+
+The optional `body-font` header sets the serif font used for the body text and the title block. The optional `heading-font` header sets the sans font used for the headings (levels 1-4). Both are used only by the Typst export; you can leave them out of the YAML header entirely if you prefer the defaults.
+
+If you leave a header out or name a font that isn't installed on the computer doing the compilation, the template walks down a fallback list of common, cross-platform fonts (Windows, macOS, and Linux) and uses the first one it can find, so the PDF always renders with a sensible typeface. If you set a font that is installed, it takes precedence over the built-in defaults. Note that Typst shows warnings when fonts aren't installed; these are normal and don't affect the PDF output.
 
 When you're ready to produce your article or handout, in Normal mode hit `<Space>pp` (LaTeX) or `<Space>pP` (Typst). It produces a document suitable as an article or handout: 
 
@@ -88,7 +94,7 @@ To use it, hit `<Space>pL`. Note that you can write the date in any way you like
 
 # Planner Page 
 
-The Planner Page template takes the exact same YAML headers as the Article/Handout, but it lays out the page horizontally: 
+The Planner Page template takes the exact same YAML headers as the Article/Handout, including the optional `body-font` and `heading-font` typefaces, but it lays out the page horizontally in a booklet format: 
 
 ![The planner page is suitable for cutting in half and inserting into a planner.](/assets/images/planner-screenshot.png)
 
