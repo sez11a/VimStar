@@ -32,7 +32,7 @@ VimStar brings back one of the most beloved features of classic WordStar: **pers
 
 ### Why This Matters
 
-Unlike modern editors that force you to act on a selection immediately, VimStar's blocks stay marked indefinitely. Mark the beginning of a paragraph, keep writing for ten minutes, mark the end, and then decide where it belongs. This is the longhand flexibility from Sawyer's essay. Now it's available in a modern, extensible Neovim environment optimized for serious writing! And if you don't like it, that's fine: use Neovim's Visual mode like you always have. It's the best of both worlds. 
+Unlike modern editors that force you to act on a selection immediately, VimStar's blocks stay marked indefinitely. Mark the beginning of a paragraph, keep writing for ten minutes, mark the end, and then decide where it belongs. This is the longhand flexibility from Mr. Sawyer's essay. Now it's available in a modern, extensible Neovim environment optimized for serious writing! And if you don't like it, that's fine: use Neovim's Visual mode like you always have. It's the best of both worlds. 
 
 ### Tips
 
@@ -62,7 +62,7 @@ Beyond the Pandoc print functions in the `Space-p` menu, VimStar defines a `:Pan
 :Pandoc docx
 ```
 
-Pandoc templates ship with VimStar, including an article template and a full-on digest-size paperback book format, complete with chapter headings, headers, footers, and a table of contents. Update your `~/.VimStar` folder regularly via Git to grab new templates as they are created! 
+Pandoc templates ship with VimStar, including an article template and a full-on digest-size paperback book format, complete with chapter headings, headers, footers, and a table of contents. Update your `~/.VimStar` folder regularly via `Space-qu` to grab new templates as they are created! 
 
 ## Supports the Full Creative Experience 
 
