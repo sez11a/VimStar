@@ -10,40 +10,7 @@ local wk = require("which-key")
 local depcheck = require("vimstar.depcheck")
 
 local function save_as_dialog()
-    local start_dir = vim.fn.expand("%:p:h")
-    if start_dir == "" then start_dir = vim.uv.cwd() end
-
-    builtin.find_files({
-        prompt_title = "Select Save Directory",
-        cwd = start_dir,
-        hidden = true,
-        find_command = { "find", start_dir, "-type", "d" },
-        attach_mappings = function(prompt_bufnr)
-            local action_state = require("telescope.actions.state")
-            local actions = require("telescope.actions")
-
-            actions.select_default:replace(function()
-                local entry = action_state.get_selected_entry()
-                if not entry then return end
-
-                local selected_dir = vim.fn.expand(entry.path)
-                if vim.fn.isdirectory(selected_dir) == 0 then
-                    vim.notify("Please select a directory", vim.log.levels.ERROR)
-                    return
-                end
-
-                actions.close(prompt_bufnr)
-
-                vim.ui.input({ prompt = "Filename: " }, function(filename)
-                    if not filename or #filename == 0 then return end
-                    local full_path = vim.fs.joinpath(selected_dir, filename)
-                    vim.cmd(string.format("saveas %s", vim.fn.fnameescape(full_path)))
-                end)
-            end)
-
-            return true
-        end,
-    })
+    require("saveas").open()
 end
 
 wk.add(
