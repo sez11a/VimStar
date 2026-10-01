@@ -23,23 +23,16 @@ wk.add(
     { "<leader>kl", "<cmd> cd %:p:h |<CR>|", desc = "Change Working Dir" },
     { "<leader>ks", function()
         if vim.fn.bufname() == "" then
-         --[[ vim.ui.input({ prompt = "Save buffer as: ", default = vim.fn.getcwd() .. "/" }, function(input)
-            if input then
-              vim.cmd("silent write " .. input)
-            end
-          end) ]]
           save_as_dialog()
         else
           vim.cmd.w()
         end
       end, desc = "Save" },
     { "<leader>kt", function()
-          if vim.bo.filetype == "neo-tree" then
-            vim.cmd.wincmd "p"
-          else
-            vim.cmd.Neotree "toggle"
-          end
-        end, desc = "Toggle Neotree" },
+        save_as_dialog()
+        end,
+      desc = "Save As"
+    },
     { "<leader>kx", function()
         if vim.fn.bufname() == "" then
           vim.ui.input({ prompt = "Save and exit as: ", default = vim.fn.getcwd() .. "/" }, function(input)
@@ -59,6 +52,13 @@ wk.add(
     end
     vim.cmd("MarkmapSave")
   end, desc = "Save Markmap" },
+    { "<leader>kn", function()
+          if vim.bo.filetype == "neo-tree" then
+            vim.cmd.wincmd "p"
+          else
+            vim.cmd.Neotree "toggle"
+          end
+        end, desc = "Toggle Neotree" },
     { "<leader>kq", "<cmd> q! <CR>", desc = "Abandon Changes and Quit" },
     { "<leader>kf", "<cmd> terminal <CR>", desc = "Open Terminal" },
     { "<leader>k_", "", desc = "────────── BLOCK ──────────" },
