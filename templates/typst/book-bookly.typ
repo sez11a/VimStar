@@ -24,8 +24,8 @@
   $if(heading-font)$
   "$heading-font$",
   $endif$
-  "Gillius ADF",
-  "Arial",
+   "Libertinus Sans",
+   "Arial",
   "Helvetica",
   "Verdana",
   "Noto Sans",

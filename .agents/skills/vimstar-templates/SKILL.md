@@ -19,5 +19,5 @@ Layout for a digest-sized paperback (5.5x8.5in), invoked via Pandoc (`<Space>pk`
 
 - **Fonts** are centralized in two `#let` variables at the top of the template (`body-font`, `heading-font`). Every font site (bookly `fonts:`, body `#set text`, level-1/2/3/4 headings, running header, figure captions) references one of these two — change a font there, not at the call sites.
 - **Per-document overrides** via YAML headers: `body-font` (serif, body text) and `heading-font` (sans, headings + captions + running header). Set via Pandoc `$if(...)$`; when unset (or the named font isn't installed) the template falls through a cross-OS list (Times/Georgia/Noto/DejaVu/Liberation for serif; Arial/Helvetica/Verdana/Noto/DejaVu/Liberation for sans). An installed user font takes precedence.
-- **Default look**: body = Libertinus Serif, headings/captions = Gillius ADF (both not standard on Windows/macOS — that's why the fallback lists exist).
+- **Default look**: body = Libertinus Serif, headings/captions = Libertinus Sans (both not standard on Windows/macOS — that's why the fallback lists exist).
 
