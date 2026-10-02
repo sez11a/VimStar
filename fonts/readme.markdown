@@ -5,7 +5,7 @@ Resource](https://int10h.org/oldschool-pc-fonts/fontlist), and is copyrighted by
 VileR, the owner of that website. He's released it under the 
 [Creative Commons Attribution-Sharealike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/) 
 license. Since VimStar is inspired by old school character mode word processors,
-it seemed appropriate to use this font as the default font in VimStar. 
+it seemed appropriate to use this font in VimStar. 
 
 I modified this version using the excellent [Nerd
 Fonts](https://github.com/ryanoasis/nerd-fonts) tool, to add the Powerline

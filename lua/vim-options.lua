@@ -23,7 +23,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
   desc = "Enable spellcheck for prose filetypes",
 })
--- vim.opt.spell = true
 vim.opt.clipboard = "unnamedplus"
 vim.netrw_liststyle = 2
 vim.g.vim_markdown_folding_disabled = 1
@@ -42,3 +41,10 @@ vim.o.hidden = true
 vim.cmd("let g:airline#extensions#tabline#enabled=1")
 vim.diagnostic.config({ virtual_text = true })
 
+vim.g.transparency = 0.8
+
+if vim.g.neovide then
+ -- vim.g.neovide_opacity = 0.0
+  vim.g.neovide_normal_opacity = 0.8
+  vim.g.neovide_window_blurred = true
+end
