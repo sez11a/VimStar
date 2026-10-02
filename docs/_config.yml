@@ -12,7 +12,8 @@ highlighter: rouge
 # Dark skin
 minimal_mistakes_skin: "dark"
 search: true
-
+paginate: 5
+paginate_path: /page:num/
 url: "https://sez11a.github.io/VimStar"
 baseurl: "/VimStar"
 
@@ -21,6 +22,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-relative-links
   - jekyll-include-cache
+  - jekyll-paginate
 
 sass: 
   style: compressed

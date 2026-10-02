@@ -124,3 +124,94 @@ p, li, .feature__item p {
   padding: 0.75rem 1.75rem;
   font-size: 1.1rem;
 }
+
+//Latest 
+.layout--home .page__content table,
+.layout--home table {
+  width: 100%;
+  table-layout: auto;
+}
+
+.layout--home table th,
+.layout--home table td {
+  min-width: 8rem;
+  white-space: normal;
+}
+.layout--home .feature__wrapper {
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+}
+@media (max-width: 900px) {
+  .layout--home .feature__wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+/* Home layout keeps a phantom right column; drop it */
+.layout--home .page {
+  padding-right: 0 !important;
+  width: 100% !important;
+  float: none !important;
+}
+
+.layout--home .feature__wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.4rem;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .layout--home .feature__wrapper {
+    grid-template-columns: 1fr !important;
+  }
+}
+.layout--home .page,
+.layout--home .page__content,
+.layout--home .page__inner-wrap {
+  width: 100% !important;
+  max-width: none !important;
+  padding-right: 0 !important;
+  float: none !important;
+}
+
+.layout--home .feature__wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.4rem !important;
+  width: 100% !important;
+}
+
+.layout--home .feature__item {
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+}
+
+@media (max-width: 800px) {
+  .layout--home .feature__wrapper {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.sidebar-updates-title {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sidebar-updates {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+.sidebar-updates li {
+  margin: 0 0 0.75rem;
+}
+
+.sidebar-updates span {
+  display: block;
+  opacity: 0.7;
+  font-size: 0.8rem;
+}

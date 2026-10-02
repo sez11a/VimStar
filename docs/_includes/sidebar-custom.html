@@ -1,0 +1,12 @@
+{% if site.posts.size > 0 %}
+  <h3 class="sidebar-updates-title">Updates</h3>
+  <ul class="sidebar-updates">
+    {% for post in site.posts limit:5 %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+  <p><a href="{{ '/updates/' | relative_url }}">All updates</a></p>
+{% endif %}

@@ -15,22 +15,19 @@
 <meta charset="utf-8">
 
 
-<!-- begin _includes/seo.html --><title>Quick Start - VimStar</title>
-<meta name="description" content="Your first 5 minutes with VimStar">
+<!-- begin _includes/seo.html --><title>VimStar Updates</title>
+<meta name="description" content="Updates Have Arrived!">
 
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VimStar">
-<meta property="og:title" content="Quick Start">
-<meta property="og:url" content="http://localhost:4000/VimStar/quickstart/">
+<meta property="og:title" content="VimStar Updates">
+<meta property="og:url" content="http://localhost:4000/VimStar/2026/10/02/update.html">
 
 
-  <meta property="og:description" content="Your first 5 minutes with VimStar">
-
-
-
+  <meta property="og:description" content="Updates Have Arrived!">
 
 
 
@@ -40,9 +37,14 @@
 
 
 
+  <meta property="article:published_time" content="2026-10-02T00:00:00-04:00">
 
 
-<link rel="canonical" href="http://localhost:4000/VimStar/quickstart/">
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/VimStar/2026/10/02/update.html">
 
 
 
@@ -233,16 +235,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Quick Start">
-    
-    
+    <meta itemprop="headline" content="VimStar Updates">
+    <meta itemprop="description" content="Updates Have Arrived!">
+    <meta itemprop="datePublished" content="2026-10-02T00:00:00-04:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/VimStar/quickstart/" itemprop="url">Quick Start
+            <a href="http://localhost:4000/VimStar/2026/10/02/update.html" itemprop="url">VimStar Updates
 </a>
           </h1>
           
@@ -257,101 +259,28 @@
           <aside class="sidebar__right ">
             <nav class="toc" aria-label="Table of contents">
               <header><h4 class="nav__title"><i class="fas fa-gears"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#1-launch-vimstar">1. Launch VimStar</a></li><li><a href="#2-write-something">2. Write Something</a></li><li><a href="#3-try-the-ai-assistant">3. Try the AI Assistant</a></li><li><a href="#4-navigate-files">4. Navigate Files</a></li><li><a href="#5-try-the-wiki">5. Try the Wiki</a></li><li><a href="#6-update-vimstar">6. Update VimStar</a></li><li><a href="#next-steps">Next Steps</a></li></ul>
+              
             </nav>
           </aside>
         
-        <p>Welcome to VimStar! Here’s what to do in your first 5 minutes.</p>
-
-<h2 id="1-launch-vimstar">1. Launch VimStar</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvim
-</code></pre></div></div>
-
-<p>Press <code class="language-plaintext highlighter-rouge">e</code> to start a new file or press <code class="language-plaintext highlighter-rouge">f</code> to open an existing file. If you want to open another file later, use <code class="language-plaintext highlighter-rouge">Space-ko</code>; if while you have a file open you want to start a new one, use <code class="language-plaintext highlighter-rouge">Space-ke</code>.</p>
-
-<h2 id="2-write-something">2. Write Something</h2>
-
-<ol>
-  <li>
-    <p>VimStar is still Neovim, so press <code class="language-plaintext highlighter-rouge">i</code> to begin writing in Markdown. Completion is on by default. To toggle it, hit <code class="language-plaintext highlighter-rouge">Esc</code> to go back to Normal mode and then press <code class="language-plaintext highlighter-rouge">Space-oc</code>.</p>
-  </li>
-  <li>
-    <p>To preview your document, press <code class="language-plaintext highlighter-rouge">Space-op</code>.</p>
-  </li>
-  <li>
-    <p>If you have Pandoc and LaTeX or Typst installed, press <code class="language-plaintext highlighter-rouge">Space-p</code> and the relevant command from the menu to produce a PDF in the same folder as your file.</p>
-  </li>
-  <li>
-    <p>Use WordStar-inspired commands to save (<code class="language-plaintext highlighter-rouge">Space-ks</code>), save and exit (<code class="language-plaintext highlighter-rouge">Space-kx</code>), or abandon changes and exit (<code class="language-plaintext highlighter-rouge">Space-kq</code>).</p>
-  </li>
-</ol>
-
-<h2 id="3-try-the-ai-assistant">3. Try the AI Assistant</h2>
-
-<ol>
-  <li>
-    <p>If you have <a href="https://ollama.com">Ollama</a> installed, install a model you like.</p>
-  </li>
-  <li>
-    <p>Edit <code class="language-plaintext highlighter-rouge">~/.VimStar/lua/vimstar-user.lua</code> and set your model’s name in the <code class="language-plaintext highlighter-rouge">vim.g.ollama_model</code> variable.</p>
-  </li>
-  <li>
-    <p>Save and exit VimStar, and then re-open it.</p>
-  </li>
-  <li>
-    <p>Press <code class="language-plaintext highlighter-rouge">Space-cc</code> to chat. Type a prompt like “Explain the quicksort algorithm.”</p>
-  </li>
-</ol>
-
-<h2 id="4-navigate-files">4. Navigate Files</h2>
+        <p>As I build out VimStar, I wanted to be able to post what’s getting updated, so here it is. This’ll be a bigger update than normal, as I want to capture everything I’ve done since the site went up.</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">Space-ko</code> to browse your file system</li>
-  <li><code class="language-plaintext highlighter-rouge">Space-fs</code> = Find files in the current folder</li>
-  <li><code class="language-plaintext highlighter-rouge">Space-kt</code> = Toggle Neo-tree file explorer</li>
-  <li><code class="language-plaintext highlighter-rouge">Space-fp</code> = Find git-tracked files only</li>
-</ul>
-
-<h2 id="5-try-the-wiki">5. Try the Wiki</h2>
-
-<ol>
-  <li>
-    <p>Customize the Wiki location in <code class="language-plaintext highlighter-rouge">vimstar-user.lua</code> by setting <code class="language-plaintext highlighter-rouge">vim.g.wiki_root</code> and then restarting VimStar.</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">Space-ww</code> opens the first Wiki page.</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">Space-w-Space-w</code> opens today’s journal page.</p>
-  </li>
-</ol>
-
-<p>For more information, see the Wiki documentation by typing <code class="language-plaintext highlighter-rouge">:help wiki</code>.</p>
-
-<h2 id="6-update-vimstar">6. Update VimStar</h2>
-
-<ol>
-  <li>
-    <p>To take advantage of new VimStar features, press <code class="language-plaintext highlighter-rouge">Space-qu</code> and then restart VimStar.</p>
-  </li>
-  <li>
-    <p>To update your plugins, press <code class="language-plaintext highlighter-rouge">Space-ql</code> to launch the Lazy package manager.</p>
-  </li>
-  <li>
-    <p>To update your LSPs and linters, press <code class="language-plaintext highlighter-rouge">Space-qm</code> to launch Mason.</p>
-  </li>
-  <li>
-    <p>To update Tree-Sitter parsers, press <code class="language-plaintext highlighter-rouge">Space-qt</code>.</p>
-  </li>
-</ol>
-
-<h2 id="next-steps">Next Steps</h2>
-
-<ul>
-  <li>Explore <a href="/writing">Writing Features</a></li>
-  <li>Learn about <a href="/coding">Coding Support</a></li>
-  <li>Read the full <a href="/reference">Reference</a></li>
+  <li>2026-10-02: Standardize default template fonts to Libertinus Serif and Libertinus Sans.</li>
+  <li>2026-10-01: Add WordStar’s Save As command (Space-kt), now that we have the dialog box.</li>
+  <li>2026-09-30: Add a new, custom VimStar-only Save As dialog box for new files. The Telescope one was non-intuitive; this is much better.</li>
+  <li>2026-09-23: Fix all Typst templates; remove LaTeX templates. Typst handles all PDF formatting now.</li>
+  <li>2026-09-21: Switch back to <code class="language-plaintext highlighter-rouge">nvim-treesitter</code>, as it’s being maintained again.</li>
+  <li>2026-09-19: Added WordStar-like file picking on startup.</li>
+  <li>2026-09-11: Book Template Enhancement: added copyright holder field.</li>
+  <li>2026-09-09: Added Markdown snippets to make it easy to configure template YAML headers.</li>
+  <li>2026-09-09: New template: Business letter.</li>
+  <li>2026-09-09: Book Template Enhancement: Users can now choose the fonts they wish for headings and body text.</li>
+  <li>2026-09-07: Book Template Enhancement: add dedication page and ISBN.</li>
+  <li>2026-09-01: New template: submission format as an .odt (LibreOffice) file. Many publications require story submissions in .odt or .docx; this template formats your story automatically and exports it as an .odt. If you need .docx, you can further export the .odt to .docx.</li>
+  <li>2026-08-19: Add a Telescope-based Save As dialog for new files. I’m trying to decrease the “papercuts” for new users of Neovim who are used to nice, polished file pickers.</li>
+  <li>2026-07-27: New template: story submission PDF. This is for writers submitting short stories to publications who want their stories formatted automatically in submission format. Fully documented on the <a href="/VimStar/writing/templates">writing/templates</a> page.</li>
+  <li>2026-07-25: Added graceful dependency checking. If you don’t have an optional dependency installed (such as Yarn for Markmap) VimStar now tells you to install it to use the function, rather than displaying an error.</li>
 </ul>
 
         
@@ -368,6 +297,8 @@
 
         
 
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-10-02T00:00:00-04:00">October 2, 2026</time></p>
 
 
       </footer>

@@ -34,7 +34,7 @@ toc: false
 
   <div class="feature__item">
     <h4>⚡ WordStar Menus</h4>
-    <p>Inspired by WordStar: Space-K (Block & Save), Space-O (Onscreen Format), Space-P (Print Controls), Space-Q (Quick Menu) organize word processing functions.</p>
+    <p>Space-K (Block & Save), Space-O (Onscreen Format), Space-P (Print Controls), Space-Q (Quick Menu) organize word processing functions.</p>
   </div>
 
   <div class="feature__item">

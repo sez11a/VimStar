@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/VimStar/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/VimStar/" rel="alternate" type="text/html" /><updated>2026-09-09T17:32:45-04:00</updated><id>http://localhost:4000/VimStar/feed.xml</id><title type="html">VimStar</title><subtitle>A Neovim distribution optimized for writing, inspired by WordStar</subtitle></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/VimStar/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/VimStar/" rel="alternate" type="text/html" /><updated>2026-10-02T06:20:09-04:00</updated><id>http://localhost:4000/VimStar/feed.xml</id><title type="html">VimStar</title><subtitle>A Neovim distribution optimized for writing, inspired by WordStar</subtitle><entry><title type="html">VimStar Updates</title><link href="http://localhost:4000/VimStar/2026/10/02/update.html" rel="alternate" type="text/html" title="VimStar Updates" /><published>2026-10-02T00:00:00-04:00</published><updated>2026-10-02T00:00:00-04:00</updated><id>http://localhost:4000/VimStar/2026/10/02/update</id><content type="html" xml:base="http://localhost:4000/VimStar/2026/10/02/update.html"><![CDATA[<p>As I build out VimStar, I wanted to be able to post what’s getting updated, so here it is. This’ll be a bigger update than normal, as I want to capture everything I’ve done since the site went up.</p>
+
+<ul>
+  <li>2026-10-02: Standardize default template fonts to Libertinus Serif and Libertinus Sans.</li>
+  <li>2026-10-01: Add WordStar’s Save As command (Space-kt), now that we have the dialog box.</li>
+  <li>2026-09-30: Add a new, custom VimStar-only Save As dialog box for new files. The Telescope one was non-intuitive; this is much better.</li>
+  <li>2026-09-23: Fix all Typst templates; remove LaTeX templates. Typst handles all PDF formatting now.</li>
+  <li>2026-09-21: Switch back to <code class="language-plaintext highlighter-rouge">nvim-treesitter</code>, as it’s being maintained again.</li>
+  <li>2026-09-19: Added WordStar-like file picking on startup.</li>
+  <li>2026-09-11: Book Template Enhancement: added copyright holder field.</li>
+  <li>2026-09-09: Added Markdown snippets to make it easy to configure template YAML headers.</li>
+  <li>2026-09-09: New template: Business letter.</li>
+  <li>2026-09-09: Book Template Enhancement: Users can now choose the fonts they wish for headings and body text.</li>
+  <li>2026-09-07: Book Template Enhancement: add dedication page and ISBN.</li>
+  <li>2026-09-01: New template: submission format as an .odt (LibreOffice) file. Many publications require story submissions in .odt or .docx; this template formats your story automatically and exports it as an .odt. If you need .docx, you can further export the .odt to .docx.</li>
+  <li>2026-08-19: Add a Telescope-based Save As dialog for new files. I’m trying to decrease the “papercuts” for new users of Neovim who are used to nice, polished file pickers.</li>
+  <li>2026-07-27: New template: story submission PDF. This is for writers submitting short stories to publications who want their stories formatted automatically in submission format. Fully documented on the <a href="/VimStar/writing/templates">writing/templates</a> page.</li>
+  <li>2026-07-25: Added graceful dependency checking. If you don’t have an optional dependency installed (such as Yarn for Markmap) VimStar now tells you to install it to use the function, rather than displaying an error.</li>
+</ul>]]></content><author><name></name></author><summary type="html"><![CDATA[Updates Have Arrived!]]></summary></entry></feed>
