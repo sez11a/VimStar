@@ -17,6 +17,17 @@ paginate_path: /page:num/
 url: "https://sez11a.github.io/VimStar"
 baseurl: "/VimStar"
 
+# Footer
+copyright: "Richard Sezov"
+copyright_url: "https://www.richardsezov.com"
+footer: 
+  since: 2018
+  links: 
+    label: "GitHub"
+    icon: "fab fa-fw fa-github"
+    url: "https://github.com/sez11a/VimStar"
+
+
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
