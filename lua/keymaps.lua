@@ -230,7 +230,7 @@ wk.add(
         vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      require("dap").toggle_breakpoint() 
+      require("dap").toggle_breakpoint()
     end, desc = "Toggle Breakpoint" },
     { "<leader>dB", function()
       if not pcall(require, "dap") then
@@ -244,35 +244,35 @@ wk.add(
         vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      require("dap").continue() 
+      require("dap").continue()
     end, desc = "Continue" },
     { "<leader>dx", function()
       if not pcall(require, "dap") then
         vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      require("dap").terminate() 
+      require("dap").terminate()
     end, desc = "Terminate" },
     { "<leader>do", function()
       if not pcall(require, "dap") then
         vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      require("dap").step_over() 
+      require("dap").step_over()
     end, desc = "Step Over" },
     { "<leader>di", function()
       if not pcall(require, "dap") then
         vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      require("dap").step_into() 
+      require("dap").step_into()
     end, desc = "Step Into" },
     { "<leader>dt", function()
       if not pcall(require, "dap") then
         vim.notify("Please install debugpy (Python) or jdtls (Java) for debugging support", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      require("dap").step_out() 
+      require("dap").step_out()
     end, desc = "Step Out" },
     -- Code Menu
     { "<leader>c", group = "Code" },
@@ -281,21 +281,21 @@ wk.add(
         vim.notify("Please install Ollama to enable AI features (visit ollama.com)", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      require("CodeCompanionActions").run() 
+      require("CodeCompanionActions").run()
     end, mode = "v", desc = "AI Actions on Selection" },
     { "<leader>cc", function()
       if not pcall(require, "codecompanion") then
         vim.notify("Please install Ollama to enable AI features (visit ollama.com)", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      require("codecompanion").chat() 
+      require("codecompanion").chat()
     end, desc = "AI Chat" },
     { "<leader>ci", function()
       if not pcall(require, "codecompanion") then
         vim.notify("Please install Ollama to enable AI features (visit ollama.com)", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      require("CodeCompanionInline").run() 
+      require("CodeCompanionInline").run()
     end, mode = {"n", "v"}, desc = "Inline AI Edit" },
     { "<leader>cw", function()
           require("neocodeium").toggle()
@@ -312,23 +312,23 @@ wk.add(
         vim.notify("Please install jdtls for Java support (run :Mason)", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      require('jdtls').test_class() 
+      require('jdtls').test_class()
     end, desc = "Java Test Class" },
     { "<leader>jn", function()
       if not pcall(require, "jdtls") then
         vim.notify("Please install jdtls for Java support (run :Mason)", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      require('jdtls').test_nearest_method() 
+      require('jdtls').test_nearest_method()
     end, desc = "Java Test Nearest" },
     { "<leader>ji", function()
       if not pcall(require, "jdtls") then
         vim.notify("Please install jdtls for Java support (run :Mason)", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      require('jdtls').organize_imports() 
+      require('jdtls').organize_imports()
     end, desc = "Java Organize Imports" },
-    
+
     -- Wiki Menu
     { "<leader>w", group = "Wiki" },
     { "<leader>wi", "<cmd>lua vim.cmd('WikiJournalIndex')<CR>", desc = "Wiki Journal Index" },
