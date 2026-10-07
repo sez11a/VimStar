@@ -4,6 +4,10 @@ function M.has_executable(name)
   return vim.fn.executable(name) == 1
 end
 
+function M.has_cc()
+  return M.has_executable("cc") or M.has_executable("gcc") or M.has_executable("clang")
+end
+
 function M.has_pandoc()
   return M.has_executable("pandoc")
 end
@@ -70,6 +74,39 @@ end
 
 function M.report(msg)
   vim.notify(msg, vim.log.levels.WARN, { title = "VimStar" })
+end
+
+local REQUIREMENT_CHECKS = {
+  git = function()
+    return M.has_executable("git"), "install git (needed to clone parsers)"
+  end,
+  cc = function()
+    return M.has_cc(), "install a C compiler (cc, gcc, or clang) to build grammars from source"
+  end,
+  node = function()
+    return M.has_node(), "install node/npm to build TypeScript grammars"
+  end,
+}
+
+local PARSER_REQUIREMENTS = {
+  markdown = { "git", "cc" },
+  markdown_inline = { "git", "cc" },
+
+  c = { "git", "cc" },
+
+  typescript = { "git", "node" },
+}
+
+function M.check_parser_requirements(lang)
+  local reqs = PARSER_REQUIREMENTS[lang] or { "git" }
+  local missing = {}
+  for _, tok in ipairs(reqs) do
+    local ok, msg = REQUIREMENT_CHECKS[tok]()
+    if not ok then
+      missing[#missing + 1] = msg
+    end
+  end
+  return missing
 end
 
 return M

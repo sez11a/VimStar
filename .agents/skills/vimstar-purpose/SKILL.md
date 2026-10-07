@@ -53,7 +53,7 @@ The intent is to combine the power of Neovim and WordStar together to create a w
      - `user/plugins/` directory (custom user plugins) 
   4. `keymaps.lua` - Keybindings
   5. `vimstar-user.lua` - User overrides
-- **Neovim Version Support**: Supports Neovim 0.11+. This requires a special Tree-Sitter configuration that loads different versions of the plugin for 0.11- and 0.12+. 
+- **Neovim Version Support**: Supports Neovim 0.11+. This requires a special Tree-Sitter configuration that loads different versions of the plugin for 0.11- and 0.12+. See the `version-support` skill when touching version detection or Tree-Sitter configuration. 
 - **Keymaps**: `/lua/keymaps.lua` uses Space as leader; registered via which-key `wk.add()`; requires `/lua/saveas` module for custom Save As dialog box
 
 # Critical Paths

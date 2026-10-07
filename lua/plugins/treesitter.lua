@@ -1,5 +1,6 @@
 local ts_branch = vim.g.tree_sitter_branch or "master"
 local is_modern = vim.version().major == 0 and vim.version().minor >= 12
+local depcheck = require("vimstar.depcheck")
 
 return {
   {
@@ -14,29 +15,24 @@ return {
         })
         vim.opt.runtimepath:prepend(vim.fn.stdpath("data") .. "/treesitter")
 
-        pcall(function()
-          require("nvim-treesitter").install({
-            "bash",
-            "vim",
-            "vimdoc",
-            "regex",
-            "lua",
-            "markdown",
-            "markdown_inline",
-            "html",
-            "javascript",
-            "typescript",
-            "tsx",
-            "jsx",
-            "c",
-            "python",
-          })
-        end)
-
         -- Features are no longer toggled via highlight/indent.enable
         vim.api.nvim_create_autocmd("FileType", {
-          callback = function()
-            pcall(vim.treesitter.start)
+          callback = function(ev)
+            local ft = vim.bo[ev.buf].filetype
+            local ok, _ = pcall(vim.treesitter.start, ev.buf, ft)
+            if not ok then
+              local missing = depcheck.check_parser_requirements(ft)
+              if #missing > 0 then
+                depcheck.report("Cannot install " .. ft .. " tree-sitter parser: "
+                  .. table.concat(missing, ", "))
+                return
+              end
+              pcall(function()
+                require("nvim-treesitter").install({ ft })
+              end)
+              pcall(vim.treesitter.start, ev.buf, ft)
+            end
+
             vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
             vim.wo.foldmethod = "expr"
             vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
