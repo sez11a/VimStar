@@ -13,6 +13,76 @@ local function save_as_dialog()
     require("saveas").open()
 end
 
+local function run_git_pull()
+  local vimstar_dir = vim.fn.stdpath("config")
+  local cmd = string.format("cd %s && git pull origin master", vim.fn.shellescape(vimstar_dir))
+  vim.cmd("!" .. cmd)
+end
+
+local function open_url(url)
+  local os_name = vim.loop.os_uname().sysname
+  local cmd
+  if os_name == "Linux" then
+    cmd = { "xdg-open", url }
+  elseif os_name == "Darwin" then
+    cmd = { "open", url }
+  else
+    cmd = { "cmd", "/c", "start", "", url }
+  end
+  vim.fn.jobstart(cmd, { detach = true, on_exit = function() end })
+end
+
+local function last_update_state_path()
+  return vim.fn.stdpath("state") .. "/vimstar/latest_update_date"
+end
+
+local function read_last_update()
+  local path = last_update_state_path()
+  local lines
+  local ok, err = pcall(function()
+    lines = vim.fn.readfile(path)
+  end)
+  if not ok then
+    return nil
+  end
+  return lines[1]
+end
+
+local function write_last_update(updated)
+  local path = last_update_state_path()
+  vim.fn.mkdir(vim.fn.fnamemodify(path, ":h"), "p")
+  vim.fn.writefile({ tostring(updated) }, path)
+end
+
+local function update_vimstar()
+  local latest = depcheck.get_latest_update()
+  if not latest then
+    vim.notify("You may be offline. Connect to the network to check for a VimStar update.", vim.log.levels.WARN, { title = "VimStar" })
+    return
+  end
+
+  local last_updated = read_last_update()
+  local already_current = last_updated ~= nil and latest.updated == last_updated
+
+  if already_current then
+    vim.notify("VimStar is already up to date; this is a routine pull.", vim.log.levels.INFO, { title = "VimStar" })
+    run_git_pull()
+    return
+  end
+
+  -- Reveal the announcement in the browser and offer to install it.
+  open_url(latest.link)
+  vim.ui.confirm({
+    title = "VimStar Update",
+    message = ("A new update is available on the VimStar website:\n\n**%s**\n\n%s\n\nUpdate VimStar now."):format(latest.title, latest.updated)
+  }, function(confirmed)
+    if confirmed then
+      run_git_pull()
+      write_last_update(latest.updated)
+    end
+  end)
+end
+
 wk.add(
   {
     -- Block and Save Menu
@@ -214,11 +284,7 @@ wk.add(
     { "<leader>q-", "", desc = "────────── FIND ──────────" },
     { "<leader>qf", builtin.live_grep, desc = "Find in Files"},
     { "<leader>q~", "", desc = "────────── MANAGE ─────────" },
-    { "<leader>qu", function()
-        local vimstar_dir = vim.fn.stdpath("config")
-        local cmd = string.format("cd %s && git pull origin master", vim.fn.shellescape(vimstar_dir))
-        vim.cmd("!" .. cmd)
-      end, desc = "Update VimStar" },
+    { "<leader>qu", update_vimstar, { desc = "Update VimStar" } },
     { "<leader>ql", "<cmd> Lazy <CR>", desc = "Manage plugins with Lazy" },
     { "<leader>qm", "<cmd> Mason <CR>", desc = "Manage LSP and linters with Mason" },
     { "<leader>qt", "<cmd> TSUpdate <CR>", desc = "Update Treesitter highlighting" },

@@ -72,6 +72,45 @@ function M.has_yarn()
   return vim.fn.executable("yarn") == 1
 end
 
+M.five_star_feed_url = "https://sez11a.github.io/VimStar/feed.xml"
+
+function M.get_latest_update()
+  local feed = vim.fn.system({
+    "sh", "-c",
+    "curl -s --connect-timeout 4 -o - " .. M.five_star_feed_url .. " 2>/dev/null",
+  })
+  if vim.trim(feed) == "" then
+    return nil
+  end
+
+  local entry = feed:match("entry>(.-)</entry>")
+  if not entry then
+    return nil
+  end
+
+  -- On the entry, strip surrounding tags we don't need and grab the values.
+  local title = entry:match("<title type=\"html\">(.-)</title>")
+  if not title then
+    title = entry:match("<title>(.-)</title>")
+  end
+  local updated = entry:match("<updated>(.-)</updated>")
+
+  local link
+  for candidate in entry:gmatch('href="([^"]+%.[^/"]+)"') do
+    link = candidate
+    break
+  end
+  if not link then
+    return nil
+  end
+
+  return {
+    title = title,
+    updated = updated,
+    link = link,
+  }
+end
+
 function M.report(msg)
   vim.notify(msg, vim.log.levels.WARN, { title = "VimStar" })
 end
