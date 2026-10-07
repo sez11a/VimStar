@@ -22,6 +22,16 @@ return {
     },
     config = function()
       require("codecompanion").setup({
+        interactions = {
+            chat = {
+                sessions = {
+                    enabled = true,
+                    autosave = true,
+                    continuous_save = true,
+                    save_dir = vim.fs.joinpath(vim.fn.stdpath("data"), "codecompanion", "sessions"),
+                },
+            },
+        },
         opts = {
           show_reasoning = false,
         },

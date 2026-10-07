@@ -8,12 +8,12 @@ VimStar is a Neovim distribution inspired by WordStar, an old DOS word processor
 
 The intent is to combine the power of Neovim and WordStar together to create a writing and editing environment ideal for content creators of all types---novelists, technical writers, marketing writers, and more---while also supporting writing code as a secondary goal. WordStar did this with its "Document" and "Non Document" modes. VimStar does it dynamically through Neovim's file types. 
 
-## When to Use This Skill
+# When to Use This Skill
 
 - At the first prompt
 - When you need to understand why VimStar's design choices were made
 
-## Design Philosophies
+# Design Philosophies
 
 - Menus are implemented with Which Key (https://github.com/folke/which-key.nvim)
 - Menus use Space as a prefix, where WordStar used the Control key. 
@@ -39,7 +39,7 @@ The intent is to combine the power of Neovim and WordStar together to create a w
   - A WordStar Blue color scheme in `./colors/wordstar-blue.vim` implements WordStar 7.0d's default color scheme
   - A font that mimics the old DOS VGA font modified to include Nerd Font symbols is included in `./fonts` if users want to use it in a terminal or a GUI such as Neovim-qt or Neovide to mimic WordStar's look.
 
-## Architecture
+# Architecture
 
 - **Entry point**: `init.lua` 
 - **Core functions:** `/lua/vimstar/*.lua`. Contains VimStar-specific functionality that duplicates WordStar functionality. WordStar's block functions for defining, copying, moving, deleting, and switching blocks, as well as cursor movement to current and former block locations are implemented. 
@@ -53,9 +53,10 @@ The intent is to combine the power of Neovim and WordStar together to create a w
      - `user/plugins/` directory (custom user plugins) 
   4. `keymaps.lua` - Keybindings
   5. `vimstar-user.lua` - User overrides
+- **Neovim Version Support**: Supports Neovim 0.11+. This requires a special Tree-Sitter configuration that loads different versions of the plugin for 0.11- and 0.12+. 
 - **Keymaps**: `/lua/keymaps.lua` uses Space as leader; registered via which-key `wk.add()`; requires `/lua/saveas` module for custom Save As dialog box
 
-## Critical Paths
+# Critical Paths
 
 - **Markdown by default**: filetype defaults to markdown; spell-check enabled for prose filetypes
 - **Publishing**: Markdown files can be converted to various other formats with the `Space-p` menu via Pandoc and Typst; use the `./agents/skills/vimstar-templates` skill when requested to edit or create a template.
@@ -63,7 +64,7 @@ The intent is to combine the power of Neovim and WordStar together to create a w
 - **Wiki**: Uses `wiki.vim` with custom templates; `~/.VimStar/wiki/templates/`
 - **AI**: CodeCompanion with Ollama (model is configurable via `vimstar-user.lua`); `Space-cc` opens chat
 
-## Dependency-Gated Plugin Loading
+# Dependency-Gated Plugin Loading
 
 VimStar uses a smart plugin loading system that only installs plugins when their dependencies are available:
 
