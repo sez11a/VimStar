@@ -1,9 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-local ts_path = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter"
-vim.opt.runtimepath:prepend(ts_path)
-local parser_path = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser"
-vim.opt.runtimepath:prepend(parser_path)
+local _v = vim.version()
+local _is_modern = (_v.major == 0 and _v.minor >= 12) or _v.major > 0
+vim.g.tree_sitter_branch = _is_modern and "main" or "master"
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({

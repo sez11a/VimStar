@@ -5,7 +5,7 @@ This is a Neovim distribution implemented in Lua, using the Lazy plugin manager.
 ## Quick Start
 
 - Before doing anything with VimStar, read this skill: `./agents/skills/vimstar-purpose`
-- Run Neovim to load the distribution; plugins install automatically via Lazy.nvim
+- Users run Neovim to load the distribution; plugins install automatically via Lazy.nvim
 - If prompted to create or edit a template, read this skill: `./agents/skills/vimstar-templates`
 
 ## Installation

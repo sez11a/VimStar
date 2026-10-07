@@ -56,7 +56,7 @@ return {
     end,
   },
   { "MeanderingProgrammer/render-markdown.nvim",
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        --dependencies = { "nvim-treesitter/nvim-treesitter" },
         opts = {} },
   {
     'brianhuster/live-preview.nvim',
