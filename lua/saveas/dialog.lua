@@ -203,7 +203,7 @@ function M._render_input(state)
 			"  In:   " .. state.cwd,
 			"  As:   " .. (state.filename ~= "" and state.filename or "(not set yet)"),
 			"",
-			"  <CR> enter dir   <BS> up   i save   <Esc> cancel",
+			"  <CR> enter dir   <BS> up   d mkdir   i save   <Esc> cancel",
 		}
 		vim.api.nvim_buf_set_lines(state.input_buf, 0, -1, false, lines)
 	end
@@ -315,6 +315,29 @@ function M._setup_keymaps(state)
 		M._render_input(state)
 	end
 
+	local function create_dir()
+		vim.ui.input({
+			prompt = "New directory name in " .. state.cwd .. "/ ",
+		}, function(name)
+			if not name or name == "" then
+				return
+			end
+			name = name:gsub("^%s+", ""):gsub("%s+$", "")
+			if name == "" then
+				return
+			end
+			local new_dir = vim.fs.joinpath(state.cwd, name)
+			local ok, err = vim.uv.fs_mkdir(new_dir, 493)
+			if not ok then
+				vim.notify("Failed to create directory: " .. tostring(err), vim.log.levels.ERROR, { title = "Save As" })
+				return
+			end
+			M._load_entries(state)
+			M._render_browser(state)
+			M._render_input(state)
+		end)
+	end
+
 	local function up_dir()
 		local parent = parent_of(state.cwd)
 		if parent == state.cwd then
@@ -341,6 +364,7 @@ function M._setup_keymaps(state)
 	set("<BS>", up_dir)
 	set("<C-h>", up_dir)
 	set(".", up_dir)
+	set("d", create_dir)
 	set("i", confirm)
 	set("s", confirm)
 	set("<Esc>", cancel)
