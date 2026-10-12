@@ -28,14 +28,14 @@ Write-Host "Creating spell directory..." -ForegroundColor Yellow
 New-Item -ItemType Directory -Path (Join-Path $VimStarDir "spell") -Force | Out-Null
 
 # Copy user template if not exists
-$UserConfig = Join-Path $VimStarDir "lua" "vimstar-user.lua"
+$UserConfig = Join-Path (Join-Path $VimStarDir "lua") "vimstar-user.lua"
 if (-not (Test-Path $UserConfig)) {
     Write-Host "Copying default config to $UserConfig..." -ForegroundColor Yellow
     Copy-Item -Path (Join-Path $VimStarDir "vimstar-user-template") -Destination $UserConfig
 }
 
 # Copy user plugins template if not exists
-$UserPluginsDir = Join-Path $VimStarDir "lua" "user" "plugins"
+$UserPluginsDir = Join-Path (Join-Path (Join-Path $VimStarDir "lua") "user") "plugins"
 if (-not (Test-Path $UserPluginsDir)) {
     Write-Host "Copying user plugins template..." -ForegroundColor Yellow
     New-Item -ItemType Directory -Path $UserPluginsDir -Force | Out-Null
