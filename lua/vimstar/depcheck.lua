@@ -104,6 +104,9 @@ function M.get_latest_update()
     return nil
   end
 
+  -- Fix duplicate "VimStar" in URL path (feed has bug with double VimStar)
+  link = link:gsub("/VimStar/VimStar/", "/VimStar/")
+
   return {
     title = title,
     updated = updated,

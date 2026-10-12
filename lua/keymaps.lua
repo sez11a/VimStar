@@ -72,7 +72,23 @@ local function update_vimstar()
 
   -- Reveal the announcement in the browser and offer to install it.
   open_url(latest.link)
-  vim.ui.confirm({
+
+  local confirm = vim.ui.confirm
+  if not confirm then
+    -- Fallback for older Neovim versions without vim.ui.confirm
+    local choice = vim.fn.confirm(
+      ("A new update is available on the VimStar website:\n\n%s\n\n%s\n\nUpdate VimStar now?"):format(latest.title, latest.updated),
+      "&Yes\n&No",
+      1
+    )
+    if choice == 1 then
+      run_git_pull()
+      write_last_update(latest.updated)
+    end
+    return
+  end
+
+  confirm({
     title = "VimStar Update",
     message = ("A new update is available on the VimStar website:\n\n**%s**\n\n%s\n\nUpdate VimStar now."):format(latest.title, latest.updated)
   }, function(confirmed)
