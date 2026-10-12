@@ -16,12 +16,12 @@ if (-not (Test-Path $VimStarDir)) {
     git -C $VimStarDir pull
 }
 
-# Ensure Neovim config directory exists and create symlink
+# Ensure Neovim config directory exists and create junction (no admin required)
 Write-Host "Creating Neovim config directory..." -ForegroundColor Yellow
 if (Test-Path $NeovimConfigDir) {
-    Remove-Item -Path $NeovimConfigDir -Force
+    Remove-Item -Path $NeovimConfigDir -Force -Recurse
 }
-New-Item -ItemType SymbolicLink -Path $NeovimConfigDir -Target $VimStarDir -Force | Out-Null
+New-Item -ItemType Junction -Path $NeovimConfigDir -Target $VimStarDir -Force | Out-Null
 
 # Ensure spell directory exists
 Write-Host "Creating spell directory..." -ForegroundColor Yellow
