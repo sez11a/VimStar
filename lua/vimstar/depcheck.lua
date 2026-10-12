@@ -61,10 +61,14 @@ function M.has_ollama()
   if not ollama_host:find(":") then
     ollama_host = ollama_host .. ":11434"
   end
-  local result = vim.fn.system({
-    "sh", "-c",
-    "curl -s -o /dev/null -w '%{http_code}' --connect-timeout 2 http://" .. ollama_host .. "/api/tags 2>/dev/null || echo '000'"
-  })
+  local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
+  local cmd
+  if is_windows then
+    cmd = { "cmd", "/c", "curl", "-s", "-o", "NUL", "-w", "%{http_code}", "--connect-timeout", "2", "http://" .. ollama_host .. "/api/tags" }
+  else
+    cmd = { "sh", "-c", "curl -s -o /dev/null -w '%{http_code}' --connect-timeout 2 http://" .. ollama_host .. "/api/tags 2>/dev/null || echo '000'" }
+  end
+  local result = vim.fn.system(cmd)
   return result and vim.trim(result) ~= "000" and vim.trim(result) ~= ""
 end
 
@@ -75,10 +79,14 @@ end
 M.five_star_feed_url = "https://sez11a.github.io/VimStar/feed.xml"
 
 function M.get_latest_update()
-  local feed = vim.fn.system({
-    "sh", "-c",
-    "curl -s --connect-timeout 4 -o - " .. M.five_star_feed_url .. " 2>/dev/null",
-  })
+  local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
+  local cmd
+  if is_windows then
+    cmd = { "cmd", "/c", "curl", "-s", "--connect-timeout", "4", M.five_star_feed_url }
+  else
+    cmd = { "sh", "-c", "curl -s --connect-timeout 4 -o - " .. M.five_star_feed_url .. " 2>/dev/null" }
+  end
+  local feed = vim.fn.system(cmd)
   if vim.trim(feed) == "" then
     return nil
   end

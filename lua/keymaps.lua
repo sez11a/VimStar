@@ -15,7 +15,13 @@ end
 
 local function run_git_pull()
   local vimstar_dir = vim.fn.stdpath("config")
-  local cmd = string.format("cd %s && git pull origin master", vim.fn.shellescape(vimstar_dir))
+  local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
+  local cmd
+  if is_windows then
+    cmd = string.format('cd %s && git pull origin master', vim.fn.shellescape(vimstar_dir))
+  else
+    cmd = string.format("cd %s && git pull origin master", vim.fn.shellescape(vimstar_dir))
+  end
   vim.cmd("!" .. cmd)
 end
 
