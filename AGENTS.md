@@ -19,5 +19,6 @@ This is a Neovim distribution implemented in Lua, using the Lazy plugin manager.
 
 - **Map leader**: Both `<leader>` and `<localleader>` are Space (`vim.g.mapleader = " "`)
 - **Wiki root**: Defaults to `~/.VimStar/wiki`; override in `vimstar-user.lua`
+- **Install paths**: This repo (`~/.VimStar`) **is** the user install directory and is symlinked onto Neovim's config dir (`~/.config/nvim` on Linux). Neovim **data/state lives outside** the repo: `~/.local/share/nvim` (Lazy installs plugins under its `lazy/` subdir; Mason stores packages there) and `~/.local/state/nvim`. When inspecting installed plugins (e.g. `nvim-treesitter`), look in `~/.local/share/nvim/lazy/` — NOT under `~/.VimStar`.
 - **Spell check**: Enabled for markdown, typst, tex, plaintex, latex filetypes only
 - **Indent**: 2 spaces, expandtab by default; 4 spaces for everything else via tabset.nvim.

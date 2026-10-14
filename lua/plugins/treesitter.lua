@@ -19,6 +19,18 @@ return {
         vim.api.nvim_create_autocmd("FileType", {
           callback = function(ev)
             local ft = vim.bo[ev.buf].filetype
+
+            -- Only real tree-sitter languages belong here. Filetypes that are
+            -- not in the parser registry (e.g. plugin buffers like "alpha" or
+            -- "notify") have no grammar to install; skip them instead of trying
+            -- to install a parser and spamming errors.
+            if require("nvim-treesitter").get_available() then
+              local parsers = require("nvim-treesitter.parsers")
+              if not parsers[ft] then
+                return
+              end
+            end
+
             local ok, _ = pcall(vim.treesitter.start, ev.buf, ft)
             if not ok then
               local missing = depcheck.check_parser_requirements(ft)
