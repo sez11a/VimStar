@@ -254,6 +254,13 @@ wk.add(
       end
       vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/book-bookly.typ")
     end, desc="Convert Markdown to PDF: bookly book template" },
+    { "<leader>pr", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/report.typ")
+    end, desc="Convert Markdown to PDF: report template" },
     { "<leader>pm", function()
       if not depcheck.has_executable("markmap") and not depcheck.has_yarn() then
         vim.notify("Please install markmap-cli or yarn for this feature", vim.log.levels.WARN, { title = "VimStar" })

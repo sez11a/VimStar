@@ -12,6 +12,7 @@ VimStar ships with several templates for exporting Markdown files into various f
 - Article/Handout
 - Business Letter
 - Book
+- Report
 - Submission Format
 - Planner Page 
 
@@ -34,6 +35,7 @@ Rather than typing out an entire YAML header from memory, VimStar ships with sni
 | `yaml-article` | Article/Handout | `title`, `subtitle`, `author`, `body-font`, `heading-font` |
 | `yaml-letter` | Business Letter | `date`, `from-name`, `from-address-1`, `from-address-2`, `to-company-name`, `to-name`, `to-address-1`, `to-address-2`, `salutation`, `complimentary-close` |
 | `yaml-book` | Book | `title`, `subtitle`, `author`, `copyright-holder`, `dedication`, `isbn`, `body-font`, `heading-font` |
+| `yaml-report` | Report | `title`, `subtitle`, `author`, `left-header`, `right-header`, `paper`, `body-font`, `heading-font` |
 | `yaml-submission` | Submission Format | `title`, `author`, `surname`, `shorttitle`, `wordcount`, `name`, `address`, `city`, `phone`, `email`, `affiliation` |
 | `yaml-planner` | Planner Page | `title`, `subtitle`, `author`, `body-font`, `heading-font` |
 
@@ -130,6 +132,37 @@ The dedication, if present, appears on its own page after the copyright page. Th
 Both are optional. The value is the name of a font installed on the computer doing the compilation. If you leave a header out or name a font that isn't installed there, the template walks down a fallback list of common, cross-platform fonts (Windows, macOS, and Linux) and uses the first one it can find, so the PDF always renders with a sensible typeface. If you set a font that is installed, it takes precedence over the built-in defaults. Note that Typst shows warnings when fonts aren't installed; these are normal and don't affect the PDF output.
 
 ![The book template formats your Markdown file as a paperback book.](/assets/images/book-screenshot.png)
+
+# Report
+
+The report template formats your Markdown file as a formal document: an RFP response, a white paper, or any other report you need to deliver on letter or A4 paper. It opens with a title page (no page number), followed by a front matter section with a table of contents in lowercase roman numerals. The main body then begins on a new page with arabic numbering reset to 1, a running header, and every level-1 heading starting a new chapter, set off by a horizontal rule.
+
+The report accepts the same `title`, `subtitle`, and `author` headers as the other templates, plus headers specific to the report layout:
+
+```markdown
+---
+title: "Project Phoenix"
+subtitle: "Response to Request for Proposal RFP-2026-014"
+author: "Jane Doe"
+left-header: "Project Phoenix"
+right-header: "RFP-2026-014"
+paper: "us-letter"
+body-font: "Alegreya"
+heading-font: "Alegreya Sans"
+---
+
+# Introduction
+
+The rest of your Markdown file goes here. Each level-1 heading begins a new chapter.
+```
+
+The optional `left-header` and `right-header` headers set the text printed on the left and right sides of the running header. They are suppressed on each chapter's opening page.
+
+The optional `paper` header sets the page size. Use `us-letter` for US Letter or `a4` for A4; if you leave it out, the template uses A4.
+
+`body-font` sets the serif font used for the 12pt body text, and `heading-font` sets the sans font used for the headings, the running header, and the figure captions. Both are optional and follow the same fallback behavior as the other templates.
+
+When you're ready to produce your report, hit `<Space>pr`.
 
 # Submission Format
 
