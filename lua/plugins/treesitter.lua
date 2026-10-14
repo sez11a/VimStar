@@ -5,6 +5,13 @@ local depcheck = require("vimstar.depcheck")
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    -- Only load when a C compiler is available; every other option relies on
+    -- at least the markdown_inline grammar, which must be compiled from source.
+    -- Without a compiler, native Markdown block highlighting still works (Neovim
+    -- ships it in the binary). Skipping avoids compile errors on Windows users.
+    cond = function()
+      return depcheck.has_cc()
+    end,
     branch = ts_branch,
     lazy = false,
     build = ":TSUpdate",

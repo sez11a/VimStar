@@ -316,7 +316,13 @@ wk.add(
     { "<leader>qu", update_vimstar, { desc = "Update VimStar" } },
     { "<leader>ql", "<cmd> Lazy <CR>", desc = "Manage plugins with Lazy" },
     { "<leader>qm", "<cmd> Mason <CR>", desc = "Manage LSP and linters with Mason" },
-    { "<leader>qt", "<cmd> TSUpdate <CR>", desc = "Update Treesitter highlighting" },
+    { "<leader>qt", function()
+        if not depcheck.has_cc() then
+          vim.notify("Tree-Sitter highlighting is unavailable without a C compiler (cc, gcc, or clang). Cannot run :TSUpdate.", vim.log.levels.WARN, { title = "VimStar" })
+          return
+        end
+        vim.cmd("TSUpdate")
+      end, desc = "Update Treesitter highlighting" },
 
     -- Debug menu
     { "<leader>d", group = "Debug" },

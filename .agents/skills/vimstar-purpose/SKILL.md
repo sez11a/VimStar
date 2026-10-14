@@ -29,7 +29,9 @@ The intent is to combine the power of Neovim and WordStar together to create a w
   - Code (Space-c): Integrated LLM functions via CodeCompanion (https://github.com/olimorris/codecompanion.nvim)
   - Java (Space-j): Java functions
   - Wiki (Space-w): Wiki functions from wiki.vim (https://github.com/lervag/wiki.vim)
-- Keymaps that rely on external dependencies should always gracefully degrade by checking whether they are installed.
+- IMPORTANT: VimStar is primarily for writers, and Markdown is its default file type. It is also for developers, but its developer features *gracefully degrade* on writer systems that do not have developer tools installed: 
+  - Keymaps that rely on external dependencies should always gracefully degrade by checking whether they are installed.
+  - The `nvim-treesitter` plugin in particular does not install if a C/C++ compiler is not found on the system. This allows Neovim to use its default Markdown support without throwing errors, especially on Windows systems, where a C compiler is not likely to be installed.
 - Several features are unique to VimStar and don't appear in any other Neovim distribution 
   - WordStar's block functions are implemented in `./lua/vimstar/blocks.lua`
   - VimStar implements a custom Save As dialog box in `./lua/saveas/`
@@ -70,6 +72,7 @@ VimStar uses a smart plugin loading system that only installs plugins when their
 
 ### Dependency Checking (`/lua/vimstar/depcheck.lua`)
 
+- `has-cc()` - Check if a C compiler is installed; `nvim-treesitter` will not install without a C compiler 
 - `has_executable(name)` - Check if binary exists in PATH  
 - `has_pandoc()`, `has_typst()` - Publishing tools availability  
 - `has_python_debugger()`, `has_go_debugger()`, `has_java_debugger()` - Debug adapter via Mason  

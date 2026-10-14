@@ -56,7 +56,12 @@ return {
     end,
   },
   { "MeanderingProgrammer/render-markdown.nvim",
-        --dependencies = { "nvim-treesitter/nvim-treesitter" },
+        -- render-markdown parses Markdown tables with nvim-treesitter, and
+        -- nvim-treesitter only loads when a C compiler is available
+        -- (see lua/plugins/treesitter.lua). Both are enabled together when the
+        -- compiler exists and skipped together without it.
+        cond = require("vimstar.depcheck").has_cc,
+        -- = { "nvim-treesitter/nvim-treesitter" },
         opts = {} },
   {
     'brianhuster/live-preview.nvim',
