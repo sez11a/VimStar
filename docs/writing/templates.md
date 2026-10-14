@@ -110,7 +110,7 @@ The book template accepts the same YAML headers as the Article/Handout (`title`,
 ---
 title: "My Great Book"
 subtitle: "A Story of Greatness"
-author: "Firstname Lastname"
+author: "Dude Dud"
 copyright-holder: "Publisher Name"
 dedication: "For my family, who endured the writing process."
 isbn: "978-1234567890"
@@ -135,7 +135,7 @@ Both are optional. The value is the name of a font installed on the computer doi
 
 # Report
 
-The report template formats your Markdown file as a formal document: an RFP response, a white paper, or any other report you need to deliver on letter or A4 paper. It opens with a title page (no page number), followed by a front matter section with a table of contents in lowercase roman numerals. The main body then begins on a new page with arabic numbering reset to 1, a running header, and every level-1 heading starting a new chapter, set off by a horizontal rule.
+The report template formats your Markdown file as a formal document: an RFP response, a white paper, or any other report you need to deliver on letter or A4 paper. It opens with a title page, followed by a front matter section with a table of contents. The main body then begins on a new page with a running header and every level-1 heading starting a new chapter, set off by a horizontal rule.
 
 The report accepts the same `title`, `subtitle`, and `author` headers as the other templates, plus headers specific to the report layout:
 
