@@ -1,6 +1,12 @@
 -- Change the below path if you want to sync your wiki
 vim.g.wiki_root = '~/.VimStar/wiki'
 
+-- Custom templates directory (optional)
+-- Place customized templates mirroring the default structure under this directory:
+--   typst/book.typ, typst/report.typ, etc.
+--   odt/shunn-modern-reference.odt, odt/shunn-frontmatter.lua
+-- vim.g.vimstar_user_templates = "~/.VimStar/user-templates"
+
 require("catppuccin").setup({
   flavour = "macchiato",
   transparent_background = true,

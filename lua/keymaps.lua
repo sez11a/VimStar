@@ -8,6 +8,7 @@ local blocks = require("vimstar.blocks")
 local builtin = require("telescope.builtin")
 local wk = require("which-key")
 local depcheck = require("vimstar.depcheck")
+local templates = require("vimstar.templates")
 
 local function save_as_dialog()
     require("saveas").open()
@@ -224,42 +225,42 @@ wk.add(
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/book.typ")
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst " .. templates.pandoc_template("typst/book.typ"))
     end, desc="Convert Markdown to PDF: book template" },
     { "<leader>pp", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/article-handout.typ")
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst " .. templates.pandoc_template("typst/article-handout.typ"))
     end, desc="Convert Markdown to PDF: article/handout template" },
     { "<leader>pe", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/planner-page.typ")
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst " .. templates.pandoc_template("typst/planner-page.typ"))
     end, desc="Convert Markdown to PDF: planner page template (n-up)" },
     { "<leader>pl", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/business-letter.typ")
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst " .. templates.pandoc_template("typst/business-letter.typ"))
     end, desc = "Convert Markdown to PDF: business letter template" },
     { "<leader>pk", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/book-bookly.typ")
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst " .. templates.pandoc_template("typst/book-bookly.typ"))
     end, desc="Convert Markdown to PDF: bookly book template" },
     { "<leader>pr", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/report.typ")
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst " .. templates.pandoc_template("typst/report.typ"))
     end, desc="Convert Markdown to PDF: report template" },
     { "<leader>pm", function()
       if not depcheck.has_executable("markmap") and not depcheck.has_yarn() then
@@ -281,8 +282,8 @@ wk.add(
         return
       end
       require("vimstar.shunn_odt").export({
-        reference_doc = vim.fn.expand("~/.VimStar/templates/odt/shunn-modern-reference.odt"),
-        filter = vim.fn.expand("~/.VimStar/templates/odt/shunn-frontmatter.lua"),
+        reference_doc = templates.resolve("odt/shunn-modern-reference.odt"),
+        filter = templates.resolve("odt/shunn-frontmatter.lua"),
       })
     end, desc = "Convert Markdown to ODT: Submission Format" },
     { "<leader>po", function()
@@ -297,7 +298,7 @@ wk.add(
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
         return
       end
-      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst --template ~/.VimStar/templates/typst/submission-format.typ")
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst " .. templates.pandoc_template("typst/submission-format.typ"))
     end, desc = "Convert Markdown to PDF: Submission Format"},
     -- Quick Menu
     { "<leader>q", group = "Quick Menu" },

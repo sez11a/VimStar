@@ -9,3 +9,4 @@ ginit.vim
 lazy-lock.json
 vimrc
 vimstar-user.lua
+user-templates/

@@ -20,6 +20,36 @@ More templates are planned; if you have an idea for a template, [submit an issue
 
 To make these work, install [Typst](https://typst.app/open-source/#download) and [Pandoc](https://pandoc.org). The templates are formatted via Typst, and Pandoc handles the conversions from Markdown to Typst to PDF.  
 
+# Customizing Templates
+
+You can override any built-in template without modifying the VimStar installation. This lets your customizations survive updates.
+
+1. **Create a directory** for your custom templates (anywhere you like):
+   ```bash
+   mkdir -p ~/.VimStar/user-templates
+   ```
+
+2. **Tell VimStar where to find them** by adding this to your `vimstar-user.lua`:
+   ```lua
+   vim.g.vimstar_user_templates = "~/.VimStar/user-templates"
+   ```
+
+3. **Mirror the default structure** under that directory and place your customized versions:
+   ```
+   ~/.VimStar/user-templates/
+   ├── typst/
+   │   ├── book.typ
+   │   ├── report.typ
+   │   └── ...
+   └── odt/
+       ├── shunn-modern-reference.odt
+       └── shunn-frontmatter.lua
+   ```
+
+When you run a template command (e.g., `<Space>pp`), VimStar checks your custom directory first. If a custom version exists, it uses that; otherwise it falls back to the built-in template. The `user-templates/` directory is git-ignored so your changes are never overwritten by `git pull`.
+
+You can put the custom directory anywhere — `~/my-templates`, `/shared/team-templates`, etc. — just point `vim.g.vimstar_user_templates` at it.
+
 # Using Templates 
 
 Templates format your Markdown document in useful ways. Type one command in VimStar, and your Markdown file is turned into an article, formatted for submission to a publication, formatted for use with a paper-based planner, or laid out as a paperback book. You write your Markdown as you would any Markdown file; the only difference is in the YAML headers. 

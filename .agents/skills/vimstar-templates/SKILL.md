@@ -5,6 +5,36 @@ description: Templates in VimStar are Pandoc templates that transform a Markdown
 
 Templates in VimStar use Pandoc (https://pandoc.org) to transform Markdown files into other formats with professional layouts. You can find all the templates available in the `./templates` directory, separated into their directories by their type (i.e., typst, odt). New templates should always be generated there, by their type. 
 
+## Template Customization System
+
+Users can override built-in templates without modifying the VimStar installation. The system works via `lua/vimstar/templates.lua`:
+
+- **Resolver module**: `lua/vimstar/templates.lua` exports `resolve(rel_path)`, `pandoc_template(rel_path)`, `reference_doc(rel_path)`, and `lua_filter(rel_path)`.
+- **User config**: Users set `vim.g.vimstar_user_templates` in `vimstar-user.lua` to a directory containing their customized templates.
+- **Fallback behavior**: The resolver checks the user directory first; if a custom template exists, it's used. Otherwise falls back to `~/.VimStar/templates/`.
+- **Structure mirroring**: Custom templates mirror the relative path under the user directory (e.g., `typst/book.typ`, `odt/shunn-modern-reference.odt`).
+
+### Adding New Templates (for VimStar maintainers)
+
+When adding a new template to VimStar:
+
+1. **Place it in `templates/<type>/<name>.typ`** (or `.odt`/`.lua` for ODT reference docs and filters).
+
+2. **Use the resolver in keymaps** (`lua/keymaps.lua`):
+   ```lua
+   local templates = require("vimstar.templates")
+   -- For Typst PDF templates:
+   vim.cmd("Pandoc pdf --to pdf --pdf-engine typst " .. templates.pandoc_template("typst/new-template.typ"))
+   -- For ODT reference docs:
+   reference_doc = templates.resolve("odt/custom-reference.odt")
+   -- For Lua filters:
+   filter = templates.resolve("odt/custom-filter.lua")
+   ```
+
+3. **Document the relative path** in the `vimstar-user-template` file so users know what to override.
+
+4. **The user-templates directory is git-ignored** (in `.gitignore`), so user customizations survive updates.
+
 Typst is tricky for LLMs; it's new, so there aren't many examples to reference. Below are some things we've learned. Existing Typst templates to crib from: `book.typ` (simplest), `article-handout.typ`, `planner-page.typ`, `submission-format.typ`, `book-bookly.typ` (uses the `bookly` package), and `report.typ`.
 
 ## How VimStar runs Pandoc
