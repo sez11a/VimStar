@@ -22,7 +22,7 @@ To make these work, install [Typst](https://typst.app/open-source/#download) and
 
 # Customizing Templates
 
-You can override any built-in template without modifying the VimStar installation. This lets your customizations survive updates.
+You can override any built-in template without modifying the VimStar installation. 
 
 1. **Create a directory** for your custom templates (anywhere you like):
    ```bash
@@ -48,7 +48,7 @@ You can override any built-in template without modifying the VimStar installatio
 
 When you run a template command (e.g., `<Space>pp`), VimStar checks your custom directory first. If a custom version exists, it uses that; otherwise it falls back to the built-in template. The `user-templates/` directory is git-ignored so your changes are never overwritten by `git pull`.
 
-You can put the custom directory anywhere — `~/my-templates`, `/shared/team-templates`, etc. — just point `vim.g.vimstar_user_templates` at it.
+You can put the custom directory anywhere — `~/my-templates`, `/shared/team-templates`, etc. Point `vim.g.vimstar_user_templates` at it, and you're ready to go.
 
 # Using Templates 
 
