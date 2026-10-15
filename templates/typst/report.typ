@@ -31,6 +31,12 @@
   "Liberation Sans",
 )
 
+// === Colors ===
+// Accent color for the subtitle, the running header, and the header's rule.
+// Change this single value to retheme all three. (Typst's built-in `navy` is a
+// much darker #001f3f; this is the classic navy blue.)
+#let accent-color = rgb("#000080")
+
 // === Page setup ===
 // Paper size comes from `paper: "us-letter"` or `paper: "a4"` (default: a4).
 #set page(
@@ -57,7 +63,7 @@
     #text(font: heading-font, size: 28pt, weight: "bold")[$title$]
     $if(subtitle)$
     #v(0.6em)
-    #text(font: heading-font, size: 16pt, fill: gray)[$subtitle$]
+    #text(font: heading-font, size: 16pt, fill: accent-color)[$subtitle$]
     $endif$
     #v(1.2em)
     #text(size: 12pt)[$author$]
@@ -94,12 +100,13 @@
       none
     } else {
       v(0.6em)
-      text(font: heading-font, size: 10pt, fill: gray)[
+      text(font: heading-font, size: 10pt, fill: accent-color)[
         $if(left-header)$$left-header$$else$$title$$endif$
         #h(1fr)
         $if(right-header)$$right-header$$else$$author$$endif$
       ]
-      v(0.6em)
+      v(0.3em)
+      line(length: 100%, stroke: 0.4pt + accent-color)
     }
   },
   footer: context {

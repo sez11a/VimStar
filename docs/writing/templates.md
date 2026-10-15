@@ -48,8 +48,8 @@ This, along with the planner, is the simplest template. At the top of your Markd
 title: Your Title
 subtitle: Your Subtitle
 author: Firstname Lastname
-body-font: "Alegreya"
-heading-font: "Alegreya Sans"
+body-font: "Libertinus Serif"
+heading-font: "Libertinus Sans"
 ---
 
 The rest of your Markdown file goes here. Use headings and other Markdown features normally. 
@@ -114,8 +114,8 @@ author: "Dude Dud"
 copyright-holder: "Publisher Name"
 dedication: "For my family, who endured the writing process."
 isbn: "978-1234567890"
-body-font: "Alegreya"
-heading-font: "Alegreya Sans"
+body-font: "Libertinus Serif"
+heading-font: "Libertinus Sans"
 ---
 
 # Chapter One
@@ -147,8 +147,8 @@ author: "Jane Doe"
 left-header: "Project Phoenix"
 right-header: "RFP-2026-014"
 paper: "us-letter"
-body-font: "Alegreya"
-heading-font: "Alegreya Sans"
+body-font: "Libertinus Serif"
+heading-font: "Libertinus Sans"
 ---
 
 # Introduction
