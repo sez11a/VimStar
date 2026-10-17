@@ -26,7 +26,7 @@ require("lazy").setup({
     { import = "user.plugins" },
 })
 require("vim-options")
-require("vimstar.functions")
+require("vimstar.internal")
 require("vimstar.blocks")
 require("keymaps")
 require("vimstar-user")

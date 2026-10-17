@@ -8,6 +8,7 @@ local blocks = require("vimstar.blocks")
 local builtin = require("telescope.builtin")
 local wk = require("which-key")
 local depcheck = require("vimstar.depcheck")
+local internal = require("vimstar.internal")
 local templates = require("vimstar.templates")
 
 local function save_as_dialog()
@@ -453,8 +454,10 @@ wk.add(
     { "<leader>g", group = "Git" },
     { "<leader>gb", "<cmd> Gedit HEAD <CR>", desc = "Git Browse Head" },
     { "<leader>gc", "<cmd> Git commit <CR>", desc = "Git Commit" },
+    { "<leader>gl", "<cmd> Merginal <CR>", desc = "Open Merginal" },
     { "<leader>gm", "<cmd> Git difftool -y master <CR>", desc = "Git Diff Master" },
-    { "<leader>ga", "<cmd> Git difftool -y main <CR>", desc = "Git Diff Main" },
+    { "<leader>gn", "<cmd> Git difftool -y main <CR>", desc = "Git Diff Main" },
+    { "<leader>g3", internal.ThreeWayDiff, desc = "Three-way diff (base + current + other branch)" },
     { "<leader>gp", "<cmd> Gitsigns preview_hunk <CR>", desc = "Preview Hunk" },
     { "<leader>gs", "<cmd> Git <CR>", desc = "Git Status" },
     { "<leader>gt", "<cmd> Gitsigns toggle_current_line_blame <CR>", desc = "Toggle Current Line Blame" },

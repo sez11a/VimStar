@@ -2,6 +2,11 @@ return {
   {
     "tpope/vim-fugitive"
   },
+
+  {
+        "idanarye/vim-merginal"
+  },
+
   {
     "lewis6991/gitsigns.nvim",
     config = function()

@@ -16,6 +16,43 @@ end, {
 	nargs = 1,
 })
 
+local M = {}
+
+function M.ThreeWayDiff()
+  local current_file = vim.fn.expand('%')
+  if current_file == '' then
+    vim.notify('No file in current buffer', vim.log.levels.WARN)
+    return
+  end
+
+  -- Prompt for branches
+  local base = vim.fn.input('Base branch (master/main): ', 'master')
+  if base == '' then return end
+
+  local other = vim.fn.input('Other branch: ')
+  if other == '' then return end
+
+  -- Layout: left = base, middle = current, right = other
+  vim.cmd('only')
+
+  -- Left: base branch
+  vim.cmd('leftabove vsplit')
+  vim.cmd('Gedit ' .. base .. ':%')
+  vim.cmd('diffthis')
+
+  -- Middle: current version
+  vim.cmd('wincmd l')
+  vim.cmd('diffthis')
+
+  -- Right: other branch
+  vim.cmd('rightbelow vsplit')
+  vim.cmd('Gedit ' .. other .. ':%')
+  vim.cmd('diffthis')
+
+  -- Return focus to the middle window
+  vim.cmd('wincmd h')
+end
+
 function MoveMotion(motion)
   vim.cmd.normal(motion)
 end
@@ -33,3 +70,5 @@ vim.keymap.set("i", "<C-r>", function() MoveMotion("<C-b>") end, { noremap = tru
 vim.keymap.set("i", "<C-c>", function() MoveMotion("<C-f>") end, { noremap = true, silent = true })
 vim.keymap.set("i", "<C-w>", function() MoveMotion("<C-y>") end, { noremap = true, silent = true })
 vim.keymap.set("i", "<C-z>", function() MoveMotion("<C-e>") end, { noremap = true, silent = true })
+
+return M
