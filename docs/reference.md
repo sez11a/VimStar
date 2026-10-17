@@ -118,11 +118,13 @@ All keybindings use Space as the leader key (`<leader>` and `<localleader>` are 
 |-----|--------|-------------|
 | `Space-gs` | `Git` | Git status |
 | `Space-gb` | `Gedit HEAD` | Browse HEAD commit |
-| `Space-gm` | `Git difftool -y master` | Diff with master |
-| `Space-ga` | `Git difftool -y main` | Diff with main |
-| `Space-gc` | `Git commit` | Git commit |
-| `Space-gp` | `Gitsigns preview_hunk` | Preview change hunk |
-| `Space-gt` | `Gitsigns toggle_blame` | Show/hide blame |
+| `Space-gl` | `Merginal` | Open Merginal |
+| `Space-gm` | `Git difftool -y master` | Git Diff Master |
+| `Space-gn` | `Git difftool -y main` | Git Diff Main |
+| `Space-gc` | `Git commit` | Git Commit |
+| `Space-g3` | `ThreeWayDiff` | Three-way diff (base + current + other branch) |
+| `Space-gp` | `Gitsigns preview_hunk` | Preview Hunk |
+| `Space-gt` | `Gitsigns toggle_current_line_blame` | Toggle Current Line Blame |
 
 ### Code (`Space-c`)
 
