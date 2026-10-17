@@ -45,7 +45,7 @@ end
 
 function M.has_java_debugger()
   local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
-  return vim.uv.fs_stat(jdtls_path) ~= nil and (M.has_executable("java") or true)
+  return vim.uv.fs_stat(jdtls_path) ~= nil and M.has_executable("java")
 end
 
 function M.has_go_debugger()
