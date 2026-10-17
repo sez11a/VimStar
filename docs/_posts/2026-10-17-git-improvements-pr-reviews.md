@@ -30,5 +30,3 @@ When you're reviewing a PR, it's often useful to see how your changes compare ac
 This is perfect for understanding exactly what's changing and why.  Call `<leader>g3`, enter the base branch when prompted, then the other branch to compare. The layout splits your screen into three sections with `diffthis` enabled for each, so you can see all the changes side-by-side.
 
 Both features are designed to make pull request reviews smoother and faster. This is great for technical writing and coding, where you have to compare two different submissions to the base. Enjoy!
-
-[Blog](/blog/) · [Reference](/reference/) · [GitHub](https://github.com/sez11a/VimStar)
