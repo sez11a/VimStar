@@ -34,7 +34,7 @@ vim.opt.relativenumber = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.g.vim_markdown_frontmatter = 1
-vim.opt.thesaurus:append { "~/.config/nvim/thesaurus/mthesaur.txt" }
+vim.opt.thesaurus:append(vim.fn.stdpath("config") .. "/thesaurus/mthesaur.txt")
 vim.cmd("autocmd BufEnter * if &filetype == '' | setlocal ft=markdown | endif")
 vim.cmd("set complete+=s")
 vim.o.hidden = true
