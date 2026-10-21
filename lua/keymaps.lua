@@ -315,7 +315,7 @@ wk.add(
     { "<leader>q-", "", desc = "────────── FIND ──────────" },
     { "<leader>qf", builtin.live_grep, desc = "Find in Files"},
     { "<leader>q~", "", desc = "────────── MANAGE ─────────" },
-    { "<leader>qu", update_vimstar, { desc = "Update VimStar" } },
+    { "<leader>qu", update_vimstar, desc = "Update VimStar" },
     { "<leader>ql", "<cmd> Lazy <CR>", desc = "Manage plugins with Lazy" },
     { "<leader>qm", "<cmd> Mason <CR>", desc = "Manage LSP and linters with Mason" },
     { "<leader>qt", function()

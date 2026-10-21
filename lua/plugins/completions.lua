@@ -24,8 +24,10 @@ return {
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
-      require("luasnip.loaders.from_snipmate").lazy_load({paths = "./snippets"})
 
+      -- Snipmate snippets (built-in ~/.VimStar/snippets plus any
+      -- user-configured dir via vim.g.vimstar_user_snippets) are loaded
+      -- after vimstar-user.lua in init.lua, so user snippets take precedence.
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')
       cmp.event:on(
         'confirm_done',

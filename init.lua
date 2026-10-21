@@ -31,3 +31,7 @@ require("vimstar.blocks")
 require("keymaps")
 require("vimstar-user")
 
+-- Load snippets: built-in ~/.VimStar/snippets plus any user-configured
+-- directory (vim.g.vimstar_user_snippets in vimstar-user.lua).
+require("vimstar.snippets").load()
+

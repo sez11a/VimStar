@@ -52,3 +52,10 @@ vim.g.ollama_model = "qwen3.8:latest"
 
 -- Path to the Java SDK (optional)
 -- vim.g.java_sdk_path = "/path/to/your/jdk"
+
+-- Custom snippets directory (optional)
+-- Place your own *.snippets files (snipmate format, one per filetype,
+-- e.g. python.snippets, lua.snippets) in a directory outside of VimStar
+-- so they survive updates. Snippets here take precedence over the built-in
+-- ~/.VimStar/snippets when triggers collide.
+-- vim.g.vimstar_user_snippets = "~/my-snippets"
