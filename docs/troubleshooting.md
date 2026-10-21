@@ -37,6 +37,23 @@ nvim -c "Lazy sync"
 
 **Solution**: Update parsers `Space-qt`
 
+`Space-qt` refreshes the parsers that are already installed and installs the ones that are missing for the files you have open.
+
+### Errors after the Neovim 0.12 upgrade
+
+**Symptom**: Neovim starts with a wall of Tree-Sitter errors, for example `attempt to call field 'get_available' (a nil value)` or `No parser for 'markdown' available`.
+
+**Cause**: Neovim 0.12 needs the `main` branch of `nvim-treesitter`, older versions need `master`. The two branches have completely different APIs. `lazy-lock.json` remembers the exact commit of every plugin, so a stale entry keeps restoring the commit of the `master` branch on every install, no matter which branch VimStar asks for.
+
+**Solution**: VimStar compares the branch that is checked out with the one this Neovim needs and repairs both the checkout and the lockfile on startup. If that does not happen, remove the plugin and let Lazy install it again:
+
+```bash
+rm -rf ~/.local/share/nvim/lazy/nvim-treesitter
+nvim -c "Lazy install nvim-treesitter"
+```
+
+The parsers live in `~/.local/share/nvim/treesitter`, so they survive a reinstall.
+
 ### Parser installation fails
 
 **Symptom**: Error about missing parser or compilation.
@@ -64,8 +81,8 @@ sudo apt install build-essential yarn
 # Reinstall Tree-sitter
 
 ```bash
-rm -rf ~/.local/share/nvim/mason/share/nvim-treesitter/parser/*
-nvim -c "TSInstallAll"
+rm -rf ~/.local/share/nvim/treesitter/parser/*
+nvim -c "TSInstall! all"
 ````
 
 ## LSP

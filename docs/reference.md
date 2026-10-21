@@ -97,7 +97,7 @@ All keybindings use Space as the leader key (`<leader>` and `<localleader>` are 
 | `Space-qu` | `git pull origin master` | Update VimStar |
 | `Space-ql` | `Lazy` | Manage plugins |
 | `Space-qm` | `Mason` | Manage LSPs and tools |
-| `Space-qt` | `TSUpdate` | Update Treesitter parsers |
+| `Space-qt` | Tree-Sitter update | Update parsers and build the missing ones |
 
 ## Modern Menus
 

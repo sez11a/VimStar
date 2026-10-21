@@ -63,7 +63,7 @@ For more information, see the Wiki documentation by typing `:help wiki`.
 
 1. To update your LSPs and linters, press `Space-qm` to launch Mason. 
 
-1. To update Tree-Sitter parsers, press `Space-qt`. 
+1. To update Tree-Sitter parsers, press `Space-qt`. It refreshes the parsers that are installed and builds the ones the files you have open still need. 
 
 ## Next Steps
 

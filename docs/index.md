@@ -145,7 +145,7 @@ New-Item -ItemType SymbolicLink -Path $env:LOCALAPPDATA\nvim -Target ~/.VimStar 
 ### Troubleshooting
 
 - **Plugins not installing**: Run `Space-ql` to open Lazy.nvim and check for errors
-- **Treesitter highlighting broken**: Run `Space-qt` to update parsers
+- **Treesitter highlighting broken**: Run `Space-qt` to update parsers and build the missing ones
 - **Spell check not working**: Ensure `~/.VimStar/spell/` directory exists
 
 <h2>License</h2>

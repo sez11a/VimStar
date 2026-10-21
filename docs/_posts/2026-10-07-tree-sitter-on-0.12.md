@@ -18,7 +18,15 @@ The fix is to use a **single** plugin spec and select the branch by version:
 - init.lua:5 detects 0.12+ and sets `vim.g.tree_sitter_branch = "main"`, otherwise `"master"`.
 - lua/plugins/treesitter.lua uses one spec (`branch = ts_branch`) and runs the new or legacy configuration from there.
 
-There's only one plugin and one URL now, so nothing collapses, and the right branch always clones. If you're still on 0.11, nothing changes for you-—-the version detection handles it automatically. But people upgrading from 0.11 to 0.12 should follow the steps below.
+There's only one plugin and one URL now, so nothing collapses, and the right branch always clones. If you're still on 0.11, nothing changes for you-—-the version detection handles it automatically. But people upgrading from 0.11 to 0.12 should read on, because the branch is only half of the story.
+
+## The lockfile is the tricky part
+
+The branch is only half of the story. Lazy keeps the exact commit of every plugin in `lazy-lock.json`, and that file survives the upgrade to Neovim 0.12. If it still holds the commit of the `master` branch, Lazy restores that commit on every install, even though VimStar asks for `main`. The result is the old code running against the new Neovim, and the error messages that come with it (`attempt to call field 'get_available' (a nil value)` and friends).
+
+VimStar does not trust the lockfile blindly. On startup it looks at the branch that is actually checked out, and when it is the wrong one it switches the checkout to the branch this Neovim needs and rewrites the lockfile, so the wrong commit cannot come back. The same repair runs when the plugin is installed from scratch, which means a fresh machine and an upgraded machine end up in the same state.
+
+Because the lockfile is per machine, this only ever hits the machines that were upgraded while the old entry was still around.
 
 ## Steps when upgrading to 0.12
 
@@ -26,7 +34,7 @@ There's only one plugin and one URL now, so nothing collapses, and the right bra
 2. **Clear any stale Tree-Sitter clone from the old config.** If you previously had the broken dual-plugin setup, remove:
    - `~/.local/share/nvim/lazy/nvim-treesitter`
    - `~/.local/state/nvim` (this drops any stale Lazy state)
-3. **Rebuild Tree-Sitter parsers for 0.12.** After VimStar is updated, run `Space-qt` so parsers are compiled against the new 0.12 API. Lazy runs this install automatically once you've cleared the stale clone.
+3. **Let the parsers be built.** The Markdown grammars are compiled while Lazy installs the plugin, and the rest of the grammars are compiled the first time you open a file of that type. `Space-qt` does both in one go: it refreshes the parsers that are installed and builds the ones that the files you have open still need.
 
 ## Verifying it worked
 
