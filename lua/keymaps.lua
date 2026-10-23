@@ -146,13 +146,6 @@ wk.add(
     end
     vim.cmd("MarkmapSave")
   end, desc = "Save Markmap" },
-    { "<leader>kn", function()
-          if vim.bo.filetype == "neo-tree" then
-            vim.cmd.wincmd "p"
-          else
-            vim.cmd.Neotree "toggle"
-          end
-        end, desc = "Toggle Neotree" },
     { "<leader>kq", "<cmd> q! <CR>", desc = "Abandon Changes and Quit" },
     { "<leader>kf", "<cmd> terminal <CR>", desc = "Open Terminal" },
     { "<leader>k_", "", desc = "────────── BLOCK ──────────" },
@@ -465,5 +458,7 @@ vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
 vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
 vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+
+vim.keymap.set('n', '<leader>t', '<cmd>Neotree toggle<CR>', { desc = "Toggle Neotree" })
 
 -- vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')

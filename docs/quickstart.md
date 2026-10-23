@@ -42,7 +42,7 @@ Press `e` to start a new file or press `f` to open an existing file. If you want
 
 - `Space-ko` to browse your file system
 - `Space-fs` = Find files in the current folder
-- `Space-kt` = Toggle Neo-tree file explorer
+- `Space-t` = Toggle Neo-tree file explorer
 - `Space-fp` = Find git-tracked files only
 
 ## 5. Try the Wiki

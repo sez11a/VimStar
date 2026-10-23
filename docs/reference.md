@@ -27,7 +27,6 @@ All keybindings use Space as the leader key (`<leader>` and `<localleader>` are 
 | `Space-ko` | `Explore` | Open file explorer |
 | `Space-kl` | `cd %:p:h` | Change working directory |
 | `Space-ks` | `w` | Save file |
-| `Space-kt` | Toggle Neotree | File explorer |
 | `Space-kx` | `wq` | Save and exit |
 | `Space-kf` | `terminal` | Open terminal |
 | `Space-kq` | `q!` | Abandon changes and quit |
@@ -169,7 +168,6 @@ All keybindings use Space as the leader key (`<leader>` and `<localleader>` are 
 
 | Key | Action | Description |
 |-----|--------|-------------|
-| `C-p` | `Telescope find_files` | Quick find files |
-| `C-n` | `Neotree toggle` | Toggle file explorer |
+| `Space-t` | `Neotree toggle` | Toggle file explorer |
 | `Space-?` | `which-key` | Show buffer keymaps |
 | `C-k/j/h/l` | `wincmd` | Navigate vertically/horizontally |
