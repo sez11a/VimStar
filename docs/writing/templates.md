@@ -65,7 +65,7 @@ Rather than typing out an entire YAML header from memory, VimStar ships with sni
 | `yaml-article` | Article/Handout | `title`, `subtitle`, `author`, `body-font`, `heading-font` |
 | `yaml-letter` | Business Letter | `date`, `from-name`, `from-address-1`, `from-address-2`, `to-company-name`, `to-name`, `to-address-1`, `to-address-2`, `salutation`, `complimentary-close` |
 | `yaml-book` | Book | `title`, `subtitle`, `author`, `copyright-holder`, `dedication`, `isbn`, `body-font`, `heading-font` |
-| `yaml-report` | Report | `title`, `subtitle`, `author`, `left-header`, `right-header`, `paper`, `body-font`, `heading-font` |
+| `yaml-report` | Report | `title`, `subtitle`, `author`, `left-header`, `right-header`, `paper`, `body-font`, `heading-font`, `body-size` |
 | `yaml-submission` | Submission Format | `title`, `author`, `surname`, `shorttitle`, `wordcount`, `name`, `address`, `city`, `phone`, `email`, `affiliation` |
 | `yaml-planner` | Planner Page | `title`, `subtitle`, `author`, `body-font`, `heading-font` |
 
@@ -179,6 +179,7 @@ right-header: "RFP-2026-014"
 paper: "us-letter"
 body-font: "Libertinus Serif"
 heading-font: "Libertinus Sans"
+body-size: "12pt"
 ---
 
 # Introduction
@@ -190,7 +191,9 @@ The optional `left-header` and `right-header` headers set the text printed on th
 
 The optional `paper` header sets the page size. Use `us-letter` for US Letter or `a4` for A4; if you leave it out, the template uses A4.
 
-`body-font` sets the serif font used for the 12pt body text, and `heading-font` sets the sans font used for the headings, the running header, and the figure captions. Both are optional and follow the same fallback behavior as the other templates.
+The optional `body-size` header sets the body text size, using a Typst dimension value such as `11pt` or `14pt` (default: 12pt). Use it when your report needs a body text size other than the default.
+
+`body-font` sets the serif font used for the body text, and `heading-font` sets the sans font used for the headings, the running header, and the figure captions. Both are optional and follow the same fallback behavior as the other templates.
 
 When you're ready to produce your report, hit `<Space>pr`.
 

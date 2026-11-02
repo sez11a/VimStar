@@ -44,12 +44,16 @@
   margin: (top: 1in, bottom: 1in, left: 1in, right: 1in),
 )
 
-// Body text: 12pt serif, English hyphenation, justified.
+// === Body text size ===
+// Override in the document's YAML header with `body-size` (default: 12pt).
+#let body-size = $if(body-size)$ $body-size$ $else$ 12pt $endif$
+
+// Body text: 12pt serif by default, English hyphenation, justified.
 #set text(
   font: body-font,
   fallback: true,
   lang: "en",
-  12pt,
+  body-size,
 )
 #set par(justify: true)
 
