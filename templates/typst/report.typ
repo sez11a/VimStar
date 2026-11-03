@@ -131,11 +131,23 @@
   v(0.6em)
 }
 
+// Heading sizes: level 1 (chapter) 20pt, level 2 (section) 16pt, level 3
+// (subsection) 12pt, and level 4 (sub-subsection) 10pt, in the heading font and
+// bold. The levels step down from the chapter heading and stay smaller than the
+// chapter heading itself.
 #show heading.where(level: 2): set text(font: heading-font, size: 16pt, weight: "bold")
-#show heading.where(level: 3): set text(font: heading-font, size: 14pt, weight: "bold")
-#show heading.where(level: 4): set text(font: heading-font, size: 12pt, weight: "bold")
+#show heading.where(level: 3): set text(
+  font: heading-font,
+  size: 12pt,
+  weight: "bold",
+  features: ("smcp",),
+)
+#show heading.where(level: 4): set text(font: heading-font, size: 10pt, weight: "bold")
 #show heading.where(level: 2): set heading(numbering: none)
 #show heading.where(level: 3): set heading(numbering: none)
 #show heading.where(level: 4): set heading(numbering: none)
+
+// Style hyperlinks as blue, underlined text
+#show link: it => text(fill: rgb("#0000EE"))[#underline(stroke: 0.5pt)[#it]]
 
 $body$

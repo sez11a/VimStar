@@ -195,6 +195,10 @@ The optional `body-size` header sets the body text size, using a Typst dimension
 
 `body-font` sets the serif font used for the body text, and `heading-font` sets the sans font used for the headings, the running header, and the figure captions. Both are optional and follow the same fallback behavior as the other templates.
 
+The template sets the heading sizes itself. Level 1 headings (chapters) start at 20pt, level 2 headings (sections) at 16pt, level 3 headings (subsections) at 12pt, and level 4 headings (sub-subsections) at 10pt.
+
+Level 3 headings are set in small caps, using the `heading-font`. Small caps are enabled with the OpenType `smcp` feature, so they appear when the chosen heading font includes small caps glyphs; fonts that do not include them render the heading in ordinary capital letters.
+
 When you're ready to produce your report, hit `<Space>pr`.
 
 # Submission Format
