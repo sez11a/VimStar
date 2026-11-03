@@ -7,6 +7,7 @@ This is a Neovim distribution implemented in Lua, using the Lazy plugin manager.
 - Before doing anything with VimStar, read this skill: `./agents/skills/vimstar-purpose`
 - Users run Neovim to load the distribution; plugins install automatically via Lazy.nvim
 - If prompted to create or edit a template, read this skill: `./agents/skills/vimstar-templates`
+- If prompted to write code for a new feature, read all the skills. 
 
 ## Installation
 
@@ -27,5 +28,5 @@ This is a Neovim distribution implemented in Lua, using the Lazy plugin manager.
 
 - Do not create Related Topics sections in this site.
 - When asked to write a post, the language can be more casual. Other sections should follow the technical writing skills.
-- Do not write documentation (instructions) in posts. Summarize the feature functionality only, and elaborate on how users might use the feature. 
+- Do not write documentation (instructions) in posts. Summarize the feature functionality only, and elaborate on how users might use the feature. Link to the documentation for the feature instead. 
 - If asked to do a post about a feature and you don't find documentation about the feature, offer to write it in the appropriate place.

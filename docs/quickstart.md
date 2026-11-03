@@ -26,7 +26,7 @@ Press `e` to start a new file or press `f` to open an existing file. If you want
 
 1. If you have Pandoc and LaTeX or Typst installed, press `Space-p` and the relevant command from the menu to produce a PDF in the same folder as your file. 
 
-1. Use WordStar-inspired commands to save (`Space-ks`), save and exit (`Space-kx`), or abandon changes and exit (`Space-kq`).
+1. Use WordStar-inspired commands to save (`Space-ks`), save and exit (`Space-kx`), or quit (`Space-kq`). Quitting (`Space-kq`) will save your changes first if you have unsaved edits; it can also abandon changes if you choose to.
 
 ## 3. Try the AI Assistant
 

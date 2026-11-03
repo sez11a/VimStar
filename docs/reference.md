@@ -29,7 +29,7 @@ All keybindings use Space as the leader key (`<leader>` and `<localleader>` are 
 | `Space-ks` | `w` | Save file |
 | `Space-kx` | `wq` | Save and exit |
 | `Space-kf` | `terminal` | Open terminal |
-| `Space-kq` | `q!` | Abandon changes and quit |
+| `Space-kq` | `q` (saves changes if needed) | Quit; prompts to save changes before quitting |
 | `Space-km` | `MarkmapSave` | Save markmap diagram |
 | `Space-kn` | Toggle column mode | Block mode toggle |
 | `Space-kb` | `blocks.mark_begin` | Begin block |

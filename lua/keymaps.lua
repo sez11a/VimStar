@@ -15,6 +15,42 @@ local function save_as_dialog()
     require("saveas").open()
 end
 
+local function abandon_changes_and_quit()
+    local dirty_buffers = {}
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].modified then
+            table.insert(dirty_buffers, buf)
+        end
+    end
+
+    if #dirty_buffers == 0 then
+        vim.cmd("q")
+        return
+    end
+
+    local messages = { "You have unsaved changes:" }
+    for _, buf in ipairs(dirty_buffers) do
+        local filename = vim.api.nvim_buf_get_name(buf)
+        local display = filename ~= "" and vim.fn.fnamemodify(filename, ":t") or "this buffer"
+        table.insert(messages, "  - " .. display)
+    end
+    local choice = vim.fn.confirm(
+        table.concat(messages, "\n") .. "\n\nSave before quitting?",
+        "&Save and Quit\n&Abandon Changes and Quit\n&Cancel",
+        1
+    )
+    if choice == 1 then
+        for _, buf in ipairs(dirty_buffers) do
+            vim.api.nvim_buf_call(buf, function()
+                vim.cmd("write")
+            end)
+        end
+        vim.cmd("qa")
+    elseif choice == 2 then
+        vim.cmd("qa!")
+    end
+end
+
 local function run_git_pull()
   local vimstar_dir = vim.fn.stdpath("config")
   local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
@@ -146,7 +182,9 @@ wk.add(
     end
     vim.cmd("MarkmapSave")
   end, desc = "Save Markmap" },
-    { "<leader>kq", "<cmd> q! <CR>", desc = "Abandon Changes and Quit" },
+    { "<leader>kq", function()
+        abandon_changes_and_quit()
+      end, desc = "Quit (Save Changes First)" },
     { "<leader>kf", "<cmd> terminal <CR>", desc = "Open Terminal" },
     { "<leader>k_", "", desc = "────────── BLOCK ──────────" },
     { "<leader>kb", blocks.mark_begin, desc = "Begin Block" },
