@@ -72,6 +72,7 @@ All keybindings use Space as the leader key (`<leader>` and `<localleader>` are 
 | `Space-pe` | pandoc pdf | Planner page template (Typst, n-up) |
 | `Space-pl` | pandoc pdf | Business letter template (Typst) |
 | `Space-pk` | pandoc pdf | Bookly book template (Typst) |
+| `Space-pv` | pandoc pdf | Beta readers book template (Typst) |
 | `Space-ps` | pandoc pdf | Submission Format template (Typst) |
 | `Space-pS` | pandoc odt | Submission Format (ODT) |
 | `Space-po` | pandoc odt | OpenDocument format |

@@ -12,6 +12,7 @@ VimStar ships with several templates for exporting Markdown files into various f
 - Article/Handout
 - Business Letter
 - Book
+- Beta Readers Book
 - Report
 - Submission Format
 - Planner Page 
@@ -65,6 +66,7 @@ Rather than typing out an entire YAML header from memory, VimStar ships with sni
 | `yaml-article` | Article/Handout | `title`, `subtitle`, `author`, `body-font`, `heading-font` |
 | `yaml-letter` | Business Letter | `date`, `from-name`, `from-address-1`, `from-address-2`, `to-company-name`, `to-name`, `to-address-1`, `to-address-2`, `salutation`, `complimentary-close` |
 | `yaml-book` | Book | `title`, `subtitle`, `author`, `copyright-holder`, `dedication`, `isbn`, `body-font`, `heading-font` |
+| `yaml-beta-readers` | Beta Readers Book | `title`, `subtitle`, `author`, `copyright-holder`, `dedication`, `isbn`, `paper`, `body-font`, `heading-font` |
 | `yaml-report` | Report | `title`, `subtitle`, `author`, `left-header`, `right-header`, `paper`, `body-font`, `heading-font`, `body-size` |
 | `yaml-submission` | Submission Format | `title`, `author`, `surname`, `shorttitle`, `wordcount`, `name`, `address`, `city`, `phone`, `email`, `affiliation` |
 | `yaml-planner` | Planner Page | `title`, `subtitle`, `author`, `body-font`, `heading-font` |
@@ -162,6 +164,34 @@ The dedication, if present, appears on its own page after the copyright page. Th
 Both are optional. The value is the name of a font installed on the computer doing the compilation. If you leave a header out or name a font that isn't installed there, the template walks down a fallback list of common, cross-platform fonts (Windows, macOS, and Linux) and uses the first one it can find, so the PDF always renders with a sensible typeface. If you set a font that is installed, it takes precedence over the built-in defaults. Note that Typst shows warnings when fonts aren't installed; these are normal and don't affect the PDF output.
 
 ![The book template formats your Markdown file as a paperback book.](/assets/images/book-screenshot.png)
+
+# Beta Readers Book
+
+The Beta Readers Book template formats your document for beta readers of a book in progress. It uses the same layout as the book template, so your document still gets a title page, copyright page, dedication, and table of contents, and every level-1 heading starts a new chapter. The difference is the page setup: the book page itself (digest-sized, 5.5 × 8.5 in) is centered on a larger page (letter or A4, per the `paper` header, which defaults to US Letter), with large margins all around for beta readers to add margin notes.
+
+The Beta Readers Book template accepts the same YAML headers as the book template, plus the optional `paper` header from the report template:
+
+```markdown
+---
+title: "My Great Book"
+subtitle: "A Story of Greatness"
+author: "Dude Dud"
+copyright-holder: "Publisher Name"
+dedication: "For my family, who endured the writing process."
+isbn: "978-1234567890"
+paper: "us-letter"
+body-font: "Libertinus Serif"
+heading-font: "Libertinus Sans"
+---
+
+# Chapter One
+
+The rest of your Markdown file goes here. Each level-1 heading begins a new chapter.
+```
+
+The optional `paper` header sets the page size. Use `us-letter` for US Letter or `a4` for A4; if you leave it out, the template uses US Letter.
+
+When you're ready to send your manuscript out to beta readers, hit `<Space>pv`. It produces a centered page with large margins, ready for margin notes.
 
 # Report
 

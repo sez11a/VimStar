@@ -287,6 +287,13 @@ wk.add(
       end
       vim.cmd("Pandoc pdf --to pdf --pdf-engine typst " .. templates.pandoc_template("typst/book-bookly.typ"))
     end, desc="Convert Markdown to PDF: bookly book template" },
+    { "<leader>pv", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc pdf --to pdf --pdf-engine typst " .. templates.pandoc_template("typst/book-beta-readers.typ"))
+    end, desc="Convert Markdown to PDF: beta readers book template" },
     { "<leader>pr", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc and Typst for this feature", vim.log.levels.WARN, { title = "VimStar" })
