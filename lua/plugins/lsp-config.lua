@@ -38,7 +38,6 @@ return {
       capabilities = capabilities,
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact"},
       root_dir = vim.fs.dirname(vim.fs.find({ "package.json", "tsconfig.json", ".git" }, { upward = true })[1]),
-      on_attach = on_attach,
       settings = {
           -- Optional React/TS-specific tweaks
           typescript = {

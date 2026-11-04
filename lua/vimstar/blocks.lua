@@ -100,6 +100,17 @@ function M.toggle_previous_block()
 
 end
 
+-- Normalize a marked region so that the start position comes first.
+-- The end column is exclusive, matching nvim_buf_get_text() below.
+local function normalize_region(begin_pos, end_pos)
+  local start_row, start_col = begin_pos.row, begin_pos.col
+  local end_row, end_col = end_pos.row, end_pos.col
+  if start_row > end_row or (start_row == end_row and start_col > end_col) then
+    start_row, start_col, end_row, end_col = end_row, end_col, start_row, start_col
+  end
+  return start_row, start_col, end_row, end_col
+end
+
 function M.update_highlight(buf)
   buf = buf or vim.api.nvim_get_current_buf()
   local s = ensure_state(buf)
@@ -115,13 +126,32 @@ function M.update_highlight(buf)
     return
   end
 
-  vim.api.nvim_buf_set_extmark(buf, highlight_ns, begin_pos.row, begin_pos.col, {
-    end_row = end_pos.row,
-    end_col = end_pos.col,
-    hl_group = "Visual",
-    priority = 150,
-    strict = false,
-  })
+  -- Normalize so the highlight always spans from the earlier position to the
+  -- later one, regardless of which mark was set first.
+  local start_row, start_col, end_row, end_col = normalize_region(begin_pos, end_pos)
+
+  if s.column_mode then
+    -- Column mode: highlight the same column span on every line of the block,
+    -- producing a true rectangular selection.
+    for row = start_row, end_row do
+      vim.api.nvim_buf_set_extmark(buf, highlight_ns, row, start_col, {
+        end_row = row,
+        end_col = end_col,
+        hl_group = "Visual",
+        priority = 150,
+        strict = false,
+      })
+    end
+  else
+    -- Charwise mode: highlight the continuous region from start to end.
+    vim.api.nvim_buf_set_extmark(buf, highlight_ns, start_row, start_col, {
+      end_row = end_row,
+      end_col = end_col,
+      hl_group = "Visual",
+      priority = 150,
+      strict = false,
+    })
+  end
 end
 
 function M.toggle_visibility()
@@ -144,17 +174,24 @@ local function get_block_region(buf, begin_pos, end_pos, column_mode)
     return {}, nil
   end
 
-  -- Normalize so begin is before end
-  local start_row, start_col = begin_pos.row, begin_pos.col
-  local end_row, end_col = end_pos.row, end_pos.col
-  if start_row > end_row or (start_row == end_row and start_col > end_col) then
-    start_row, start_col, end_row, end_col = end_row, end_col, start_row, start_col
-  end
+  local start_row, start_col, end_row, end_col = normalize_region(begin_pos, end_pos)
 
   local text = {}
   if column_mode then
-    -- TODO: rectangular support untested (keep getregion for now or implement later)
-    text = vim.fn.getregion({start_row + 1, start_col + 1}, {end_row + 1, end_col + 1}, { type = "b", trim = false })
+    -- Rectangular (blockwise) extraction: take the same column span from every
+    -- line of the block. The end column is exclusive, matching the charwise
+    -- branch below.
+    --
+    -- Rows shorter than the block keep only the text they actually have, just
+    -- like a native visual-block yank. Padding them with spaces here would
+    -- make the pasted block wider than the source block.
+    for row = start_row, end_row do
+      local line = vim.api.nvim_buf_get_lines(buf, row, row + 1, false)[1] or ""
+      local from_col = math.min(start_col, #line)
+      local to_col = math.min(end_col, #line)
+      local chunk = to_col > from_col and line:sub(from_col + 1, to_col) or ""
+      table.insert(text, chunk)
+    end
   else
     -- Charwise: use nvim_buf_get_text (very reliable)
     text = vim.api.nvim_buf_get_text(buf, start_row, start_col, end_row, end_col, {})
@@ -163,12 +200,83 @@ local function get_block_region(buf, begin_pos, end_pos, column_mode)
   return text, column_mode and "b" or "c"
 end
 
-local function insert_text_at_cursor(text, regtype)
+-- Delete a rectangular region (column mode). The end column is exclusive.
+local function delete_rectangle(buf, begin_pos, end_pos)
+  local start_row, start_col, end_row, end_col = normalize_region(begin_pos, end_pos)
+  for row = end_row, start_row, -1 do
+    local line = vim.api.nvim_buf_get_lines(buf, row, row + 1, false)[1] or ""
+    local from_col = math.min(start_col, #line)
+    local to_col = math.min(end_col, #line)
+    if to_col > from_col then
+      vim.api.nvim_buf_set_text(buf, row, from_col, row, to_col, {})
+    end
+  end
+end
+
+-- Paste blockwise text after the cursor, like a native visual-block put.
+-- `paste_row`/`paste_col` are the 0-based cursor position *before* the put.
+-- With after=true, block paste inserts each row's text at paste_col + 1 on
+-- consecutive lines starting at paste_row. Returns the pasted region: the
+-- first row, the last row, the insert column, and the exclusive end column.
+local function paste_block(text, paste_row, paste_col)
+  local start_col = paste_col + 1
+  vim.api.nvim_put(text, "b", true, true)  -- after=true, follow=true
+
+  local width = 0
+  for _, chunk in ipairs(text) do
+    if #chunk > width then width = #chunk end
+  end
+  local last_row = paste_row + #text - 1
+  local end_col = start_col + width
+  return { row = paste_row, last_row = last_row, col = start_col, end_col = end_col }
+end
+
+-- Inserts text at the cursor. Returns the region of the inserted text: the
+-- first row, the last row, the insert column, and the exclusive end column
+-- (or nil if nothing was inserted). For block mode, pass the pre-put cursor
+-- row/col as `paste_row`/`paste_col` so the returned region is computed from a
+-- reliable position (the cursor after a block put is content-dependent).
+local function insert_text_at_cursor(text, regtype, paste_row, paste_col)
   if #text == 0 then
     vim.notify("No text to insert", vim.log.levels.WARN)
-    return
+    return nil
   end
+
+  if regtype == "b" then
+    paste_row = paste_row or vim.api.nvim_win_get_cursor(0)[1] - 1
+    paste_col = paste_col or vim.api.nvim_win_get_cursor(0)[2]
+    return paste_block(text, paste_row, paste_col)
+  end
+
   vim.api.nvim_put(text, regtype, true, true)  -- after=true, follow=true
+
+  local after = vim.api.nvim_win_get_cursor(0)
+  return { row = after[1], last_row = after[1], col = after[2], end_col = after[2] }
+end
+
+-- Set the current block markers at explicit positions. The end column is
+-- exclusive and may sit one past the last character of a line, which the
+-- cursor cannot represent.
+local function set_block_marks(buf, begin_row, begin_col, end_row, end_col)
+  local s = ensure_state(buf)
+
+  s.previous = s.current
+  s.current = { begin_id = nil, end_id = nil }
+
+  -- The block is already closed, so the begin marker carries no virtual text.
+  -- strict = false so the exclusive end column (one past the last character)
+  -- is clamped instead of raising E5108.
+  s.current.begin_id = vim.api.nvim_buf_set_extmark(buf, ns, begin_row, begin_col, {
+    right_gravity = false,
+    strict = false,
+  })
+
+  s.current.end_id = vim.api.nvim_buf_set_extmark(buf, ns, end_row, end_col, {
+    right_gravity = true,
+    strict = false,
+  })
+
+  M.update_highlight(buf)
 end
 
 function M.copy_block()
@@ -208,26 +316,34 @@ function M.move_block()
   s.source_id = vim.api.nvim_buf_set_extmark(buf, ns, begin_pos.row, begin_pos.col, { id = s.source_id })
 
   -- Delete the original block
-  vim.api.nvim_buf_set_text(buf, begin_pos.row, begin_pos.col, end_pos.row, end_pos.col, {})
+  if s.column_mode then
+    delete_rectangle(buf, begin_pos, end_pos)
+  else
+    vim.api.nvim_buf_set_text(buf, begin_pos.row, begin_pos.col, end_pos.row, end_pos.col, {})
+  end
 
   -- Record paste position *right before paste*
   local paste_start = vim.api.nvim_win_get_cursor(0)
 
   -- Paste
-  insert_text_at_cursor(text, regtype)
-
-  -- Cursor after paste
-  local paste_end = vim.api.nvim_win_get_cursor(0)
+  local pasted = insert_text_at_cursor(text, regtype, paste_start[1] - 1, paste_start[2])
+  if not pasted then return end
 
   -- Clear old block (the one we moved from)
   M.clear_block(buf, true)   -- preserve source for qv
 
   -- Re-mark the pasted block as the new current
-  vim.api.nvim_win_set_cursor(0, {paste_start[1], paste_start[2]})
-  M.mark_begin()
+  if s.column_mode then
+    -- The block end column can sit one past the last character of a line, which
+    -- the cursor cannot represent, so set the markers explicitly.
+    set_block_marks(buf, pasted.row, pasted.col, pasted.last_row, pasted.end_col)
+  else
+    vim.api.nvim_win_set_cursor(0, {paste_start[1], paste_start[2]})
+    M.mark_begin()
 
-  vim.api.nvim_win_set_cursor(0, {paste_end[1], paste_end[2]})
-  M.mark_end()
+    vim.api.nvim_win_set_cursor(0, {pasted.row, pasted.col})
+    M.mark_end()
+  end
 
 end
 
@@ -238,9 +354,13 @@ function M.delete_block()
   local end_pos = get_mark_pos(buf, s.current.end_id)
 
   if begin_pos and end_pos then
-    local lines = vim.api.nvim_buf_get_lines(buf, end_pos.row, end_pos.row + 1, true)
-    local max_col = lines[1] and #lines[1] or 0
-    vim.api.nvim_buf_set_text(buf, begin_pos.row, begin_pos.col, end_pos.row, math.min(end_pos.col, max_col), {})
+    if s.column_mode then
+      delete_rectangle(buf, begin_pos, end_pos)
+    else
+      local lines = vim.api.nvim_buf_get_lines(buf, end_pos.row, end_pos.row + 1, true)
+      local max_col = lines[1] and #lines[1] or 0
+      vim.api.nvim_buf_set_text(buf, begin_pos.row, begin_pos.col, end_pos.row, math.min(end_pos.col, max_col), {})
+    end
   end
   M.clear_block(buf)
 end
