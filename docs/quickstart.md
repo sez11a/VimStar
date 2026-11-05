@@ -67,6 +67,6 @@ For more information, see the Wiki documentation by typing `:help wiki`.
 
 ## Next Steps
 
-- Explore [Writing Features](/writing)
-- Learn about [Coding Support](/coding)
-- Read the full [Reference](/reference)
+- Explore [Writing Features](/writing/)
+- Learn about [Coding Support](/coding/)
+- Read the full [Reference](/reference/)
