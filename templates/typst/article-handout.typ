@@ -72,4 +72,7 @@
 // Alternatively, modify YAML to pass author name already in caps.
 // If you override `body-font` via YAML, make sure that font also has a small-caps variant.
 
+// Style hyperlinks as blue, underlined text
+#show link: it => text(fill: rgb("#0000EE"))[#underline(stroke: 0.5pt)[#it]]
+
 $body$
