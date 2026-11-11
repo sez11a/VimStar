@@ -105,5 +105,12 @@ return {
       },
     })
     vim.lsp.enable("clangd")
-  end
+  end,
+
+--  "stevearc/conform.nvim",
+--  opts = {
+--    formatters_by_ft = {
+--      html = { "prettier" },
+--    },
+--  },
 }

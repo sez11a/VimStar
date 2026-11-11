@@ -325,6 +325,13 @@ wk.add(
         filter = templates.resolve("odt/shunn-frontmatter.lua"),
       })
     end, desc = "Convert Markdown to ODT: Submission Format" },
+    { "<leader>ph", function()
+      if not depcheck.has_pandoc() then
+        vim.notify("Please install Pandoc to enable HTML export (visit pandoc.org)", vim.log.levels.WARN, { title = "VimStar" })
+        return
+      end
+      vim.cmd("Pandoc html --to html")
+    end, desc = "Convert Markdown to HTML"},
     { "<leader>po", function()
       if not depcheck.has_pandoc() then
         vim.notify("Please install Pandoc to enable ODT export (visit pandoc.org)", vim.log.levels.WARN, { title = "VimStar" })
