@@ -21,6 +21,7 @@ return {
       "nvim-lua/plenary.nvim",
     },
     config = function()
+      local ollama_model = vim.g.ollama_model or "llama3.1-8b"
       require("codecompanion").setup({
         interactions = {
             chat = {
@@ -37,12 +38,12 @@ return {
         },
         adapters = {
           ollama = {
-            schema = { model = vim.g.ollama_model or "gemma4-31b-256k" },
+            schema = { model = ollama_model },
           },
         },
         strategies = {
-          chat = { adapter = "ollama", model = vim.g.ollama_model or "gemma4-31b-256k" },
-          inline = { adapter = "ollama", model = vim.g.ollama_model or "gemma4-31b-256k" },
+          chat = { adapter = "ollama", model = ollama_model },
+          inline = { adapter = "ollama", model = ollama_model },
         },
       })
     end,
