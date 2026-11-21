@@ -493,6 +493,7 @@ wk.add(
 
     -- Git Menu
     { "<leader>g", group = "Git" },
+    { "<leader>ga", "<cmd> Git add % <CR>", desc = "Git Add (current file)" },
     { "<leader>gb", "<cmd> Gedit HEAD <CR>", desc = "Git Browse Head" },
     { "<leader>gc", "<cmd> Git commit <CR>", desc = "Git Commit" },
     { "<leader>gl", "<cmd> Merginal <CR>", desc = "Open Merginal" },
