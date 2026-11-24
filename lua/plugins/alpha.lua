@@ -66,7 +66,7 @@ return {
     end
 
     dashboard.section.top_buttons.val = {
-      dashboard.button("e", "New file", "<cmd>ene <CR>"),
+      dashboard.button("s", "New file", "<cmd>ene <CR>"),
       dashboard.button("f", "Open file", function()
         wordstar_netrw()
       end),
